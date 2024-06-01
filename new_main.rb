@@ -1,4 +1,5 @@
 require_relative "hero"
+require_relative "weapons"
 
 
 puts '==========================================================================='
@@ -34,12 +35,12 @@ def character_panel
   puts "[пас] #{@name_passive_pl} #{@lor_passive_pl}"
   puts "[неб] #{@name_noncombat_pl} #{@lor_noncombat_pl}"
   puts "С Т А Т Ы:"
-  puts "HP #{@hero.hp_pl.round}/#{@hero.hp_max_pl} Реген #{@hero.regen_hp_pl_base} Восстановление #{@hero.recovery_hp_pl.round}"
-  puts "MP #{@hero.mp_pl.round}/#{@hero.mp_max_pl} Реген #{@hero.regen_mp_pl_base} Восстановление #{@hero.recovery_mp_pl.round}"
-  puts "Урон #{@mindam_pl}-#{@maxdam_pl} (базовый #{@hero.mindam_pl_base}-#{@hero.maxdam_pl_base} + #{@weapon} #{@mindam_weapon}-#{@maxdam_weapon})"
-  puts "Точность #{@accuracy_pl} (базовая #{@hero.accuracy_pl_base} + #{@gloves} #{@accuracy_gloves})"
-  puts "Броня #{@armor_pl} (базовая #{@hero.armor_pl_base} + #{@torso} #{@armor_torso} + #{@helmet} #{@armor_helmet} + #{@gloves} #{@armor_gloves} + #{@shield} #{@armor_shield})"
-  puts "Шанс блока #{0 if @shield == "без щита"}#{@block_pl if @shield != "без щита" and @name_passive_pl != "Мастер щита"}#{@block_pl + @coeff_passive_pl if @shield != "без щита" and @name_passive_pl == "Мастер щита"} (#{@shield} #{@block_shield}) блокируемый урон #{100 - (100 / (1 + @hero.hp_pl.to_f / 200)).to_i}%"
+  puts "HP #{@hero.hp_pl.round}/#{@hero.hp_max_pl} Реген #{@hero.regen_hp_base_pl} Восстановление #{@hero.recovery_hp_pl.round}"
+  puts "MP #{@hero.mp_pl.round}/#{@hero.mp_max_pl} Реген #{@hero.regen_mp_base_pl} Восстановление #{@hero.recovery_mp_pl.round}"
+  puts "Урон #{@hero.mindam_pl}-#{@hero.maxdam_pl} (базовый #{@hero.mindam_base_pl}-#{@hero.maxdam_base_pl} + #{@hero.weapon} #{@mindam_weapon}-#{@maxdam_weapon})"
+  puts "Точность #{@hero.accuracy_pl} (базовая #{@hero.accuracy_base_pl} + #{@gloves} #{@accuracy_gloves})"
+  puts "Броня #{@hero.armor_pl} (базовая #{@hero.armor_base_pl} + #{@torso} #{@armor_torso} + #{@helmet} #{@armor_helmet} + #{@gloves} #{@armor_gloves} + #{@shield} #{@armor_shield})"
+  puts "Шанс блока #{0 if @shield == "без щита"}#{@hero.block_pl if @shield != "без щита" and @name_passive_pl != "Мастер щита"}#{@hero.block_pl + @coeff_passive_pl if @shield != "без щита" and @name_passive_pl == "Мастер щита"} (#{@shield} #{@block_shield}) блокируемый урон #{100 - (100 / (1 + @hero.hp_pl.to_f / 200)).to_i}%"
   puts '--------------------------------------------------------------------------------------------'
   puts '--------------------------------------------------------------------------------------------'
 end
@@ -62,24 +63,24 @@ print "Выберите предисторию:
 choose_story_pl = gets.strip.upcase
 case choose_story_pl
 when 'G'
-  @weapon = "Ржавый топорик"
+  @hero.weapon = "Ржавый топорик"
   @hero.hp_max_pl += 30
   @hero.recovery_hp_pl = @hero.hp_max_pl * 0.1
 when 'T'
-  @weapon = "Ножик"
-  @hero.accuracy_pl_base += 5
+  @hero.weapon = "Ножик"
+  @hero.accuracy_base_pl += 5
 when 'W'
-  @weapon = "Дубинка"
+  @hero.weapon = "Дубинка"
   @hero.mp_max_pl += 30
   @hero.recovery_mp_pl = @hero.mp_max_pl * 0.1
 when 'S'
-  @weapon = "без оружия"
+  @hero.weapon = "без оружия"
   @hero.skill_points += 5
 else
-  @weapon = "без оружия"
+  @hero.weapon = "без оружия"
   @hero.hp_max_pl -= 5
   @hero.mp_max_pl -= 5
-  @hero.accuracy_pl_base -= 1
+  @hero.accuracy_base_pl -= 1
   puts 'Перепутал буквы, ты тупой алкаш -5 жизней -5выносливости -1точность'
 end
 
@@ -180,15 +181,15 @@ if @shield == "без щита"
   @block_shield = 0
 end
 
-@armor_pl = @hero.armor_pl_base + @armor_torso + @armor_helmet + @armor_gloves + @armor_shield
-@accuracy_pl = @hero.accuracy_pl_base + @accuracy_gloves
-@block_pl = @block_shield
-regen_hp_pl = @hero.regen_hp_pl_base
-regen_mp_pl = @hero.regen_mp_pl_base
+@hero.armor_pl = @hero.armor_base_pl + @armor_torso + @armor_helmet + @armor_gloves + @armor_shield
+@hero.accuracy_pl = @hero.accuracy_base_pl + @accuracy_gloves
+@hero.block_pl = @block_shield
+@hero.regen_hp_pl = @hero.regen_hp_base_pl
+@hero.regen_mp_pl = @hero.regen_mp_base_pl
 #--------------------------------------------------------------------------------------------------------------------
 
 # Стартовое оружие и урон ----------------------------------------------------------------------------------
-case @weapon
+case @hero.weapon
 when "без оружия"
   @mindam_weapon = 0
   @maxdam_weapon = 0
@@ -203,8 +204,8 @@ when "Дубинка"
   @maxdam_weapon = 4
 end
 
-@mindam_pl = @hero.mindam_pl_base + @mindam_weapon
-@maxdam_pl = @hero.maxdam_pl_base + @maxdam_weapon
+@hero.mindam_pl = @hero.mindam_base_pl + @mindam_weapon
+@hero.maxdam_pl = @hero.maxdam_base_pl + @maxdam_weapon
 #-------------------------------------------------------------------------------------------------------------------
 
 zombie_knight = 0
@@ -237,16 +238,16 @@ while true
         @hero.recovery_mp_pl = @hero.mp_max_pl * 0.1
       when 'X'
         min_or_max = rand(0..1)
-        if min_or_max == 0 and @hero.mindam_pl_base < @hero.maxdam_pl_base
-          @hero.mindam_pl_base += 1
-          @mindam_pl = @hero.mindam_pl_base + @mindam_weapon
+        if min_or_max == 0 and @hero.mindam_base_pl < @hero.maxdam_base_pl
+          @hero.mindam_base_pl += 1
+          @hero.mindam_pl = @hero.mindam_base_pl + @mindam_weapon
         else
-          @hero.maxdam_pl_base += 1
-          @maxdam_pl = @hero.maxdam_pl_base + @maxdam_weapon
+          @hero.maxdam_base_pl += 1
+          @hero.maxdam_pl = @hero.maxdam_base_pl + @maxdam_weapon
         end
       when 'A'
-        @hero.accuracy_pl_base += 1
-        @accuracy_pl = @hero.accuracy_pl_base + @accuracy_gloves
+        @hero.accuracy_base_pl += 1
+        @hero.accuracy_pl = @hero.accuracy_base_pl + @accuracy_gloves
       else
         puts 'Вы ввели неверный символ, попробуйте еще раз'
         @hero.stat_points += 1
@@ -608,7 +609,7 @@ while true
     puts "====================================== ХОД #{lap} ============================================"
 
     # Расчет базового урона----------------------------------------------------------------------------------------
-    damage_pl = rand(@mindam_pl..@maxdam_pl)
+    damage_pl = rand(@hero.mindam_pl..@hero.maxdam_pl)
 
     damage_en = rand(mindam_en..maxdam_en)
     #----------------------------------------------------------------------------------------------------------
@@ -623,16 +624,16 @@ while true
       case target_pl
       when 'H'
         damage_pl *= 1.5
-        accuracy_action_pl = @accuracy_pl * 0.7
+        accuracy_action_pl = @hero.accuracy_pl * 0.7
         target_name_pl = "по голове"
       when 'L'
         damage_pl *= 0.7
-        accuracy_action_pl = @accuracy_pl * 1.5
+        accuracy_action_pl = @hero.accuracy_pl * 1.5
         target_name_pl = "по ногам"
       when 'S'
         if @hero.mp_pl >= special_mp_cost_pl
           damage_pl *= special_damage_pl
-          accuracy_action_pl = @accuracy_pl * special_accuracy_pl
+          accuracy_action_pl = @hero.accuracy_pl * special_accuracy_pl
           target_name_pl = @name_special_pl
           @hero.mp_pl -= special_mp_cost_pl
         else
@@ -640,7 +641,7 @@ while true
           cant_do -= 1
         end
       else
-        accuracy_action_pl = @accuracy_pl
+        accuracy_action_pl = @hero.accuracy_pl
       end
     end
     # -----------------------------------------------------------------------------------------------------
@@ -664,11 +665,11 @@ while true
 
     # Расчет блока щитом --------------------------------------------------------------------------------------------
     if @name_passive_pl == "Мастер щита" and @shield != "без щита"
-      @block_pl = @block_shield + @coeff_passive_pl
+      @hero.block_pl = @block_shield + @coeff_passive_pl
     end
 
     chanse_block_pl = rand(1..100)
-    if @block_pl >= chanse_block_pl
+    if @hero.block_pl >= chanse_block_pl
       damage_en /= 1 + @hero.hp_pl.to_f / 200
     end
 
@@ -684,7 +685,7 @@ while true
       damage_pl = 0
     end
 
-    damage_en -= @armor_pl
+    damage_en -= @hero.armor_pl
     if damage_en < 0
       damage_en = 0
     end
@@ -716,7 +717,7 @@ while true
     end
 
     if accurasy_action_en >= rand(1..100)
-      puts "Вы заблокировали #{100 - (100 / (1 + @hero.hp_pl.to_f / 200)).to_i}% урона" if @block_pl >= chanse_block_pl
+      puts "Вы заблокировали #{100 - (100 / (1 + @hero.hp_pl.to_f / 200)).to_i}% урона" if @hero.block_pl >= chanse_block_pl
       @hero.hp_pl -= damage_en
       puts "#{name_en} нанес #{damage_en.round} урона #{target_name_en}"
       hit_miss_en = 1
@@ -727,20 +728,20 @@ while true
     #------------------------------------------------------------------------------------------------------------------
 
     # Доп эффекты(регенерация)------------------------------------------------------------------------------
-    if (@hero.hp_max_pl - @hero.hp_pl) >= regen_hp_pl and regen_hp_pl > 0
-      @hero.hp_pl += regen_hp_pl
-      puts "Вы регенерируете #{regen_hp_pl} жизней, теперь у вас #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней"
-    elsif (@hero.hp_max_pl - @hero.hp_pl) < regen_hp_pl and @hero.hp_pl < @hero.hp_max_pl and regen_hp_pl > 0
+    if (@hero.hp_max_pl - @hero.hp_pl) >= @hero.regen_hp_pl and @hero.regen_hp_pl > 0
+      @hero.hp_pl += @hero.regen_hp_pl
+      puts "Вы регенерируете #{@hero.regen_hp_pl} жизней, теперь у вас #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней"
+    elsif (@hero.hp_max_pl - @hero.hp_pl) < @hero.regen_hp_pl and @hero.hp_pl < @hero.hp_max_pl and @hero.regen_hp_pl > 0
       @hero.hp_pl = @hero.hp_max_pl
-      puts "Вы регенерируете #{regen_hp_pl} жизней, теперь у вас #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней"
+      puts "Вы регенерируете #{@hero.regen_hp_pl} жизней, теперь у вас #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней"
     end
 
-    if (@hero.mp_max_pl - @hero.mp_pl) >= regen_mp_pl and regen_mp_pl > 0
-      @hero.mp_pl += regen_mp_pl
-      puts "Вы регенерируете #{regen_mp_pl} выносливости, теперь у вас #{@hero.mp_pl.round}/#{@hero.mp_max_pl} выносливости"
-    elsif (@hero.mp_max_pl - @hero.mp_pl) < regen_mp_pl and @hero.mp_pl < @hero.mp_max_pl and regen_mp_pl > 0
+    if (@hero.mp_max_pl - @hero.mp_pl) >= @hero.regen_mp_pl and @hero.regen_mp_pl > 0
+      @hero.mp_pl += @hero.regen_mp_pl
+      puts "Вы регенерируете #{@hero.regen_mp_pl} выносливости, теперь у вас #{@hero.mp_pl.round}/#{@hero.mp_max_pl} выносливости"
+    elsif (@hero.mp_max_pl - @hero.mp_pl) < @hero.regen_mp_pl and @hero.mp_pl < @hero.mp_max_pl and @hero.regen_mp_pl > 0
       @hero.mp_pl = @hero.mp_max_pl
-      puts "Вы регенерируете #{regen_mp_pl} выносливости, теперь у вас #{@hero.mp_pl.round}/#{@hero.mp_max_pl} выносливости"
+      puts "Вы регенерируете #{@hero.regen_mp_pl} выносливости, теперь у вас #{@hero.mp_pl.round}/#{@hero.mp_max_pl} выносливости"
     end
     #---------------------------------------------------------------------------------------------------------------
 
@@ -834,9 +835,9 @@ while true
       puts "Теперь у вас #{@hero.mp_pl.round}/#{@hero.mp_max_pl} выносливости"
     elsif stash_magic_treasure <= 25 and stash_magic >= 180
       bonus_accuracy = rand(1..2)
-      puts "Эликсир точности. Ваша точность #{@hero.accuracy_pl_base} увеличивается на #{bonus_accuracy}"
-      @hero.accuracy_pl_base += bonus_accuracy
-      puts "Теперь у вас #{@hero.accuracy_pl_base} точности"
+      puts "Эликсир точности. Ваша точность #{@hero.accuracy_base_pl} увеличивается на #{bonus_accuracy}"
+      @hero.accuracy_base_pl += bonus_accuracy
+      puts "Теперь у вас #{@hero.accuracy_base_pl} точности"
     elsif stash_magic_treasure <= 27 and stash_magic >= 180
       bonus_points = 1
       puts "Книга знаний. Ваши очки характеристик увеличились на #{bonus_points}"
@@ -847,32 +848,32 @@ while true
       @hero.skill_points += skill_bonus_points
     elsif stash_magic_treasure <= 30 and stash_magic >= 180
       bonus_armor = 1
-      puts "Эликсир камня. Ваша броня #{@hero.armor_pl_base} увеличивается на #{bonus_armor}"
-      @hero.armor_pl_base += bonus_armor
-      puts "Теперь у вас #{@hero.armor_pl_base} брони"
+      puts "Эликсир камня. Ваша броня #{@hero.armor_base_pl} увеличивается на #{bonus_armor}"
+      @hero.armor_base_pl += bonus_armor
+      puts "Теперь у вас #{@hero.armor_base_pl} брони"
     elsif stash_magic_treasure <= 31 and stash_magic >= 180
       bonus_hp_regen = 1
-      puts "Эликсир троля. Регенерация жизней #{@hero.regen_hp_pl_base} увеличивается на #{bonus_hp_regen}"
-      @hero.regen_hp_pl_base += bonus_hp_regen
-      puts "Теперь у вас #{@hero.regen_hp_pl_base} регенерации жизней"
+      puts "Эликсир троля. Регенерация жизней #{@hero.regen_hp_base_pl} увеличивается на #{bonus_hp_regen}"
+      @hero.regen_hp_base_pl += bonus_hp_regen
+      puts "Теперь у вас #{@hero.regen_hp_base_pl} регенерации жизней"
     elsif stash_magic_treasure <= 32 and stash_magic >= 180
       bonus_mp_regen = 1
-      puts "Эликсир единорога. Регенерация выносливости #{@hero.regen_mp_pl_base} увеличивается на #{bonus_mp_regen}"
-      @hero.regen_mp_pl_base += bonus_mp_regen
-      puts "Теперь у вас #{@hero.regen_mp_pl_base} регенерации выносливости"
+      puts "Эликсир единорога. Регенерация выносливости #{@hero.regen_mp_base_pl} увеличивается на #{bonus_mp_regen}"
+      @hero.regen_mp_base_pl += bonus_mp_regen
+      puts "Теперь у вас #{@hero.regen_mp_base_pl} регенерации выносливости"
     end
 
     weapon_loot = rand(0..1)
     if weapon_loot == 1 and weapon_en != "без оружия"
       puts "Обыскав труп #{name_en} ты нашел #{weapon_en}"
-      print "Поменяем #{@weapon}(#{@mindam_weapon}-#{@maxdam_weapon}) на #{weapon_en}(#{mindam_weapon_en}-#{maxdam_weapon_en}) Y/N? "
+      print "Поменяем #{@hero.weapon}(#{@mindam_weapon}-#{@maxdam_weapon}) на #{weapon_en}(#{mindam_weapon_en}-#{maxdam_weapon_en}) Y/N? "
       weapon_loot_choice = gets.strip.upcase
       if weapon_loot_choice == 'Y'
-        @weapon = weapon_en
+        @hero.weapon = weapon_en
         @mindam_weapon = mindam_weapon_en
         @maxdam_weapon = maxdam_weapon_en
-        @mindam_pl = @hero.mindam_pl_base + @mindam_weapon
-        @maxdam_pl = @hero.maxdam_pl_base + @maxdam_weapon
+        @hero.mindam_pl = @hero.mindam_base_pl + @mindam_weapon
+        @hero.maxdam_pl = @hero.maxdam_base_pl + @maxdam_weapon
       end
     end
 
@@ -922,13 +923,13 @@ while true
       end
     end
 
-    regen_hp_pl = @hero.regen_hp_pl_base
-    regen_mp_pl = @hero.regen_mp_pl_base
+    @hero.regen_hp_pl = @hero.regen_hp_base_pl
+    @hero.regen_mp_pl = @hero.regen_mp_base_pl
     @hero.recovery_hp_pl = @hero.hp_max_pl * 0.1
     @hero.recovery_mp_pl = @hero.mp_max_pl * 0.1
-    @armor_pl = @hero.armor_pl_base + @armor_torso + @armor_helmet + @armor_gloves + @armor_shield
-    @accuracy_pl = @hero.accuracy_pl_base + @accuracy_gloves
-    @block_pl = @block_shield
+    @hero.armor_pl = @hero.armor_base_pl + @armor_torso + @armor_helmet + @armor_gloves + @armor_shield
+    @hero.accuracy_pl = @hero.accuracy_base_pl + @accuracy_gloves
+    @hero.block_pl = @block_shield
   end
   #-------------------------------------------------------------------------------------------------------------
   puts
