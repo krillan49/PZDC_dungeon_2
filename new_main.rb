@@ -406,184 +406,186 @@ while true
   end
 
   # Выбор стандартного противника
-  if enemy_rand > 0 and enemy_rand <= 5
-    name_en = "Оборванец"
-    rand_weapon_en = rand(0..1)
-    if rand_weapon_en == 1
-      weapon_en = "Палка"
-      mindam_weapon_en = 1
-      maxdam_weapon_en = 4
-    end
+  if zombie_knight != 1
+    if enemy_rand > 0 and enemy_rand <= 5
+      name_en = "Оборванец"
+      rand_weapon_en = rand(0..1)
+      if rand_weapon_en == 1
+        weapon_en = "Палка"
+        mindam_weapon_en = 1
+        maxdam_weapon_en = 4
+      end
 
-    hp_en = 80
-    mindam_en_base = 1
-    maxdam_en_base = 5
-    accurasy_en_base = 60
-    armor_en_base = 0
-    exp = 1
-  elsif enemy_rand > 5 and enemy_rand <= 10
-    name_en = "Бешеный пес"
+      hp_en = 80
+      mindam_en_base = 1
+      maxdam_en_base = 5
+      accurasy_en_base = 60
+      armor_en_base = 0
+      exp = 1
+    elsif enemy_rand > 5 and enemy_rand <= 10
+      name_en = "Бешеный пес"
 
-    hp_en = 60
-    mindam_en_base = 1
-    maxdam_en_base = 8
-    accurasy_en_base = 50
-    armor_en_base = 0
-    exp = 1
-  elsif enemy_rand > 10 and enemy_rand <= 15
-    name_en = "Гоблин"
-    rand_weapon_en = rand(1..2)
-    if rand_weapon_en == 1
-      weapon_en = "Ножик"
-      mindam_weapon_en = 2
-      maxdam_weapon_en = 5
-    elsif rand_weapon_en == 2
-      weapon_en = "Кинжал"
-      mindam_weapon_en = 3
-      maxdam_weapon_en = 6
-    end
-    rand_gloves_en = rand(0..1)
-    if rand_gloves_en == 1
-      gloves_en = "Кожаные перчатки"
-      armor_gloves_en = 0
-      accurasy_gloves_en = 10
-    end
-    rand_shield_en = rand(0..1)
-    if rand_shield_en == 1
-      shield_en = "Плетеный баклер"
-      armor_shield_en = 0
-      block_shield_en = 30
-    end
+      hp_en = 60
+      mindam_en_base = 1
+      maxdam_en_base = 8
+      accurasy_en_base = 50
+      armor_en_base = 0
+      exp = 1
+    elsif enemy_rand > 10 and enemy_rand <= 15
+      name_en = "Гоблин"
+      rand_weapon_en = rand(1..2)
+      if rand_weapon_en == 1
+        weapon_en = "Ножик"
+        mindam_weapon_en = 2
+        maxdam_weapon_en = 5
+      elsif rand_weapon_en == 2
+        weapon_en = "Кинжал"
+        mindam_weapon_en = 3
+        maxdam_weapon_en = 6
+      end
+      rand_gloves_en = rand(0..1)
+      if rand_gloves_en == 1
+        gloves_en = "Кожаные перчатки"
+        armor_gloves_en = 0
+        accurasy_gloves_en = 10
+      end
+      rand_shield_en = rand(0..1)
+      if rand_shield_en == 1
+        shield_en = "Плетеный баклер"
+        armor_shield_en = 0
+        block_shield_en = 30
+      end
 
-    hp_en = 65
-    mindam_en_base = 3
-    maxdam_en_base = 3
-    accurasy_en_base = 85
-    armor_en_base = 0
-    exp = 2
-  elsif enemy_rand > 15 and enemy_rand <= 20
-    name_en = "Бандит"
-    rand_weapon_en = rand(1..3)
-    if rand_weapon_en == 1
-      weapon_en = "Ржавый топорик"
-      mindam_weapon_en = 1
-      maxdam_weapon_en = 6
-    elsif rand_weapon_en == 2
-      weapon_en = "Ножик"
-      mindam_weapon_en = 2
-      maxdam_weapon_en = 5
-    elsif rand_weapon_en == 3
-      weapon_en = "Дубинка"
-      mindam_weapon_en = 3
-      maxdam_weapon_en = 4
-    end
-    rand_torso_en = rand(0..1)
-    if rand_torso_en == 1
-      torso_en = "Кожанка"
-      armor_torso_en = 1
-    end
-    rand_helmet_en = rand(0..1)
-    if rand_helmet_en == 1
-      helmet_en = "Кожаный шлем"
-      armor_helmet_en = 1
-    end
-    rand_gloves_en = rand(0..1)
-    if rand_gloves_en == 1
-      gloves_en = "Кожаные перчатки"
-      armor_gloves_en = 0
-      accurasy_gloves_en = 10
-    end
-    rand_shield_en = rand(0..1)
-    if rand_shield_en == 1
-      shield_en = "Деревянный баклер"
-      armor_shield_en = 1
-      block_shield_en = 25
-    end
+      hp_en = 65
+      mindam_en_base = 3
+      maxdam_en_base = 3
+      accurasy_en_base = 85
+      armor_en_base = 0
+      exp = 2
+    elsif enemy_rand > 15 and enemy_rand <= 20
+      name_en = "Бандит"
+      rand_weapon_en = rand(1..3)
+      if rand_weapon_en == 1
+        weapon_en = "Ржавый топорик"
+        mindam_weapon_en = 1
+        maxdam_weapon_en = 6
+      elsif rand_weapon_en == 2
+        weapon_en = "Ножик"
+        mindam_weapon_en = 2
+        maxdam_weapon_en = 5
+      elsif rand_weapon_en == 3
+        weapon_en = "Дубинка"
+        mindam_weapon_en = 3
+        maxdam_weapon_en = 4
+      end
+      rand_torso_en = rand(0..1)
+      if rand_torso_en == 1
+        torso_en = "Кожанка"
+        armor_torso_en = 1
+      end
+      rand_helmet_en = rand(0..1)
+      if rand_helmet_en == 1
+        helmet_en = "Кожаный шлем"
+        armor_helmet_en = 1
+      end
+      rand_gloves_en = rand(0..1)
+      if rand_gloves_en == 1
+        gloves_en = "Кожаные перчатки"
+        armor_gloves_en = 0
+        accurasy_gloves_en = 10
+      end
+      rand_shield_en = rand(0..1)
+      if rand_shield_en == 1
+        shield_en = "Деревянный баклер"
+        armor_shield_en = 1
+        block_shield_en = 25
+      end
 
-    hp_en = 100
-    mindam_en_base = 5
-    maxdam_en_base = 5
-    accurasy_en_base = 80
-    armor_en_base = 0
-    exp = 2
-  elsif enemy_rand > 20 and enemy_rand <= 25
-    name_en = "Дезертир"
-    rand_weapon_en = rand(1..3)
-    if rand_weapon_en == 1
-      weapon_en = "Ржавый топорик"
-      mindam_weapon_en = 1
-      maxdam_weapon_en = 6
-    elsif rand_weapon_en == 2
-      weapon_en = "Топорик"
-      mindam_weapon_en = 5
-      maxdam_weapon_en = 8
-    elsif rand_weapon_en == 3
-      weapon_en = "Фальшион"
-      mindam_weapon_en = 5
-      maxdam_weapon_en = 10
-    end
-    rand_torso_en = rand(0..2)
-    if rand_torso_en == 1
-      torso_en = "Кожанка"
-      armor_torso_en = 1
-    elsif rand_torso_en == 2
-      torso_en = "Стеганка"
-      armor_torso_en = 2
-    end
-    rand_helmet_en = rand(0..2)
-    if rand_helmet_en == 1
-      helmet_en = "Кожаный шлем"
-      armor_helmet_en = 1
-    elsif rand_helmet_en == 2
-      helmet_en = "Стеганый шлем"
-      armor_helmet_en = 2
-    end
-    rand_gloves_en = rand(0..2)
-    if rand_gloves_en == 1
-      gloves_en = "Кожаные перчатки"
-      armor_gloves_en = 0
-      accurasy_gloves_en = 10
-    elsif rand_gloves_en == 2
-      gloves_en = "Стеганые перчатки"
-      armor_gloves_en = 1
-      accurasy_gloves_en = 7
-    end
-    rand_shield_en = rand(0..2)
-    if rand_shield_en == 1
-      shield_en = "Деревянный баклер"
-      armor_shield_en = 1
-      block_shield_en = 25
-    elsif rand_shield_en == 2
-      shield_en = "Деревянный щит"
-      armor_shield_en = 2
-      block_shield_en = 15
-    end
+      hp_en = 100
+      mindam_en_base = 5
+      maxdam_en_base = 5
+      accurasy_en_base = 80
+      armor_en_base = 0
+      exp = 2
+    elsif enemy_rand > 20 and enemy_rand <= 25
+      name_en = "Дезертир"
+      rand_weapon_en = rand(1..3)
+      if rand_weapon_en == 1
+        weapon_en = "Ржавый топорик"
+        mindam_weapon_en = 1
+        maxdam_weapon_en = 6
+      elsif rand_weapon_en == 2
+        weapon_en = "Топорик"
+        mindam_weapon_en = 5
+        maxdam_weapon_en = 8
+      elsif rand_weapon_en == 3
+        weapon_en = "Фальшион"
+        mindam_weapon_en = 5
+        maxdam_weapon_en = 10
+      end
+      rand_torso_en = rand(0..2)
+      if rand_torso_en == 1
+        torso_en = "Кожанка"
+        armor_torso_en = 1
+      elsif rand_torso_en == 2
+        torso_en = "Стеганка"
+        armor_torso_en = 2
+      end
+      rand_helmet_en = rand(0..2)
+      if rand_helmet_en == 1
+        helmet_en = "Кожаный шлем"
+        armor_helmet_en = 1
+      elsif rand_helmet_en == 2
+        helmet_en = "Стеганый шлем"
+        armor_helmet_en = 2
+      end
+      rand_gloves_en = rand(0..2)
+      if rand_gloves_en == 1
+        gloves_en = "Кожаные перчатки"
+        armor_gloves_en = 0
+        accurasy_gloves_en = 10
+      elsif rand_gloves_en == 2
+        gloves_en = "Стеганые перчатки"
+        armor_gloves_en = 1
+        accurasy_gloves_en = 7
+      end
+      rand_shield_en = rand(0..2)
+      if rand_shield_en == 1
+        shield_en = "Деревянный баклер"
+        armor_shield_en = 1
+        block_shield_en = 25
+      elsif rand_shield_en == 2
+        shield_en = "Деревянный щит"
+        armor_shield_en = 2
+        block_shield_en = 15
+      end
 
-    hp_en = 120
-    mindam_en_base = 5
-    maxdam_en_base = 5
-    accurasy_en_base = 80
-    armor_en_base = 0
-    exp = 3
-  elsif enemy_rand > 25 #and enemy_rand <= 30
-    name_en = "Орк"
-    rand_weapon_en = rand(1..2)
-    if rand_weapon_en == 1
-      weapon_en = "Топор"
-      mindam_weapon_en = 6
-      maxdam_weapon_en = 10
-    elsif rand_weapon_en == 2
-      weapon_en = "Цеп"
-      mindam_weapon_en = 0
-      maxdam_weapon_en = 20
-    end
+      hp_en = 120
+      mindam_en_base = 5
+      maxdam_en_base = 5
+      accurasy_en_base = 80
+      armor_en_base = 0
+      exp = 3
+    elsif enemy_rand > 25 #and enemy_rand <= 30
+      name_en = "Орк"
+      rand_weapon_en = rand(1..2)
+      if rand_weapon_en == 1
+        weapon_en = "Топор"
+        mindam_weapon_en = 6
+        maxdam_weapon_en = 10
+      elsif rand_weapon_en == 2
+        weapon_en = "Цеп"
+        mindam_weapon_en = 0
+        maxdam_weapon_en = 20
+      end
 
-    hp_en = 180
-    mindam_en_base = 7
-    maxdam_en_base = 7
-    accurasy_en_base = 70
-    armor_en_base = 0
-    exp = 4
+      hp_en = 180
+      mindam_en_base = 7
+      maxdam_en_base = 7
+      accurasy_en_base = 70
+      armor_en_base = 0
+      exp = 4
+    end
   end
 
   mindam_en = mindam_en_base + mindam_weapon_en
