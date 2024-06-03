@@ -7,6 +7,7 @@ class Hero
   attr_accessor :armor_base_pl, :armor_pl
   attr_accessor :block_pl
   attr_accessor :exp_pl, :lvl_pl
+  attr_reader :exp_lvl
   attr_accessor :stat_points, :skill_points
   attr_accessor :weapon
 
@@ -28,6 +29,7 @@ class Hero
 
     @exp_pl = 0
     @lvl_pl = 0
+    @exp_lvl = [0, 2, 5, 9, 14, 20, 27, 35, 44, 54, 65, 77, 90, 104, 129, 145, 162, 180, 200]
 
     @stat_points = 5
     @skill_points = 0
