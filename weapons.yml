@@ -1,0 +1,61 @@
+"без оружия":
+  name: "без оружия"
+  min_dmg: 0
+  max_dmg: 0
+"Палка":
+  name: "Палка"
+  min_dmg: 1
+  max_dmg: 4
+"Ржавый топорик":
+  name: "Ржавый топорик"
+  min_dmg: 1
+  max_dmg: 6
+"Ножик":
+  name: "Ножик"
+  min_dmg: 2
+  max_dmg: 5
+"Дубинка":
+  name: "Дубинка"
+  min_dmg: 3
+  max_dmg: 4
+"Кинжал":
+  name: "Кинжал"
+  min_dmg: 3
+  max_dmg: 6
+"Топорик":
+  name: "Топорик"
+  min_dmg: 5
+  max_dmg: 8
+"Фальшион":
+  name: "Фальшион"
+  min_dmg: 5
+  max_dmg: 10
+"Топор":
+  name: "Топор"
+  min_dmg: 6
+  max_dmg: 10
+"Цеп":
+  name: "Цеп"
+  min_dmg: 0
+  max_dmg: 20
+"Ржавый полуторник":
+  name: "Ржавый полуторник"
+  min_dmg: 6
+  max_dmg: 17
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#

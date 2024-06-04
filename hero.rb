@@ -34,4 +34,25 @@ class Hero
     @stat_points = 5
     @skill_points = 0
   end
+
+  # def add_new_weapon(weapon_name)
+  #   @weapon = Weapon.new(weapon_name)
+  # end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
