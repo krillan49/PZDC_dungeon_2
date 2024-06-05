@@ -1,0 +1,73 @@
+"Оборванец":
+  name: "Оборванец"
+  hp: 80
+  min_dmg: 1
+  max_dmg: 5
+  accurasy: 60
+  armor: 0
+  exp_gived: 1
+"Бешеный пес":
+  name: "Бешеный пес"
+  hp: 60
+  min_dmg: 1
+  max_dmg: 8
+  accurasy: 50
+  armor: 0
+  exp_gived: 1
+"Гоблин":
+  name: "Гоблин"
+  hp: 65
+  min_dmg: 3
+  max_dmg: 3
+  accurasy: 85
+  armor: 0
+  exp_gived: 2
+"Бандит":
+  name: "Бандит"
+  hp: 100
+  min_dmg: 5
+  max_dmg: 5
+  accurasy: 80
+  armor: 0
+  exp_gived: 2
+"Дезертир":
+  name: "Дезертир"
+  hp: 120
+  min_dmg: 5
+  max_dmg: 5
+  accurasy: 80
+  armor: 0
+  exp_gived: 3
+"Орк":
+  name: "Орк"
+  hp: 180
+  min_dmg: 7
+  max_dmg: 7
+  accurasy: 70
+  armor: 0
+  exp_gived: 4
+"Рыцарь-зомби":
+  name: "Рыцарь-зомби"
+  hp: 300
+  min_dmg: 5
+  max_dmg: 5
+  accurasy: 40
+  armor: 0
+  exp_gived: 20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
