@@ -377,7 +377,7 @@ while true
     when 'Y'
       zombie_knight = 1
       puts 'Это рыцарь-зомби, приготовься к сложному бою'
-      name_en = "Рыцарь-зомби"
+      @enemy = Enemy.new("Рыцарь-зомби")
 
       weapon_en = "Ржавый полуторник"
       mindam_weapon_en = 6
@@ -389,13 +389,6 @@ while true
       gloves_en = "Ржавые кольчужные перчатки"
       armor_gloves_en = 2
       accurasy_gloves_en = -5
-
-      hp_en = 300
-      mindam_en_base = 5
-      maxdam_en_base = 5
-      accurasy_en_base = 40
-      armor_en_base = 0
-      exp = 20
     else
       puts 'Правильный выбор, выглядело опасно'
       puts '-' * 40
@@ -408,31 +401,17 @@ while true
   # Выбор стандартного противника
   if zombie_knight != 1
     if enemy_rand > 0 and enemy_rand <= 5
-      name_en = "Оборванец"
+      @enemy = Enemy.new("Оборванец")
       rand_weapon_en = rand(0..1)
       if rand_weapon_en == 1
         weapon_en = "Палка"
         mindam_weapon_en = 1
         maxdam_weapon_en = 4
       end
-
-      hp_en = 80
-      mindam_en_base = 1
-      maxdam_en_base = 5
-      accurasy_en_base = 60
-      armor_en_base = 0
-      exp = 1
     elsif enemy_rand > 5 and enemy_rand <= 10
-      name_en = "Бешеный пес"
-
-      hp_en = 60
-      mindam_en_base = 1
-      maxdam_en_base = 8
-      accurasy_en_base = 50
-      armor_en_base = 0
-      exp = 1
+      @enemy = Enemy.new("Бешеный пес")
     elsif enemy_rand > 10 and enemy_rand <= 15
-      name_en = "Гоблин"
+      @enemy = Enemy.new("Гоблин")
       rand_weapon_en = rand(1..2)
       if rand_weapon_en == 1
         weapon_en = "Ножик"
@@ -455,15 +434,8 @@ while true
         armor_shield_en = 0
         block_shield_en = 30
       end
-
-      hp_en = 65
-      mindam_en_base = 3
-      maxdam_en_base = 3
-      accurasy_en_base = 85
-      armor_en_base = 0
-      exp = 2
     elsif enemy_rand > 15 and enemy_rand <= 20
-      name_en = "Бандит"
+      @enemy = Enemy.new("Бандит")
       rand_weapon_en = rand(1..3)
       if rand_weapon_en == 1
         weapon_en = "Ржавый топорик"
@@ -500,15 +472,8 @@ while true
         armor_shield_en = 1
         block_shield_en = 25
       end
-
-      hp_en = 100
-      mindam_en_base = 5
-      maxdam_en_base = 5
-      accurasy_en_base = 80
-      armor_en_base = 0
-      exp = 2
     elsif enemy_rand > 20 and enemy_rand <= 25
-      name_en = "Дезертир"
+      @enemy = Enemy.new("Дезертир")
       rand_weapon_en = rand(1..3)
       if rand_weapon_en == 1
         weapon_en = "Ржавый топорик"
@@ -559,15 +524,8 @@ while true
         armor_shield_en = 2
         block_shield_en = 15
       end
-
-      hp_en = 120
-      mindam_en_base = 5
-      maxdam_en_base = 5
-      accurasy_en_base = 80
-      armor_en_base = 0
-      exp = 3
     elsif enemy_rand > 25 #and enemy_rand <= 30
-      name_en = "Орк"
+      @enemy = Enemy.new("Орк")
       rand_weapon_en = rand(1..2)
       if rand_weapon_en == 1
         weapon_en = "Топор"
@@ -578,35 +536,28 @@ while true
         mindam_weapon_en = 0
         maxdam_weapon_en = 20
       end
-
-      hp_en = 180
-      mindam_en_base = 7
-      maxdam_en_base = 7
-      accurasy_en_base = 70
-      armor_en_base = 0
-      exp = 4
     end
   end
 
-  mindam_en = mindam_en_base + mindam_weapon_en
-  maxdam_en = maxdam_en_base + maxdam_weapon_en
-  armor_en = armor_en_base + armor_torso_en + armor_helmet_en + armor_gloves_en + armor_shield_en
-  accurasy_en = accurasy_en_base + accurasy_gloves_en
+  mindam_en = @enemy.min_dmg_base + mindam_weapon_en
+  maxdam_en = @enemy.max_dmg_base + maxdam_weapon_en
+  armor_en = @enemy.armor_base + armor_torso_en + armor_helmet_en + armor_gloves_en + armor_shield_en
+  accurasy_en = @enemy.accuracy_base + accurasy_gloves_en
   block_en = block_shield_en
   #--------------------------------------------------------------------------------------------------------------------
 
-  puts "В бой! Ваш противник #{name_en}"
-  puts "HP #{hp_en}"
-  puts "Damage #{mindam_en}-#{maxdam_en} = #{mindam_en_base}-#{maxdam_en_base} + #{mindam_weapon_en}-#{maxdam_weapon_en}(#{weapon_en})"
-  puts "Armor #{armor_en} = #{armor_en_base} + #{armor_torso_en}(#{torso_en}) + #{armor_helmet_en}(#{helmet_en}) + #{armor_gloves_en}(#{gloves_en}) + #{armor_shield_en}(#{shield_en})"
-  puts "Accurasy #{accurasy_en} = #{accurasy_en_base} + #{accurasy_gloves_en}(#{gloves_en})"
+  puts "В бой! Ваш противник #{@enemy.name}"
+  puts "HP #{@enemy.hp}"
+  puts "Damage #{mindam_en}-#{maxdam_en} = #{@enemy.min_dmg_base}-#{@enemy.max_dmg_base} + #{mindam_weapon_en}-#{maxdam_weapon_en}(#{weapon_en})"
+  puts "Armor #{armor_en} = #{@enemy.armor_base} + #{armor_torso_en}(#{torso_en}) + #{armor_helmet_en}(#{helmet_en}) + #{armor_gloves_en}(#{gloves_en}) + #{armor_shield_en}(#{shield_en})"
+  puts "Accurasy #{accurasy_en} = #{@enemy.accuracy_base} + #{accurasy_gloves_en}(#{gloves_en})"
   puts "Block #{block_en} = #{block_shield_en}(#{shield_en})"
 
   # Ход боя ===============================================================================================
   run = false
   lap = 1 # номер хода
 
-  while hp_en > 0 and run == false
+  while @enemy.hp > 0 and run == false
 
     puts "====================================== ХОД #{lap} ============================================"
 
@@ -650,15 +601,15 @@ while true
 
     # Направление атаки бота ----------------------------------------------------------------------------
     target_en = rand(1..10)
-    target_name_en = "по телу"
+    name_target_en = "по телу"
     if target_en >= 1 and target_en <= 3
       damage_en *= 1.5
       accurasy_action_en = accurasy_en * 0.7
-      target_name_en = "по голове"
+      name_target_en = "по голове"
     elsif target_en >= 4 and target_en <= 6
       damage_en *= 0.7
       accurasy_action_en = accurasy_en * 1.5
-      target_name_en = "по ногам"
+      name_target_en = "по ногам"
     else
       accurasy_action_en = accurasy_en
     end
@@ -677,7 +628,7 @@ while true
 
     chanse_block_en = rand(1..100)
     if block_en >= chanse_block_en
-      damage_pl /= 1 + hp_en.to_f / 200
+      damage_pl /= 1 + @enemy.hp.to_f / 200
     end
     # ---------------------------------------------------------------------------------------------------------------
 
@@ -695,8 +646,8 @@ while true
 
     # Расчет попадания/промаха и проведения атак и навыков -----------------------------------------------------
     if accuracy_action_pl >= rand(1..100)
-      puts "#{name_en} заблокировал #{100 - (100 / (1 + hp_en.to_f / 200)).to_i}% урона" if block_en >= chanse_block_en
-      hp_en -= damage_pl
+      puts "#{@enemy.name} заблокировал #{100 - (100 / (1 + @enemy.hp.to_f / 200)).to_i}% урона" if block_en >= chanse_block_en
+      @enemy.hp -= damage_pl
       puts "Вы нанесли #{damage_pl.round} урона #{target_name_pl}"
       hit_miss_pl = 1
     else
@@ -706,14 +657,14 @@ while true
 
     case @name_passive_pl
     when "Ошеломление"
-      if hit_miss_pl == 1 and damage_pl * @coeff_passive_pl > (hp_en + damage_pl) / 2
+      if hit_miss_pl == 1 and damage_pl * @coeff_passive_pl > (@enemy.hp + damage_pl) / 2
         accurasy_action_en *= 0.1*rand(1..9)
         puts "атака ошеломила врага, уменьшив его точность до #{(accurasy_en * 0.1 * rand(1..9)).round}"
       end
     when "Концентрация"
       if hit_miss_pl == 1 and damage_passive_pl > 0
         damage_passive_pl = rand(0..0.1 * (@hero.mp_max_pl * (1 + 0.05 * @lvl_passive_pl) - 100))
-        hp_en -= damage_passive_pl
+        @enemy.hp -= damage_passive_pl
         puts "дополнительный урон от концентрации #{damage_passive_pl.round(1)}"
       end
     end
@@ -721,10 +672,10 @@ while true
     if accurasy_action_en >= rand(1..100)
       puts "Вы заблокировали #{100 - (100 / (1 + @hero.hp_pl.to_f / 200)).to_i}% урона" if @hero.block_pl >= chanse_block_pl
       @hero.hp_pl -= damage_en
-      puts "#{name_en} нанес #{damage_en.round} урона #{target_name_en}"
+      puts "#{@enemy.name} нанес #{damage_en.round} урона #{name_target_en}"
       hit_miss_en = 1
     else
-      puts "#{name_en} промахнулся #{target_name_en}"
+      puts "#{@enemy.name} промахнулся #{name_target_en}"
       hit_miss_en = 0
     end
     #------------------------------------------------------------------------------------------------------------------
@@ -748,11 +699,11 @@ while true
     #---------------------------------------------------------------------------------------------------------------
 
     # Результат обмена ударами --------------------------------------------------------------------------------
-    if @hero.hp_pl > 0 and hp_en > 0
-      puts "У вас осталось #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней и #{@hero.mp_pl.round}/#{@hero.mp_max_pl} выносливости, у #{name_en}а осталось #{hp_en.round} жизней."
-    elsif @hero.hp_pl > 0 and hp_en <= 0
-      puts "У вас осталось #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней и #{@hero.mp_pl.round}/#{@hero.mp_max_pl} выносливости, у #{name_en}а осталось #{hp_en.round} жизней."
-      puts "#{name_en} убит, победа!!!"
+    if @hero.hp_pl > 0 and @enemy.hp > 0
+      puts "У вас осталось #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней и #{@hero.mp_pl.round}/#{@hero.mp_max_pl} выносливости, у #{@enemy.name}а осталось #{@enemy.hp.round} жизней."
+    elsif @hero.hp_pl > 0 and @enemy.hp <= 0
+      puts "У вас осталось #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней и #{@hero.mp_pl.round}/#{@hero.mp_max_pl} выносливости, у #{@enemy.name}а осталось #{@enemy.hp.round} жизней."
+      puts "#{@enemy.name} убит, победа!!!"
     elsif @hero.hp_pl <= 0
       puts "Ты убит - слабак!"
       exit
@@ -760,18 +711,18 @@ while true
     #------------------------------------------------------------------------------------------------------------------
 
     # Побег ---------------------------------------------------------------------------------------------------
-    if @hero.hp_pl < (@hero.hp_max_pl * 0.15) and @hero.hp_pl > 0 and hp_en > 0
+    if @hero.hp_pl < (@hero.hp_max_pl * 0.15) and @hero.hp_pl > 0 and @enemy.hp > 0
       print 'Ты на пороге смерти. Чтобы убежать введи Y : '
       run_select = gets.strip.upcase
       if run_select == 'Y'
         run_chance = rand(0..2)
         if run_chance >= 1
           puts "Сбежал ссыкло, штраф 5 опыта"
-          exp = -5
+          @hero.exp_pl -= 5
           run = true
         else
           @hero.hp_pl -= damage_en
-          puts "Не удалось убежать #{name_en} нанес #{damage_en.round} урона"
+          puts "Не удалось убежать #{@enemy.name} нанес #{damage_en.round} урона"
           if @hero.hp_pl <= 0
             puts "Ты убит - трусливая псина!"
             exit
@@ -867,7 +818,7 @@ while true
 
     weapon_loot = rand(0..1)
     if weapon_loot == 1 and weapon_en != "без оружия"
-      puts "Обыскав труп #{name_en} ты нашел #{weapon_en}"
+      puts "Обыскав труп #{@enemy.name} ты нашел #{weapon_en}"
       print "Поменяем #{@hero.weapon}(#{@mindam_weapon}-#{@maxdam_weapon}) на #{weapon_en}(#{mindam_weapon_en}-#{maxdam_weapon_en}) Y/N? "
       weapon_loot_choice = gets.strip.upcase
       if weapon_loot_choice == 'Y'
@@ -881,7 +832,7 @@ while true
 
     torso_loot = rand(0..1)
     if torso_loot == 1 and torso_en != "без нагрудника"
-      puts "Обыскав труп #{name_en} ты нашел #{torso_en}"
+      puts "Обыскав труп #{@enemy.name} ты нашел #{torso_en}"
       print "Поменяем #{@torso}(#{@armor_torso}) на #{torso_en}(#{armor_torso_en}) Y/N? "
       torso_loot_choice = gets.strip.upcase
       if torso_loot_choice == 'Y'
@@ -892,7 +843,7 @@ while true
 
     helmet_loot = rand(0..1)
     if helmet_loot == 1 and helmet_en != "без шлема"
-      puts "Обыскав труп #{name_en} ты нашел #{helmet_en}"
+      puts "Обыскав труп #{@enemy.name} ты нашел #{helmet_en}"
       print "Поменяем #{@helmet}(#{@armor_helmet}) на #{helmet_en}(#{armor_helmet_en}) Y/N? "
       helmet_loot_choice = gets.strip.upcase
       if helmet_loot_choice == 'Y'
@@ -903,7 +854,7 @@ while true
 
     gloves_loot = rand(0..1)
     if gloves_loot == 1 and gloves_en != "без перчаток"
-      puts "Обыскав труп #{name_en} ты нашел #{gloves_en}"
+      puts "Обыскав труп #{@enemy.name} ты нашел #{gloves_en}"
       print "Поменяем #{@gloves}(бр-#{@armor_gloves} точ-#{@accuracy_gloves}) на #{gloves_en}(бр-#{armor_gloves_en} точ-#{accurasy_gloves_en}) Y/N? "
       gloves_loot_choice = gets.strip.upcase
       if gloves_loot_choice == 'Y'
@@ -915,7 +866,7 @@ while true
 
     shield_loot = rand(0..1)
     if shield_loot == 1 and shield_en != "без щита"
-      puts "Обыскав труп #{name_en} ты нашел #{shield_en}"
+      puts "Обыскав труп #{@enemy.name} ты нашел #{shield_en}"
       print "Поменяем #{@shield}(бр-#{@armor_shield} блок-#{@block_shield}) на #{shield_en}(бр-#{armor_shield_en} блок-#{block_shield_en}) Y/N? "
       shield_loot_choice = gets.strip.upcase
       if shield_loot_choice == 'Y'
@@ -936,8 +887,8 @@ while true
   #-------------------------------------------------------------------------------------------------------------
   puts
   # Получение опыта и очков -------------------------------------------------------------------------------------
-  @hero.exp_pl += exp
-  puts "Вы получили #{exp} опыта. Теперь у вас #{@hero.exp_pl} опыта"
+  @hero.exp_pl += @enemy.exp_gived
+  puts "Вы получили #{@enemy.exp_gived} опыта. Теперь у вас #{@hero.exp_pl} опыта"
   for i in 0...@hero.exp_lvl.size
     if @hero.exp_pl >= @hero.exp_lvl[i] and @hero.lvl_pl < i
       new_points = i - @hero.lvl_pl
