@@ -329,22 +329,8 @@ while true
   end
   #-----------------------------------------------------------------------------------------------------------
 
-  # Восстановления жизней и маны между боями-----------------------------------------------------------------
-  if (@hero.hp_max_pl - @hero.hp_pl) >= @hero.recovery_hp_pl
-    @hero.hp_pl += @hero.recovery_hp_pl
-    puts "Передохнув вы восстанавливаете #{@hero.recovery_hp_pl.round} жизней, теперь у вас #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней"
-  elsif (@hero.hp_max_pl - @hero.hp_pl) < @hero.recovery_hp_pl and @hero.hp_pl < @hero.hp_max_pl
-    @hero.hp_pl = @hero.hp_max_pl
-    puts "Передохнув вы восстанавливаете #{@hero.recovery_hp_pl.round} жизней, теперь у вас #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней"
-  end
+  @hero.rest # пассивное восстановления жизней и маны между боями
 
-  if (@hero.mp_max_pl - @hero.mp_pl) >= @hero.recovery_mp_pl
-    @hero.mp_pl += @hero.recovery_mp_pl
-    puts "Передохнув вы восстанавливаете #{@hero.recovery_mp_pl.round} выносливости, теперь у вас #{@hero.mp_pl.round}/#{@hero.mp_max_pl} выносливости"
-  elsif (@hero.mp_max_pl - @hero.mp_pl) < @hero.recovery_mp_pl and @hero.mp_pl < @hero.mp_max_pl
-    @hero.mp_pl = @hero.mp_max_pl
-    puts "Передохнув вы восстанавливаете #{@hero.recovery_mp_pl.round} выносливости, теперь у вас #{@hero.mp_pl.round}/#{@hero.mp_max_pl} выносливости"
-  end
   #--------------------------------------------------------------------------------------------------------------
 
   print 'Чтобы начать следующий бой нажмите Enter'

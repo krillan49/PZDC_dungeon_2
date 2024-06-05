@@ -35,6 +35,17 @@ class Hero
     @skill_points = 0
   end
 
+  def rest # отдых между боями(Восстановления жизней и маны)
+    if @hp_pl < @hp_max_pl
+      @hp_pl += [@recovery_hp_pl, @hp_max_pl - @hp_pl].min
+      puts "Передохнув вы восстанавливаете #{@recovery_hp_pl.round} жизней, теперь у вас #{@hp_pl.round}/#{@hp_max_pl} жизней"
+    end
+    if @mp_pl < @mp_max_pl
+      @mp_pl += [@recovery_mp_pl, @mp_max_pl - @mp_pl].min
+      puts "Передохнув вы восстанавливаете #{@recovery_mp_pl.round} выносливости, теперь у вас #{@mp_pl.round}/#{@mp_max_pl} выносливости"
+    end
+  end
+
   # def add_new_weapon(weapon_name)
   #   @weapon = Weapon.new(weapon_name)
   # end
