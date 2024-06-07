@@ -1,4 +1,5 @@
 require 'yaml'
+require_relative 'weapons'
 
 class Enemy
   attr_accessor :name
@@ -20,6 +21,8 @@ class Enemy
     @accuracy_base = enemy[:accurasy]
     @armor_base    = enemy[:armor]
     @exp_gived     = enemy[:exp_gived]
+
+    @weapon = Weapon.new(enemy[:weapons].sample)
   end
 end
 

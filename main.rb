@@ -37,7 +37,7 @@ def character_panel
   puts "С Т А Т Ы:"
   puts "HP #{@hero.hp_pl.round}/#{@hero.hp_max_pl} Реген #{@hero.regen_hp_base_pl} Восстановление #{@hero.recovery_hp_pl.round}"
   puts "MP #{@hero.mp_pl.round}/#{@hero.mp_max_pl} Реген #{@hero.regen_mp_base_pl} Восстановление #{@hero.recovery_mp_pl.round}"
-  puts "Урон #{@hero.mindam_pl}-#{@hero.maxdam_pl} (базовый #{@hero.mindam_base_pl}-#{@hero.maxdam_base_pl} + #{@hero.weapon} #{@mindam_weapon}-#{@maxdam_weapon})"
+  puts "Урон #{@hero.mindam_pl}-#{@hero.maxdam_pl} (базовый #{@hero.mindam_base_pl}-#{@hero.maxdam_base_pl} + #{@hero.weapon.name} #{@hero.weapon.min_dmg}-#{@hero.weapon.max_dmg})"
   puts "Точность #{@hero.accuracy_pl} (базовая #{@hero.accuracy_base_pl} + #{@gloves} #{@accuracy_gloves})"
   puts "Броня #{@hero.armor_pl} (базовая #{@hero.armor_base_pl} + #{@torso} #{@armor_torso} + #{@helmet} #{@armor_helmet} + #{@gloves} #{@armor_gloves} + #{@shield} #{@armor_shield})"
   puts "Шанс блока #{0 if @shield == "без щита"}#{@hero.block_pl if @shield != "без щита" and @name_passive_pl != "Мастер щита"}#{@hero.block_pl + @coeff_passive_pl if @shield != "без щита" and @name_passive_pl == "Мастер щита"} (#{@shield} #{@block_shield}) блокируемый урон #{100 - (100 / (1 + @hero.hp_pl.to_f / 200)).to_i}%"
@@ -63,21 +63,21 @@ print "Выберите предисторию:
 choose_story_pl = gets.strip.upcase
 case choose_story_pl
 when 'G'
-  @hero.weapon = "Ржавый топорик"
+  @hero.weapon = Weapon.new("Ржавый топорик")
   @hero.hp_max_pl += 30
   @hero.recovery_hp_pl = @hero.hp_max_pl * 0.1
 when 'T'
-  @hero.weapon = "Ножик"
+  @hero.weapon = Weapon.new("Ножик")
   @hero.accuracy_base_pl += 5
 when 'W'
-  @hero.weapon = "Дубинка"
+  @hero.weapon = Weapon.new("Дубинка")
   @hero.mp_max_pl += 30
   @hero.recovery_mp_pl = @hero.mp_max_pl * 0.1
 when 'S'
-  @hero.weapon = "без оружия"
+  @hero.weapon = Weapon.new("без оружия")
   @hero.skill_points += 5
 else
-  @hero.weapon = "без оружия"
+  @hero.weapon = Weapon.new("без оружия")
   @hero.hp_max_pl -= 5
   @hero.mp_max_pl -= 5
   @hero.accuracy_base_pl -= 1
@@ -188,24 +188,9 @@ end
 @hero.regen_mp_pl = @hero.regen_mp_base_pl
 #--------------------------------------------------------------------------------------------------------------------
 
-# Стартовое оружие и урон ----------------------------------------------------------------------------------
-case @hero.weapon
-when "без оружия"
-  @mindam_weapon = 0
-  @maxdam_weapon = 0
-when "Ржавый топорик"
-  @mindam_weapon = 1
-  @maxdam_weapon = 6
-when "Ножик"
-  @mindam_weapon = 2
-  @maxdam_weapon = 5
-when "Дубинка"
-  @mindam_weapon = 3
-  @maxdam_weapon = 4
-end
-
-@hero.mindam_pl = @hero.mindam_base_pl + @mindam_weapon
-@hero.maxdam_pl = @hero.maxdam_base_pl + @maxdam_weapon
+# Стартовый урон ----------------------------------------------------------------------------------
+@hero.mindam_pl = @hero.mindam_base_pl + @hero.weapon.min_dmg
+@hero.maxdam_pl = @hero.maxdam_base_pl + @hero.weapon.max_dmg
 #-------------------------------------------------------------------------------------------------------------------
 
 zombie_knight = 0
@@ -240,10 +225,10 @@ while true
         min_or_max = rand(0..1)
         if min_or_max == 0 and @hero.mindam_base_pl < @hero.maxdam_base_pl
           @hero.mindam_base_pl += 1
-          @hero.mindam_pl = @hero.mindam_base_pl + @mindam_weapon
+          @hero.mindam_pl = @hero.mindam_base_pl + @hero.weapon.min_dmg
         else
           @hero.maxdam_base_pl += 1
-          @hero.maxdam_pl = @hero.maxdam_base_pl + @maxdam_weapon
+          @hero.maxdam_pl = @hero.maxdam_base_pl + @hero.weapon.max_dmg
         end
       when 'A'
         @hero.accuracy_base_pl += 1
@@ -340,9 +325,6 @@ while true
   # Назначение противника ---------------------------------------------------------------------------------
 
   # Значения характеристик экипировки по умолчанию(ели не прописаны впоследствии)
-  weapon_en = "без оружия"
-  mindam_weapon_en = 0
-  maxdam_weapon_en = 0
   torso_en = "без нагрудника"
   armor_torso_en = 0
   helmet_en = "без шлема"
@@ -365,9 +347,6 @@ while true
       puts 'Это рыцарь-зомби, приготовься к сложному бою'
       @enemy = Enemy.new("Рыцарь-зомби")
 
-      weapon_en = "Ржавый полуторник"
-      mindam_weapon_en = 6
-      maxdam_weapon_en = 17
       torso_en = "Ветхая кираса"
       armor_torso_en = 3
       helmet_en = "Ветхий топфхельм"
@@ -388,26 +367,11 @@ while true
   if zombie_knight != 1
     if enemy_rand > 0 and enemy_rand <= 5
       @enemy = Enemy.new("Оборванец")
-      rand_weapon_en = rand(0..1)
-      if rand_weapon_en == 1
-        weapon_en = "Палка"
-        mindam_weapon_en = 1
-        maxdam_weapon_en = 4
-      end
     elsif enemy_rand > 5 and enemy_rand <= 10
       @enemy = Enemy.new("Бешеный пес")
     elsif enemy_rand > 10 and enemy_rand <= 15
       @enemy = Enemy.new("Гоблин")
-      rand_weapon_en = rand(1..2)
-      if rand_weapon_en == 1
-        weapon_en = "Ножик"
-        mindam_weapon_en = 2
-        maxdam_weapon_en = 5
-      elsif rand_weapon_en == 2
-        weapon_en = "Кинжал"
-        mindam_weapon_en = 3
-        maxdam_weapon_en = 6
-      end
+
       rand_gloves_en = rand(0..1)
       if rand_gloves_en == 1
         gloves_en = "Кожаные перчатки"
@@ -422,20 +386,7 @@ while true
       end
     elsif enemy_rand > 15 and enemy_rand <= 20
       @enemy = Enemy.new("Бандит")
-      rand_weapon_en = rand(1..3)
-      if rand_weapon_en == 1
-        weapon_en = "Ржавый топорик"
-        mindam_weapon_en = 1
-        maxdam_weapon_en = 6
-      elsif rand_weapon_en == 2
-        weapon_en = "Ножик"
-        mindam_weapon_en = 2
-        maxdam_weapon_en = 5
-      elsif rand_weapon_en == 3
-        weapon_en = "Дубинка"
-        mindam_weapon_en = 3
-        maxdam_weapon_en = 4
-      end
+
       rand_torso_en = rand(0..1)
       if rand_torso_en == 1
         torso_en = "Кожанка"
@@ -460,20 +411,7 @@ while true
       end
     elsif enemy_rand > 20 and enemy_rand <= 25
       @enemy = Enemy.new("Дезертир")
-      rand_weapon_en = rand(1..3)
-      if rand_weapon_en == 1
-        weapon_en = "Ржавый топорик"
-        mindam_weapon_en = 1
-        maxdam_weapon_en = 6
-      elsif rand_weapon_en == 2
-        weapon_en = "Топорик"
-        mindam_weapon_en = 5
-        maxdam_weapon_en = 8
-      elsif rand_weapon_en == 3
-        weapon_en = "Фальшион"
-        mindam_weapon_en = 5
-        maxdam_weapon_en = 10
-      end
+
       rand_torso_en = rand(0..2)
       if rand_torso_en == 1
         torso_en = "Кожанка"
@@ -512,21 +450,11 @@ while true
       end
     elsif enemy_rand > 25 #and enemy_rand <= 30
       @enemy = Enemy.new("Орк")
-      rand_weapon_en = rand(1..2)
-      if rand_weapon_en == 1
-        weapon_en = "Топор"
-        mindam_weapon_en = 6
-        maxdam_weapon_en = 10
-      elsif rand_weapon_en == 2
-        weapon_en = "Цеп"
-        mindam_weapon_en = 0
-        maxdam_weapon_en = 20
-      end
     end
   end
 
-  mindam_en = @enemy.min_dmg_base + mindam_weapon_en
-  maxdam_en = @enemy.max_dmg_base + maxdam_weapon_en
+  mindam_en = @enemy.min_dmg_base + @enemy.weapon.min_dmg
+  maxdam_en = @enemy.max_dmg_base + @enemy.weapon.max_dmg
   armor_en = @enemy.armor_base + armor_torso_en + armor_helmet_en + armor_gloves_en + armor_shield_en
   accurasy_en = @enemy.accuracy_base + accurasy_gloves_en
   block_en = block_shield_en
@@ -534,7 +462,7 @@ while true
 
   puts "В бой! Ваш противник #{@enemy.name}"
   puts "HP #{@enemy.hp}"
-  puts "Damage #{mindam_en}-#{maxdam_en} = #{@enemy.min_dmg_base}-#{@enemy.max_dmg_base} + #{mindam_weapon_en}-#{maxdam_weapon_en}(#{weapon_en})"
+  puts "Damage #{mindam_en}-#{maxdam_en} = #{@enemy.min_dmg_base}-#{@enemy.max_dmg_base} + #{@enemy.weapon.min_dmg}-#{@enemy.weapon.max_dmg}(#{@enemy.weapon.name})"
   puts "Armor #{armor_en} = #{@enemy.armor_base} + #{armor_torso_en}(#{torso_en}) + #{armor_helmet_en}(#{helmet_en}) + #{armor_gloves_en}(#{gloves_en}) + #{armor_shield_en}(#{shield_en})"
   puts "Accurasy #{accurasy_en} = #{@enemy.accuracy_base} + #{accurasy_gloves_en}(#{gloves_en})"
   puts "Block #{block_en} = #{block_shield_en}(#{shield_en})"
@@ -803,16 +731,14 @@ while true
     end
 
     weapon_loot = rand(0..1)
-    if weapon_loot == 1 and weapon_en != "без оружия"
-      puts "Обыскав труп #{@enemy.name} ты нашел #{weapon_en}"
-      print "Поменяем #{@hero.weapon}(#{@mindam_weapon}-#{@maxdam_weapon}) на #{weapon_en}(#{mindam_weapon_en}-#{maxdam_weapon_en}) Y/N? "
+    if weapon_loot == 1 and @enemy.weapon.name != "без оружия"
+      puts "Обыскав труп #{@enemy.name} ты нашел #{@enemy.weapon.name}"
+      print "Поменяем #{@hero.weapon.name}(#{@hero.weapon.min_dmg}-#{@hero.weapon.max_dmg}) на #{@enemy.weapon.name}(#{@enemy.weapon.min_dmg}-#{@enemy.weapon.max_dmg}) Y/N? "
       weapon_loot_choice = gets.strip.upcase
       if weapon_loot_choice == 'Y'
-        @hero.weapon = weapon_en
-        @mindam_weapon = mindam_weapon_en
-        @maxdam_weapon = maxdam_weapon_en
-        @hero.mindam_pl = @hero.mindam_base_pl + @mindam_weapon
-        @hero.maxdam_pl = @hero.maxdam_base_pl + @maxdam_weapon
+        @hero.weapon = @enemy.weapon
+        @hero.mindam_pl = @hero.mindam_base_pl + @hero.weapon.min_dmg
+        @hero.maxdam_pl = @hero.maxdam_base_pl + @hero.weapon.max_dmg
       end
     end
 

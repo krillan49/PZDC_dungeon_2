@@ -6,6 +6,10 @@
   accurasy: 60
   armor: 0
   exp_gived: 1
+  weapons:
+    - "без оружия"
+    - "Палка"
+
 "Бешеный пес":
   name: "Бешеный пес"
   hp: 60
@@ -14,6 +18,9 @@
   accurasy: 50
   armor: 0
   exp_gived: 1
+  weapons:
+    - "без оружия"
+
 "Гоблин":
   name: "Гоблин"
   hp: 65
@@ -22,6 +29,10 @@
   accurasy: 85
   armor: 0
   exp_gived: 2
+  weapons:
+    - "Ножик"
+    - "Кинжал"
+
 "Бандит":
   name: "Бандит"
   hp: 100
@@ -30,6 +41,11 @@
   accurasy: 80
   armor: 0
   exp_gived: 2
+  weapons:
+    - "Ржавый топорик"
+    - "Ножик"
+    - "Дубинка"
+
 "Дезертир":
   name: "Дезертир"
   hp: 120
@@ -38,6 +54,11 @@
   accurasy: 80
   armor: 0
   exp_gived: 3
+  weapons:
+    - "Ржавый топорик"
+    - "Топорик"
+    - "Фальшион"
+
 "Орк":
   name: "Орк"
   hp: 180
@@ -46,6 +67,10 @@
   accurasy: 70
   armor: 0
   exp_gived: 4
+  weapons:
+    - "Топор"
+    - "Цеп"
+
 "Рыцарь-зомби":
   name: "Рыцарь-зомби"
   hp: 300
@@ -54,6 +79,8 @@
   accurasy: 40
   armor: 0
   exp_gived: 20
+  weapons:
+    - "Ржавый полуторник"
 
 
 
