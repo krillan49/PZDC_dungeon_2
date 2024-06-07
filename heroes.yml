@@ -1,0 +1,68 @@
+drunk:
+  name: Алкаш
+  hp: 95
+  mp: 95
+  min_dmg: 5
+  max_dmg: 5
+  accurasy: 70
+  armor: 0
+  skill_points: 0
+  weapon: "без оружия"
+
+watchman:
+  name: Сторож
+  hp: 130
+  mp: 100
+  min_dmg: 5
+  max_dmg: 5
+  accurasy: 80
+  armor: 0
+  skill_points: 0
+  weapon: "Дубинка"
+
+thief:
+  name: Карманник
+  hp: 100
+  mp: 100
+  min_dmg: 5
+  max_dmg: 5
+  accurasy: 90
+  armor: 0
+  skill_points: 0
+  weapon: "Ножик"
+
+worker:
+  name: Рабочий
+  hp: 100
+  mp: 130
+  min_dmg: 5
+  max_dmg: 5
+  accurasy: 80
+  armor: 0
+  skill_points: 0
+  weapon: "Ржавый топорик"
+
+student:
+  name: Студент
+  hp: 100
+  mp: 100
+  min_dmg: 5
+  max_dmg: 5
+  accurasy: 80
+  armor: 0
+  skill_points: 5
+  weapon: "без оружия"
+
+
+
+
+
+
+
+
+
+
+
+
+
+#

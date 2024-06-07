@@ -14,6 +14,7 @@ class Enemy
 
   def initialize(name)
     enemy = YAML.safe_load_file('enemyes.yml', symbolize_names: true)[name.to_sym]
+    
     @name          = enemy[:name]
     @hp            = enemy[:hp]
     @min_dmg_base  = enemy[:min_dmg]
