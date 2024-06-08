@@ -9,6 +9,14 @@
   weapons:
     - "без оружия"
     - "Палка"
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shields:
+    - without
 
 "Бешеный пес":
   name: "Бешеный пес"
@@ -20,6 +28,14 @@
   exp_gived: 1
   weapons:
     - "без оружия"
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shields:
+    - without
 
 "Гоблин":
   name: "Гоблин"
@@ -32,6 +48,16 @@
   weapons:
     - "Ножик"
     - "Кинжал"
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+    - leather_gloves
+  shields:
+    - without
+    - braided_buckler
 
 "Бандит":
   name: "Бандит"
@@ -45,6 +71,18 @@
     - "Ржавый топорик"
     - "Ножик"
     - "Дубинка"
+  body_armor:
+    - without
+    - leather_jacket
+  head_armor:
+    - without
+    - leather_helmet
+  arms_armor:
+    - without
+    - leather_gloves
+  shields:
+    - without
+    - wooden_buckler
 
 "Дезертир":
   name: "Дезертир"
@@ -58,6 +96,22 @@
     - "Ржавый топорик"
     - "Топорик"
     - "Фальшион"
+  body_armor:
+    - without
+    - leather_jacket
+    - gambeson
+  head_armor:
+    - without
+    - leather_helmet
+    - quilted_helmet
+  arms_armor:
+    - without
+    - leather_gloves
+    - quilted_gloves
+  shields:
+    - without
+    - wooden_buckler
+    - wooden_shield
 
 "Орк":
   name: "Орк"
@@ -70,6 +124,14 @@
   weapons:
     - "Топор"
     - "Цеп"
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shields:
+    - without
 
 "Рыцарь-зомби":
   name: "Рыцарь-зомби"
@@ -81,6 +143,14 @@
   exp_gived: 20
   weapons:
     - "Ржавый полуторник"
+  body_armor:
+    - rusty_cuirass
+  head_armor:
+    - rusty_topfhelm
+  arms_armor:
+    - rusty_mail_gloves
+  shields:
+    - without
 
 
 

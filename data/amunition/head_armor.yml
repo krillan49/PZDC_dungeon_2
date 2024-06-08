@@ -1,0 +1,15 @@
+without:
+  name: "без шлема"
+  armor: 0
+
+leather_helmet:
+  name: "Кожаный шлем"
+  armor: 1
+
+quilted_helmet:
+  name: "Стеганый шлем"
+  armor: 2
+
+rusty_topfhelm:
+  name: "Ветхий топфхельм"
+  armor: 3

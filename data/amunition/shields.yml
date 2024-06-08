@@ -1,0 +1,19 @@
+without:
+  name: "без щита"
+  armor: 0
+  block_chance: 0
+
+braided_buckler:
+  name: "Плетеный баклер"
+  armor: 0
+  block_chance: 30
+
+wooden_buckler:
+  name: "Деревянный баклер"
+  armor: 1
+  block_chance: 25
+
+wooden_shield:
+  name: "Деревянный щит"
+  armor: 2
+  block_chance: 15

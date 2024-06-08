@@ -1,0 +1,15 @@
+without:
+  name: "без нагрудника"
+  armor: 0
+
+leather_jacket:
+  name: "Кожанка"
+  armor: 1
+
+gambeson:
+  name: "Стеганка"
+  armor: 2
+
+rusty_cuirass:
+  name: "Ветхая кираса"
+  armor: 3

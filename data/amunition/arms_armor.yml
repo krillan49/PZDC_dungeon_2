@@ -1,0 +1,19 @@
+without:
+  name: "без перчаток"
+  armor: 0
+  accuracy: 0
+
+leather_gloves:
+  name: "Кожаные перчатки"
+  armor: 0
+  accuracy: 10
+
+quilted_gloves:
+  name: "Стеганые перчатки"
+  armor: 1
+  accuracy: 7
+
+rusty_mail_gloves:
+  name: "Ржавые кольчужные перчатки"
+  armor: 2
+  accuracy: -5
