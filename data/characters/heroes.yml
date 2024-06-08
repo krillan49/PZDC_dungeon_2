@@ -8,6 +8,14 @@ drunk:
   armor: 0
   skill_points: 0
   weapon: "без оружия"
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shields:
+    - without
 
 watchman:
   name: Сторож
@@ -19,6 +27,14 @@ watchman:
   armor: 0
   skill_points: 0
   weapon: "Дубинка"
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shields:
+    - without
 
 thief:
   name: Карманник
@@ -30,6 +46,14 @@ thief:
   armor: 0
   skill_points: 0
   weapon: "Ножик"
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shields:
+    - without
 
 worker:
   name: Рабочий
@@ -41,6 +65,14 @@ worker:
   armor: 0
   skill_points: 0
   weapon: "Ржавый топорик"
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shields:
+    - without
 
 student:
   name: Студент
@@ -52,6 +84,14 @@ student:
   armor: 0
   skill_points: 5
   weapon: "без оружия"
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shields:
+    - without
 
 
 

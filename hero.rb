@@ -4,6 +4,7 @@ require_relative 'weapons'
 class Hero
   attr_accessor :name_pl
   attr_reader :background
+
   attr_accessor :hp_max_pl, :hp_pl, :regen_hp_base_pl, :regen_hp_pl, :recovery_hp_pl
   attr_accessor :mp_max_pl, :mp_pl, :regen_mp_base_pl, :regen_mp_pl, :recovery_mp_pl
   attr_accessor :mindam_base_pl, :mindam_pl, :maxdam_base_pl, :maxdam_pl
@@ -13,7 +14,8 @@ class Hero
   attr_accessor :exp_pl, :lvl_pl
   attr_reader :exp_lvl
   attr_accessor :stat_points, :skill_points
-  attr_accessor :weapon
+
+  attr_accessor :weapon, :body_armor, :head_armor, :arms_armor, :shield
 
   def initialize(background)
     hero = YAML.safe_load_file('data/characters/heroes.yml', symbolize_names: true)[background.to_sym]
@@ -45,6 +47,10 @@ class Hero
     @skill_points = hero[:skill_points]
 
     @weapon = Weapon.new(hero[:weapon])
+    @body_armor = BodyArmor.new(hero[:body_armor].sample)
+    @head_armor = HeadArmor.new(hero[:head_armor].sample)
+    @arms_armor = ArmsArmor.new(hero[:arms_armor].sample)
+    @shield = Shield.new(hero[:shields].sample)
   end
 
   def rest # отдых между боями(Восстановления жизней и маны)
@@ -62,6 +68,7 @@ end
 
 # ["drunk", "watchman", "thief", "worker", "student"].each do |background|
 #   p Hero.new(background)
+#   p '================================'
 # end
 
 
