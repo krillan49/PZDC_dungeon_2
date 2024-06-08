@@ -646,22 +646,9 @@ while true
   #-------------------------------------------------------------------------------------------------------------
   puts
   # Получение опыта и очков -------------------------------------------------------------------------------------
-  @hero.exp_pl += @enemy.exp_gived
-  puts "Вы получили #{@enemy.exp_gived} опыта. Теперь у вас #{@hero.exp_pl} опыта"
-  for i in 0...@hero.exp_lvl.size
-    if @hero.exp_pl >= @hero.exp_lvl[i] and @hero.lvl_pl < i
-      new_points = i - @hero.lvl_pl
-      @hero.stat_points += new_points
-      skill_new_points = i - @hero.lvl_pl
-      @hero.skill_points += skill_new_points
-      @hero.lvl_pl += (i - @hero.lvl_pl)
-      puts "Вы получили новый уровень, теперь ваш уровень #{@hero.lvl_pl}й"
-      puts "Вы получили #{new_points} очков характеристик и #{skill_new_points} очков навыков"
-      puts "У вас теперь #{@hero.stat_points} очков характеристик и #{@hero.skill_points} очков навыков"
-    end
-  end
-
+  @hero.add_exp_and_hero_level_up(@enemy.exp_gived)
   #-----------------------------------------------------------------------------------------------------------------
+  
   puts '-------------------------------------------------------------------------------------------------'
   leveling += 1
 end

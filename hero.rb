@@ -63,6 +63,22 @@ class Hero
       puts "Передохнув вы восстанавливаете #{@recovery_mp_pl.round} выносливости, теперь у вас #{@mp_pl.round}/#{@mp_max_pl} выносливости"
     end
   end
+
+  def add_exp_and_hero_level_up(added_exp) # получения нового опыта, уровня, очков характеристик и наыко
+    @exp_pl += added_exp
+    puts "Вы получили #{added_exp} опыта. Теперь у вас #{@exp_pl} опыта"
+    @exp_lvl.each.with_index do |exp_val, i|
+      if @exp_pl >= exp_val && @lvl_pl < i
+        new_levels = i - @lvl_pl
+        @stat_points += new_levels
+        @skill_points += new_levels
+        @lvl_pl += new_levels
+        puts "Вы получили новый уровень, теперь ваш уровень #{@lvl_pl}й"
+        puts "Вы получили #{new_levels} очков характеристик и #{new_levels} очков навыков"
+        puts "У вас теперь #{@stat_points} очков характеристик и #{@skill_points} очков навыков"
+      end
+    end
+  end
 end
 
 
