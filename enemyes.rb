@@ -13,8 +13,8 @@ class Enemy
   attr_accessor :weapon
 
   def initialize(name)
-    enemy = YAML.safe_load_file('enemyes.yml', symbolize_names: true)[name.to_sym]
-    
+    enemy = YAML.safe_load_file('data/characters/enemyes.yml', symbolize_names: true)[name.to_sym]
+
     @name          = enemy[:name]
     @hp            = enemy[:hp]
     @min_dmg_base  = enemy[:min_dmg]

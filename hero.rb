@@ -16,7 +16,7 @@ class Hero
   attr_accessor :weapon
 
   def initialize(background)
-    hero = YAML.safe_load_file('heroes.yml', symbolize_names: true)[background.to_sym]
+    hero = YAML.safe_load_file('data/characters/heroes.yml', symbolize_names: true)[background.to_sym]
 
     @background = hero[:name]
 
