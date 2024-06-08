@@ -27,9 +27,9 @@ def character_panel
   puts "HP #{@hero.hp_pl.round}/#{@hero.hp_max_pl} Реген #{@hero.regen_hp_base_pl} Восстановление #{@hero.recovery_hp_pl.round}"
   puts "MP #{@hero.mp_pl.round}/#{@hero.mp_max_pl} Реген #{@hero.regen_mp_base_pl} Восстановление #{@hero.recovery_mp_pl.round}"
   puts "Урон #{@hero.mindam_pl}-#{@hero.maxdam_pl} (базовый #{@hero.mindam_base_pl}-#{@hero.maxdam_base_pl} + #{@hero.weapon.name} #{@hero.weapon.min_dmg}-#{@hero.weapon.max_dmg})"
-  puts "Точность #{@hero.accuracy_pl} (базовая #{@hero.accuracy_base_pl} + #{@gloves} #{@accuracy_gloves})"
-  puts "Броня #{@hero.armor_pl} (базовая #{@hero.armor_base_pl} + #{@torso} #{@armor_torso} + #{@helmet} #{@armor_helmet} + #{@gloves} #{@armor_gloves} + #{@shield} #{@armor_shield})"
-  puts "Шанс блока #{0 if @shield == "без щита"}#{@hero.block_pl if @shield != "без щита" and @name_passive_pl != "Мастер щита"}#{@hero.block_pl + @coeff_passive_pl if @shield != "без щита" and @name_passive_pl == "Мастер щита"} (#{@shield} #{@block_shield}) блокируемый урон #{100 - (100 / (1 + @hero.hp_pl.to_f / 200)).to_i}%"
+  puts "Точность #{@hero.accuracy_pl} (базовая #{@hero.accuracy_base_pl} + #{@hero.arms_armor.name} #{@hero.arms_armor.accuracy})"
+  puts "Броня #{@hero.armor_pl} (базовая #{@hero.armor_base_pl} + #{@hero.body_armor.name} #{@hero.body_armor.armor} + #{@hero.head_armor.name} #{@hero.head_armor.armor} + #{@hero.arms_armor.name} #{@hero.arms_armor.armor} + #{@hero.shield.name} #{@hero.shield.armor})"
+  puts "Шанс блока #{0 if @hero.shield.name == "без щита"}#{@hero.block_pl if @hero.shield.name != "без щита" and @name_passive_pl != "Мастер щита"}#{@hero.block_pl + @coeff_passive_pl if @hero.shield.name != "без щита" and @name_passive_pl == "Мастер щита"} (#{@hero.shield.name} #{@hero.shield.block_chance}) блокируемый урон #{100 - (100 / (1 + @hero.hp_pl.to_f / 200)).to_i}%"
   puts '--------------------------------------------------------------------------------------------'
   puts '--------------------------------------------------------------------------------------------'
 end
@@ -61,13 +61,6 @@ end
 # Выбор имени .................................................................................................
 print 'Введите имя персонажа: '
 @hero.name_pl = gets.strip
-
-
-@torso = "без нагрудника"
-@helmet = "без шлема"
-@gloves = "без перчаток"
-@shield = "без щита"
-choose_story_pl = ""
 
 # Выбор стартовых навыков .......................................................................................
 puts 'Выберите стартовый активный навык '
@@ -139,31 +132,11 @@ end
 #--------------------------------------------------------------------------------------------------------------------
 
 # Стартовая броня, точность и доп эффекты(регенерация) -------------------------------------------------------
-if @torso == "без нагрудника"
-  @armor_torso = 0
-end
-
-if @helmet == "без шлема"
-  @armor_helmet = 0
-end
-
-if @gloves == "без перчаток"
-  @armor_gloves = 0
-  @accuracy_gloves = 0
-end
-
-if @shield == "без щита"
-  @armor_shield = 0
-  @block_shield = 0
-end
-
-@hero.armor_pl = @hero.armor_base_pl + @armor_torso + @armor_helmet + @armor_gloves + @armor_shield
-@hero.accuracy_pl = @hero.accuracy_base_pl + @accuracy_gloves
-@hero.block_pl = @block_shield
+@hero.armor_pl = @hero.armor_base_pl + @hero.body_armor.armor + @hero.head_armor.armor + @hero.arms_armor.armor + @hero.shield.armor
+@hero.accuracy_pl = @hero.accuracy_base_pl + @hero.arms_armor.accuracy
+@hero.block_pl = @hero.shield.block_chance
 @hero.regen_hp_pl = @hero.regen_hp_base_pl
 @hero.regen_mp_pl = @hero.regen_mp_base_pl
-#--------------------------------------------------------------------------------------------------------------------
-
 # Стартовый урон ----------------------------------------------------------------------------------
 @hero.mindam_pl = @hero.mindam_base_pl + @hero.weapon.min_dmg
 @hero.maxdam_pl = @hero.maxdam_base_pl + @hero.weapon.max_dmg
@@ -208,7 +181,7 @@ while true
         end
       when 'A'
         @hero.accuracy_base_pl += 1
-        @hero.accuracy_pl = @hero.accuracy_base_pl + @accuracy_gloves
+        @hero.accuracy_pl = @hero.accuracy_base_pl + @hero.arms_armor.accuracy
       else
         puts 'Вы ввели неверный символ, попробуйте еще раз'
         @hero.stat_points += 1
@@ -300,18 +273,6 @@ while true
 
   # Назначение противника ---------------------------------------------------------------------------------
 
-  # Значения характеристик экипировки по умолчанию(ели не прописаны впоследствии)
-  torso_en = "без нагрудника"
-  armor_torso_en = 0
-  helmet_en = "без шлема"
-  armor_helmet_en = 0
-  gloves_en = "без перчаток"
-  armor_gloves_en = 0
-  accurasy_gloves_en = 0
-  shield_en = "без щита"
-  armor_shield_en = 0
-  block_shield_en = 0
-
   # Проверка шанса уникальных противников
   enemy_event_rand = rand(1..100)
   if enemy_event_rand > (99 - leveling) and zombie_knight != 1
@@ -322,14 +283,6 @@ while true
       zombie_knight = 1
       puts 'Это рыцарь-зомби, приготовься к сложному бою'
       @enemy = Enemy.new("Рыцарь-зомби")
-
-      torso_en = "Ветхая кираса"
-      armor_torso_en = 3
-      helmet_en = "Ветхий топфхельм"
-      armor_helmet_en = 3
-      gloves_en = "Ржавые кольчужные перчатки"
-      armor_gloves_en = 2
-      accurasy_gloves_en = -5
     else
       puts 'Правильный выбор, выглядело опасно'
       puts '-' * 40
@@ -340,108 +293,33 @@ while true
   end
 
   # Выбор стандартного противника
-  if zombie_knight != 1
-    if enemy_rand > 0 and enemy_rand <= 5
-      @enemy = Enemy.new("Оборванец")
-    elsif enemy_rand > 5 and enemy_rand <= 10
-      @enemy = Enemy.new("Бешеный пес")
-    elsif enemy_rand > 10 and enemy_rand <= 15
-      @enemy = Enemy.new("Гоблин")
-
-      rand_gloves_en = rand(0..1)
-      if rand_gloves_en == 1
-        gloves_en = "Кожаные перчатки"
-        armor_gloves_en = 0
-        accurasy_gloves_en = 10
-      end
-      rand_shield_en = rand(0..1)
-      if rand_shield_en == 1
-        shield_en = "Плетеный баклер"
-        armor_shield_en = 0
-        block_shield_en = 30
-      end
-    elsif enemy_rand > 15 and enemy_rand <= 20
-      @enemy = Enemy.new("Бандит")
-
-      rand_torso_en = rand(0..1)
-      if rand_torso_en == 1
-        torso_en = "Кожанка"
-        armor_torso_en = 1
-      end
-      rand_helmet_en = rand(0..1)
-      if rand_helmet_en == 1
-        helmet_en = "Кожаный шлем"
-        armor_helmet_en = 1
-      end
-      rand_gloves_en = rand(0..1)
-      if rand_gloves_en == 1
-        gloves_en = "Кожаные перчатки"
-        armor_gloves_en = 0
-        accurasy_gloves_en = 10
-      end
-      rand_shield_en = rand(0..1)
-      if rand_shield_en == 1
-        shield_en = "Деревянный баклер"
-        armor_shield_en = 1
-        block_shield_en = 25
-      end
-    elsif enemy_rand > 20 and enemy_rand <= 25
-      @enemy = Enemy.new("Дезертир")
-
-      rand_torso_en = rand(0..2)
-      if rand_torso_en == 1
-        torso_en = "Кожанка"
-        armor_torso_en = 1
-      elsif rand_torso_en == 2
-        torso_en = "Стеганка"
-        armor_torso_en = 2
-      end
-      rand_helmet_en = rand(0..2)
-      if rand_helmet_en == 1
-        helmet_en = "Кожаный шлем"
-        armor_helmet_en = 1
-      elsif rand_helmet_en == 2
-        helmet_en = "Стеганый шлем"
-        armor_helmet_en = 2
-      end
-      rand_gloves_en = rand(0..2)
-      if rand_gloves_en == 1
-        gloves_en = "Кожаные перчатки"
-        armor_gloves_en = 0
-        accurasy_gloves_en = 10
-      elsif rand_gloves_en == 2
-        gloves_en = "Стеганые перчатки"
-        armor_gloves_en = 1
-        accurasy_gloves_en = 7
-      end
-      rand_shield_en = rand(0..2)
-      if rand_shield_en == 1
-        shield_en = "Деревянный баклер"
-        armor_shield_en = 1
-        block_shield_en = 25
-      elsif rand_shield_en == 2
-        shield_en = "Деревянный щит"
-        armor_shield_en = 2
-        block_shield_en = 15
-      end
-    elsif enemy_rand > 25 #and enemy_rand <= 30
-      @enemy = Enemy.new("Орк")
-    end
+  if enemy_rand > 0 and enemy_rand <= 5
+    @enemy = Enemy.new("Оборванец")
+  elsif enemy_rand > 5 and enemy_rand <= 10
+    @enemy = Enemy.new("Бешеный пес")
+  elsif enemy_rand > 10 and enemy_rand <= 15
+    @enemy = Enemy.new("Гоблин")
+  elsif enemy_rand > 15 and enemy_rand <= 20
+    @enemy = Enemy.new("Бандит")
+  elsif enemy_rand > 20 and enemy_rand <= 25
+    @enemy = Enemy.new("Дезертир")
+  elsif enemy_rand > 25 #and enemy_rand <= 30
+    @enemy = Enemy.new("Орк")
   end
 
   mindam_en = @enemy.min_dmg_base + @enemy.weapon.min_dmg
   maxdam_en = @enemy.max_dmg_base + @enemy.weapon.max_dmg
-  armor_en = @enemy.armor_base + armor_torso_en + armor_helmet_en + armor_gloves_en + armor_shield_en
-  accurasy_en = @enemy.accuracy_base + accurasy_gloves_en
-  block_en = block_shield_en
+  armor_en = @enemy.armor_base + @enemy.body_armor.armor + @enemy.head_armor.armor + @enemy.arms_armor.armor + @enemy.shield.armor
+  accurasy_en = @enemy.accuracy_base + @enemy.arms_armor.accuracy
+  block_en = @enemy.shield.block_chance
   #--------------------------------------------------------------------------------------------------------------------
 
   puts "В бой! Ваш противник #{@enemy.name}"
   puts "HP #{@enemy.hp}"
   puts "Damage #{mindam_en}-#{maxdam_en} = #{@enemy.min_dmg_base}-#{@enemy.max_dmg_base} + #{@enemy.weapon.min_dmg}-#{@enemy.weapon.max_dmg}(#{@enemy.weapon.name})"
-  puts "Armor #{armor_en} = #{@enemy.armor_base} + #{armor_torso_en}(#{torso_en}) + #{armor_helmet_en}(#{helmet_en}) + #{armor_gloves_en}(#{gloves_en}) + #{armor_shield_en}(#{shield_en})"
-  puts "Accurasy #{accurasy_en} = #{@enemy.accuracy_base} + #{accurasy_gloves_en}(#{gloves_en})"
-  puts "Block #{block_en} = #{block_shield_en}(#{shield_en})"
+  puts "Armor #{armor_en} = #{@enemy.armor_base} + #{@enemy.body_armor.armor}(#{@enemy.body_armor.name}) + #{@enemy.head_armor.armor}(#{@enemy.head_armor.name}) + #{@enemy.arms_armor.armor}(#{@enemy.arms_armor.name}) + #{@enemy.shield.armor}(#{@enemy.shield.name})"
+  puts "Accurasy #{accurasy_en} = #{@enemy.accuracy_base} + #{@enemy.arms_armor.accuracy}(#{@enemy.arms_armor.name})"
+  puts "Block #{block_en} = #{@enemy.shield.block_chance}(#{@enemy.shield.name})"
 
   # Ход боя ===============================================================================================
   run = false
@@ -507,8 +385,8 @@ while true
     puts '-----------------------------------------------------------------------------------------'
 
     # Расчет блока щитом --------------------------------------------------------------------------------------------
-    if @name_passive_pl == "Мастер щита" and @shield != "без щита"
-      @hero.block_pl = @block_shield + @coeff_passive_pl
+    if @name_passive_pl == "Мастер щита" and @hero.shield.name != "без щита"
+      @hero.block_pl = @hero.shield.block_chance + @coeff_passive_pl
     end
 
     chanse_block_pl = rand(1..100)
@@ -653,7 +531,6 @@ while true
     end
 
     if @name_noncombat_pl == "Кладоискатель"
-      #stash_magic = rand(1..200) + coeff_noncombat_pl
       stash_magic0 = rand(1..200)
       stash_magic = stash_magic0 + coeff_noncombat_pl
     else
@@ -719,48 +596,42 @@ while true
     end
 
     torso_loot = rand(0..1)
-    if torso_loot == 1 and torso_en != "без нагрудника"
-      puts "Обыскав труп #{@enemy.name} ты нашел #{torso_en}"
-      print "Поменяем #{@torso}(#{@armor_torso}) на #{torso_en}(#{armor_torso_en}) Y/N? "
+    if torso_loot == 1 and @enemy.body_armor.name != "без нагрудника"
+      puts "Обыскав труп #{@enemy.name} ты нашел #{@enemy.body_armor.name}"
+      print "Поменяем #{@hero.body_armor.name}(#{@hero.body_armor.armor}) на #{@enemy.body_armor.name}(#{@enemy.body_armor.armor}) Y/N? "
       torso_loot_choice = gets.strip.upcase
       if torso_loot_choice == 'Y'
-        @torso = torso_en
-        @armor_torso = armor_torso_en
+        @hero.body_armor = @enemy.body_armor
       end
     end
 
     helmet_loot = rand(0..1)
-    if helmet_loot == 1 and helmet_en != "без шлема"
-      puts "Обыскав труп #{@enemy.name} ты нашел #{helmet_en}"
-      print "Поменяем #{@helmet}(#{@armor_helmet}) на #{helmet_en}(#{armor_helmet_en}) Y/N? "
+    if helmet_loot == 1 and @enemy.head_armor.name != "без шлема"
+      puts "Обыскав труп #{@enemy.name} ты нашел #{@enemy.head_armor.name}"
+      print "Поменяем #{@hero.head_armor.name}(#{@hero.head_armor.armor}) на #{@enemy.head_armor.name}(#{@enemy.head_armor.armor}) Y/N? "
       helmet_loot_choice = gets.strip.upcase
       if helmet_loot_choice == 'Y'
-        @helmet = helmet_en
-        @armor_helmet = armor_helmet_en
+        @hero.head_armor = @enemy.head_armor
       end
     end
 
     gloves_loot = rand(0..1)
-    if gloves_loot == 1 and gloves_en != "без перчаток"
-      puts "Обыскав труп #{@enemy.name} ты нашел #{gloves_en}"
-      print "Поменяем #{@gloves}(бр-#{@armor_gloves} точ-#{@accuracy_gloves}) на #{gloves_en}(бр-#{armor_gloves_en} точ-#{accurasy_gloves_en}) Y/N? "
+    if gloves_loot == 1 and @enemy.arms_armor.name != "без перчаток"
+      puts "Обыскав труп #{@enemy.name} ты нашел #{@enemy.arms_armor.name}"
+      print "Поменяем #{@hero.arms_armor.name}(бр-#{@hero.arms_armor.armor} точ-#{@hero.arms_armor.accuracy}) на #{@enemy.arms_armor.name}(бр-#{@enemy.arms_armor.armor} точ-#{@enemy.arms_armor.accuracy}) Y/N? "
       gloves_loot_choice = gets.strip.upcase
       if gloves_loot_choice == 'Y'
-        @gloves = gloves_en
-        @armor_gloves = armor_gloves_en
-        @accuracy_gloves = accurasy_gloves_en
+        @hero.arms_armor = @enemy.arms_armor
       end
     end
 
     shield_loot = rand(0..1)
-    if shield_loot == 1 and shield_en != "без щита"
-      puts "Обыскав труп #{@enemy.name} ты нашел #{shield_en}"
-      print "Поменяем #{@shield}(бр-#{@armor_shield} блок-#{@block_shield}) на #{shield_en}(бр-#{armor_shield_en} блок-#{block_shield_en}) Y/N? "
+    if shield_loot == 1 and @enemy.shield.name != "без щита"
+      puts "Обыскав труп #{@enemy.name} ты нашел #{@enemy.shield.name}"
+      print "Поменяем #{@hero.shield.name}(бр-#{@hero.shield.armor} блок-#{@hero.shield.block_chance}) на #{@enemy.shield.name}(бр-#{@enemy.shield.armor} блок-#{@enemy.shield.block_chance}) Y/N? "
       shield_loot_choice = gets.strip.upcase
       if shield_loot_choice == 'Y'
-        @shield = shield_en
-        @armor_shield = armor_shield_en
-        @block_shield = block_shield_en
+        @hero.shield = @enemy.shield
       end
     end
 
@@ -768,9 +639,9 @@ while true
     @hero.regen_mp_pl = @hero.regen_mp_base_pl
     @hero.recovery_hp_pl = @hero.hp_max_pl * 0.1
     @hero.recovery_mp_pl = @hero.mp_max_pl * 0.1
-    @hero.armor_pl = @hero.armor_base_pl + @armor_torso + @armor_helmet + @armor_gloves + @armor_shield
-    @hero.accuracy_pl = @hero.accuracy_base_pl + @accuracy_gloves
-    @hero.block_pl = @block_shield
+    @hero.armor_pl = @hero.armor_base_pl + @hero.body_armor.armor + @hero.head_armor.armor + @hero.arms_armor.armor + @hero.shield.armor
+    @hero.accuracy_pl = @hero.accuracy_base_pl + @hero.arms_armor.accuracy
+    @hero.block_pl = @hero.shield.block_chance
   end
   #-------------------------------------------------------------------------------------------------------------
   puts
