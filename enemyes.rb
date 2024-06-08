@@ -10,7 +10,8 @@ class Enemy
   attr_accessor :armor_base, :armor
   attr_accessor :block_chance
   attr_reader :exp_gived
-  attr_accessor :weapon
+
+  attr_accessor :weapon, :body_armor, :head_armor, :arms_armor, :shield
 
   def initialize(name)
     enemy = YAML.safe_load_file('data/characters/enemyes.yml', symbolize_names: true)[name.to_sym]
@@ -24,11 +25,16 @@ class Enemy
     @exp_gived     = enemy[:exp_gived]
 
     @weapon = Weapon.new(enemy[:weapons].sample)
+    @body_armor = BodyArmor.new(enemy[:body_armor].sample)
+    @head_armor = HeadArmor.new(enemy[:head_armor].sample)
+    @arms_armor = ArmsArmor.new(enemy[:arms_armor].sample)
+    @shield = Shield.new(enemy[:shields].sample)
   end
 end
 
 # ["Оборванец", "Бешеный пес", "Гоблин", "Бандит", "Дезертир", "Орк", "Рыцарь-зомби"].each do |name|
 #   p Enemy.new(name)
+#   p '==================='
 # end
 
 
