@@ -7,9 +7,9 @@ class Hero
 
   attr_accessor :hp_max_pl, :hp_pl, :regen_hp_base_pl
   attr_accessor :mp_max_pl, :mp_pl, :regen_mp_base_pl
-  attr_accessor :mindam_base_pl, :mindam_pl, :maxdam_base_pl, :maxdam_pl
-  attr_accessor :accuracy_base_pl, :accuracy_pl
-  attr_accessor :armor_base_pl, :armor_pl
+  attr_accessor :mindam_base_pl, :maxdam_base_pl
+  attr_accessor :accuracy_base_pl
+  attr_accessor :armor_base_pl
   attr_accessor :block_pl
   attr_accessor :exp_pl, :lvl_pl
   attr_reader :exp_lvl
@@ -53,6 +53,14 @@ class Hero
 
   # Геттеры - Методы зависимых характеристик:
 
+  def mindam_pl
+    @mindam_base_pl + @weapon.min_dmg
+  end
+
+  def maxdam_pl
+    @maxdam_base_pl + @weapon.max_dmg
+  end
+
   def recovery_hp
     @hp_max_pl * 0.1
   end
@@ -67,6 +75,14 @@ class Hero
 
   def regen_mp
     @regen_mp_base_pl
+  end
+
+  def armor_pl
+    @armor_base_pl + @body_armor.armor + @head_armor.armor + @arms_armor.armor + @shield.armor
+  end
+
+  def accuracy_pl
+    @accuracy_base_pl + @arms_armor.accuracy
   end
 
 

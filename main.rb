@@ -131,14 +131,8 @@ when 'T'
 end
 #--------------------------------------------------------------------------------------------------------------------
 
-# Стартовая броня, точность и доп эффекты(регенерация) -------------------------------------------------------
-@hero.armor_pl = @hero.armor_base_pl + @hero.body_armor.armor + @hero.head_armor.armor + @hero.arms_armor.armor + @hero.shield.armor
-@hero.accuracy_pl = @hero.accuracy_base_pl + @hero.arms_armor.accuracy
+# Стартовый шанс блока
 @hero.block_pl = @hero.shield.block_chance
-# Стартовый урон ----------------------------------------------------------------------------------
-@hero.mindam_pl = @hero.mindam_base_pl + @hero.weapon.min_dmg
-@hero.maxdam_pl = @hero.maxdam_base_pl + @hero.weapon.max_dmg
-#-------------------------------------------------------------------------------------------------------------------
 
 zombie_knight = 0
 
@@ -170,14 +164,11 @@ while true
         min_or_max = rand(0..1)
         if min_or_max == 0 and @hero.mindam_base_pl < @hero.maxdam_base_pl
           @hero.mindam_base_pl += 1
-          @hero.mindam_pl = @hero.mindam_base_pl + @hero.weapon.min_dmg
         else
           @hero.maxdam_base_pl += 1
-          @hero.maxdam_pl = @hero.maxdam_base_pl + @hero.weapon.max_dmg
         end
       when 'A'
         @hero.accuracy_base_pl += 1
-        @hero.accuracy_pl = @hero.accuracy_base_pl + @hero.arms_armor.accuracy
       else
         puts 'Вы ввели неверный символ, попробуйте еще раз'
         @hero.stat_points += 1
@@ -572,8 +563,6 @@ while true
       weapon_loot_choice = gets.strip.upcase
       if weapon_loot_choice == 'Y'
         @hero.weapon = @enemy.weapon
-        @hero.mindam_pl = @hero.mindam_base_pl + @hero.weapon.min_dmg
-        @hero.maxdam_pl = @hero.maxdam_base_pl + @hero.weapon.max_dmg
       end
     end
 
@@ -617,8 +606,6 @@ while true
       end
     end
 
-    @hero.armor_pl = @hero.armor_base_pl + @hero.body_armor.armor + @hero.head_armor.armor + @hero.arms_armor.armor + @hero.shield.armor
-    @hero.accuracy_pl = @hero.accuracy_base_pl + @hero.arms_armor.accuracy
     @hero.block_pl = @hero.shield.block_chance
   end
   #-------------------------------------------------------------------------------------------------------------
