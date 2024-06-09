@@ -24,8 +24,8 @@ def character_panel
   puts "[пас] #{@name_passive_pl} #{@lor_passive_pl}"
   puts "[неб] #{@name_noncombat_pl} #{@lor_noncombat_pl}"
   puts "С Т А Т Ы:"
-  puts "HP #{@hero.hp_pl.round}/#{@hero.hp_max_pl} Реген #{@hero.regen_hp_base_pl} Восстановление #{@hero.recovery_hp_pl.round}"
-  puts "MP #{@hero.mp_pl.round}/#{@hero.mp_max_pl} Реген #{@hero.regen_mp_base_pl} Восстановление #{@hero.recovery_mp_pl.round}"
+  puts "HP #{@hero.hp_pl.round}/#{@hero.hp_max_pl} Реген #{@hero.regen_hp_base_pl} Восстановление #{@hero.recovery_hp.round}"
+  puts "MP #{@hero.mp_pl.round}/#{@hero.mp_max_pl} Реген #{@hero.regen_mp_base_pl} Восстановление #{@hero.recovery_mp.round}"
   puts "Урон #{@hero.mindam_pl}-#{@hero.maxdam_pl} (базовый #{@hero.mindam_base_pl}-#{@hero.maxdam_base_pl} + #{@hero.weapon.name} #{@hero.weapon.min_dmg}-#{@hero.weapon.max_dmg})"
   puts "Точность #{@hero.accuracy_pl} (базовая #{@hero.accuracy_base_pl} + #{@hero.arms_armor.name} #{@hero.arms_armor.accuracy})"
   puts "Броня #{@hero.armor_pl} (базовая #{@hero.armor_base_pl} + #{@hero.body_armor.name} #{@hero.body_armor.armor} + #{@hero.head_armor.name} #{@hero.head_armor.armor} + #{@hero.arms_armor.name} #{@hero.arms_armor.armor} + #{@hero.shield.name} #{@hero.shield.armor})"
@@ -135,8 +135,6 @@ end
 @hero.armor_pl = @hero.armor_base_pl + @hero.body_armor.armor + @hero.head_armor.armor + @hero.arms_armor.armor + @hero.shield.armor
 @hero.accuracy_pl = @hero.accuracy_base_pl + @hero.arms_armor.accuracy
 @hero.block_pl = @hero.shield.block_chance
-@hero.regen_hp_pl = @hero.regen_hp_base_pl
-@hero.regen_mp_pl = @hero.regen_mp_base_pl
 # Стартовый урон ----------------------------------------------------------------------------------
 @hero.mindam_pl = @hero.mindam_base_pl + @hero.weapon.min_dmg
 @hero.maxdam_pl = @hero.maxdam_base_pl + @hero.weapon.max_dmg
@@ -165,11 +163,9 @@ while true
       when 'H'
         @hero.hp_max_pl += 5
         @hero.hp_pl += 5
-        @hero.recovery_hp_pl = @hero.hp_max_pl * 0.1
       when 'M'
         @hero.mp_max_pl += 5
         @hero.mp_pl += 5
-        @hero.recovery_mp_pl = @hero.mp_max_pl * 0.1
       when 'X'
         min_or_max = rand(0..1)
         if min_or_max == 0 and @hero.mindam_base_pl < @hero.maxdam_base_pl
@@ -449,21 +445,7 @@ while true
     #------------------------------------------------------------------------------------------------------------------
 
     # Доп эффекты(регенерация)------------------------------------------------------------------------------
-    if (@hero.hp_max_pl - @hero.hp_pl) >= @hero.regen_hp_pl and @hero.regen_hp_pl > 0
-      @hero.hp_pl += @hero.regen_hp_pl
-      puts "Вы регенерируете #{@hero.regen_hp_pl} жизней, теперь у вас #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней"
-    elsif (@hero.hp_max_pl - @hero.hp_pl) < @hero.regen_hp_pl and @hero.hp_pl < @hero.hp_max_pl and @hero.regen_hp_pl > 0
-      @hero.hp_pl = @hero.hp_max_pl
-      puts "Вы регенерируете #{@hero.regen_hp_pl} жизней, теперь у вас #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней"
-    end
-
-    if (@hero.mp_max_pl - @hero.mp_pl) >= @hero.regen_mp_pl and @hero.regen_mp_pl > 0
-      @hero.mp_pl += @hero.regen_mp_pl
-      puts "Вы регенерируете #{@hero.regen_mp_pl} выносливости, теперь у вас #{@hero.mp_pl.round}/#{@hero.mp_max_pl} выносливости"
-    elsif (@hero.mp_max_pl - @hero.mp_pl) < @hero.regen_mp_pl and @hero.mp_pl < @hero.mp_max_pl and @hero.regen_mp_pl > 0
-      @hero.mp_pl = @hero.mp_max_pl
-      puts "Вы регенерируете #{@hero.regen_mp_pl} выносливости, теперь у вас #{@hero.mp_pl.round}/#{@hero.mp_max_pl} выносливости"
-    end
+    @hero.regeneration_hp_mp
     #---------------------------------------------------------------------------------------------------------------
 
     # Результат обмена ударами --------------------------------------------------------------------------------
@@ -635,10 +617,6 @@ while true
       end
     end
 
-    @hero.regen_hp_pl = @hero.regen_hp_base_pl
-    @hero.regen_mp_pl = @hero.regen_mp_base_pl
-    @hero.recovery_hp_pl = @hero.hp_max_pl * 0.1
-    @hero.recovery_mp_pl = @hero.mp_max_pl * 0.1
     @hero.armor_pl = @hero.armor_base_pl + @hero.body_armor.armor + @hero.head_armor.armor + @hero.arms_armor.armor + @hero.shield.armor
     @hero.accuracy_pl = @hero.accuracy_base_pl + @hero.arms_armor.accuracy
     @hero.block_pl = @hero.shield.block_chance

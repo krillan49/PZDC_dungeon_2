@@ -5,8 +5,8 @@ class Hero
   attr_accessor :name_pl
   attr_reader :background
 
-  attr_accessor :hp_max_pl, :hp_pl, :regen_hp_base_pl, :regen_hp_pl, :recovery_hp_pl
-  attr_accessor :mp_max_pl, :mp_pl, :regen_mp_base_pl, :regen_mp_pl, :recovery_mp_pl
+  attr_accessor :hp_max_pl, :hp_pl, :regen_hp_base_pl
+  attr_accessor :mp_max_pl, :mp_pl, :regen_mp_base_pl
   attr_accessor :mindam_base_pl, :mindam_pl, :maxdam_base_pl, :maxdam_pl
   attr_accessor :accuracy_base_pl, :accuracy_pl
   attr_accessor :armor_base_pl, :armor_pl
@@ -25,12 +25,10 @@ class Hero
     @hp_pl = hero[:hp]
     @hp_max_pl = hero[:hp]
     @regen_hp_base_pl = 0
-    @recovery_hp_pl = @hp_max_pl * 0.1
 
     @mp_pl = hero[:mp]
     @mp_max_pl = hero[:mp]
     @regen_mp_base_pl = 0
-    @recovery_mp_pl = @mp_max_pl * 0.1
 
     @mindam_base_pl = hero[:min_dmg]
     @maxdam_base_pl = hero[:max_dmg]
@@ -53,18 +51,50 @@ class Hero
     @shield = Shield.new(hero[:shields].sample)
   end
 
+  # Геттеры - Методы зависимых характеристик:
+
+  def recovery_hp
+    @hp_max_pl * 0.1
+  end
+
+  def recovery_mp
+    @mp_max_pl * 0.1
+  end
+
+  def regen_hp
+    @regen_hp_base_pl
+  end
+
+  def regen_mp
+    @regen_mp_base_pl
+  end
+
+
+  # Методы действий
+
   def rest # отдых между боями(Восстановления жизней и маны)
     if @hp_pl < @hp_max_pl
-      @hp_pl += [@recovery_hp_pl, @hp_max_pl - @hp_pl].min
-      puts "Передохнув вы восстанавливаете #{@recovery_hp_pl.round} жизней, теперь у вас #{@hp_pl.round}/#{@hp_max_pl} жизней"
+      @hp_pl += [recovery_hp(), @hp_max_pl - @hp_pl].min
+      puts "Передохнув вы восстанавливаете #{recovery_hp().round} жизней, теперь у вас #{@hp_pl.round}/#{@hp_max_pl} жизней"
     end
     if @mp_pl < @mp_max_pl
-      @mp_pl += [@recovery_mp_pl, @mp_max_pl - @mp_pl].min
-      puts "Передохнув вы восстанавливаете #{@recovery_mp_pl.round} выносливости, теперь у вас #{@mp_pl.round}/#{@mp_max_pl} выносливости"
+      @mp_pl += [recovery_mp(), @mp_max_pl - @mp_pl].min
+      puts "Передохнув вы восстанавливаете #{recovery_mp().round} выносливости, теперь у вас #{@mp_pl.round}/#{@mp_max_pl} выносливости"
     end
   end
 
-  def add_exp_and_hero_level_up(added_exp) # получения нового опыта, уровня, очков характеристик и наыко
+  def regeneration_hp_mp # регенерация в бою
+    if regen_hp() > 0 && @hp_max_pl > @hp_pl
+      @hp_pl += [regen_hp(), @hp_max_pl - @hp_pl].min
+      puts "Вы регенерируете #{regen_hp()} жизней, теперь у вас #{@hp_pl.round}/#{@hp_max_pl} жизней"
+    end
+    if regen_mp() > 0 && @mp_max_pl > @mp_pl
+      @mp_pl += [regen_mp(), @mp_max_pl - @mp_pl].min
+      puts "Вы регенерируете #{regen_mp()} выносливости, теперь у вас #{@mp_pl.round}/#{@mp_max_pl} выносливости"
+    end
+  end
+
+  def add_exp_and_hero_level_up(added_exp) # получения нового опыта, уровня, очков характеристик и наыков
     @exp_pl += added_exp
     puts "Вы получили #{added_exp} опыта. Теперь у вас #{@exp_pl} опыта"
     @exp_lvl.each.with_index do |exp_val, i|
