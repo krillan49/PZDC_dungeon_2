@@ -1,6 +1,7 @@
 require_relative "hero"
 require_relative "enemyes"
 require_relative "weapons"
+require_relative "info_block"
 
 
 #======================================= Методы временные решения =================================================
@@ -281,28 +282,25 @@ while true
   end
 
   # Выбор стандартного противника
-  if enemy_rand > 0 and enemy_rand <= 5
-    @enemy = Enemy.new("Оборванец")
-  elsif enemy_rand > 5 and enemy_rand <= 10
-    @enemy = Enemy.new("Бешеный пес")
-  elsif enemy_rand > 10 and enemy_rand <= 15
-    @enemy = Enemy.new("Гоблин")
-  elsif enemy_rand > 15 and enemy_rand <= 20
-    @enemy = Enemy.new("Бандит")
-  elsif enemy_rand > 20 and enemy_rand <= 25
-    @enemy = Enemy.new("Дезертир")
-  elsif enemy_rand > 25 #and enemy_rand <= 30
-    @enemy = Enemy.new("Орк")
+  if zombie_knight != 1
+    if enemy_rand > 0 and enemy_rand <= 5
+      @enemy = Enemy.new("Оборванец")
+    elsif enemy_rand > 5 and enemy_rand <= 10
+      @enemy = Enemy.new("Бешеный пес")
+    elsif enemy_rand > 10 and enemy_rand <= 15
+      @enemy = Enemy.new("Гоблин")
+    elsif enemy_rand > 15 and enemy_rand <= 20
+      @enemy = Enemy.new("Бандит")
+    elsif enemy_rand > 20 and enemy_rand <= 25
+      @enemy = Enemy.new("Дезертир")
+    elsif enemy_rand > 25 #and enemy_rand <= 30
+      @enemy = Enemy.new("Орк")
+    end
   end
 
   #--------------------------------------------------------------------------------------------------------------------
 
-  puts "В бой! Ваш противник #{@enemy.name}"
-  puts "HP #{@enemy.hp}"
-  puts "Damage #{@enemy.min_dmg}-#{@enemy.max_dmg} = #{@enemy.min_dmg_base}-#{@enemy.max_dmg_base} + #{@enemy.weapon.min_dmg}-#{@enemy.weapon.max_dmg}(#{@enemy.weapon.name})"
-  puts "Armor #{@enemy.armor} = #{@enemy.armor_base} + #{@enemy.body_armor.armor}(#{@enemy.body_armor.name}) + #{@enemy.head_armor.armor}(#{@enemy.head_armor.name}) + #{@enemy.arms_armor.armor}(#{@enemy.arms_armor.name}) + #{@enemy.shield.armor}(#{@enemy.shield.name})"
-  puts "Accurasy #{@enemy.accuracy} = #{@enemy.accuracy_base} + #{@enemy.arms_armor.accuracy}(#{@enemy.arms_armor.name})"
-  puts "Block #{@enemy.block_chance} = #{@enemy.shield.block_chance}(#{@enemy.shield.name})"
+  InfoBlock.enemy_start_stats_info(@enemy)
 
   # Ход боя ===============================================================================================
   run = false
