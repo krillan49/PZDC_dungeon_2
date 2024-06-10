@@ -134,11 +134,12 @@ end
 # Стартовый шанс блока
 @hero.block_pl = @hero.shield.block_chance
 
-zombie_knight = 0
 
 # Основной игровой блок ===============================================================================================
 leveling = 0
 while true
+
+  zombie_knight = 0
 
   # Распределения очков характеристик и очков навыков ------------------------------------------------
   while @hero.stat_points != 0
@@ -294,19 +295,14 @@ while true
     @enemy = Enemy.new("Орк")
   end
 
-  mindam_en = @enemy.min_dmg_base + @enemy.weapon.min_dmg
-  maxdam_en = @enemy.max_dmg_base + @enemy.weapon.max_dmg
-  armor_en = @enemy.armor_base + @enemy.body_armor.armor + @enemy.head_armor.armor + @enemy.arms_armor.armor + @enemy.shield.armor
-  accurasy_en = @enemy.accuracy_base + @enemy.arms_armor.accuracy
-  block_en = @enemy.shield.block_chance
   #--------------------------------------------------------------------------------------------------------------------
 
   puts "В бой! Ваш противник #{@enemy.name}"
   puts "HP #{@enemy.hp}"
-  puts "Damage #{mindam_en}-#{maxdam_en} = #{@enemy.min_dmg_base}-#{@enemy.max_dmg_base} + #{@enemy.weapon.min_dmg}-#{@enemy.weapon.max_dmg}(#{@enemy.weapon.name})"
-  puts "Armor #{armor_en} = #{@enemy.armor_base} + #{@enemy.body_armor.armor}(#{@enemy.body_armor.name}) + #{@enemy.head_armor.armor}(#{@enemy.head_armor.name}) + #{@enemy.arms_armor.armor}(#{@enemy.arms_armor.name}) + #{@enemy.shield.armor}(#{@enemy.shield.name})"
-  puts "Accurasy #{accurasy_en} = #{@enemy.accuracy_base} + #{@enemy.arms_armor.accuracy}(#{@enemy.arms_armor.name})"
-  puts "Block #{block_en} = #{@enemy.shield.block_chance}(#{@enemy.shield.name})"
+  puts "Damage #{@enemy.min_dmg}-#{@enemy.max_dmg} = #{@enemy.min_dmg_base}-#{@enemy.max_dmg_base} + #{@enemy.weapon.min_dmg}-#{@enemy.weapon.max_dmg}(#{@enemy.weapon.name})"
+  puts "Armor #{@enemy.armor} = #{@enemy.armor_base} + #{@enemy.body_armor.armor}(#{@enemy.body_armor.name}) + #{@enemy.head_armor.armor}(#{@enemy.head_armor.name}) + #{@enemy.arms_armor.armor}(#{@enemy.arms_armor.name}) + #{@enemy.shield.armor}(#{@enemy.shield.name})"
+  puts "Accurasy #{@enemy.accuracy} = #{@enemy.accuracy_base} + #{@enemy.arms_armor.accuracy}(#{@enemy.arms_armor.name})"
+  puts "Block #{@enemy.block_chance} = #{@enemy.shield.block_chance}(#{@enemy.shield.name})"
 
   # Ход боя ===============================================================================================
   run = false
@@ -319,7 +315,7 @@ while true
     # Расчет базового урона----------------------------------------------------------------------------------------
     damage_pl = rand(@hero.mindam_pl..@hero.maxdam_pl)
 
-    damage_en = rand(mindam_en..maxdam_en)
+    damage_en = rand(@enemy.min_dmg..@enemy.max_dmg)
     #----------------------------------------------------------------------------------------------------------
 
     # Выбор вида атаки ------------------------------------------------------------------------------------
@@ -359,14 +355,14 @@ while true
     name_target_en = "по телу"
     if target_en >= 1 and target_en <= 3
       damage_en *= 1.5
-      accurasy_action_en = accurasy_en * 0.7
+      accurasy_action_en = @enemy.accuracy * 0.7
       name_target_en = "по голове"
     elsif target_en >= 4 and target_en <= 6
       damage_en *= 0.7
-      accurasy_action_en = accurasy_en * 1.5
+      accurasy_action_en = @enemy.accuracy * 1.5
       name_target_en = "по ногам"
     else
-      accurasy_action_en = accurasy_en
+      accurasy_action_en = @enemy.accuracy
     end
     #-----------------------------------------------------------------------------------------------------------
     puts '-----------------------------------------------------------------------------------------'
@@ -382,13 +378,13 @@ while true
     end
 
     chanse_block_en = rand(1..100)
-    if block_en >= chanse_block_en
+    if @enemy.block_chance >= chanse_block_en
       damage_pl /= 1 + @enemy.hp.to_f / 200
     end
     # ---------------------------------------------------------------------------------------------------------------
 
     # Расчет итогового урона-----------------------------------------------------------------------------------------
-    damage_pl -= armor_en
+    damage_pl -= @enemy.armor
     if damage_pl < 0
       damage_pl = 0
     end
@@ -401,7 +397,7 @@ while true
 
     # Расчет попадания/промаха и проведения атак и навыков -----------------------------------------------------
     if accuracy_action_pl >= rand(1..100)
-      puts "#{@enemy.name} заблокировал #{100 - (100 / (1 + @enemy.hp.to_f / 200)).to_i}% урона" if block_en >= chanse_block_en
+      puts "#{@enemy.name} заблокировал #{100 - (100 / (1 + @enemy.hp.to_f / 200)).to_i}% урона" if @enemy.block_chance >= chanse_block_en
       @enemy.hp -= damage_pl
       puts "Вы нанесли #{damage_pl.round} урона #{target_name_pl}"
       hit_miss_pl = 1
@@ -414,7 +410,7 @@ while true
     when "Ошеломление"
       if hit_miss_pl == 1 and damage_pl * @coeff_passive_pl > (@enemy.hp + damage_pl) / 2
         accurasy_action_en *= 0.1*rand(1..9)
-        puts "атака ошеломила врага, уменьшив его точность до #{(accurasy_en * 0.1 * rand(1..9)).round}"
+        puts "атака ошеломила врага, уменьшив его точность до #{(@enemy.accuracy * 0.1 * rand(1..9)).round}"
       end
     when "Концентрация"
       if hit_miss_pl == 1 and damage_passive_pl > 0

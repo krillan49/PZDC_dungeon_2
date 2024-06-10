@@ -2,16 +2,14 @@ require 'yaml'
 require_relative 'weapons'
 
 class Enemy
-  attr_accessor :name
-  attr_accessor :hp#,:hp_max, :regen_hp_base, :regen_hp
-  # attr_accessor :mp_max, :mp, :regen_mp_base, :regen_mp
-  attr_accessor :min_dmg_base, :min_dmg, :max_dmg_base, :max_dmg
-  attr_accessor :accuracy_base, :accuracy
-  attr_accessor :armor_base, :armor
-  attr_accessor :block_chance
+  attr_reader :name
+  attr_accessor :hp
+  attr_accessor :min_dmg_base, :max_dmg_base
+  attr_accessor :accuracy_base
+  attr_accessor :armor_base
   attr_reader :exp_gived
 
-  attr_accessor :weapon, :body_armor, :head_armor, :arms_armor, :shield
+  attr_reader :weapon, :body_armor, :head_armor, :arms_armor, :shield
 
   def initialize(name)
     enemy = YAML.safe_load_file('data/characters/enemyes.yml', symbolize_names: true)[name.to_sym]
@@ -29,6 +27,28 @@ class Enemy
     @head_armor = HeadArmor.new(enemy[:head_armor].sample)
     @arms_armor = ArmsArmor.new(enemy[:arms_armor].sample)
     @shield = Shield.new(enemy[:shields].sample)
+  end
+
+  # Геттеры - Методы зависимых характеристик:
+
+  def min_dmg
+    @min_dmg_base + @weapon.min_dmg
+  end
+
+  def max_dmg
+    @max_dmg_base + @weapon.max_dmg
+  end
+
+  def armor
+    @armor_base + @body_armor.armor + @head_armor.armor + @arms_armor.armor + @shield.armor
+  end
+
+  def accuracy
+    @accuracy_base + @arms_armor.accuracy
+  end
+
+  def block_chance
+    @shield.block_chance
   end
 end
 
