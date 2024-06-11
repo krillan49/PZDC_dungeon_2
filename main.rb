@@ -1,4 +1,5 @@
 require_relative "hero"
+require_relative "skills"
 require_relative "enemyes"
 require_relative "weapons"
 require_relative "info_block"
@@ -21,7 +22,7 @@ def character_panel
   puts "#{@hero.name_pl}"
   puts "Уровень #{@hero.lvl_pl} (#{@hero.exp_pl}/#{@hero.exp_lvl[@hero.lvl_pl + 1]})"
   puts "Н А В Ы К И:"
-  puts "[акт] #{@name_special_pl} #{@lor_special_pl}"
+  puts "[акт] #{@hero.active_skill.name} #{@hero.active_skill.description}"
   puts "[пас] #{@name_passive_pl} #{@lor_passive_pl}"
   puts "[неб] #{@name_noncombat_pl} #{@lor_noncombat_pl}"
   puts "С Т А Т Ы:"
@@ -71,20 +72,9 @@ while special_choiсe != 'S' and special_choiсe != 'A'
   print 'Введен неверный символ. Попробуйте еще раз. Сильный удар(S) Точный удар(A) '
   special_choiсe = gets.strip.upcase
 end
-lvl_special_pl = 0
 case special_choiсe
-when 'S'
-  @name_special_pl = "Сильный удар"
-  special_damage_pl = 2 + 0.2 * lvl_special_pl
-  special_accuracy_pl = 1
-  special_mp_cost_pl = 15
-  @lor_special_pl = "(#{lvl_special_pl}): урон сильнее в #{special_damage_pl}, наносится по телу. Цена 15 выносливости"
-when 'A'
-  @name_special_pl = "Точный удар"
-  special_damage_pl = 1 + 0.1 * lvl_special_pl
-  special_accuracy_pl = 1.5 + 0.1 * lvl_special_pl
-  special_mp_cost_pl = 5
-  @lor_special_pl = "(#{lvl_special_pl}): точнее в #{special_accuracy_pl}, сильнее в #{special_damage_pl} наносится по телу. Цена 5 выносливости"
+when 'S'; @hero.active_skill = StrongStrike.new
+when 'A'; @hero.active_skill = PreciseStrike.new
 end
 
 puts 'Выберите стартовый пассивный навык '
@@ -189,19 +179,11 @@ while true
     distribution = ''
     while distribution != 'S' and distribution != 'P' and distribution != 'N'
       puts "Распределите очки навыков. У вас осталось #{@hero.skill_points} очков"
-      print "+1 #{@name_special_pl}(S). +1 #{@name_passive_pl}(P). +1 #{@name_noncombat_pl}(N) "
+      print "+1 #{@hero.active_skill.name}(S). +1 #{@name_passive_pl}(P). +1 #{@name_noncombat_pl}(N) "
       distribution = gets.strip.upcase
       case distribution
       when 'S' # активные
-        lvl_special_pl += 1
-        if @name_special_pl == "Сильный удар"
-          special_damage_pl = 2 + 0.2 * lvl_special_pl
-          @lor_special_pl = "(#{lvl_special_pl}): урон сильнее в #{special_damage_pl.round(1)}, наносится по телу. Цена 15 выносливости"
-        elsif @name_special_pl == "Точный удар"
-          special_damage_pl = 1 + 0.1 * lvl_special_pl
-          special_accuracy_pl = 1.5 + 0.1 * lvl_special_pl
-          @lor_special_pl = "(#{lvl_special_pl}): точнее в #{special_accuracy_pl}, сильнее в #{special_damage_pl} наносится по телу. Цена 5 выносливости"
-        end
+        @hero.active_skill.lvl += 1
       when 'P' # пассивные
         @lvl_passive_pl += 1
         if @name_passive_pl == "Ошеломление"
@@ -333,13 +315,13 @@ while true
         accuracy_action_pl = @hero.accuracy_pl * 1.5
         target_name_pl = "по ногам"
       when 'S'
-        if @hero.mp_pl >= special_mp_cost_pl
-          damage_pl *= special_damage_pl
-          accuracy_action_pl = @hero.accuracy_pl * special_accuracy_pl
-          target_name_pl = @name_special_pl
-          @hero.mp_pl -= special_mp_cost_pl
+        if @hero.mp_pl >= @hero.active_skill.mp_cost
+          damage_pl *= @hero.active_skill.damage_mod
+          accuracy_action_pl = @hero.accuracy_pl * @hero.active_skill.accuracy_mod
+          target_name_pl = @hero.active_skill.name
+          @hero.mp_pl -= @hero.active_skill.mp_cost
         else
-          puts "Недостаточно маны на #{@name_special_pl}"
+          puts "Недостаточно маны на #{@hero.active_skill.name}"
           cant_do -= 1
         end
       else
