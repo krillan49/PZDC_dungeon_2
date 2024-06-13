@@ -24,7 +24,7 @@ def character_panel
   puts "Н А В Ы К И:"
   puts "[акт] #{@hero.active_skill.name} #{@hero.active_skill.description}"
   puts "[пас] #{@name_passive_pl} #{@lor_passive_pl}"
-  puts "[неб] #{@name_noncombat_pl} #{@lor_noncombat_pl}"
+  puts "[неб] #{@hero.camp_skill.name} #{@hero.camp_skill.description}"
   puts "С Т А Т Ы:"
   puts "HP #{@hero.hp_pl.round}/#{@hero.hp_max_pl} Реген #{@hero.regen_hp_base_pl} Восстановление #{@hero.recovery_hp.round}"
   puts "MP #{@hero.mp_pl.round}/#{@hero.mp_max_pl} Реген #{@hero.regen_mp_base_pl} Восстановление #{@hero.recovery_mp.round}"
@@ -107,18 +107,9 @@ while noncombat_choiсe != 'F' and noncombat_choiсe != 'T'
   print 'Введен неверный символ попробуйте еще раз. Первая помощь(F) Кладоискатель(T) '
   noncombat_choiсe = gets.strip.upcase
 end
-lvl_noncombat_pl = 0
 case noncombat_choiсe
-when 'F'
-  @name_noncombat_pl = "Первая помощь"
-  coeff_noncombat_pl = 1 + 0.1 * lvl_noncombat_pl
-  effect_noncombat_pl = (@hero.hp_max_pl - @hero.hp_pl) * 0.2 * coeff_noncombat_pl
-  noncombat_mp_cost_pl = 10
-  @lor_noncombat_pl = "(#{lvl_noncombat_pl}): восстанавливает #{((@hero.hp_max_pl - @hero.hp_pl) * 0.2 * coeff_noncombat_pl).round} жизней, чем больше жизней потеряно, тем больше эффект(#{(0.2 * coeff_noncombat_pl * 100).round}%), цена 10 маны."
-when 'T'
-  @name_noncombat_pl = "Кладоискатель"
-  coeff_noncombat_pl = 50 + 5 * lvl_noncombat_pl
-  @lor_noncombat_pl = "(#{lvl_noncombat_pl}): дополнительный бонус очков поиска сокровищ = #{coeff_noncombat_pl}"
+when 'F'; @hero.camp_skill = FirstAid.new(@hero)
+when 'T'; @hero.camp_skill = TreasureHunter.new
 end
 #--------------------------------------------------------------------------------------------------------------------
 
@@ -179,7 +170,7 @@ while true
     distribution = ''
     while distribution != 'S' and distribution != 'P' and distribution != 'N'
       puts "Распределите очки навыков. У вас осталось #{@hero.skill_points} очков"
-      print "+1 #{@hero.active_skill.name}(S). +1 #{@name_passive_pl}(P). +1 #{@name_noncombat_pl}(N) "
+      print "+1 #{@hero.active_skill.name}(S). +1 #{@name_passive_pl}(P). +1 #{@hero.camp_skill.name}(N) "
       distribution = gets.strip.upcase
       case distribution
       when 'S' # активные
@@ -197,15 +188,7 @@ while true
           @lor_passive_pl = "(#{@lvl_passive_pl}): шанс блока щитом увеличен на #{@coeff_passive_pl}%"
         end
       when 'N' # небоевые
-        lvl_noncombat_pl += 1
-        if @name_noncombat_pl == "Первая помощь"
-          coeff_noncombat_pl = 1 + 0.1 * lvl_noncombat_pl
-          effect_noncombat_pl = (@hero.hp_max_pl - @hero.hp_pl) * 0.2 * coeff_noncombat_pl
-          @lor_noncombat_pl = "(#{lvl_noncombat_pl}): восстанавливает #{((@hero.hp_max_pl - @hero.hp_pl) * 0.2 * coeff_noncombat_pl).round} жизней, чем больше жизней потеряно, тем больше эффект(#{(0.2 * coeff_noncombat_pl * 100).round}%), цена 10 маны."
-        elsif @name_noncombat_pl == "Кладоискатель"
-          coeff_noncombat_pl = 50 + 5 * lvl_noncombat_pl
-          @lor_noncombat_pl = "(#{lvl_noncombat_pl}): дополнительный бонус очков поиска сокровищ = #{coeff_noncombat_pl}"
-        end
+        @hero.camp_skill.lvl += 1
       else
         puts 'Вы ввели неверный символ, попробуйте еще раз'
         @hero.skill_points += 1
@@ -218,21 +201,9 @@ while true
 
   character_panel # Панель характеристик персонажа (Основные)
 
-  # Навык Первая помощь ---------------------------------------------------------------------------------
-  if (@hero.hp_max_pl - @hero.hp_pl) > 0 and @name_noncombat_pl == "Первая помощь"
-    coeff_noncombat_pl = 1 + 0.1 * lvl_noncombat_pl
-    effect_noncombat_pl = (@hero.hp_max_pl - @hero.hp_pl) * 0.2 * coeff_noncombat_pl
-    print "У вас #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней, хотите использовать навык #{@name_noncombat_pl}, чтобы восстановить #{effect_noncombat_pl.round} жизней за 10 маны? (Y/N) "
-    noncombat_choice = gets.strip.upcase
-    if noncombat_choice == "Y" and @hero.mp_pl >= noncombat_mp_cost_pl
-      @hero.hp_pl += effect_noncombat_pl
-      @hero.mp_pl -= noncombat_mp_cost_pl
-      puts "Вы восстановили #{effect_noncombat_pl.round} жизней за #{noncombat_mp_cost_pl} маны, теперь у вас #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней и #{@hero.mp_pl.round}/#{@hero.mp_max_pl} маны"
-    elsif noncombat_choice == "Y" and @hero.mp_pl <= noncombat_mp_cost_pl
-      puts "Не хватает маны"
-    end
-  end
-  #-----------------------------------------------------------------------------------------------------------
+  #---------------------------------------------------------------------------------
+
+  @hero.use_camp_skill # Навык Первая помощь
 
   @hero.rest # пассивное восстановления жизней и маны между боями
 
@@ -479,13 +450,13 @@ while true
       end
     end
 
-    if @name_noncombat_pl == "Кладоискатель"
+    if @hero.camp_skill.name == "Кладоискатель"
       stash_magic0 = rand(1..200)
-      stash_magic = stash_magic0 + coeff_noncombat_pl
+      stash_magic = stash_magic0 + @hero.camp_skill.coeff_lvl
     else
       stash_magic = rand(1..200)
     end
-    puts "#{stash_magic0} + treasure hunter(#{coeff_noncombat_pl})= #{stash_magic}"
+    puts "#{stash_magic0} + treasure hunter(#{@hero.camp_skill.coeff_lvl})= #{stash_magic}"
     if stash_magic >= 180
       puts "Осмотревшись вы заметили тайник мага, а в нем... "
     end

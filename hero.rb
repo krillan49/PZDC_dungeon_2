@@ -15,7 +15,7 @@ class Hero
   attr_reader :exp_lvl
   attr_accessor :stat_points, :skill_points
 
-  attr_accessor :active_skill
+  attr_accessor :active_skill, :camp_skill
 
   attr_accessor :weapon, :body_armor, :head_armor, :arms_armor, :shield
 
@@ -85,6 +85,24 @@ class Hero
 
   def accuracy_pl
     @accuracy_base_pl + @arms_armor.accuracy
+  end
+
+
+  # Методы применения навыков
+
+  def use_camp_skill
+    if @hp_max_pl - @hp_pl > 0 && @camp_skill.name == "Первая помощь"
+      print "У вас #{@hp_pl.round}/#{@hp_max_pl} жизней, хотите использовать навык #{@camp_skill.name}, чтобы восстановить #{@camp_skill.heal_effect.round} жизней за 10 маны? (Y/N) "
+      noncombat_choice = gets.strip.upcase
+      if @mp_pl >= @camp_skill.mp_cost && noncombat_choice == "Y"
+        heal_effect_message = @camp_skill.heal_effect.round
+        @hp_pl += @camp_skill.heal_effect
+        @mp_pl -= @camp_skill.mp_cost
+        puts "Вы восстановили #{heal_effect_message} жизней за #{@camp_skill.mp_cost} маны, теперь у вас #{@hp_pl.round}/#{@hp_max_pl} жизней и #{@mp_pl.round}/#{@mp_max_pl} маны"
+      elsif noncombat_choice == "Y"
+        puts "Не хватает маны"
+      end
+    end
   end
 
 
