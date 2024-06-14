@@ -123,16 +123,14 @@ while true
 
   zombie_knight = 0
 
-  # Распределения очков характеристик и очков навыков ------------------------------------------------
+  # распределение очков характеристик --------------------------------------------------------------------------
   while @hero.stat_points != 0
 
     temporary_patch_concentration # Заплатка для корректного отображения навыков на которые влияют характеристики(Концентрация) (Временные решения)
-
     character_panel # Панель характеристик персонажа (Основные)
 
-    # распределение очков характеристик --------------------------------------------------------------------------
     distribution = ''
-    while distribution != 'H' and distribution != 'M' and distribution != 'X' and distribution != 'A'
+    until %w[H M X A].include?(distribution)
       puts "Распределите очки характеристик. У вас осталось #{@hero.stat_points} очков"
       print '+5 жизней(H). +5 выносливости(M). +1 мин/макс случайно урон(X). +1 точность(A)  '
       distribution = gets.strip.upcase
@@ -144,26 +142,20 @@ while true
         @hero.mp_max_pl += 5
         @hero.mp_pl += 5
       when 'X'
-        min_or_max = rand(0..1)
-        if min_or_max == 0 and @hero.mindam_base_pl < @hero.maxdam_base_pl
-          @hero.mindam_base_pl += 1
-        else
-          @hero.maxdam_base_pl += 1
-        end
+        @hero.mindam_base_pl < @hero.maxdam_base_pl && rand(0..1) == 0 ? @hero.mindam_base_pl += 1 : @hero.maxdam_base_pl += 1
       when 'A'
         @hero.accuracy_base_pl += 1
       else
         puts 'Вы ввели неверный символ, попробуйте еще раз'
-        @hero.stat_points += 1
       end
-      @hero.stat_points -= 1
     end
+    @hero.stat_points -= 1
   end
 
+  # распределение очков навыков --------------------------------------------------------------------------
   while @hero.skill_points != 0
 
     temporary_patch_concentration # Заплатка для корректного отображения навыков на которые влияют характеристики(Концентрация) (Временные решения)
-
     character_panel # Панель характеристик персонажа (Основные)
 
     # распределение очков навыков ------------------------------------------------------------------------------
@@ -206,7 +198,7 @@ while true
   @hero.use_camp_skill # Навык Первая помощь
 
   @hero.rest # пассивное восстановления жизней и маны между боями
-  
+
   #--------------------------------------------------------------------------------------------------------------
 
   print 'Чтобы начать следующий бой нажмите Enter'
