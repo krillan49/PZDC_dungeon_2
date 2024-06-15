@@ -2,6 +2,7 @@ require_relative "hero"
 require_relative "skills"
 require_relative "enemyes"
 require_relative "weapons"
+require_relative "loot"
 require_relative "info_block"
 
 
@@ -422,128 +423,9 @@ while true
 
   # Сбор лута-----------------------------------------------------------------------------------------------------
   if run == false
-
-    loot = rand(0..5)
-    if loot <= 5 and loot >=4
-      if (@hero.hp_max_pl - @hero.hp_pl) >= 20
-        @hero.hp_pl += 20
-      elsif (@hero.hp_max_pl - @hero.hp_pl) < 20 and @hero.hp_pl < @hero.hp_max_pl
-        @hero.hp_pl = @hero.hp_max_pl
-      end
-      puts "Обыскав все вокруг ты нашел зелье восстанавливающее 20 жизней, теперь у тебя #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней"
-    elsif loot <= 3 and loot >= 2
-      puts "Рядом нет ничего ценного"
-    elsif loot <= 1
-      @hero.hp_pl -= 5
-      puts "Пока ты шарил по углам, тебя укусила крыса(-5 жизней), теперь у тебя #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней"
-      if @hero.hp_pl <= 0
-        puts "Ты подох от укуса крысы. Жалкая смерть"
-        exit
-      end
-    end
-
-    if @hero.camp_skill.name == "Кладоискатель"
-      stash_magic0 = rand(1..200)
-      stash_magic = stash_magic0 + @hero.camp_skill.coeff_lvl
-    else
-      stash_magic = rand(1..200)
-    end
-    puts "#{stash_magic0} + treasure hunter(#{@hero.camp_skill.coeff_lvl})= #{stash_magic}"
-    if stash_magic >= 180
-      puts "Осмотревшись вы заметили тайник мага, а в нем... "
-    end
-    stash_magic_treasure = rand(1..32)
-    if stash_magic_treasure <= 10 and stash_magic >= 180
-      bonus_hp = rand(1..3)
-      puts "Эликсир здоровья. Ваши жизни #{@hero.hp_pl.round}/#{@hero.hp_max_pl} увеличиваются на #{bonus_hp}"
-      @hero.hp_max_pl += bonus_hp
-      @hero.hp_pl += bonus_hp
-      puts "Теперь у вас #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней"
-    elsif stash_magic_treasure <= 20 and stash_magic >= 180
-      bonus_mp = rand(1..3)
-      puts "Эликсир выносливости. Ваша выносливость #{@hero.mp_pl.round}/#{@hero.mp_max_pl} увеличивается на #{bonus_mp}"
-      @hero.mp_max_pl += bonus_mp
-      @hero.mp_pl += bonus_mp
-      puts "Теперь у вас #{@hero.mp_pl.round}/#{@hero.mp_max_pl} выносливости"
-    elsif stash_magic_treasure <= 25 and stash_magic >= 180
-      bonus_accuracy = rand(1..2)
-      puts "Эликсир точности. Ваша точность #{@hero.accuracy_base_pl} увеличивается на #{bonus_accuracy}"
-      @hero.accuracy_base_pl += bonus_accuracy
-      puts "Теперь у вас #{@hero.accuracy_base_pl} точности"
-    elsif stash_magic_treasure <= 27 and stash_magic >= 180
-      bonus_points = 1
-      puts "Книга знаний. Ваши очки характеристик увеличились на #{bonus_points}"
-      @hero.stat_points += bonus_points
-    elsif stash_magic_treasure <= 29 and stash_magic >= 180
-      skill_bonus_points = 1
-      puts "Книга умений. Ваши очки умений увеличились на #{skill_bonus_points}"
-      @hero.skill_points += skill_bonus_points
-    elsif stash_magic_treasure <= 30 and stash_magic >= 180
-      bonus_armor = 1
-      puts "Эликсир камня. Ваша броня #{@hero.armor_base_pl} увеличивается на #{bonus_armor}"
-      @hero.armor_base_pl += bonus_armor
-      puts "Теперь у вас #{@hero.armor_base_pl} брони"
-    elsif stash_magic_treasure <= 31 and stash_magic >= 180
-      bonus_hp_regen = 1
-      puts "Эликсир троля. Регенерация жизней #{@hero.regen_hp_base_pl} увеличивается на #{bonus_hp_regen}"
-      @hero.regen_hp_base_pl += bonus_hp_regen
-      puts "Теперь у вас #{@hero.regen_hp_base_pl} регенерации жизней"
-    elsif stash_magic_treasure <= 32 and stash_magic >= 180
-      bonus_mp_regen = 1
-      puts "Эликсир единорога. Регенерация выносливости #{@hero.regen_mp_base_pl} увеличивается на #{bonus_mp_regen}"
-      @hero.regen_mp_base_pl += bonus_mp_regen
-      puts "Теперь у вас #{@hero.regen_mp_base_pl} регенерации выносливости"
-    end
-
-    weapon_loot = rand(0..1)
-    if weapon_loot == 1 and @enemy.weapon.name != "без оружия"
-      puts "Обыскав труп #{@enemy.name} ты нашел #{@enemy.weapon.name}"
-      print "Поменяем #{@hero.weapon.name}(#{@hero.weapon.min_dmg}-#{@hero.weapon.max_dmg}) на #{@enemy.weapon.name}(#{@enemy.weapon.min_dmg}-#{@enemy.weapon.max_dmg}) Y/N? "
-      weapon_loot_choice = gets.strip.upcase
-      if weapon_loot_choice == 'Y'
-        @hero.weapon = @enemy.weapon
-      end
-    end
-
-    torso_loot = rand(0..1)
-    if torso_loot == 1 and @enemy.body_armor.name != "без нагрудника"
-      puts "Обыскав труп #{@enemy.name} ты нашел #{@enemy.body_armor.name}"
-      print "Поменяем #{@hero.body_armor.name}(#{@hero.body_armor.armor}) на #{@enemy.body_armor.name}(#{@enemy.body_armor.armor}) Y/N? "
-      torso_loot_choice = gets.strip.upcase
-      if torso_loot_choice == 'Y'
-        @hero.body_armor = @enemy.body_armor
-      end
-    end
-
-    helmet_loot = rand(0..1)
-    if helmet_loot == 1 and @enemy.head_armor.name != "без шлема"
-      puts "Обыскав труп #{@enemy.name} ты нашел #{@enemy.head_armor.name}"
-      print "Поменяем #{@hero.head_armor.name}(#{@hero.head_armor.armor}) на #{@enemy.head_armor.name}(#{@enemy.head_armor.armor}) Y/N? "
-      helmet_loot_choice = gets.strip.upcase
-      if helmet_loot_choice == 'Y'
-        @hero.head_armor = @enemy.head_armor
-      end
-    end
-
-    gloves_loot = rand(0..1)
-    if gloves_loot == 1 and @enemy.arms_armor.name != "без перчаток"
-      puts "Обыскав труп #{@enemy.name} ты нашел #{@enemy.arms_armor.name}"
-      print "Поменяем #{@hero.arms_armor.name}(бр-#{@hero.arms_armor.armor} точ-#{@hero.arms_armor.accuracy}) на #{@enemy.arms_armor.name}(бр-#{@enemy.arms_armor.armor} точ-#{@enemy.arms_armor.accuracy}) Y/N? "
-      gloves_loot_choice = gets.strip.upcase
-      if gloves_loot_choice == 'Y'
-        @hero.arms_armor = @enemy.arms_armor
-      end
-    end
-
-    shield_loot = rand(0..1)
-    if shield_loot == 1 and @enemy.shield.name != "без щита"
-      puts "Обыскав труп #{@enemy.name} ты нашел #{@enemy.shield.name}"
-      print "Поменяем #{@hero.shield.name}(бр-#{@hero.shield.armor} блок-#{@hero.shield.block_chance}) на #{@enemy.shield.name}(бр-#{@enemy.shield.armor} блок-#{@enemy.shield.block_chance}) Y/N? "
-      shield_loot_choice = gets.strip.upcase
-      if shield_loot_choice == 'Y'
-        @hero.shield = @enemy.shield
-      end
-    end
+    EnemyLoot.new(@hero, @enemy).looting
+    FieldLoot.new(@hero).looting
+    SecretLoot.new(@hero).looting
 
     @hero.block_pl = @hero.shield.block_chance
   end
