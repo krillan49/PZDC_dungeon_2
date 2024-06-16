@@ -65,6 +65,85 @@ end
 #   p '--------------------'
 # end
 
+
+class Dazed
+  BASIC_MOD = 1
+  LVL_MOD = 0.1
+
+  attr_accessor :lvl
+  attr_reader :name
+
+  def initialize
+    @name = "Ошеломление"
+    @lvl = 0
+  end
+
+  def accuracy_reduce_coef
+    BASIC_MOD + LVL_MOD * @lvl
+  end
+
+  def accuracy_reduce_percent
+    100 / (2 * accuracy_reduce_coef())
+  end
+
+  def description
+    "(#{@lvl}): если урон больше #{accuracy_reduce_percent().round}% осташихся жизней врага то он теряет 10-90(%) точности"
+  end
+end
+
+
+class Concentration
+  BASIC_MOD = 0.1
+  LVL_MOD = 0.005
+
+  attr_accessor :lvl
+  attr_reader :name
+
+  def initialize(hero)
+    @name = "Концентрация"
+    @lvl = 0
+
+    @hero = hero
+  end
+
+  def damage_coef
+    @hero.mp_max_pl * (0.1 + 0.005 * @lvl) - 10
+  end
+
+  def damage_bonus
+    rand(0..damage_coef())
+  end
+
+  def description
+    "(#{@lvl}): если мана больше 100(#{@hero.mp_max_pl}) наносится случайный доп урон до #{damage_coef().round(1)}"
+  end
+end
+
+
+class ShieldMaster
+  BASIC_CHANCE_MOD = 10
+  LVL_CHANCE_MOD = 2
+
+  attr_accessor :lvl
+  attr_reader :name
+
+  def initialize
+    @name = "Мастер щита"
+    @lvl = 0
+  end
+
+  def block_chance_bonus
+    BASIC_CHANCE_MOD + LVL_CHANCE_MOD * @lvl
+  end
+
+  def description
+    "(#{@lvl}): шанс блока щитом увеличен на #{block_chance_bonus()}%"
+  end
+end
+
+
+
+
 class FirstAid
   HEAL_BASIC_MOD = 1
   HEAL_LVL_MOD = 0.1

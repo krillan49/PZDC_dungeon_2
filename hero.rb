@@ -15,7 +15,7 @@ class Hero
   attr_reader :exp_lvl
   attr_accessor :stat_points, :skill_points
 
-  attr_accessor :active_skill, :camp_skill
+  attr_accessor :active_skill, :passive_skill, :camp_skill
 
   attr_accessor :weapon, :body_armor, :head_armor, :arms_armor, :shield
 

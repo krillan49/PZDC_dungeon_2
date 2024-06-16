@@ -8,14 +8,6 @@ require_relative "info_block"
 
 #======================================= Методы временные решения =================================================
 
-# Заплатка для корректного отображения навыков на которые влияют характеристики(Концентрация)
-def temporary_patch_concentration
-  if @name_passive_pl == "Концентрация"
-    damage_passive_pl = rand(0..0.1 * (@hero.mp_max_pl * (1 + 0.05 * @lvl_passive_pl) - 100))
-    @lor_passive_pl = "(#{@lvl_passive_pl}): если мана больше 100(#{@hero.mp_max_pl}) наносится случайный доп урон до #{(0.1 * (@hero.mp_max_pl * (1 + 0.05 * @lvl_passive_pl) - 100)).round(1)}"
-  end
-end
-
 # Панель характеристик персонажа
 def character_panel
   puts '--------------------------------------------------------------------------------------------'
@@ -24,7 +16,7 @@ def character_panel
   puts "Уровень #{@hero.lvl_pl} (#{@hero.exp_pl}/#{@hero.exp_lvl[@hero.lvl_pl + 1]})"
   puts "Н А В Ы К И:"
   puts "[акт] #{@hero.active_skill.name} #{@hero.active_skill.description}"
-  puts "[пас] #{@name_passive_pl} #{@lor_passive_pl}"
+  puts "[пас] #{@hero.passive_skill.name} #{@hero.passive_skill.description}"
   puts "[неб] #{@hero.camp_skill.name} #{@hero.camp_skill.description}"
   puts "С Т А Т Ы:"
   puts "HP #{@hero.hp_pl.round}/#{@hero.hp_max_pl} Реген #{@hero.regen_hp_base_pl} Восстановление #{@hero.recovery_hp.round}"
@@ -32,7 +24,7 @@ def character_panel
   puts "Урон #{@hero.mindam_pl}-#{@hero.maxdam_pl} (базовый #{@hero.mindam_base_pl}-#{@hero.maxdam_base_pl} + #{@hero.weapon.name} #{@hero.weapon.min_dmg}-#{@hero.weapon.max_dmg})"
   puts "Точность #{@hero.accuracy_pl} (базовая #{@hero.accuracy_base_pl} + #{@hero.arms_armor.name} #{@hero.arms_armor.accuracy})"
   puts "Броня #{@hero.armor_pl} (базовая #{@hero.armor_base_pl} + #{@hero.body_armor.name} #{@hero.body_armor.armor} + #{@hero.head_armor.name} #{@hero.head_armor.armor} + #{@hero.arms_armor.name} #{@hero.arms_armor.armor} + #{@hero.shield.name} #{@hero.shield.armor})"
-  puts "Шанс блока #{0 if @hero.shield.name == "без щита"}#{@hero.block_pl if @hero.shield.name != "без щита" and @name_passive_pl != "Мастер щита"}#{@hero.block_pl + @coeff_passive_pl if @hero.shield.name != "без щита" and @name_passive_pl == "Мастер щита"} (#{@hero.shield.name} #{@hero.shield.block_chance}) блокируемый урон #{@hero.block_power_in_percents}%"
+  puts "Шанс блока #{0 if @hero.shield.name == "без щита"}#{@hero.block_pl if @hero.shield.name != "без щита" and @hero.passive_skill.name != "Мастер щита"}#{@hero.block_pl + @hero.passive_skill.block_chance_bonus if @hero.shield.name != "без щита" and @hero.passive_skill.name == "Мастер щита"} (#{@hero.shield.name} #{@hero.shield.block_chance}) блокируемый урон #{@hero.block_power_in_percents}%"
   puts '--------------------------------------------------------------------------------------------'
   puts '--------------------------------------------------------------------------------------------'
 end
@@ -85,20 +77,10 @@ while passive_choiсe != 'D' and passive_choiсe != 'C' and passive_choiсe != '
   print 'Неверный символ попробуйте еще раз. Ошеломление(D) Концентрация(C) Мастер щита(B) '
   passive_choiсe = gets.strip.upcase
 end
-@lvl_passive_pl = 0
 case passive_choiсe
-when 'D'
-  @name_passive_pl = "Ошеломление"
-  @coeff_passive_pl = 1 + 0.1 * @lvl_passive_pl
-  @lor_passive_pl = "(#{@lvl_passive_pl}): если урон больше #{(100 / (2 * @coeff_passive_pl)).round}% осташихся жизней врага то он теряет 10-90(%) точности"
-when 'C'
-  @name_passive_pl = "Концентрация"
-  damage_passive_pl = rand(0..0.1 * (@hero.mp_max_pl * (1 + 0.05 * @lvl_passive_pl) - 100))
-  @lor_passive_pl = "(#{@lvl_passive_pl}): если мана больше 100(#{@hero.mp_max_pl}) наносится случайный доп урон до #{(0.1 * (@hero.mp_max_pl * (1 + 0.05 * @lvl_passive_pl) - 100)).round(1)}"
-when 'B'
-  @name_passive_pl = "Мастер щита"
-  @coeff_passive_pl = 10 + 2 * @lvl_passive_pl
-  @lor_passive_pl = "(#{@lvl_passive_pl}): шанс блока щитом увеличен на #{@coeff_passive_pl}%"
+when 'D'; @hero.passive_skill = Dazed.new
+when 'C'; @hero.passive_skill = Concentration.new(@hero)
+when 'B'; @hero.passive_skill = ShieldMaster.new
 end
 
 puts 'Выберите стартовый небоевой навык '
@@ -127,7 +109,6 @@ while true
   # распределение очков характеристик --------------------------------------------------------------------------
   while @hero.stat_points != 0
 
-    temporary_patch_concentration # Заплатка для корректного отображения навыков на которые влияют характеристики(Концентрация) (Временные решения)
     character_panel # Панель характеристик персонажа (Основные)
 
     distribution = ''
@@ -156,32 +137,17 @@ while true
   # распределение очков навыков --------------------------------------------------------------------------
   while @hero.skill_points != 0
 
-    temporary_patch_concentration # Заплатка для корректного отображения навыков на которые влияют характеристики(Концентрация) (Временные решения)
     character_panel # Панель характеристик персонажа (Основные)
 
-    # распределение очков навыков ------------------------------------------------------------------------------
     distribution = ''
     while distribution != 'S' and distribution != 'P' and distribution != 'N'
       puts "Распределите очки навыков. У вас осталось #{@hero.skill_points} очков"
-      print "+1 #{@hero.active_skill.name}(S). +1 #{@name_passive_pl}(P). +1 #{@hero.camp_skill.name}(N) "
+      print "+1 #{@hero.active_skill.name}(S). +1 #{@hero.passive_skill.name}(P). +1 #{@hero.camp_skill.name}(N) "
       distribution = gets.strip.upcase
       case distribution
-      when 'S' # активные
-        @hero.active_skill.lvl += 1
-      when 'P' # пассивные
-        @lvl_passive_pl += 1
-        if @name_passive_pl == "Ошеломление"
-          @coeff_passive_pl = 1 + 0.1 * @lvl_passive_pl
-          @lor_passive_pl = "(#{@lvl_passive_pl}): если урон больше #{(100 / (2 * @coeff_passive_pl)).round}% осташихся жизней врага то он теряет 10-90(%) точности"
-        elsif @name_passive_pl == "Концентрация"
-          damage_passive_pl = rand(0..0.1 * (@hero.mp_max_pl * (1 + 0.05 * @lvl_passive_pl) - 100))
-          @lor_passive_pl = "(#{@lvl_passive_pl}): если мана больше 100(#{@hero.mp_max_pl}) наносится случайный доп урон до #{(0.1 * (@hero.mp_max_pl * (1 + 0.05 * @lvl_passive_pl) - 100)).round(1)}"
-        elsif @name_passive_pl == "Мастер щита"
-          @coeff_passive_pl = 10 + 2 * @lvl_passive_pl
-          @lor_passive_pl = "(#{@lvl_passive_pl}): шанс блока щитом увеличен на #{@coeff_passive_pl}%"
-        end
-      when 'N' # небоевые
-        @hero.camp_skill.lvl += 1
+      when 'S'; @hero.active_skill.lvl += 1
+      when 'P'; @hero.passive_skill.lvl += 1
+      when 'N'; @hero.camp_skill.lvl += 1
       else
         puts 'Вы ввели неверный символ, попробуйте еще раз'
         @hero.skill_points += 1
@@ -189,8 +155,6 @@ while true
       @hero.skill_points -= 1
     end
   end
-
-  temporary_patch_concentration # Заплатка для корректного отображения навыков на которые влияют характеристики(Концентрация) (Временные решения)
 
   character_panel # Панель характеристик персонажа (Основные)
 
@@ -312,8 +276,8 @@ while true
     puts '-----------------------------------------------------------------------------------------'
 
     # Расчет блока щитом --------------------------------------------------------------------------------------------
-    if @name_passive_pl == "Мастер щита" and @hero.shield.name != "без щита"
-      @hero.block_pl = @hero.shield.block_chance + @coeff_passive_pl
+    if @hero.passive_skill.name == "Мастер щита" and @hero.shield.name != "без щита"
+      @hero.block_pl = @hero.shield.block_chance + @hero.passive_skill.block_chance_bonus
     end
 
     chanse_block_pl = rand(1..100)
@@ -350,17 +314,17 @@ while true
       hit_miss_pl = 0
     end
 
-    case @name_passive_pl
+    case @hero.passive_skill.name
     when "Ошеломление"
-      if hit_miss_pl == 1 and damage_pl * @coeff_passive_pl > (@enemy.hp + damage_pl) / 2
+      if hit_miss_pl == 1 and damage_pl * @hero.passive_skill.accuracy_reduce_coef > (@enemy.hp + damage_pl) / 2 # прибавляется дамаг который отнялся выше
         accurasy_action_en *= 0.1*rand(1..9)
         puts "атака ошеломила врага, уменьшив его точность до #{(@enemy.accuracy * 0.1 * rand(1..9)).round}"
       end
     when "Концентрация"
-      if hit_miss_pl == 1 and damage_passive_pl > 0
-        damage_passive_pl = rand(0..0.1 * (@hero.mp_max_pl * (1 + 0.05 * @lvl_passive_pl) - 100))
-        @enemy.hp -= damage_passive_pl
-        puts "дополнительный урон от концентрации #{damage_passive_pl.round(1)}"
+      if hit_miss_pl == 1 and @hero.passive_skill.damage_bonus > 0
+        damage_bonus = @hero.passive_skill.damage_bonus # чтобы в след 2х строках был одинаковый
+        @enemy.hp -= damage_bonus
+        puts "дополнительный урон от концентрации #{damage_bonus.round(1)}"
       end
     end
 
