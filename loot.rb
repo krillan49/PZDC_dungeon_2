@@ -26,6 +26,7 @@ class FieldLoot
     puts "Пока ты шарил по углам, тебя укусила крыса(-5 жизней), теперь у тебя #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней"
     if @hero.hp_pl <= 0
       puts "Ты подох от укуса крысы. Жалкая смерть"
+      Art.game_over
       exit
     end
   end

@@ -111,7 +111,7 @@ class Concentration
   end
 
   def damage_bonus
-    rand(0..damage_coef())
+    rand(0..damage_coef()) || 0
   end
 
   def description

@@ -4,6 +4,7 @@ require_relative "enemyes"
 require_relative "weapons"
 require_relative "loot"
 require_relative "info_block"
+require_relative "arts"
 
 
 #======================================= Методы временные решения =================================================
@@ -341,6 +342,7 @@ while true
       puts "#{@enemy.name} убит, победа!!!"
     elsif @hero.hp_pl <= 0
       puts "Ты убит - слабак!"
+      Art.game_over
       exit
     end
     #------------------------------------------------------------------------------------------------------------------
@@ -360,6 +362,7 @@ while true
           puts "Не удалось убежать #{@enemy.name} нанес #{damage_en.round} урона"
           if @hero.hp_pl <= 0
             puts "Ты убит - трусливая псина!"
+            Art.game_over
             exit
           end
           run = false
