@@ -32,7 +32,7 @@ def character_panel
   puts "Урон #{@hero.mindam_pl}-#{@hero.maxdam_pl} (базовый #{@hero.mindam_base_pl}-#{@hero.maxdam_base_pl} + #{@hero.weapon.name} #{@hero.weapon.min_dmg}-#{@hero.weapon.max_dmg})"
   puts "Точность #{@hero.accuracy_pl} (базовая #{@hero.accuracy_base_pl} + #{@hero.arms_armor.name} #{@hero.arms_armor.accuracy})"
   puts "Броня #{@hero.armor_pl} (базовая #{@hero.armor_base_pl} + #{@hero.body_armor.name} #{@hero.body_armor.armor} + #{@hero.head_armor.name} #{@hero.head_armor.armor} + #{@hero.arms_armor.name} #{@hero.arms_armor.armor} + #{@hero.shield.name} #{@hero.shield.armor})"
-  puts "Шанс блока #{0 if @hero.shield.name == "без щита"}#{@hero.block_pl if @hero.shield.name != "без щита" and @name_passive_pl != "Мастер щита"}#{@hero.block_pl + @coeff_passive_pl if @hero.shield.name != "без щита" and @name_passive_pl == "Мастер щита"} (#{@hero.shield.name} #{@hero.shield.block_chance}) блокируемый урон #{100 - (100 / (1 + @hero.hp_pl.to_f / 200)).to_i}%"
+  puts "Шанс блока #{0 if @hero.shield.name == "без щита"}#{@hero.block_pl if @hero.shield.name != "без щита" and @name_passive_pl != "Мастер щита"}#{@hero.block_pl + @coeff_passive_pl if @hero.shield.name != "без щита" and @name_passive_pl == "Мастер щита"} (#{@hero.shield.name} #{@hero.shield.block_chance}) блокируемый урон #{@hero.block_power_in_percents}%"
   puts '--------------------------------------------------------------------------------------------'
   puts '--------------------------------------------------------------------------------------------'
 end
@@ -318,12 +318,12 @@ while true
 
     chanse_block_pl = rand(1..100)
     if @hero.block_pl >= chanse_block_pl
-      damage_en /= 1 + @hero.hp_pl.to_f / 200
+      damage_en /= @hero.block_power_coeff
     end
 
     chanse_block_en = rand(1..100)
     if @enemy.block_chance >= chanse_block_en
-      damage_pl /= 1 + @enemy.hp.to_f / 200
+      damage_pl /= @enemy.block_power_coeff
     end
     # ---------------------------------------------------------------------------------------------------------------
 
@@ -341,7 +341,7 @@ while true
 
     # Расчет попадания/промаха и проведения атак и навыков -----------------------------------------------------
     if accuracy_action_pl >= rand(1..100)
-      puts "#{@enemy.name} заблокировал #{100 - (100 / (1 + @enemy.hp.to_f / 200)).to_i}% урона" if @enemy.block_chance >= chanse_block_en
+      puts "#{@enemy.name} заблокировал #{@enemy.block_power_in_percents}% урона" if @enemy.block_chance >= chanse_block_en
       @enemy.hp -= damage_pl
       puts "Вы нанесли #{damage_pl.round} урона #{target_name_pl}"
       hit_miss_pl = 1
@@ -365,7 +365,7 @@ while true
     end
 
     if accurasy_action_en >= rand(1..100)
-      puts "Вы заблокировали #{100 - (100 / (1 + @hero.hp_pl.to_f / 200)).to_i}% урона" if @hero.block_pl >= chanse_block_pl
+      puts "Вы заблокировали #{@hero.block_power_in_percents}% урона" if @hero.block_pl >= chanse_block_pl
       @hero.hp_pl -= damage_en
       puts "#{@enemy.name} нанес #{damage_en.round} урона #{name_target_en}"
       hit_miss_en = 1

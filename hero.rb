@@ -87,6 +87,17 @@ class Hero
     @accuracy_base_pl + @arms_armor.accuracy
   end
 
+  # def block_chance
+  #   @shield.block_chance
+  # end
+
+  def block_power_coeff
+    1 + @hp_pl.to_f / 200
+  end
+  def block_power_in_percents
+    100 - (100 / block_power_coeff()).to_i
+  end
+
 
   # Методы применения навыков
 
