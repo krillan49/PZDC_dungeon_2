@@ -10,7 +10,7 @@ class Hero
   attr_accessor :mindam_base_pl, :maxdam_base_pl
   attr_accessor :accuracy_base_pl
   attr_accessor :armor_base_pl
-  attr_accessor :block_pl
+  # attr_accessor :block_pl
   attr_accessor :exp_pl, :lvl_pl
   attr_reader :exp_lvl
   attr_accessor :stat_points, :skill_points
@@ -87,10 +87,13 @@ class Hero
     @accuracy_base_pl + @arms_armor.accuracy
   end
 
-  # def block_chance
-  #   @shield.block_chance
-  # end
-
+  def block_chance
+    if @passive_skill.name == "Мастер щита" && @shield.name != "без щита"
+      @shield.block_chance + @passive_skill.block_chance_bonus
+    else
+      @shield.block_chance
+    end
+  end
   def block_power_coeff
     1 + @hp_pl.to_f / 200
   end
