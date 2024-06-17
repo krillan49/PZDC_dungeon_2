@@ -17,14 +17,14 @@ class FieldLoot
   end
 
   def potion
-    @hero.hp_pl += [20, @hero.hp_max_pl - @hero.hp_pl].min
-    puts "Нашел зелье восстанавливающее 20 жизней, теперь у тебя #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней"
+    @hero.hp += [20, @hero.hp_max - @hero.hp].min
+    puts "Нашел зелье восстанавливающее 20 жизней, теперь у тебя #{@hero.hp.round}/#{@hero.hp_max} жизней"
   end
 
   def rat
-    @hero.hp_pl -= 5
-    puts "Пока ты шарил по углам, тебя укусила крыса(-5 жизней), теперь у тебя #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней"
-    if @hero.hp_pl <= 0
+    @hero.hp -= 5
+    puts "Пока ты шарил по углам, тебя укусила крыса(-5 жизней), теперь у тебя #{@hero.hp.round}/#{@hero.hp_max} жизней"
+    if @hero.hp <= 0
       puts "Ты подох от укуса крысы. Жалкая смерть"
       Art.game_over
       exit
@@ -62,25 +62,25 @@ class SecretLoot
 
   def hp_elixir
     bonus_hp = rand(1..3)
-    puts "Эликсир здоровья. Ваши жизни #{@hero.hp_pl.round}/#{@hero.hp_max_pl} увеличиваются на #{bonus_hp}"
-    @hero.hp_max_pl += bonus_hp
-    @hero.hp_pl += bonus_hp
-    puts "Теперь у вас #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней"
+    puts "Эликсир здоровья. Ваши жизни #{@hero.hp.round}/#{@hero.hp_max} увеличиваются на #{bonus_hp}"
+    @hero.hp_max += bonus_hp
+    @hero.hp += bonus_hp
+    puts "Теперь у вас #{@hero.hp.round}/#{@hero.hp_max} жизней"
   end
 
   def mp_elixir
     bonus_mp = rand(1..3)
-    puts "Эликсир выносливости. Ваша выносливость #{@hero.mp_pl.round}/#{@hero.mp_max_pl} увеличивается на #{bonus_mp}"
-    @hero.mp_max_pl += bonus_mp
-    @hero.mp_pl += bonus_mp
-    puts "Теперь у вас #{@hero.mp_pl.round}/#{@hero.mp_max_pl} выносливости"
+    puts "Эликсир выносливости. Ваша выносливость #{@hero.mp.round}/#{@hero.mp_max} увеличивается на #{bonus_mp}"
+    @hero.mp_max += bonus_mp
+    @hero.mp += bonus_mp
+    puts "Теперь у вас #{@hero.mp.round}/#{@hero.mp_max} выносливости"
   end
 
   def accuracy_elixir
     bonus_accuracy = rand(1..2)
-    puts "Эликсир точности. Ваша точность #{@hero.accuracy_base_pl} увеличивается на #{bonus_accuracy}"
-    @hero.accuracy_base_pl += bonus_accuracy
-    puts "Теперь у вас #{@hero.accuracy_base_pl} точности"
+    puts "Эликсир точности. Ваша точность #{@hero.accuracy_base} увеличивается на #{bonus_accuracy}"
+    @hero.accuracy_base += bonus_accuracy
+    puts "Теперь у вас #{@hero.accuracy_base} точности"
   end
 
   def book_of_knowledge
@@ -97,23 +97,23 @@ class SecretLoot
 
   def stone_elixir
     bonus_armor = 1
-    puts "Эликсир камня. Ваша броня #{@hero.armor_base_pl} увеличивается на #{bonus_armor}"
-    @hero.armor_base_pl += bonus_armor
-    puts "Теперь у вас #{@hero.armor_base_pl} брони"
+    puts "Эликсир камня. Ваша броня #{@hero.armor_base} увеличивается на #{bonus_armor}"
+    @hero.armor_base += bonus_armor
+    puts "Теперь у вас #{@hero.armor_base} брони"
   end
 
   def troll_elixir
     bonus_hp_regen = 1
-    puts "Эликсир троля. Регенерация жизней #{@hero.regen_hp_base_pl} увеличивается на #{bonus_hp_regen}"
-    @hero.regen_hp_base_pl += bonus_hp_regen
-    puts "Теперь у вас #{@hero.regen_hp_base_pl} регенерации жизней"
+    puts "Эликсир троля. Регенерация жизней #{@hero.regen_hp_base} увеличивается на #{bonus_hp_regen}"
+    @hero.regen_hp_base += bonus_hp_regen
+    puts "Теперь у вас #{@hero.regen_hp_base} регенерации жизней"
   end
 
   def unicorn_elixir
     bonus_mp_regen = 1
-    puts "Эликсир единорога. Регенерация выносливости #{@hero.regen_mp_base_pl} увеличивается на #{bonus_mp_regen}"
-    @hero.regen_mp_base_pl += bonus_mp_regen
-    puts "Теперь у вас #{@hero.regen_mp_base_pl} регенерации выносливости"
+    puts "Эликсир единорога. Регенерация выносливости #{@hero.regen_mp_base} увеличивается на #{bonus_mp_regen}"
+    @hero.regen_mp_base += bonus_mp_regen
+    puts "Теперь у вас #{@hero.regen_mp_base} регенерации выносливости"
   end
 end
 
@@ -167,12 +167,12 @@ class EnemyLoot
 end
 
 # class TestHero
-#   attr_accessor :hp_pl, :hp_max_pl, :mp_pl, :mp_max_pl, :regen_hp_base_pl, :regen_mp_base_pl
-#   attr_accessor :accuracy_base_pl, :stat_points, :skill_points, :armor_base_pl
+#   attr_accessor :hp, :hp_max, :mp, :mp_max, :regen_hp_base, :regen_mp_base
+#   attr_accessor :accuracy_base, :stat_points, :skill_points, :armor_base
 #   def initialize
-#     @hp_max_pl, @mp_max_pl = 100, 100
-#     @hp_pl, @mp_pl = rand(1..100), rand(1..100)
-#     @accuracy_base_pl = @stat_points = @skill_points = @armor_base_pl = @regen_hp_base_pl = @regen_mp_base_pl = 0
+#     @hp_max, @mp_max = 100, 100
+#     @hp, @mp = rand(1..100), rand(1..100)
+#     @accuracy_base = @stat_points = @skill_points = @armor_base = @regen_hp_base = @regen_mp_base = 0
 #   end
 # end
 # 10.times do

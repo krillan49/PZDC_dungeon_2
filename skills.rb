@@ -107,7 +107,7 @@ class Concentration
   end
 
   def damage_coef
-    @hero.mp_max_pl * (0.1 + 0.005 * @lvl) - 10
+    @hero.mp_max * (0.1 + 0.005 * @lvl) - 10
   end
 
   def damage_bonus
@@ -115,7 +115,7 @@ class Concentration
   end
 
   def description
-    "(#{@lvl}): если мана больше 100(#{@hero.mp_max_pl}) наносится случайный доп урон до #{damage_coef().round(1)}"
+    "(#{@lvl}): если мана больше 100(#{@hero.mp_max}) наносится случайный доп урон до #{damage_coef().round(1)}"
   end
 end
 
@@ -166,7 +166,7 @@ class FirstAid
   end
 
   def heal_effect
-    (@hero.hp_max_pl - @hero.hp_pl) * HERO_HP_MOD * coeff_lvl()
+    (@hero.hp_max - @hero.hp) * HERO_HP_MOD * coeff_lvl()
   end
 
   def description

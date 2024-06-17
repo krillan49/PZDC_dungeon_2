@@ -2,16 +2,16 @@ require 'yaml'
 require_relative 'weapons'
 
 class Hero
-  attr_accessor :name_pl
+  attr_accessor :name
   attr_reader :background
 
-  attr_accessor :hp_max_pl, :hp_pl, :regen_hp_base_pl
-  attr_accessor :mp_max_pl, :mp_pl, :regen_mp_base_pl
-  attr_accessor :mindam_base_pl, :maxdam_base_pl
-  attr_accessor :accuracy_base_pl
-  attr_accessor :armor_base_pl
-  # attr_accessor :block_pl
-  attr_accessor :exp_pl, :lvl_pl
+  attr_accessor :hp_max, :hp, :regen_hp_base
+  attr_accessor :mp_max, :mp, :regen_mp_base
+  attr_accessor :min_dmg_base, :max_dmg_base
+  attr_accessor :accuracy_base
+  attr_accessor :armor_base
+  # attr_accessor :block
+  attr_accessor :exp, :lvl
   attr_reader :exp_lvl
   attr_accessor :stat_points, :skill_points
 
@@ -24,23 +24,23 @@ class Hero
 
     @background = hero[:name]
 
-    @hp_pl = hero[:hp]
-    @hp_max_pl = hero[:hp]
-    @regen_hp_base_pl = 0
+    @hp = hero[:hp]
+    @hp_max = hero[:hp]
+    @regen_hp_base = 0
 
-    @mp_pl = hero[:mp]
-    @mp_max_pl = hero[:mp]
-    @regen_mp_base_pl = 0
+    @mp = hero[:mp]
+    @mp_max = hero[:mp]
+    @regen_mp_base = 0
 
-    @mindam_base_pl = hero[:min_dmg]
-    @maxdam_base_pl = hero[:max_dmg]
+    @min_dmg_base = hero[:min_dmg]
+    @max_dmg_base = hero[:max_dmg]
 
-    @accuracy_base_pl = hero[:accurasy]
+    @accuracy_base = hero[:accurasy]
 
-    @armor_base_pl = hero[:armor]
+    @armor_base = hero[:armor]
 
-    @exp_pl = 0
-    @lvl_pl = 0
+    @exp = 0
+    @lvl = 0
     @exp_lvl = [0, 2, 5, 9, 14, 20, 27, 35, 44, 54, 65, 77, 90, 104, 129, 145, 162, 180, 200]
 
     @stat_points = 5
@@ -55,36 +55,36 @@ class Hero
 
   # Геттеры - Методы зависимых характеристик:
 
-  def mindam_pl
-    @mindam_base_pl + @weapon.min_dmg
+  def min_dmg
+    @min_dmg_base + @weapon.min_dmg
   end
 
-  def maxdam_pl
-    @maxdam_base_pl + @weapon.max_dmg
+  def max_dmg
+    @max_dmg_base + @weapon.max_dmg
   end
 
   def recovery_hp
-    @hp_max_pl * 0.1
+    @hp_max * 0.1
   end
 
   def recovery_mp
-    @mp_max_pl * 0.1
+    @mp_max * 0.1
   end
 
   def regen_hp
-    @regen_hp_base_pl
+    @regen_hp_base
   end
 
   def regen_mp
-    @regen_mp_base_pl
+    @regen_mp_base
   end
 
-  def armor_pl
-    @armor_base_pl + @body_armor.armor + @head_armor.armor + @arms_armor.armor + @shield.armor
+  def armor
+    @armor_base + @body_armor.armor + @head_armor.armor + @arms_armor.armor + @shield.armor
   end
 
-  def accuracy_pl
-    @accuracy_base_pl + @arms_armor.accuracy
+  def accuracy
+    @accuracy_base + @arms_armor.accuracy
   end
 
   def block_chance
@@ -95,7 +95,7 @@ class Hero
     end
   end
   def block_power_coeff
-    1 + @hp_pl.to_f / 200
+    1 + @hp.to_f / 200
   end
   def block_power_in_percents
     100 - (100 / block_power_coeff()).to_i
@@ -105,14 +105,14 @@ class Hero
   # Методы применения навыков
 
   def use_camp_skill
-    if @hp_max_pl - @hp_pl > 0 && @camp_skill.name == "Первая помощь"
-      print "У вас #{@hp_pl.round}/#{@hp_max_pl} жизней, хотите использовать навык #{@camp_skill.name}, чтобы восстановить #{@camp_skill.heal_effect.round} жизней за 10 маны? (Y/N) "
+    if @hp_max - @hp > 0 && @camp_skill.name == "Первая помощь"
+      print "У вас #{@hp.round}/#{@hp_max} жизней, хотите использовать навык #{@camp_skill.name}, чтобы восстановить #{@camp_skill.heal_effect.round} жизней за 10 маны? (Y/N) "
       noncombat_choice = gets.strip.upcase
-      if @mp_pl >= @camp_skill.mp_cost && noncombat_choice == "Y"
+      if @mp >= @camp_skill.mp_cost && noncombat_choice == "Y"
         heal_effect_message = @camp_skill.heal_effect.round
-        @hp_pl += @camp_skill.heal_effect
-        @mp_pl -= @camp_skill.mp_cost
-        puts "Вы восстановили #{heal_effect_message} жизней за #{@camp_skill.mp_cost} маны, теперь у вас #{@hp_pl.round}/#{@hp_max_pl} жизней и #{@mp_pl.round}/#{@mp_max_pl} маны"
+        @hp += @camp_skill.heal_effect
+        @mp -= @camp_skill.mp_cost
+        puts "Вы восстановили #{heal_effect_message} жизней за #{@camp_skill.mp_cost} маны, теперь у вас #{@hp.round}/#{@hp_max} жизней и #{@mp.round}/#{@mp_max} маны"
       elsif noncombat_choice == "Y"
         puts "Не хватает маны"
       end
@@ -123,37 +123,37 @@ class Hero
   # Методы действий
 
   def rest # отдых между боями(Восстановления жизней и маны)
-    if @hp_pl < @hp_max_pl
-      @hp_pl += [recovery_hp(), @hp_max_pl - @hp_pl].min
-      puts "Передохнув вы восстанавливаете #{recovery_hp().round} жизней, теперь у вас #{@hp_pl.round}/#{@hp_max_pl} жизней"
+    if @hp < @hp_max
+      @hp += [recovery_hp(), @hp_max - @hp].min
+      puts "Передохнув вы восстанавливаете #{recovery_hp().round} жизней, теперь у вас #{@hp.round}/#{@hp_max} жизней"
     end
-    if @mp_pl < @mp_max_pl
-      @mp_pl += [recovery_mp(), @mp_max_pl - @mp_pl].min
-      puts "Передохнув вы восстанавливаете #{recovery_mp().round} выносливости, теперь у вас #{@mp_pl.round}/#{@mp_max_pl} выносливости"
+    if @mp < @mp_max
+      @mp += [recovery_mp(), @mp_max - @mp].min
+      puts "Передохнув вы восстанавливаете #{recovery_mp().round} выносливости, теперь у вас #{@mp.round}/#{@mp_max} выносливости"
     end
   end
 
   def regeneration_hp_mp # регенерация в бою
-    if regen_hp() > 0 && @hp_max_pl > @hp_pl
-      @hp_pl += [regen_hp(), @hp_max_pl - @hp_pl].min
-      puts "Вы регенерируете #{regen_hp()} жизней, теперь у вас #{@hp_pl.round}/#{@hp_max_pl} жизней"
+    if regen_hp() > 0 && @hp_max > @hp
+      @hp += [regen_hp(), @hp_max - @hp].min
+      puts "Вы регенерируете #{regen_hp()} жизней, теперь у вас #{@hp.round}/#{@hp_max} жизней"
     end
-    if regen_mp() > 0 && @mp_max_pl > @mp_pl
-      @mp_pl += [regen_mp(), @mp_max_pl - @mp_pl].min
-      puts "Вы регенерируете #{regen_mp()} выносливости, теперь у вас #{@mp_pl.round}/#{@mp_max_pl} выносливости"
+    if regen_mp() > 0 && @mp_max > @mp
+      @mp += [regen_mp(), @mp_max - @mp].min
+      puts "Вы регенерируете #{regen_mp()} выносливости, теперь у вас #{@mp.round}/#{@mp_max} выносливости"
     end
   end
 
   def add_exp_and_hero_level_up(added_exp) # получения нового опыта, уровня, очков характеристик и наыков
-    @exp_pl += added_exp
-    puts "Вы получили #{added_exp} опыта. Теперь у вас #{@exp_pl} опыта"
+    @exp += added_exp
+    puts "Вы получили #{added_exp} опыта. Теперь у вас #{@exp} опыта"
     @exp_lvl.each.with_index do |exp_val, i|
-      if @exp_pl >= exp_val && @lvl_pl < i
-        new_levels = i - @lvl_pl
+      if @exp >= exp_val && @lvl < i
+        new_levels = i - @lvl
         @stat_points += new_levels
         @skill_points += new_levels
-        @lvl_pl += new_levels
-        puts "Вы получили новый уровень, теперь ваш уровень #{@lvl_pl}й"
+        @lvl += new_levels
+        puts "Вы получили новый уровень, теперь ваш уровень #{@lvl}й"
         puts "Вы получили #{new_levels} очков характеристик и #{new_levels} очков навыков"
         puts "У вас теперь #{@stat_points} очков характеристик и #{@skill_points} очков навыков"
       end

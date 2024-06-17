@@ -4,6 +4,7 @@ require_relative "enemyes"
 require_relative "weapons"
 require_relative "loot"
 require_relative "info_block"
+require_relative "arts"
 
 
 #======================================= Методы временные решения =================================================
@@ -12,18 +13,18 @@ require_relative "info_block"
 def character_panel
   puts '--------------------------------------------------------------------------------------------'
   puts '--------------------------------------------------------------------------------------------'
-  puts "#{@hero.name_pl}"
-  puts "Уровень #{@hero.lvl_pl} (#{@hero.exp_pl}/#{@hero.exp_lvl[@hero.lvl_pl + 1]})"
+  puts "#{@hero.name}"
+  puts "Уровень #{@hero.lvl} (#{@hero.exp}/#{@hero.exp_lvl[@hero.lvl + 1]})"
   puts "Н А В Ы К И:"
   puts "[акт] #{@hero.active_skill.name} #{@hero.active_skill.description}"
   puts "[пас] #{@hero.passive_skill.name} #{@hero.passive_skill.description}"
   puts "[неб] #{@hero.camp_skill.name} #{@hero.camp_skill.description}"
   puts "С Т А Т Ы:"
-  puts "HP #{@hero.hp_pl.round}/#{@hero.hp_max_pl} Реген #{@hero.regen_hp_base_pl} Восстановление #{@hero.recovery_hp.round}"
-  puts "MP #{@hero.mp_pl.round}/#{@hero.mp_max_pl} Реген #{@hero.regen_mp_base_pl} Восстановление #{@hero.recovery_mp.round}"
-  puts "Урон #{@hero.mindam_pl}-#{@hero.maxdam_pl} (базовый #{@hero.mindam_base_pl}-#{@hero.maxdam_base_pl} + #{@hero.weapon.name} #{@hero.weapon.min_dmg}-#{@hero.weapon.max_dmg})"
-  puts "Точность #{@hero.accuracy_pl} (базовая #{@hero.accuracy_base_pl} + #{@hero.arms_armor.name} #{@hero.arms_armor.accuracy})"
-  puts "Броня #{@hero.armor_pl} (базовая #{@hero.armor_base_pl} + #{@hero.body_armor.name} #{@hero.body_armor.armor} + #{@hero.head_armor.name} #{@hero.head_armor.armor} + #{@hero.arms_armor.name} #{@hero.arms_armor.armor} + #{@hero.shield.name} #{@hero.shield.armor})"
+  puts "HP #{@hero.hp.round}/#{@hero.hp_max} Реген #{@hero.regen_hp_base} Восстановление #{@hero.recovery_hp.round}"
+  puts "MP #{@hero.mp.round}/#{@hero.mp_max} Реген #{@hero.regen_mp_base} Восстановление #{@hero.recovery_mp.round}"
+  puts "Урон #{@hero.min_dmg}-#{@hero.max_dmg} (базовый #{@hero.min_dmg_base}-#{@hero.max_dmg_base} + #{@hero.weapon.name} #{@hero.weapon.min_dmg}-#{@hero.weapon.max_dmg})"
+  puts "Точность #{@hero.accuracy} (базовая #{@hero.accuracy_base} + #{@hero.arms_armor.name} #{@hero.arms_armor.accuracy})"
+  puts "Броня #{@hero.armor} (базовая #{@hero.armor_base} + #{@hero.body_armor.name} #{@hero.body_armor.armor} + #{@hero.head_armor.name} #{@hero.head_armor.armor} + #{@hero.arms_armor.name} #{@hero.arms_armor.armor} + #{@hero.shield.name} #{@hero.shield.armor})"
   puts "Шанс блока #{@hero.block_chance} (#{@hero.shield.name} #{@hero.shield.block_chance}) блокируемый урон #{@hero.block_power_in_percents}%"
   puts '--------------------------------------------------------------------------------------------'
   puts '--------------------------------------------------------------------------------------------'
@@ -55,7 +56,7 @@ end
 
 # Выбор имени .................................................................................................
 print 'Введите имя персонажа: '
-@hero.name_pl = gets.strip
+@hero.name = gets.strip
 
 # Выбор стартовых навыков .......................................................................................
 puts 'Выберите стартовый активный навык '
@@ -114,15 +115,15 @@ while true
       distribution = gets.strip.upcase
       case distribution
       when 'H'
-        @hero.hp_max_pl += 5
-        @hero.hp_pl += 5
+        @hero.hp_max += 5
+        @hero.hp += 5
       when 'M'
-        @hero.mp_max_pl += 5
-        @hero.mp_pl += 5
+        @hero.mp_max += 5
+        @hero.mp += 5
       when 'X'
-        @hero.mindam_base_pl < @hero.maxdam_base_pl && rand(0..1) == 0 ? @hero.mindam_base_pl += 1 : @hero.maxdam_base_pl += 1
+        @hero.min_dmg_base < @hero.max_dmg_base && rand(0..1) == 0 ? @hero.min_dmg_base += 1 : @hero.max_dmg_base += 1
       when 'A'
-        @hero.accuracy_base_pl += 1
+        @hero.accuracy_base += 1
       else
         puts 'Вы ввели неверный символ, попробуйте еще раз'
       end
@@ -217,7 +218,7 @@ while true
     puts "====================================== ХОД #{lap} ============================================"
 
     # Расчет базового урона----------------------------------------------------------------------------------------
-    damage_pl = rand(@hero.mindam_pl..@hero.maxdam_pl)
+    damage_pl = rand(@hero.min_dmg..@hero.max_dmg)
 
     damage_en = rand(@enemy.min_dmg..@enemy.max_dmg)
     #----------------------------------------------------------------------------------------------------------
@@ -232,24 +233,24 @@ while true
       case target_pl
       when 'H'
         damage_pl *= 1.5
-        accuracy_action_pl = @hero.accuracy_pl * 0.7
+        accuracy_action_pl = @hero.accuracy * 0.7
         target_name_pl = "по голове"
       when 'L'
         damage_pl *= 0.7
-        accuracy_action_pl = @hero.accuracy_pl * 1.5
+        accuracy_action_pl = @hero.accuracy * 1.5
         target_name_pl = "по ногам"
       when 'S'
-        if @hero.mp_pl >= @hero.active_skill.mp_cost
+        if @hero.mp >= @hero.active_skill.mp_cost
           damage_pl *= @hero.active_skill.damage_mod
-          accuracy_action_pl = @hero.accuracy_pl * @hero.active_skill.accuracy_mod
+          accuracy_action_pl = @hero.accuracy * @hero.active_skill.accuracy_mod
           target_name_pl = @hero.active_skill.name
-          @hero.mp_pl -= @hero.active_skill.mp_cost
+          @hero.mp -= @hero.active_skill.mp_cost
         else
           puts "Недостаточно маны на #{@hero.active_skill.name}"
           cant_do -= 1
         end
       else
-        accuracy_action_pl = @hero.accuracy_pl
+        accuracy_action_pl = @hero.accuracy
       end
     end
     # -----------------------------------------------------------------------------------------------------
@@ -289,7 +290,7 @@ while true
       damage_pl = 0
     end
 
-    damage_en -= @hero.armor_pl
+    damage_en -= @hero.armor
     if damage_en < 0
       damage_en = 0
     end
@@ -322,7 +323,7 @@ while true
 
     if accurasy_action_en >= rand(1..100)
       puts "Вы заблокировали #{@hero.block_power_in_percents}% урона" if @hero.block_chance >= chanse_block_pl
-      @hero.hp_pl -= damage_en
+      @hero.hp -= damage_en
       puts "#{@enemy.name} нанес #{damage_en.round} урона #{name_target_en}"
       hit_miss_en = 1
     else
@@ -334,32 +335,34 @@ while true
     @hero.regeneration_hp_mp # регенерация
 
     # Результат обмена ударами --------------------------------------------------------------------------------
-    if @hero.hp_pl > 0 and @enemy.hp > 0
-      puts "У вас осталось #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней и #{@hero.mp_pl.round}/#{@hero.mp_max_pl} выносливости, у #{@enemy.name}а осталось #{@enemy.hp.round} жизней."
-    elsif @hero.hp_pl > 0 and @enemy.hp <= 0
-      puts "У вас осталось #{@hero.hp_pl.round}/#{@hero.hp_max_pl} жизней и #{@hero.mp_pl.round}/#{@hero.mp_max_pl} выносливости, у #{@enemy.name}а осталось #{@enemy.hp.round} жизней."
+    if @hero.hp > 0 and @enemy.hp > 0
+      puts "У вас осталось #{@hero.hp.round}/#{@hero.hp_max} жизней и #{@hero.mp.round}/#{@hero.mp_max} выносливости, у #{@enemy.name}а осталось #{@enemy.hp.round} жизней."
+    elsif @hero.hp > 0 and @enemy.hp <= 0
+      puts "У вас осталось #{@hero.hp.round}/#{@hero.hp_max} жизней и #{@hero.mp.round}/#{@hero.mp_max} выносливости, у #{@enemy.name}а осталось #{@enemy.hp.round} жизней."
       puts "#{@enemy.name} убит, победа!!!"
-    elsif @hero.hp_pl <= 0
+    elsif @hero.hp <= 0
       puts "Ты убит - слабак!"
+      Art.game_over
       exit
     end
     #------------------------------------------------------------------------------------------------------------------
 
     # Побег ---------------------------------------------------------------------------------------------------
-    if @hero.hp_pl < (@hero.hp_max_pl * 0.15) and @hero.hp_pl > 0 and @enemy.hp > 0
+    if @hero.hp < (@hero.hp_max * 0.15) and @hero.hp > 0 and @enemy.hp > 0
       print 'Ты на пороге смерти. Чтобы убежать введи Y : '
       run_select = gets.strip.upcase
       if run_select == 'Y'
         run_chance = rand(0..2)
         if run_chance >= 1
           puts "Сбежал ссыкло, штраф 5 опыта"
-          @hero.exp_pl -= 5
+          @hero.exp -= 5
           run = true
         else
-          @hero.hp_pl -= damage_en
+          @hero.hp -= damage_en
           puts "Не удалось убежать #{@enemy.name} нанес #{damage_en.round} урона"
-          if @hero.hp_pl <= 0
+          if @hero.hp <= 0
             puts "Ты убит - трусливая псина!"
+            Art.game_over
             exit
           end
           run = false
