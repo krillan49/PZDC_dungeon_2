@@ -1,4 +1,5 @@
 require_relative "hero_creator"
+require_relative "hero_updator"
 require_relative "hero"
 require_relative "skills"
 require_relative "enemyes"
@@ -18,62 +19,14 @@ while true
 
   zombie_knight = 0
 
-  # распределение очков характеристик --------------------------------------------------------------------------
-  while @hero.stat_points != 0
-
-    InfoBlock.hero_stats_info(@hero) # Панель характеристик персонажа
-
-    distribution = ''
-    until %w[H M X A].include?(distribution)
-      puts "Распределите очки характеристик. У вас осталось #{@hero.stat_points} очков"
-      print '+5 жизней(H). +5 выносливости(M). +1 мин/макс случайно урон(X). +1 точность(A)  '
-      distribution = gets.strip.upcase
-      case distribution
-      when 'H'
-        @hero.hp_max += 5
-        @hero.hp += 5
-      when 'M'
-        @hero.mp_max += 5
-        @hero.mp += 5
-      when 'X'
-        @hero.min_dmg_base < @hero.max_dmg_base && rand(0..1) == 0 ? @hero.min_dmg_base += 1 : @hero.max_dmg_base += 1
-      when 'A'
-        @hero.accuracy_base += 1
-      else
-        puts 'Вы ввели неверный символ, попробуйте еще раз'
-      end
-    end
-    @hero.stat_points -= 1
-  end
-
-  # распределение очков навыков --------------------------------------------------------------------------
-  while @hero.skill_points != 0
-
-    InfoBlock.hero_stats_info(@hero) # Панель характеристик персонажа
-
-    distribution = ''
-    while distribution != 'S' and distribution != 'P' and distribution != 'N'
-      puts "Распределите очки навыков. У вас осталось #{@hero.skill_points} очков"
-      print "+1 #{@hero.active_skill.name}(S). +1 #{@hero.passive_skill.name}(P). +1 #{@hero.camp_skill.name}(N) "
-      distribution = gets.strip.upcase
-      case distribution
-      when 'S'; @hero.active_skill.lvl += 1
-      when 'P'; @hero.passive_skill.lvl += 1
-      when 'N'; @hero.camp_skill.lvl += 1
-      else
-        puts 'Вы ввели неверный символ, попробуйте еще раз'
-        @hero.skill_points += 1
-      end
-      @hero.skill_points -= 1
-    end
-  end
+  HeroUpdator.new(@hero).spend_stat_points # распределение очков характеристик
+  HeroUpdator.new(@hero).spend_skill_points # распределение очков навыков
 
   InfoBlock.hero_stats_info(@hero) # Панель характеристик персонажа
 
   #---------------------------------------------------------------------------------
 
   @hero.use_camp_skill # Навык Первая помощь
-
   @hero.rest # пассивное восстановления жизней и маны между боями
 
   #--------------------------------------------------------------------------------------------------------------

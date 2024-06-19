@@ -1,3 +1,5 @@
+require_relative "hero_creator"
+require_relative "hero_updator"
 require_relative "hero"
 require_relative "skills"
 require_relative "enemyes"
@@ -8,70 +10,8 @@ require_relative "arts"
 
 
 
-# Создание персонажа..............................................................................................
-puts 'Создание персонажа'
-puts '========================'
+@hero = HeroCreator.new.create_new_hero # Создание нового персонажа
 
-# Выбор предистории .................................................................................................
-print "Выберите предисторию:
-Сторож(G) + 30 жизней, Дубинка
-Карманник(T) + 5 точности, Ножик
-Рабочий(W) + 30 выносливости, Ржавый топорик
-Умник(S) + 5 очков навыков, без оружия
-"
-choose_story_pl = gets.strip.upcase
-case choose_story_pl
-when 'G'; @hero = Hero.new('watchman')
-when 'T'; @hero = Hero.new('thief')
-when 'W'; @hero = Hero.new('worker')
-when 'S'; @hero = Hero.new('student')
-else
-  @hero = Hero.new('drunk')
-  puts 'Перепутал буквы, ты тупой алкаш -5 жизней -5 выносливости -10 точность'
-end
-
-# Выбор имени .................................................................................................
-print 'Введите имя персонажа: '
-@hero.name = gets.strip
-
-# Выбор стартовых навыков .......................................................................................
-puts 'Выберите стартовый активный навык '
-print 'Сильный удар(S) Точный удар(A) '
-special_choiсe = gets.strip.upcase
-while special_choiсe != 'S' and special_choiсe != 'A'
-  print 'Введен неверный символ. Попробуйте еще раз. Сильный удар(S) Точный удар(A) '
-  special_choiсe = gets.strip.upcase
-end
-case special_choiсe
-when 'S'; @hero.active_skill = StrongStrike.new
-when 'A'; @hero.active_skill = PreciseStrike.new
-end
-
-puts 'Выберите стартовый пассивный навык '
-print 'Ошеломление(D) Концентрация(C) Мастер щита(B) '
-passive_choiсe = gets.strip.upcase
-while passive_choiсe != 'D' and passive_choiсe != 'C' and passive_choiсe != 'B'
-  print 'Неверный символ попробуйте еще раз. Ошеломление(D) Концентрация(C) Мастер щита(B) '
-  passive_choiсe = gets.strip.upcase
-end
-case passive_choiсe
-when 'D'; @hero.passive_skill = Dazed.new
-when 'C'; @hero.passive_skill = Concentration.new(@hero)
-when 'B'; @hero.passive_skill = ShieldMaster.new
-end
-
-puts 'Выберите стартовый небоевой навык '
-print 'Первая помощь(F) Кладоискатель(T) '
-noncombat_choiсe = gets.strip.upcase
-while noncombat_choiсe != 'F' and noncombat_choiсe != 'T'
-  print 'Введен неверный символ попробуйте еще раз. Первая помощь(F) Кладоискатель(T) '
-  noncombat_choiсe = gets.strip.upcase
-end
-case noncombat_choiсe
-when 'F'; @hero.camp_skill = FirstAid.new(@hero)
-when 'T'; @hero.camp_skill = TreasureHunter.new
-end
-#--------------------------------------------------------------------------------------------------------------------
 
 # Основной игровой блок ===============================================================================================
 leveling = 0
@@ -79,62 +19,14 @@ while true
 
   zombie_knight = 0
 
-  # распределение очков характеристик --------------------------------------------------------------------------
-  while @hero.stat_points != 0
-
-    InfoBlock.hero_stats_info(@hero) # Панель характеристик персонажа
-
-    distribution = ''
-    until %w[H M X A].include?(distribution)
-      puts "Распределите очки характеристик. У вас осталось #{@hero.stat_points} очков"
-      print '+5 жизней(H). +5 выносливости(M). +1 мин/макс случайно урон(X). +1 точность(A)  '
-      distribution = gets.strip.upcase
-      case distribution
-      when 'H'
-        @hero.hp_max += 5
-        @hero.hp += 5
-      when 'M'
-        @hero.mp_max += 5
-        @hero.mp += 5
-      when 'X'
-        @hero.min_dmg_base < @hero.max_dmg_base && rand(0..1) == 0 ? @hero.min_dmg_base += 1 : @hero.max_dmg_base += 1
-      when 'A'
-        @hero.accuracy_base += 1
-      else
-        puts 'Вы ввели неверный символ, попробуйте еще раз'
-      end
-    end
-    @hero.stat_points -= 1
-  end
-
-  # распределение очков навыков --------------------------------------------------------------------------
-  while @hero.skill_points != 0
-
-    InfoBlock.hero_stats_info(@hero) # Панель характеристик персонажа
-
-    distribution = ''
-    while distribution != 'S' and distribution != 'P' and distribution != 'N'
-      puts "Распределите очки навыков. У вас осталось #{@hero.skill_points} очков"
-      print "+1 #{@hero.active_skill.name}(S). +1 #{@hero.passive_skill.name}(P). +1 #{@hero.camp_skill.name}(N) "
-      distribution = gets.strip.upcase
-      case distribution
-      when 'S'; @hero.active_skill.lvl += 1
-      when 'P'; @hero.passive_skill.lvl += 1
-      when 'N'; @hero.camp_skill.lvl += 1
-      else
-        puts 'Вы ввели неверный символ, попробуйте еще раз'
-        @hero.skill_points += 1
-      end
-      @hero.skill_points -= 1
-    end
-  end
+  HeroUpdator.new(@hero).spend_stat_points # распределение очков характеристик
+  HeroUpdator.new(@hero).spend_skill_points # распределение очков навыков
 
   InfoBlock.hero_stats_info(@hero) # Панель характеристик персонажа
 
   #---------------------------------------------------------------------------------
 
   @hero.use_camp_skill # Навык Первая помощь
-
   @hero.rest # пассивное восстановления жизней и маны между боями
 
   #--------------------------------------------------------------------------------------------------------------
@@ -318,7 +210,7 @@ while true
       puts "#{@enemy.name} убит, победа!!!"
     elsif @hero.hp <= 0
       puts "Ты убит - слабак!"
-      Art.game_over
+      Art.display_art(:game_over)
       exit
     end
     #------------------------------------------------------------------------------------------------------------------
@@ -338,7 +230,7 @@ while true
           puts "Не удалось убежать #{@enemy.name} нанес #{damage_en.round} урона"
           if @hero.hp <= 0
             puts "Ты убит - трусливая псина!"
-            Art.game_over
+            Art.display_art(:game_over)
             exit
           end
           run = false
