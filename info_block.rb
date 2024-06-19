@@ -1,9 +1,8 @@
+require 'yaml'
+
 module InfoBlock
   def InfoBlock.hero_stats_info(hero)
-    puts '--------------------------------------------------------------------------------------------'
-    puts '--------------------------------------------------------------------------------------------'
-    puts "#{hero.name}"
-    puts "Уровень #{hero.lvl} (#{hero.exp}/#{hero.exp_lvl[hero.lvl + 1]})"
+    puts InfoBlock.hero_name_level_exp(hero)
     puts "Н А В Ы К И:"
     puts "[акт] #{hero.active_skill.name} #{hero.active_skill.description}"
     puts "[пас] #{hero.passive_skill.name} #{hero.passive_skill.description}"
@@ -19,6 +18,19 @@ module InfoBlock
     puts '--------------------------------------------------------------------------------------------'
   end
 
+  def InfoBlock.hero_name_level_exp(hero)
+    menu = YAML.safe_load_file('data/arts/menues.yml', symbolize_names: true)[:name_level_exp]
+    name = menu[1].gsub(/[^N]/,'').size
+    lvl = menu[1].gsub(/[^L]/,'').size
+    exp1, exp2 = menu[1].gsub(/[^E]/,'').size, menu[1].gsub(/[^X]/,'').size
+    res = InfoBlock.length_updater N: [name, hero.name],
+                                   L: [lvl, hero.lvl.to_s],
+                                   E: [exp1, hero.exp.to_s],
+                                   X: [exp2, hero.exp_lvl[hero.lvl + 1].to_s]
+    menu[1] = InfoBlock.incerter(menu[1], res)
+    menu
+  end
+
   def InfoBlock.enemy_start_stats_info(enemy)
     puts "В бой! Ваш противник #{enemy.name}"
     puts "HP #{enemy.hp}"
@@ -27,8 +39,37 @@ module InfoBlock
     puts "Accurasy #{enemy.accuracy} = #{enemy.accuracy_base} + #{enemy.arms_armor.accuracy}(#{enemy.arms_armor.name})"
     puts "Block #{enemy.block_chance} = #{enemy.shield.block_chance}(#{enemy.shield.name})"
   end
+
+  private
+
+  def InfoBlock.length_updater(hh)
+    hh.each do |k, (size, v)|
+      half_min = (size - v.size) / 2
+      half_max = size - v.size - half_min
+      hh[k] = ' ' * half_max + v + ' ' * half_min
+    end
+  end
+
+  def InfoBlock.incerter(str, hh)
+    hh.each do |k, v|
+      str = str.sub(/#{k}+/, v)
+    end
+    str
+  end
+
 end
 
+# class TestHero
+#   attr_reader :name, :exp, :lvl, :exp_lvl
+#   def initialize
+#     @name = 'Vasya'
+#     @exp = rand(0..199)
+#     @lvl = rand(0..15)
+#     @exp_lvl = [0, 2, 5, 9, 14, 20, 27, 35, 44, 54, 65, 77, 90, 104, 129, 145, 162, 180, 200]
+#   end
+# end
+#
+# puts InfoBlock.name_level_exp(TestHero.new)
 
 
 
