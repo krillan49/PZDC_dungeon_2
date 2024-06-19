@@ -1,5 +1,6 @@
 require_relative "hero_creator"
 require_relative "hero_updator"
+require_relative "enemy_creator"
 require_relative "hero"
 require_relative "skills"
 require_relative "enemyes"
@@ -17,8 +18,6 @@ require_relative "arts"
 leveling = 0
 while true
 
-  zombie_knight = 0
-
   HeroUpdator.new(@hero).spend_stat_points # распределение очков характеристик
   HeroUpdator.new(@hero).spend_skill_points # распределение очков навыков
 
@@ -35,45 +34,7 @@ while true
   gets
   puts "++++++++++++++++++++++++++++++++++++++ Бой #{leveling + 1} +++++++++++++++++++++++++++++++++++++++++++++++++"
 
-  # Назначение противника ---------------------------------------------------------------------------------
-
-  # Проверка шанса уникальных противников
-  enemy_event_rand = rand(1..100)
-  if enemy_event_rand > (99 - leveling) and zombie_knight != 1
-    print 'Вы заметили с одной стороны развилки фигуру рыцаря, идем туда(Y) или свернем в другую сторону? '
-    r_choose = gets.strip.upcase
-    case r_choose
-    when 'Y'
-      zombie_knight = 1
-      puts 'Это рыцарь-зомби, приготовься к сложному бою'
-      @enemy = Enemy.new("Рыцарь-зомби")
-    else
-      puts 'Правильный выбор, выглядело опасно'
-      puts '-' * 40
-      enemy_rand = rand(1..12) + rand(0..leveling)
-    end
-  else
-    enemy_rand = rand(1..12) + rand(0..leveling)
-  end
-
-  # Выбор стандартного противника
-  if zombie_knight != 1
-    if enemy_rand > 0 and enemy_rand <= 5
-      @enemy = Enemy.new("Оборванец")
-    elsif enemy_rand > 5 and enemy_rand <= 10
-      @enemy = Enemy.new("Бешеный пес")
-    elsif enemy_rand > 10 and enemy_rand <= 15
-      @enemy = Enemy.new("Гоблин")
-    elsif enemy_rand > 15 and enemy_rand <= 20
-      @enemy = Enemy.new("Бандит")
-    elsif enemy_rand > 20 and enemy_rand <= 25
-      @enemy = Enemy.new("Дезертир")
-    elsif enemy_rand > 25 #and enemy_rand <= 30
-      @enemy = Enemy.new("Орк")
-    end
-  end
-
-  #--------------------------------------------------------------------------------------------------------------------
+  @enemy = EnemyCreator.new(leveling).create_new_enemy # Назначение противника
 
   InfoBlock.enemy_start_stats_info(@enemy)
 
