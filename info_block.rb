@@ -3,7 +3,7 @@ require 'yaml'
 module InfoBlock
 
   def InfoBlock.enemy_start_stats_info(enemy)
-    puts "В бой! Ваш противник #{enemy.name}"
+    puts InfoBlock.enemy_name(enemy)
     puts "HP #{enemy.hp}"
     puts "Damage #{enemy.min_dmg}-#{enemy.max_dmg} = #{enemy.min_dmg_base}-#{enemy.max_dmg_base} + #{enemy.weapon.min_dmg}-#{enemy.weapon.max_dmg}(#{enemy.weapon.name})"
     puts "Armor #{enemy.armor} = #{enemy.armor_base} + #{enemy.body_armor.armor}(#{enemy.body_armor.name}) + #{enemy.head_armor.armor}(#{enemy.head_armor.name}) + #{enemy.arms_armor.armor}(#{enemy.arms_armor.name}) + #{enemy.shield.armor}(#{enemy.shield.name})"
@@ -26,7 +26,7 @@ module InfoBlock
   end
 
   def InfoBlock.hero_name_level_exp(hero)
-    menu = YAML.safe_load_file('data/arts/menues.yml', symbolize_names: true)[:name_level_exp]
+    menu = YAML.safe_load_file('data/arts/menues.yml', symbolize_names: true)[:hero_name_level_exp]
     name = menu[1].gsub(/[^N]/,'').size
     lvl = menu[1].gsub(/[^L]/,'').size
     exp1 = menu[1].gsub(/[^E]/,'').size
@@ -56,6 +56,13 @@ module InfoBlock
     [3,4,6,7,9,10].each do |i|
       menu[i] = InfoBlock.incerter(menu[i], res)
     end
+    menu
+  end
+
+  def InfoBlock.enemy_name(enemy)
+    menu = YAML.safe_load_file('data/arts/menues.yml', symbolize_names: true)[:enemy_name]
+    res = InfoBlock.length_updater E: [menu[1].gsub(/[^E]/,'').size, enemy.name, :m]
+    menu[1] = InfoBlock.incerter(menu[1], res)
     menu
   end
 
@@ -100,6 +107,15 @@ module InfoBlock
     puts "Броня #{hero.armor} (базовая #{hero.armor_base} + #{hero.body_armor.name} #{hero.body_armor.armor} + #{hero.head_armor.name} #{hero.head_armor.armor} + #{hero.arms_armor.name} #{hero.arms_armor.armor} + #{hero.shield.name} #{hero.shield.armor})"
     puts "Шанс блока #{hero.block_chance} (#{hero.shield.name} #{hero.shield.block_chance}) блокируемый урон #{hero.block_power_in_percents}%"
     puts '--------------------------------------------------------------------------------------------'
+  end
+
+  def InfoBlock.old_enemy_start_stats_info(enemy)
+    puts "В бой! Ваш противник #{enemy.name}"
+    puts "HP #{enemy.hp}"
+    puts "Damage #{enemy.min_dmg}-#{enemy.max_dmg} = #{enemy.min_dmg_base}-#{enemy.max_dmg_base} + #{enemy.weapon.min_dmg}-#{enemy.weapon.max_dmg}(#{enemy.weapon.name})"
+    puts "Armor #{enemy.armor} = #{enemy.armor_base} + #{enemy.body_armor.armor}(#{enemy.body_armor.name}) + #{enemy.head_armor.armor}(#{enemy.head_armor.name}) + #{enemy.arms_armor.armor}(#{enemy.arms_armor.name}) + #{enemy.shield.armor}(#{enemy.shield.name})"
+    puts "Accurasy #{enemy.accuracy} = #{enemy.accuracy_base} + #{enemy.arms_armor.accuracy}(#{enemy.arms_armor.name})"
+    puts "Block #{enemy.block_chance} = #{enemy.shield.block_chance}(#{enemy.shield.name})"
   end
 
 end
