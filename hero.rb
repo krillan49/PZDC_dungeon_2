@@ -23,7 +23,7 @@ class Hero
     @name = name
 
     hero = YAML.safe_load_file('data/characters/heroes.yml', symbolize_names: true)[background.to_sym]
-    
+
     @background = hero[:name]
 
     @hp = hero[:hp]

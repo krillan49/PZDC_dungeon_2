@@ -3,7 +3,8 @@ require_relative 'weapons'
 
 class Enemy
   attr_reader :name
-  attr_accessor :hp
+  attr_accessor :hp_max, :hp, :regen_hp_base
+  attr_accessor :mp_max, :mp, :regen_mp_base
   attr_accessor :min_dmg_base, :max_dmg_base
   attr_accessor :accuracy_base
   attr_accessor :armor_base
@@ -15,7 +16,12 @@ class Enemy
     enemy = YAML.safe_load_file('data/characters/enemyes.yml', symbolize_names: true)[name.to_sym]
 
     @name          = enemy[:name]
+    @hp_max        = enemy[:hp]
     @hp            = enemy[:hp]
+    @regen_hp_base = 0
+    @mp            = 0
+    @mp_max        = 0
+    @regen_mp_base = 0
     @min_dmg_base  = enemy[:min_dmg]
     @max_dmg_base  = enemy[:max_dmg]
     @accuracy_base = enemy[:accurasy]
@@ -37,6 +43,22 @@ class Enemy
 
   def max_dmg
     @max_dmg_base + @weapon.max_dmg
+  end
+
+  def recovery_hp
+    @hp_max * 0.1
+  end
+
+  def recovery_mp
+    @mp_max * 0.1
+  end
+
+  def regen_hp
+    @regen_hp_base
+  end
+
+  def regen_mp
+    @regen_mp_base
   end
 
   def armor
