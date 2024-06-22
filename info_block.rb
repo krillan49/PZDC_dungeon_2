@@ -68,7 +68,23 @@ module InfoBlock
     menu
   end
 
+  # def InfoBlock.character_stats#(character)
+  #   code = YAML.safe_load_file('data/menues/character_codes.yml', symbolize_names: true)
+  #   menu = YAML.safe_load_file('data/menues/menues.yml', symbolize_names: true)[:character_stats]
+  #   InfoBlock.find_codes_in_menu(menu, code.keys)
+  # end
+
   private
+
+  # def InfoBlock.find_codes_in_menu(menu, code_keys)
+  #   menu.map do |str|
+  #     code_keys.each do |k|
+  #       if str.match?(/#{k}{3,}/)
+  #       end
+  #     end
+  #     str
+  #   end
+  # end
 
   def InfoBlock.length_updater(hh)
     hh.each do |k, (size, v, option)|
@@ -121,6 +137,8 @@ module InfoBlock
   end
 
 end
+
+# p InfoBlock.character_stats
 
 # class TestHero
 #   attr_reader :name, :exp, :lvl, :exp_lvl

@@ -103,6 +103,10 @@ class Hero
     100 - (100 / block_power_coeff()).to_i
   end
 
+  def next_lvl_exp
+    @exp_lvl[@lvl + 1]
+  end
+
 
   # Методы применения навыков
 
