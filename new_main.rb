@@ -6,6 +6,7 @@ require_relative "skills"
 require_relative "enemyes"
 require_relative "weapons"
 require_relative "loot"
+require_relative "menues"
 require_relative "info_block"
 require_relative "arts"
 
@@ -19,9 +20,13 @@ leveling = 0
 while true
 
   HeroUpdator.new(@hero).spend_stat_points # распределение очков характеристик
-  HeroUpdator.new(@hero).spend_skill_points # распределение очков навыков
+  HeroUpdator.new(@hero).spend_skill_points # распределение очков навыков  (тут вызывается старое меню, потом доделать)
 
-  InfoBlock.hero_stats_info(@hero) # Панель характеристик персонажа
+  # InfoBlock.hero_stats_info(@hero)
+  # Панель характеристик персонажа
+  puts InfoBlock.hero_name_level_exp(@hero)
+  Menu.new(:character_stats, @hero).display
+  puts InfoBlock.character_skills(@hero)
 
   #---------------------------------------------------------------------------------
 
@@ -36,7 +41,9 @@ while true
 
   @enemy = EnemyCreator.new(leveling).create_new_enemy # Назначение противника
 
-  InfoBlock.enemy_start_stats_info(@enemy)
+  # InfoBlock.enemy_start_stats_info(@enemy)
+  puts InfoBlock.enemy_name(@enemy)
+  Menu.new(:character_stats, @enemy).display
 
   # Ход боя ===============================================================================================
   run = false
