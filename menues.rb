@@ -1,19 +1,5 @@
 require 'yaml'
 
-# Вы заметили с одной стороны развилки фигуру рыцаря, идем туда(Y) или свернем в другую сторону? y
-# Это рыцарь-зомби, приготовься к сложному бою
-# █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
-# █ Your opponent is           Рыцарь-зомби                                                                              █
-# █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
-# E:/doc/projects/for_fun/pizd_podz2/menues.rb:39:in `*': negative argument (ArgumentError)
-#         from E:/doc/projects/for_fun/pizd_podz2/menues.rb:39:in `length_updater'
-#         from E:/doc/projects/for_fun/pizd_podz2/menues.rb:16:in `block (2 levels) in display'
-#         from E:/doc/projects/for_fun/pizd_podz2/menues.rb:13:in `each'
-#         from E:/doc/projects/for_fun/pizd_podz2/menues.rb:13:in `block in display'
-#         from E:/doc/projects/for_fun/pizd_podz2/menues.rb:12:in `each'
-#         from E:/doc/projects/for_fun/pizd_podz2/menues.rb:12:in `display'
-#         from main.rb:46:in `<main>'
-
 class Menu
   def initialize(menu, character)
     hh = YAML.safe_load_file("graphics/menues/#{menu}.yml", symbolize_names: true)

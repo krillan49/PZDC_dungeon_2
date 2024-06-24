@@ -10,6 +10,7 @@ require_relative "loot"
 require_relative "menues"
 require_relative "info_block"
 require_relative "arts"
+require_relative "save_hero"
 
 
 
