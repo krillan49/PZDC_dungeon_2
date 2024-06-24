@@ -43,6 +43,7 @@ class Menu
   end
 
   def length_updater(field_length, data, modifier)
+    return data[0...field_length] if field_length < data.size
     if modifier == 'm'
       half_min = (field_length - data.size) / 2
       half_max = field_length - data.size - half_min
@@ -61,6 +62,9 @@ end
 # hero = Hero.new('Vasya','watchman')
 # hero.passive_skill = ShieldMaster.new
 # Menu.new(:character_stats, hero).display
+
+# require_relative "enemyes"
+# Menu.new(:character_stats, Enemy.new("Рыцарь-зомби")).display
 
 
 
