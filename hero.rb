@@ -3,7 +3,7 @@ require_relative 'weapons'
 
 class Hero
   attr_accessor :name
-  attr_reader :background
+  attr_accessor :background
 
   attr_accessor :hp_max, :hp, :regen_hp_base
   attr_accessor :mp_max, :mp, :regen_mp_base
@@ -12,7 +12,7 @@ class Hero
   attr_accessor :armor_base
   # attr_accessor :block
   attr_accessor :exp, :lvl
-  attr_reader :exp_lvl
+  attr_accessor :exp_lvl
   attr_accessor :stat_points, :skill_points
 
   attr_accessor :active_skill, :passive_skill, :camp_skill
