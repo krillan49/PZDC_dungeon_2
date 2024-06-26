@@ -1,9 +1,10 @@
 require 'yaml'
 
 class Weapon
-  attr_reader :name, :min_dmg, :max_dmg
+  attr_reader :code, :name, :min_dmg, :max_dmg
 
   def initialize(name)
+    @code = name
     weapon = YAML.safe_load_file('data/amunition/weapons.yml', symbolize_names: true)[name.to_sym]
     @name    = weapon[:name]
     @min_dmg = weapon[:min_dmg]
@@ -12,9 +13,10 @@ class Weapon
 end
 
 class BodyArmor
-  attr_reader :name, :armor
+  attr_reader :code, :name, :armor
 
   def initialize(name)
+    @code = name
     body_armor = YAML.safe_load_file('data/amunition/body_armor.yml', symbolize_names: true)[name.to_sym]
     @name  = body_armor[:name]
     @armor = body_armor[:armor]
@@ -22,9 +24,10 @@ class BodyArmor
 end
 
 class HeadArmor
-  attr_reader :name, :armor
+  attr_reader :code, :name, :armor
 
   def initialize(name)
+    @code = name
     head_armor = YAML.safe_load_file('data/amunition/head_armor.yml', symbolize_names: true)[name.to_sym]
     @name  = head_armor[:name]
     @armor = head_armor[:armor]
@@ -32,9 +35,10 @@ class HeadArmor
 end
 
 class ArmsArmor
-  attr_reader :name, :armor, :accuracy
+  attr_reader :code, :name, :armor, :accuracy
 
   def initialize(name)
+    @code = name
     arms_armor = YAML.safe_load_file('data/amunition/arms_armor.yml', symbolize_names: true)[name.to_sym]
     @name  = arms_armor[:name]
     @armor = arms_armor[:armor]
@@ -43,9 +47,10 @@ class ArmsArmor
 end
 
 class Shield
-  attr_reader :name, :armor, :block_chance
+  attr_reader :code, :name, :armor, :block_chance
 
   def initialize(name)
+    @code = name
     shield = YAML.safe_load_file('data/amunition/shields.yml', symbolize_names: true)[name.to_sym]
     @name  = shield[:name]
     @armor = shield[:armor]
