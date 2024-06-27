@@ -46,10 +46,8 @@ class HeroCreator
       print 'Введен неверный символ. Попробуйте еще раз. Сильный удар(S) Точный удар(A) '
       special_choiсe = gets.strip.upcase
     end
-    case special_choiсe
-    when 'S'; @hero.active_skill = StrongStrike.new
-    when 'A'; @hero.active_skill = PreciseStrike.new
-    end
+    skills = {'S' => 'strong_strike', 'A' => 'srecise_strike'}
+    @hero.active_skill = SkillsCreator.create(skills[special_choiсe], @hero)
   end
 
   def passive_skill
@@ -60,11 +58,8 @@ class HeroCreator
       print 'Неверный символ попробуйте еще раз. Ошеломление(D) Концентрация(C) Мастер щита(B) '
       passive_choiсe = gets.strip.upcase
     end
-    case passive_choiсe
-    when 'D'; @hero.passive_skill = Dazed.new
-    when 'C'; @hero.passive_skill = Concentration.new(@hero)
-    when 'B'; @hero.passive_skill = ShieldMaster.new
-    end
+    skills = {'D' => 'dazed', 'C' => 'concentration', 'B' => 'shield_master'}
+    @hero.passive_skill = SkillsCreator.create(skills[passive_choiсe], @hero)
   end
 
   def camp_skill
@@ -75,17 +70,14 @@ class HeroCreator
       print 'Введен неверный символ попробуйте еще раз. Первая помощь(F) Кладоискатель(T) '
       noncombat_choiсe = gets.strip.upcase
     end
-    case noncombat_choiсe
-    when 'F'; @hero.camp_skill = FirstAid.new(@hero)
-    when 'T'; @hero.camp_skill = TreasureHunter.new
-    end
+    skills = {'F' => 'first_aid', 'T' => 'treasure_hunter'}
+    @hero.camp_skill = SkillsCreator.create(skills[noncombat_choiсe], @hero)
   end
 end
 
 
 # require_relative "hero"
 # require_relative "skills"
-#
 # hero = HeroCreator.new.create_new_hero
 # p hero
 

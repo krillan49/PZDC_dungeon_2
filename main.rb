@@ -1,6 +1,7 @@
 require_relative "hero_creator"
 require_relative "hero_updator"
 require_relative "enemy_creator"
+require_relative "skills_creator"
 require_relative "attacks_round"
 require_relative "hero"
 require_relative "skills"
