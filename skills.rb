@@ -1,12 +1,22 @@
-class StrongStrike
+class SkillConstructor
+  attr_accessor :lvl
+  attr_reader :code, :name
+
+  def description
+  end
+end
+
+
+
+class StrongStrike < SkillConstructor
   DAMAGE_BASIC_MOD = 2
   DAMAGE_LVL_MOD = 0.2
   ACCURACY_MOD = 1
 
-  attr_accessor :lvl, :mp_cost
-  attr_reader :name
+  attr_accessor :mp_cost
 
   def initialize
+    @code = 'strong_strike'
     @name = "Сильный удар"
     @lvl = 0
     @mp_cost = 15
@@ -26,16 +36,16 @@ class StrongStrike
 end
 
 
-class PreciseStrike
+class PreciseStrike < SkillConstructor
   DAMAGE_BASIC_MOD = 1
   DAMAGE_LVL_MOD = 0.1
   ACCURACY_BASIC_MOD = 1.5
   ACCURACY_LVL_MOD = 0.1
 
-  attr_accessor :lvl, :mp_cost
-  attr_reader :name
+  attr_accessor :mp_cost
 
   def initialize
+    @code = 'srecise_strike'
     @name = "Точный удар"
     @lvl = 0
     @mp_cost = 5
@@ -66,14 +76,12 @@ end
 # end
 
 
-class Dazed
+class Dazed  < SkillConstructor
   BASIC_MOD = 1
   LVL_MOD = 0.1
 
-  attr_accessor :lvl
-  attr_reader :name
-
   def initialize
+    @code = 'dazed'
     @name = "Ошеломление"
     @lvl = 0
   end
@@ -92,14 +100,14 @@ class Dazed
 end
 
 
-class Concentration
+class Concentration < SkillConstructor
   BASIC_MOD = 0.1
   LVL_MOD = 0.005
 
-  attr_accessor :lvl
-  attr_reader :name
+  attr_reader :hero
 
   def initialize(hero)
+    @code = 'concentration'
     @name = "Концентрация"
     @lvl = 0
 
@@ -120,14 +128,12 @@ class Concentration
 end
 
 
-class ShieldMaster
+class ShieldMaster < SkillConstructor
   BASIC_CHANCE_MOD = 10
   LVL_CHANCE_MOD = 2
 
-  attr_accessor :lvl
-  attr_reader :name
-
   def initialize
+    @code = 'shield_master'
     @name = "Мастер щита"
     @lvl = 0
   end
@@ -144,16 +150,16 @@ end
 
 
 
-class FirstAid
+class FirstAid < SkillConstructor
   HEAL_BASIC_MOD = 1
   HEAL_LVL_MOD = 0.1
   HERO_HP_MOD = 0.2
 
-  attr_accessor :lvl, :mp_cost
-  attr_reader :name
+  attr_accessor :mp_cost
   attr_reader :hero
 
   def initialize(hero)
+    @code = 'first_aid'
     @name = "Первая помощь"
     @lvl = 0
     @mp_cost = 10
@@ -175,14 +181,12 @@ class FirstAid
 end
 
 
-class TreasureHunter
+class TreasureHunter < SkillConstructor
   BASIC_MOD = 50
   LVL_MOD = 5
 
-  attr_accessor :lvl
-  attr_reader :name
-
   def initialize
+    @code = 'treasure_hunter'
     @name = "Кладоискатель"
     @lvl = 0
   end

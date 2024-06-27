@@ -43,15 +43,15 @@ class SaveHero
       },
       'hero_skills' => {
         'active_skill' => {
-          'class' => @hero.active_skill.class,
+          'code' => @hero.active_skill.code,
           'lvl' => @hero.active_skill.lvl
         },
         'passive_skill' => {
-          'class' => @hero.passive_skill.class,
+          'code' => @hero.passive_skill.code,
           'lvl' => @hero.passive_skill.lvl
         },
         'camp_skill' => {
-          'class' => @hero.camp_skill.class,
+          'code' => @hero.camp_skill.code,
           'lvl' => @hero.camp_skill.lvl
         }
       },
