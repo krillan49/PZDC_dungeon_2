@@ -19,6 +19,12 @@ require_relative "save_hero"
 
 # Основной игровой блок
 leveling = 0
+
+# Потом добавить левелинг, а проверку существования перенсти в создание героя, а вместо нее пересохранять того же самого героя в сэйвхиро
+print '\nautosave...'
+SaveHero.new(@hero).save
+puts 'done\n'
+
 while true
 
   HeroUpdator.new(@hero).spend_stat_points # распределение очков характеристик

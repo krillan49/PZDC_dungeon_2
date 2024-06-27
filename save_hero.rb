@@ -1,29 +1,50 @@
+# Потом добавить левелинг, а проверку существования перенсти в создание героя, а вместо нее пересохранять того же самого героя в сэйвхиро
+
 require 'yaml'
 
 class SaveHero
   PATH = 'save/'
   OPTIONS_FILE = '0_options.yml'
+  DEFAULT_OPTIONS = { 'n' => 0, 'names' => [], 'ns' => [] }
 
   def initialize(hero)
     @hero = hero
-    options_update()
+    @options = load_or_create_options()
+    @n = @options['n']
     @file_name = "#{@n}--#{hero.name}--#{hero.lvl}.yml"
   end
 
   def save
-    File.write("#{PATH}#{OPTIONS_FILE}", {'n' => @n}.to_yaml)
-    File.write("#{PATH}#{@file_name}", new_record().to_yaml)
-
-    # cl = YAML.safe_load_file("#{PATH}#{@file_name}", symbolize_names: true)[:passive_skill][:class].new
-    # p cl
-    # p cl.class
+    return false if hero_exist?()
+    update_options()
+    create_hero_file()
+    true
   end
 
-  def options_update()
-    unless File::exists?("#{PATH}#{OPTIONS_FILE}")
-      File.write("#{PATH}#{OPTIONS_FILE}", default_options().to_yaml)
+  private
+
+  def load_or_create_options
+    if File::exists?("#{PATH}#{OPTIONS_FILE}")
+      YAML.safe_load_file("#{PATH}#{OPTIONS_FILE}")
+    else
+      File.write("#{PATH}#{OPTIONS_FILE}", {}.to_yaml)
+      DEFAULT_OPTIONS
     end
-    @n = YAML.safe_load_file("#{PATH}#{OPTIONS_FILE}", symbolize_names: true)[:n] + 1
+  end
+
+  def hero_exist?
+    @options['names'].include?(@hero.name)
+  end
+
+  def update_options
+    @options['n'] = @n + 1
+    @options['names'].push(@hero.name)
+    @options['ns'].push(@n)
+    File.write("#{PATH}#{OPTIONS_FILE}", @options.to_yaml)
+  end
+
+  def create_hero_file
+    File.write("#{PATH}#{@file_name}", new_record().to_yaml)
   end
 
   def new_record
@@ -65,18 +86,12 @@ class SaveHero
     }
   end
 
-  def default_options
-    {
-      'n' => 0,
-      'names' => {},
-      'ns' => {}
-    }
-  end
 end
 
 # require_relative 'hero'
 # require_relative "skills"
 # hero = Hero.new('Vasya','watchman')
+# hero = Hero.new('Petya','student')
 # hero.active_skill = StrongStrike.new
 # hero.passive_skill = Concentration.new(hero)
 # hero.camp_skill = FirstAid.new(hero)
