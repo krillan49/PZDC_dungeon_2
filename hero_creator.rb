@@ -16,8 +16,20 @@ class HeroCreator
   private
 
   def name
-    print 'Введите имя персонажа: '
-    name = gets.strip
+    name = nil
+    while !name
+      print 'Введите имя персонажа: '
+      input_name = gets.strip
+      if !@taken_names && File::exists?("save/0_options.yml")
+        @taken_names = YAML.safe_load_file("save/0_options.yml")['names']
+      end
+      if @taken_names && @taken_names.include?(input_name)
+        puts "Персонаж с именем #{input_name} уже существует, выберите другое имя"
+      else
+        name = input_name
+      end
+    end
+    name
   end
 
   def background
