@@ -15,15 +15,23 @@ require_relative "save_hero"
 
 
 
-@hero = HeroCreator.new.create_new_hero # Создание нового персонажа
+while !@hero
+  print 'Ведите 1 чтобы загрузить персонажа, введите 2 чтобы создать нового персонажа '
+  new_load = gets.strip
+  if new_load == '2'
+    @hero = HeroCreator.new.create_new_hero # Создание нового персонажа
+    leveling = 0
+    print "\nautosave..."
+    SaveHero.new(@hero, leveling).save
+    puts "done\n"
+  else
+    load_hero = LoadHero.new.load
+    @hero = load_hero.hero
+    leveling = load_hero.leveling
+  end
+end
 
 # Основной игровой блок
-leveling = 0
-
-print "\nautosave..."
-SaveHero.new(@hero, leveling).save
-puts "done\n"
-
 while true
 
   HeroUpdator.new(@hero).spend_stat_points # распределение очков характеристик

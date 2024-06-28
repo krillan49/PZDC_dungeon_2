@@ -25,6 +25,10 @@ class HeroCreator
       end
       if @taken_names && @taken_names.include?(input_name)
         puts "Персонаж с именем #{input_name} уже существует, выберите другое имя"
+      elsif !input_name.match?(/[a-zA-Zа-яА-Я]/)
+        puts "Некорректное имя. Имя должно содержать как минимум одну букву"
+      elsif input_name.length > 20
+        puts "Некорректное имя. Имя должно быть не более 20 символов"
       else
         name = input_name
       end
