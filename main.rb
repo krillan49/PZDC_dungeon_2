@@ -20,10 +20,9 @@ require_relative "save_hero"
 # Основной игровой блок
 leveling = 0
 
-# Потом добавить левелинг, а проверку существования перенсти в создание героя, а вместо нее пересохранять того же самого героя в сэйвхиро
-print '\nautosave...'
-SaveHero.new(@hero).save
-puts 'done\n'
+print "\nautosave..."
+SaveHero.new(@hero, leveling).save
+puts "done\n"
 
 while true
 
@@ -37,6 +36,10 @@ while true
 
   @hero.use_camp_skill # Навык Первая помощь
   @hero.rest # пассивное восстановления жизней и маны между боями
+
+  print "\nautosave..."
+  SaveHero.new(@hero, leveling).save
+  puts "done\n"
 
   print 'Чтобы начать следующий бой нажмите Enter'
   gets

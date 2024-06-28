@@ -1,24 +1,26 @@
-# Потом добавить левелинг, а проверку существования перенсти в создание героя, а вместо нее пересохранять того же самого героя в сэйвхиро
-
 require 'yaml'
 
 class SaveHero
   PATH = 'save/'
   OPTIONS_FILE = '0_options.yml'
-  DEFAULT_OPTIONS = { 'n' => 0, 'names' => [], 'ns' => [] }
+  DEFAULT_OPTIONS = { 'n' => 0, 'names' => [], 'ns' => [], 'file_names' => [] }
 
-  def initialize(hero)
+  def initialize(hero, leveling)
     @hero = hero
+    @leveling = leveling
     @options = load_or_create_options()
     @n = @options['n']
-    @file_name = "#{@n}--#{hero.name}--#{hero.lvl}.yml"
+    @file_name = hero_exist?() ? old_file_name() : "#{@n}--#{hero.name}--.yml"
   end
 
   def save
-    return false if hero_exist?()
-    update_options()
+    update_options() unless hero_exist?()
     create_hero_file()
     true
+  end
+
+  def hero_exist?
+    @options['names'].include?(@hero.name)
   end
 
   private
@@ -32,14 +34,15 @@ class SaveHero
     end
   end
 
-  def hero_exist?
-    @options['names'].include?(@hero.name)
+  def old_file_name
+    @options['file_names'].find{|file_name| file_name.split('--')[1] == @hero.name}
   end
 
   def update_options
     @options['n'] = @n + 1
     @options['names'].push(@hero.name)
     @options['ns'].push(@n)
+    @options['file_names'].push(@file_name)
     File.write("#{PATH}#{OPTIONS_FILE}", @options.to_yaml)
   end
 
@@ -82,7 +85,8 @@ class SaveHero
         'head_armor' => @hero.head_armor.code,
         'arms_armor' => @hero.arms_armor.code,
         'shield' => @hero.shield.code
-      }
+      },
+      'leveling' => @leveling
     }
   end
 
@@ -92,10 +96,11 @@ end
 # require_relative "skills"
 # hero = Hero.new('Vasya','watchman')
 # hero = Hero.new('Petya','student')
+# hero = Hero.new('Vasya','student')
 # hero.active_skill = StrongStrike.new
 # hero.passive_skill = Concentration.new(hero)
 # hero.camp_skill = FirstAid.new(hero)
-# SaveHero.new(hero).save
+# SaveHero.new(hero, 1).save
 
 
 
