@@ -19,6 +19,12 @@ require_relative "load_hero"
 # weapons.rb -> amunition.rb
 # разбить фаилы по категориям
 
+def confirm_and_change_screen
+  print 'Чтобы продолжить нажмите Enter'
+  gets
+  puts "\e[H\e[2J"
+end
+
 while !@hero
   print 'Ведите 1 чтобы загрузить персонажа, введите 2 чтобы создать нового персонажа '
   new_load = gets.strip
@@ -47,6 +53,8 @@ while true
   Menu.new(:character_stats, @hero).display
   puts InfoBlock.character_skills(@hero)
 
+  confirm_and_change_screen()
+
   print "\nautosave..."
   SaveHero.new(@hero, leveling).save
   puts "done\n"
@@ -54,8 +62,8 @@ while true
   @hero.use_camp_skill # Навык Первая помощь
   @hero.rest # пассивное восстановления жизней и маны между боями
 
-  print 'Чтобы начать следующий бой нажмите Enter'
-  gets
+  confirm_and_change_screen()
+
   puts "++++++++++++++++++++++++++++++++++++++ Бой #{leveling + 1} +++++++++++++++++++++++++++++++++++++++++++++++++"
 
   @enemy = EnemyCreator.new(leveling).create_new_enemy # Назначение противника
@@ -63,6 +71,8 @@ while true
   # Характеристики противника
   puts InfoBlock.enemy_name(@enemy)
   Menu.new(:character_stats, @enemy).display
+
+  confirm_and_change_screen()
 
   # Ход боя
   run = false
@@ -77,6 +87,8 @@ while true
     lap += 1 # номер хода
   end
 
+  confirm_and_change_screen()
+
   puts '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
 
   # Сбор лута
@@ -87,6 +99,8 @@ while true
   end
 
   @hero.add_exp_and_hero_level_up(@enemy.exp_gived) if !run # Получение опыта и очков
+
+  confirm_and_change_screen()
 
   puts '-------------------------------------------------------------------------------------------------'
   leveling += 1
