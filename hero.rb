@@ -3,7 +3,7 @@ require_relative 'weapons'
 
 class Hero
   attr_accessor :name
-  attr_accessor :background
+  attr_accessor :background, :background_name
 
   attr_accessor :hp_max, :hp, :regen_hp_base
   attr_accessor :mp_max, :mp, :regen_mp_base
@@ -21,10 +21,11 @@ class Hero
 
   def initialize(name, background)
     @name = name
+    @background = background
 
     hero = YAML.safe_load_file('data/characters/heroes.yml', symbolize_names: true)[background.to_sym]
 
-    @background = hero[:name]
+    @background_name = hero[:name]
 
     @hp = hero[:hp]
     @hp_max = hero[:hp]

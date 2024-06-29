@@ -2,6 +2,7 @@ require_relative "hero_creator"
 require_relative "hero_updator"
 require_relative "enemy_creator"
 require_relative "skills_creator"
+require_relative "ammunition_creator"
 require_relative "attacks_round"
 require_relative "hero"
 require_relative "skills"
@@ -12,8 +13,11 @@ require_relative "menues"
 require_relative "info_block"
 require_relative "arts"
 require_relative "save_hero"
+require_relative "load_hero"
 
-
+# TODO
+# weapons.rb -> amunition.rb
+# разбить фаилы по категориям
 
 while !@hero
   print 'Ведите 1 чтобы загрузить персонажа, введите 2 чтобы создать нового персонажа '
@@ -25,7 +29,8 @@ while !@hero
     SaveHero.new(@hero, leveling).save
     puts "done\n"
   else
-    load_hero = LoadHero.new.load
+    load_hero = LoadHero.new
+    load_hero.load
     @hero = load_hero.hero
     leveling = load_hero.leveling
   end
@@ -42,12 +47,12 @@ while true
   Menu.new(:character_stats, @hero).display
   puts InfoBlock.character_skills(@hero)
 
-  @hero.use_camp_skill # Навык Первая помощь
-  @hero.rest # пассивное восстановления жизней и маны между боями
-
   print "\nautosave..."
   SaveHero.new(@hero, leveling).save
   puts "done\n"
+
+  @hero.use_camp_skill # Навык Первая помощь
+  @hero.rest # пассивное восстановления жизней и маны между боями
 
   print 'Чтобы начать следующий бой нажмите Enter'
   gets
