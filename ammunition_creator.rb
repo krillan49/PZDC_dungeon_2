@@ -10,7 +10,7 @@ module AmmunitionCreator
   end
 end
 
-# require_relative "weapons"
+# require_relative "ammunition"
 # p AmmunitionCreator.create('weapon', "Ржавый топорик")
 # p AmmunitionCreator.create('body_armor', "leather_jacket")
 # p AmmunitionCreator.create('head_armor', "rusty_topfhelm")

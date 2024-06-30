@@ -75,7 +75,7 @@ end
 # require_relative "ammunition_creator"
 # require_relative "hero"
 # require_relative "skills"
-# require_relative "weapons"
+# require_relative "ammunition"
 # load_hero = LoadHero.new
 # load_hero.load
 # p @hero = load_hero.hero

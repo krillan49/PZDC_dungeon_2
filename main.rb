@@ -7,7 +7,7 @@ require_relative "attacks_round"
 require_relative "hero"
 require_relative "skills"
 require_relative "enemyes"
-require_relative "weapons"
+require_relative "ammunition"
 require_relative "loot"
 require_relative "menues"
 require_relative "info_block"
@@ -16,7 +16,6 @@ require_relative "save_hero"
 require_relative "load_hero"
 
 # TODO
-# weapons.rb -> amunition.rb
 # разбить фаилы по категориям
 
 def confirm_and_change_screen
