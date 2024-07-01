@@ -1,7 +1,7 @@
 require 'yaml'
 
 class SaveHero
-  PATH = 'save/'
+  PATH = 'saves/'
   OPTIONS_FILE = '0_options.yml'
   DEFAULT_OPTIONS = { 'n' => 0, 'names' => [], 'ns' => [], 'file_names' => [] }
 

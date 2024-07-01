@@ -1,7 +1,7 @@
 require 'yaml'
 
 class LoadHero
-  PATH = 'save/'
+  PATH = 'saves/'
   OPTIONS_FILE = '0_options.yml'
 
   attr_reader :hero, :leveling

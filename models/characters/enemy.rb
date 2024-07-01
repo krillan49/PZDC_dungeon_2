@@ -1,5 +1,5 @@
 require 'yaml'
-require_relative 'ammunition'
+# require_relative 'ammunition'
 
 class Enemy
   attr_reader :name

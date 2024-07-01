@@ -4,16 +4,34 @@ require_relative "enemy_creator"
 require_relative "skills_creator"
 require_relative "ammunition_creator"
 require_relative "attacks_round"
-require_relative "hero"
-require_relative "skills"
-require_relative "enemyes"
-require_relative "ammunition"
 require_relative "loot"
 require_relative "menues"
 require_relative "info_block"
 require_relative "arts"
 require_relative "save_hero"
 require_relative "load_hero"
+
+# models ------------------------------
+# ammunition
+require_relative "models/ammunition/arms_armor"
+require_relative "models/ammunition/body_armor"
+require_relative "models/ammunition/head_armor"
+require_relative "models/ammunition/shield"
+require_relative "models/ammunition/weapon"
+# skills
+require_relative "models/skills/concentration"
+require_relative "models/skills/dazed"
+require_relative "models/skills/first_aid"
+require_relative "models/skills/precise_strike"
+require_relative "models/skills/shield_master"
+require_relative "models/skills/strong_strike"
+require_relative "models/skills/treasure_hunter"
+# characters
+require_relative "models/characters/enemy"
+require_relative "models/characters/hero"
+
+
+
 
 # TODO
 # разбить фаилы по категориям
