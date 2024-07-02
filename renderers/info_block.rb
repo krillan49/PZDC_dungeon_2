@@ -28,7 +28,7 @@ module InfoBlock
   end
 
   def InfoBlock.hero_name_level_exp(hero)
-    menu = YAML.safe_load_file('graphics/menues/menues.yml', symbolize_names: true)[:hero_name_level_exp]
+    menu = YAML.safe_load_file('views/menues/menues.yml', symbolize_names: true)[:hero_name_level_exp]
     name = menu[1].gsub(/[^N]/,'').size
     lvl = menu[1].gsub(/[^L]/,'').size
     exp1 = menu[1].gsub(/[^E]/,'').size
@@ -42,7 +42,7 @@ module InfoBlock
   end
 
   def InfoBlock.character_skills(hero)
-    menu = YAML.safe_load_file('graphics/menues/menues.yml', symbolize_names: true)[:character_skills]
+    menu = YAML.safe_load_file('views/menues/menues.yml', symbolize_names: true)[:character_skills]
     a_name = menu[3].gsub(/[^A]/,'').size
     a_desc = menu[4].gsub(/[^B]/,'').size
     p_name = menu[6].gsub(/[^P]/,'').size
@@ -62,15 +62,15 @@ module InfoBlock
   end
 
   def InfoBlock.enemy_name(enemy)
-    menu = YAML.safe_load_file('graphics/menues/menues.yml', symbolize_names: true)[:enemy_name]
+    menu = YAML.safe_load_file('views/menues/menues.yml', symbolize_names: true)[:enemy_name]
     res = InfoBlock.length_updater E: [menu[1].gsub(/[^E]/,'').size, enemy.name, :m]
     menu[1] = InfoBlock.incerter(menu[1], res)
     menu
   end
 
   # def InfoBlock.character_stats#(character)
-  #   code = YAML.safe_load_file('graphics/menues/character_codes.yml', symbolize_names: true)
-  #   menu = YAML.safe_load_file('graphics/menues/menues.yml', symbolize_names: true)[:character_stats]
+  #   code = YAML.safe_load_file('views/menues/character_codes.yml', symbolize_names: true)
+  #   menu = YAML.safe_load_file('views/menues/menues.yml', symbolize_names: true)[:character_stats]
   #   InfoBlock.find_codes_in_menu(menu, code.keys)
   # end
 

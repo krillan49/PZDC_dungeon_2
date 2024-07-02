@@ -2,7 +2,7 @@ require 'yaml'
 
 class Menu
   def initialize(menu, character)
-    hh = YAML.safe_load_file("graphics/menues/#{menu}.yml", symbolize_names: true)
+    hh = YAML.safe_load_file("views/menues/#{menu}.yml", symbolize_names: true)
     @view = hh[:view]
     @insert_options = hh[:insert_options]
     @character = character

@@ -1,12 +1,15 @@
 require_relative "attacks_round"
 require_relative "loot"
-require_relative "menues"
-require_relative "info_block"
-require_relative "arts"
+
+# renderers ---------------------------
+require_relative "renderers/arts/arts"
+require_relative "renderers/menues/menues"
+require_relative "renderers/info_block"
 
 # savers ------------------------------
 require_relative "savers/save_hero"
 require_relative "savers/load_hero"
+
 # controllers -------------------------
 # ammunition
 require_relative "controllers/ammunition/ammunition_creator"
@@ -16,6 +19,7 @@ require_relative "controllers/skills/skills_creator"
 require_relative "controllers/characters/enemy_creator"
 require_relative "controllers/characters/hero_creator"
 require_relative "controllers/characters/hero_updator"
+
 # models ------------------------------
 # ammunition
 require_relative "models/ammunition/arms_armor"
