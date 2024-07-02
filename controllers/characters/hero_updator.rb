@@ -6,7 +6,7 @@ class HeroUpdator
 
   def spend_stat_points
     while @hero.stat_points != 0
-      puts InfoBlock.hero_name_level_exp(@hero)
+      Menu.new(:hero_header, @hero).display
       Menu.new(:character_stats, @hero).display
       Menu.new(:character_skills, @hero).display
       distribution = ''
@@ -35,7 +35,7 @@ class HeroUpdator
 
   def spend_skill_points
     while @hero.skill_points != 0
-      puts InfoBlock.hero_name_level_exp(@hero)
+      Menu.new(:hero_header, @hero).display
       Menu.new(:character_stats, @hero).display
       Menu.new(:character_skills, @hero).display
       distribution = ''

@@ -4,7 +4,6 @@ require_relative "loot"
 # renderers ---------------------------
 require_relative "renderers/arts/arts"
 require_relative "renderers/menues/menues"
-require_relative "renderers/info_block"
 
 # savers ------------------------------
 require_relative "savers/save_hero"
@@ -77,7 +76,7 @@ while true
   HeroUpdator.new(@hero).spend_skill_points # распределение очков навыков  (тут вызывается старое меню, потом доделать)
 
   # Характеристики персонажа
-  puts InfoBlock.hero_name_level_exp(@hero)
+  Menu.new(:hero_header, @hero).display
   Menu.new(:character_stats, @hero).display
   Menu.new(:character_skills, @hero).display
 
@@ -97,7 +96,7 @@ while true
   @enemy = EnemyCreator.new(leveling).create_new_enemy # Назначение противника
 
   # Характеристики противника
-  puts InfoBlock.enemy_name(@enemy)
+  Menu.new(:enemy_header, @enemy).display
   Menu.new(:character_stats, @enemy).display
 
   confirm_and_change_screen()

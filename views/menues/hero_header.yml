@@ -1,0 +1,36 @@
+view:
+  - "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n"
+  - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                            lvl BBB                 exp CCCC/DDDD      █\n"
+  - "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n"
+insert_options:
+  1:
+    A:
+      methods:
+        - name
+      modifier: s
+    B:
+      methods:
+        - lvl
+      modifier: s
+    C:
+      methods:
+        - exp
+      modifier: e
+    D:
+      methods:
+        - next_lvl_exp
+      modifier: s
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
