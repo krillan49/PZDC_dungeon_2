@@ -1,5 +1,4 @@
 require 'yaml'
-# require_relative 'ammunition'
 
 class Hero
   attr_accessor :name

@@ -1,8 +1,3 @@
-require_relative "hero_creator"
-require_relative "hero_updator"
-require_relative "enemy_creator"
-require_relative "skills_creator"
-require_relative "ammunition_creator"
 require_relative "attacks_round"
 require_relative "loot"
 require_relative "menues"
@@ -11,6 +6,15 @@ require_relative "arts"
 require_relative "save_hero"
 require_relative "load_hero"
 
+# controllers -------------------------
+# ammunition
+require_relative "controllers/ammunition/ammunition_creator"
+# skills
+require_relative "controllers/skills/skills_creator"
+# characters
+require_relative "controllers/characters/enemy_creator"
+require_relative "controllers/characters/hero_creator"
+require_relative "controllers/characters/hero_updator"
 # models ------------------------------
 # ammunition
 require_relative "models/ammunition/arms_armor"
@@ -35,6 +39,9 @@ require_relative "models/characters/hero"
 
 # TODO
 # разбить фаилы по категориям
+# вынести методы действий с выводом сообщений из модели hero в контроллер чето типм хиро_скилл_юзер, ? либо вынести сообщения в данные ?
+
+
 
 def confirm_and_change_screen
   print 'Чтобы продолжить нажмите Enter'
