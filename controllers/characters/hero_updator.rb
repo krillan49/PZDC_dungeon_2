@@ -6,7 +6,9 @@ class HeroUpdator
 
   def spend_stat_points
     while @hero.stat_points != 0
-      InfoBlock.hero_stats_info(@hero) # Панель характеристик персонажа
+      puts InfoBlock.hero_name_level_exp(@hero)
+      Menu.new(:character_stats, @hero).display
+      Menu.new(:character_skills, @hero).display
       distribution = ''
       until %w[H M X A].include?(distribution)
         puts "Распределите очки характеристик. У вас осталось #{@hero.stat_points} очков"
@@ -33,7 +35,9 @@ class HeroUpdator
 
   def spend_skill_points
     while @hero.skill_points != 0
-      InfoBlock.hero_stats_info(@hero) # Панель характеристик персонажа
+      puts InfoBlock.hero_name_level_exp(@hero)
+      Menu.new(:character_stats, @hero).display
+      Menu.new(:character_skills, @hero).display
       distribution = ''
       until %w[S P N].include?(distribution)
         puts "Распределите очки навыков. У вас осталось #{@hero.skill_points} очков"

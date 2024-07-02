@@ -1,6 +1,6 @@
 require 'yaml'
 
-# Потом переделать в класс, тк один фиг часто вызывать в разных вариантах
+# puts InfoBlock.hero_name_level_exp(@hero)    hero_updator
 
 module InfoBlock
 

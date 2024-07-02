@@ -43,7 +43,6 @@ require_relative "models/characters/hero"
 
 
 # TODO
-# разбить фаилы по категориям
 # вынести методы действий с выводом сообщений из модели hero в контроллер чето типм хиро_скилл_юзер, ? либо вынести сообщения в данные ?
 
 
@@ -80,7 +79,7 @@ while true
   # Характеристики персонажа
   puts InfoBlock.hero_name_level_exp(@hero)
   Menu.new(:character_stats, @hero).display
-  puts InfoBlock.character_skills(@hero)
+  Menu.new(:character_skills, @hero).display
 
   confirm_and_change_screen()
 
