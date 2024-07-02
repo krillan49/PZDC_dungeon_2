@@ -3,9 +3,10 @@ require_relative "loot"
 require_relative "menues"
 require_relative "info_block"
 require_relative "arts"
-require_relative "save_hero"
-require_relative "load_hero"
 
+# savers ------------------------------
+require_relative "savers/save_hero"
+require_relative "savers/load_hero"
 # controllers -------------------------
 # ammunition
 require_relative "controllers/ammunition/ammunition_creator"
