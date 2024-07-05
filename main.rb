@@ -5,9 +5,9 @@ require_relative "loot"
 require_relative "renderers/arts/arts"
 require_relative "renderers/menues/menues"
 
-# savers ------------------------------
-require_relative "savers/save_hero"
-require_relative "savers/load_hero"
+# services ----------------------------
+require_relative "services/save_hero"
+require_relative "services/load_hero"
 
 # controllers -------------------------
 # ammunition
