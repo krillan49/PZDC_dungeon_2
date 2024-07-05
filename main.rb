@@ -1,5 +1,7 @@
-require_relative "attacks_round"
 require_relative "loot"
+
+# engines -----------------------------
+require_relative "engines/attacks_round"
 
 # renderers ---------------------------
 require_relative "renderers/arts/arts"
