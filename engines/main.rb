@@ -1,0 +1,127 @@
+class Main
+  def initialize
+    @hero = nil
+    @enemy = nil
+    @leveling = 0
+    @run = false
+  end
+
+  def start_game
+    load_or_create_hero()
+    while true
+      before_battle()
+      battle()
+      after_battle()
+    end
+  end
+
+  def load_or_create_hero
+    while !@hero
+      print 'Ведите 1 чтобы загрузить персонажа, введите 2 чтобы создать нового персонажа '
+      new_load = gets.strip
+      if new_load == '2'
+        @hero = HeroCreator.new.create_new_hero # Создание нового персонажа
+        autosave()
+      else
+        load_hero = LoadHero.new
+        load_hero.load
+        @hero = load_hero.hero
+        @leveling = load_hero.leveling
+      end
+    end
+  end
+
+  def before_battle
+    HeroUpdator.new(@hero).spend_stat_points # распределение очков характеристик
+    HeroUpdator.new(@hero).spend_skill_points # распределение очков навыков  (тут вызывается старое меню, потом доделать)
+
+    # Характеристики персонажа
+    Menu.new(:hero_header, @hero).display
+    Menu.new(:character_stats, @hero).display
+    Menu.new(:character_skills, @hero).display
+
+    confirm_and_change_screen()
+    autosave()
+
+    @hero.use_camp_skill # Навык Первая помощь
+    @hero.rest # пассивное восстановления жизней и маны между боями
+
+    confirm_and_change_screen()
+  end
+
+  def battle
+    puts "++++++++++++++++++++++++++++++++++++++ Бой #{@leveling + 1} +++++++++++++++++++++++++++++++++++++++++++++++++"
+
+    @enemy = EnemyCreator.new(@leveling).create_new_enemy # Назначение противника
+
+    Menu.new(:enemy_header, @enemy).display  # Характеристики противника
+    Menu.new(:character_stats, @enemy).display
+
+    confirm_and_change_screen()
+
+    # Ход боя
+    @run = false
+    lap = 1 # номер хода
+    while @enemy.hp > 0 && @run == false
+      puts "====================================== ХОД #{lap} ============================================"
+
+      round = AttacksRound.new(@hero, @enemy)
+      round.action
+      @run = round.hero_run?
+
+      lap += 1 # номер хода
+    end
+
+    confirm_and_change_screen()
+  end
+
+  def after_battle
+    puts '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+
+    # Сбор лута
+    if @run == false
+      EnemyLoot.new(@hero, @enemy).looting
+      FieldLoot.new(@hero).looting
+      SecretLoot.new(@hero).looting
+    end
+
+    @hero.add_exp_and_hero_level_up(@enemy.exp_gived) if !@run # Получение опыта и очков
+
+    confirm_and_change_screen()
+
+    puts '-------------------------------------------------------------------------------------------------'
+    @leveling += 1
+  end
+
+  private
+
+  def autosave
+    print "\nautosave..."
+    SaveHero.new(@hero, @leveling).save
+    puts "done\n"
+  end
+
+  def confirm_and_change_screen
+    print 'Чтобы продолжить нажмите Enter'
+    gets
+    puts "\e[H\e[2J"
+  end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
