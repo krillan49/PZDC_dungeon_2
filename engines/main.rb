@@ -16,6 +16,7 @@ class Main
   end
 
   def load_or_create_hero
+    change_screen()
     while !@hero
       print 'Ведите 1 чтобы загрузить персонажа, введите 2 чтобы создать нового персонажа '
       new_load = gets.strip
@@ -104,6 +105,10 @@ class Main
   def confirm_and_change_screen
     print 'Чтобы продолжить нажмите Enter'
     gets
+    puts "\e[H\e[2J"
+  end
+
+  def change_screen
     puts "\e[H\e[2J"
   end
 end
