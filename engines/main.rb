@@ -44,7 +44,7 @@ class Main
     confirm_and_change_screen()
     autosave()
 
-    @hero.use_camp_skill # Навык Первая помощь
+    HeroUseSkill.camp_skill(@hero) # Навык Первая помощь
     HeroActions.rest(@hero) # пассивное восстановления жизней и маны между боями
 
     confirm_and_change_screen()

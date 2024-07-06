@@ -1,5 +1,3 @@
-require 'yaml'
-
 class Enemy
   attr_reader :name
   attr_accessor :hp_max, :hp, :regen_hp_base

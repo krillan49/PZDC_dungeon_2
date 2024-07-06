@@ -1,5 +1,3 @@
-require 'yaml'
-
 class Hero
   attr_accessor :name
   attr_accessor :background, :background_name
@@ -105,24 +103,6 @@ class Hero
 
   def next_lvl_exp
     @exp_lvl[@lvl + 1]
-  end
-
-
-  # Методы применения навыков
-
-  def use_camp_skill
-    if @hp_max - @hp > 0 && @camp_skill.name == "Первая помощь"
-      print "У вас #{@hp.round}/#{@hp_max} жизней, хотите использовать навык #{@camp_skill.name}, чтобы восстановить #{@camp_skill.heal_effect.round} жизней за 10 маны? (Y/N) "
-      noncombat_choice = gets.strip.upcase
-      if @mp >= @camp_skill.mp_cost && noncombat_choice == "Y"
-        heal_effect_message = @camp_skill.heal_effect.round
-        @hp += @camp_skill.heal_effect
-        @mp -= @camp_skill.mp_cost
-        puts "Вы восстановили #{heal_effect_message} жизней за #{@camp_skill.mp_cost} маны, теперь у вас #{@hp.round}/#{@hp_max} жизней и #{@mp.round}/#{@mp_max} маны"
-      elsif noncombat_choice == "Y"
-        puts "Не хватает маны"
-      end
-    end
   end
 end
 

@@ -1,3 +1,5 @@
+require 'yaml'
+
 # engines -----------------------------
 require_relative "engines/main"
 require_relative "engines/attacks_round"
@@ -25,6 +27,7 @@ require_relative "controllers/characters/enemy_creator"
 require_relative "controllers/characters/hero_creator"
 require_relative "controllers/characters/hero_updator"
 require_relative "controllers/characters/hero_actions"
+require_relative "controllers/characters/hero_use_skill"
 
 # models ------------------------------
 # ammunition

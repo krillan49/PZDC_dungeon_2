@@ -1,5 +1,3 @@
-require 'yaml'
-
 class BodyArmor
   attr_reader :code, :name, :armor
 

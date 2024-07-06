@@ -1,5 +1,3 @@
-require 'yaml'
-
 class Shield
   attr_reader :code, :name, :armor, :block_chance
 

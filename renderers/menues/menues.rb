@@ -1,5 +1,3 @@
-require 'yaml'
-
 class Menu
   def initialize(menu, character)
     hh = YAML.safe_load_file("views/menues/#{menu}.yml", symbolize_names: true)

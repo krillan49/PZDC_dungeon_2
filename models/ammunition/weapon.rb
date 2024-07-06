@@ -1,5 +1,3 @@
-require 'yaml'
-
 class Weapon
   attr_reader :code, :name, :min_dmg, :max_dmg
 

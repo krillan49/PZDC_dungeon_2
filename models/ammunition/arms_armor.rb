@@ -1,5 +1,3 @@
-require 'yaml'
-
 class ArmsArmor
   attr_reader :code, :name, :armor, :accuracy
 

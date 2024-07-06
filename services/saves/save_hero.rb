@@ -1,5 +1,3 @@
-require 'yaml'
-
 class SaveHero
   PATH = 'saves/'
   OPTIONS_FILE = '0_options.yml'

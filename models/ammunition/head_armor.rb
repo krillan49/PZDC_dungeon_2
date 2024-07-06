@@ -1,5 +1,3 @@
-require 'yaml'
-
 class HeadArmor
   attr_reader :code, :name, :armor
 
