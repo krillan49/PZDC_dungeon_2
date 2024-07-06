@@ -124,47 +124,6 @@ class Hero
       end
     end
   end
-
-
-  # Методы действий
-
-  def rest # отдых между боями(Восстановления жизней и маны)
-    if @hp < @hp_max
-      @hp += [recovery_hp(), @hp_max - @hp].min
-      puts "Передохнув вы восстанавливаете #{recovery_hp().round} жизней, теперь у вас #{@hp.round}/#{@hp_max} жизней"
-    end
-    if @mp < @mp_max
-      @mp += [recovery_mp(), @mp_max - @mp].min
-      puts "Передохнув вы восстанавливаете #{recovery_mp().round} выносливости, теперь у вас #{@mp.round}/#{@mp_max} выносливости"
-    end
-  end
-
-  def regeneration_hp_mp # регенерация в бою
-    if regen_hp() > 0 && @hp_max > @hp
-      @hp += [regen_hp(), @hp_max - @hp].min
-      puts "Вы регенерируете #{regen_hp()} жизней, теперь у вас #{@hp.round}/#{@hp_max} жизней"
-    end
-    if regen_mp() > 0 && @mp_max > @mp
-      @mp += [regen_mp(), @mp_max - @mp].min
-      puts "Вы регенерируете #{regen_mp()} выносливости, теперь у вас #{@mp.round}/#{@mp_max} выносливости"
-    end
-  end
-
-  def add_exp_and_hero_level_up(added_exp) # получения нового опыта, уровня, очков характеристик и наыков
-    @exp += added_exp
-    puts "Вы получили #{added_exp} опыта. Теперь у вас #{@exp} опыта"
-    @exp_lvl.each.with_index do |exp_val, i|
-      if @exp >= exp_val && @lvl < i
-        new_levels = i - @lvl
-        @stat_points += new_levels
-        @skill_points += new_levels
-        @lvl += new_levels
-        puts "Вы получили новый уровень, теперь ваш уровень #{@lvl}й"
-        puts "Вы получили #{new_levels} очков характеристик и #{new_levels} очков навыков"
-        puts "У вас теперь #{@stat_points} очков характеристик и #{@skill_points} очков навыков"
-      end
-    end
-  end
 end
 
 

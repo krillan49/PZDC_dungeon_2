@@ -24,6 +24,7 @@ require_relative "controllers/skills/skills_creator"
 require_relative "controllers/characters/enemy_creator"
 require_relative "controllers/characters/hero_creator"
 require_relative "controllers/characters/hero_updator"
+require_relative "controllers/characters/hero_actions"
 
 # models ------------------------------
 # ammunition
@@ -48,7 +49,7 @@ require_relative "models/characters/hero"
 
 
 # TODO
-# вынести методы действий с выводом сообщений из модели hero в контроллер чето типм хиро_скилл_юзер, ? либо вынести сообщения в данные ?
+# вынести методы навыка с выводом сообщений из модели hero в контроллер чето типм хиро_скилл_юзер, ? либо вынести сообщения в данные ?
 
 
 

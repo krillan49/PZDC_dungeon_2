@@ -45,7 +45,7 @@ class Main
     autosave()
 
     @hero.use_camp_skill # Навык Первая помощь
-    @hero.rest # пассивное восстановления жизней и маны между боями
+    HeroActions.rest(@hero) # пассивное восстановления жизней и маны между боями
 
     confirm_and_change_screen()
   end
@@ -86,7 +86,7 @@ class Main
       SecretLoot.new(@hero).looting
     end
 
-    @hero.add_exp_and_hero_level_up(@enemy.exp_gived) if !@run # Получение опыта и очков
+    HeroActions.add_exp_and_hero_level_up(@hero, @enemy.exp_gived) if !@run # Получение опыта и очков
 
     confirm_and_change_screen()
 
