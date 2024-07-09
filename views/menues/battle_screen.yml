@@ -1,0 +1,107 @@
+view:
+  - "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n"
+  - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █\n"
+  - "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n"
+  - "###############################                                                                                        █\n"
+  - "###############################                                                                                        █\n"
+  - "###############################                                                                                        █\n"
+  - "###############################                                                                                        █\n"
+  - "###############################                                                                                        █\n"
+  - "###############################                                                                                        █\n"
+  - "###############################                                                                                        █\n"
+  - "###############################                                                                                        █\n"
+  - "###############################                                                                                        █\n"
+  - "###############################                                                                                        █\n"
+  - "###############################                                                                                        █\n"
+  - "█─────────────────────────────█                                                                                        █\n"
+  - "█─────────────────────────────█                                                                                        █\n"
+  - "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                                                        █\n"
+  - "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                                                        █\n"
+  - "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                                                        █\n"
+  - "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                                                        █\n"
+  - "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                                                        █\n"
+  - "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                                                        █\n"
+  - "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                                                        █\n"
+  - "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                                                        █\n"
+  - "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                                                        █\n"
+  - "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                                                        █\n"
+  - "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                                                        █\n"
+  # - "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n"
+  # - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █\n"
+  # - "█──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────█\n"
+  # - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █\n"
+  # - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █\n"
+  # - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █\n"
+  # - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █\n"
+  # - "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n"
+partials:
+  _hero_stats_battle:
+    y:
+      - 3
+      - 13
+    x:
+      - 0
+      - 30
+  _enemy_stats_battle:
+    y:
+      - 16
+      - 26
+    x:
+      - 0
+      - 30
+# arts:
+#   _enemy:
+#     y:
+#       - 3
+#       - 26
+#     x:
+#       - 31
+#       - 87
+insert_options:
+  1:
+    A:
+      methods:
+        - action_message
+      modifier: e
+  # 28:
+  #   A:
+  #     methods:
+  #       - action_buttons
+  #     modifier: e
+  # 30:
+  #   A:
+  #     methods:
+  #       - action_buttons
+  #     modifier: e
+  # 31:
+  #   A:
+  #     methods:
+  #       - action_buttons
+  #     modifier: e
+  # 32:
+  #   A:
+  #     methods:
+  #       - action_buttons
+  #     modifier: e
+  # 33:
+  #   A:
+  #     methods:
+  #       - action_buttons
+  #     modifier: e
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
