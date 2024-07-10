@@ -5,6 +5,7 @@ require_relative "engines/main"
 require_relative "engines/attacks_round"
 
 # renderers ---------------------------
+require_relative "renderers/main_renderer"
 require_relative "renderers/arts/arts"
 require_relative "renderers/menues/menues"
 

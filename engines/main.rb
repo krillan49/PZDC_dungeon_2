@@ -37,9 +37,9 @@ class Main
     HeroUpdator.new(@hero).spend_skill_points # распределение очков навыков  (тут вызывается старое меню, потом доделать)
 
     # Характеристики персонажа
-    Menu.new(:hero_header, @hero).display
-    Menu.new(:character_stats, @hero).display
-    Menu.new(:character_skills, @hero).display
+    MainRenderer.new(:hero_header, @hero).display
+    MainRenderer.new(:character_stats, @hero).display
+    MainRenderer.new(:character_skills, @hero).display
 
     confirm_and_change_screen()
     autosave()
@@ -55,8 +55,8 @@ class Main
 
     @enemy = EnemyCreator.new(@leveling).create_new_enemy # Назначение противника
 
-    Menu.new(:enemy_header, @enemy).display  # Характеристики противника
-    Menu.new(:character_stats, @enemy).display
+    MainRenderer.new(:enemy_header, @enemy).display  # Характеристики противника
+    MainRenderer.new(:character_stats, @enemy).display
 
     confirm_and_change_screen()
 
