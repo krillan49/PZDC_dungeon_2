@@ -64,6 +64,7 @@ class Main
     @run = false
     lap = 1 # номер хода
     while @enemy.hp > 0 && @run == false
+      confirm_and_change_screen()
       puts "====================================== ХОД #{lap} ============================================"
 
       round = AttacksRound.new(@hero, @enemy)

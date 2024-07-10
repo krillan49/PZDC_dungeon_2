@@ -12,6 +12,7 @@ class AttacksRound
   end
 
   def action
+    MainRenderer.new(:battle_screen, @hero, @enemy).display
     hero_select_type_of_attack()
     enemy_select_type_of_attack()
     count_hero_final_damage()
