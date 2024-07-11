@@ -1,11 +1,12 @@
 class MainRenderer
-  def initialize(menu, *characters)
-    @menu = menu
-    hh = YAML.safe_load_file("views/menues/#{menu}.yml", symbolize_names: true)
+  def initialize(menu_name, *characters, **options)
+    @menu_name = menu_name
+    hh = YAML.safe_load_file("views/menues/#{menu_name}.yml", symbolize_names: true)
     @view = hh[:view]
     @partials = hh[:partials]
     @insert_options = hh[:insert_options]
     @characters = characters
+    @entity = options[:entity]
   end
 
   def display
@@ -14,9 +15,9 @@ class MainRenderer
         partial = Menu.new(name, @characters[options[:i]]).render.view
         insert_partial_to_view(partial, options)
       end
-      # @view = Menu.new(@menu, @characters[0]).render.view
+      @view = Menu.new(@menu_name, @entity, view: @view).render.view
     else
-      @view = Menu.new(@menu, @characters[0]).render.view
+      @view = Menu.new(@menu_name, @characters[0]).render.view
     end
     puts @view
   end

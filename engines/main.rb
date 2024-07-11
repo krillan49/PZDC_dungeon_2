@@ -58,8 +58,6 @@ class Main
     MainRenderer.new(:enemy_header, @enemy).display  # Характеристики противника
     MainRenderer.new(:character_stats, @enemy).display
 
-    confirm_and_change_screen()
-
     # Ход боя
     @run = false
     lap = 1 # номер хода

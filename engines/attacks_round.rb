@@ -9,10 +9,11 @@ class AttacksRound
     @enemy_damage = rand(enemy.min_dmg..enemy.max_dmg)
     @enemy_accuracy = @enemy.accuracy
     @enemy_block_successful = @enemy.block_chance >= rand(1..100)
+
+    @messages = AttacksRoundMessages.new
   end
 
   def action
-    MainRenderer.new(:battle_screen, @hero, @enemy).display
     hero_select_type_of_attack()
     enemy_select_type_of_attack()
     count_hero_final_damage()
@@ -25,17 +26,24 @@ class AttacksRound
 
   def hero_run?
     if @hero.hp < (@hero.hp_max * 0.15) && @hero.hp > 0 && @enemy.hp > 0
-      print 'Ты на пороге смерти. Попытаться убежать? (y/N) : '
+      @messages.main = 'Ты на пороге смерти'
+      @messages.actions = 'Попытаться убежать? (y/N) : '
       run_select = gets.strip.upcase
       if run_select == 'Y'
         if rand(0..2) >= 1
-          puts "Сбежал ссыкло"
+          @messages.log << "Сбежал ссыкло"
+          confirm_and_change_screen()
+          MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages).display
           return true
         else
           @hero.hp -= @enemy_damage
-          puts "Не удалось убежать #{@enemy.name} нанес #{@enemy_damage.round} урона"
+          @messages.log << "Не удалось убежать #{@enemy.name} нанес #{@enemy_damage.round} урона"
+          confirm_and_change_screen()
+          MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages).display
           if @hero.hp <= 0
-            puts "Ты убит - трусливая псина!"
+            @messages.log << "Ты убит - трусливая псина!"
+            confirm_and_change_screen()
+            MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages).display
             Art.display_art(:game_over)
             exit
           end
@@ -50,7 +58,9 @@ class AttacksRound
   def hero_select_type_of_attack
     success = false # для проверки возможно ли проведение выбранной атаки
     until success
-      print 'Атакуйте! 1.По телу(B) 2.По голове(H) 3.По ногам(L) 4.Навык(S) '
+      @messages.main = 'Атакуйте!'
+      @messages.actions = '1.По телу(B) 2.По голове(H) 3.По ногам(L) 4.Навык(S) '
+      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages).display
       selected_type = gets.strip.upcase
       success = case selected_type
       when 'H'; hero_head_attack_type?()
@@ -84,7 +94,7 @@ class AttacksRound
       @hero.mp -= @hero.active_skill.mp_cost
       true
     else
-      puts "Недостаточно маны на #{@hero.active_skill.name}"
+      @messages.log << "Недостаточно маны на #{@hero.active_skill.name}"
       false
     end
   end
@@ -142,11 +152,11 @@ class AttacksRound
   end
   def hero_hit_or_miss
     if @hero_hit
-      puts "#{@enemy.name} заблокировал #{@enemy.block_power_in_percents}% урона" if @enemy_block_successful
+      @messages.log << "Недостаточно маны на #{@hero.active_skill.name}" if @enemy_block_successful
       @enemy.hp -= @hero_damage
-      puts "Вы нанесли #{@hero_damage.round} урона #{@hero_attack_type}"
+      @messages.log << "Вы нанесли #{@hero_damage.round} урона #{@hero_attack_type}"
     else
-      puts "Вы промахнулись #{@hero_attack_type}"
+      @messages.log << "Вы промахнулись #{@hero_attack_type}"
     end
   end
   def hero_hit_passive_slill_effects
@@ -154,15 +164,16 @@ class AttacksRound
     when "Ошеломление"
       if @hero_hit && @hero_damage * @hero.passive_skill.accuracy_reduce_coef > (@enemy.hp + @hero_damage) / 2 # прибавляется дамаг который отнялся выше для подсчета эффекта ошеломления
         @enemy_accuracy *= 0.1 * rand(1..9)
-        puts "атака ошеломила врага, уменьшив его точность до #{(@enemy.accuracy * 0.1 * rand(1..9)).round}"
+        @messages.log << "атака ошеломила врага, уменьшив его точность до #{(@enemy.accuracy * 0.1 * rand(1..9)).round}"
       end
     when "Концентрация"
       damage_bonus = @hero.passive_skill.damage_bonus # чтобы далее был одинаковый
       if @hero_hit && damage_bonus > 0
         @enemy.hp -= damage_bonus
-        puts "дополнительный урон от концентрации #{damage_bonus.round(1)}"
+        @messages.log << "дополнительный урон от концентрации #{damage_bonus.round(1)}"
       end
     end
+    MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages).display
   end
   #
   def enemy_attack_effects
@@ -171,23 +182,35 @@ class AttacksRound
   end
   def enemy_hit_or_miss
     if @enemy_hit
-      puts "Вы заблокировали #{@hero.block_power_in_percents}% урона" if @hero_block_successful
+      @messages.log << "Вы заблокировали #{@hero.block_power_in_percents}% урона" if @hero_block_successful
       @hero.hp -= @enemy_damage
-      puts "#{@enemy.name} нанес #{@enemy_damage.round} урона #{@enemy_attack_type}"
+      @messages.log << "#{@enemy.name} нанес #{@enemy_damage.round} урона #{@enemy_attack_type}"
     else
-      puts "#{@enemy.name} промахнулся #{@enemy_attack_type}"
+      @messages.log << "#{@enemy.name} промахнулся #{@enemy_attack_type}"
     end
+    confirm_and_change_screen()
+    MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages).display
   end
 
   def round_result
-    puts "У вас осталось #{@hero.hp.round}/#{@hero.hp_max} жизней и #{@hero.mp.round}/#{@hero.mp_max} выносливости, у #{@enemy.name}а осталось #{@enemy.hp.round} жизней."
     if @hero.hp <= 0
-      puts "Ты убит - слабак!"
+      @messages.log << "Ты убит - слабак!"
+      confirm_and_change_screen()
+      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages).display
+      confirm_and_change_screen()
       Art.display_art(:game_over)
       exit
     elsif @enemy.hp <= 0
-      puts "#{@enemy.name} убит, победа!!!"
+      @messages.log << "#{@enemy.name} убит, победа!!!"
+      confirm_and_change_screen()
+      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages).display
     end
+  end
+
+  def confirm_and_change_screen
+    print 'Чтобы продолжить нажмите Enter'
+    gets
+    puts "\e[H\e[2J"
   end
 
 end

@@ -1,18 +1,18 @@
 class Menu
   attr_reader :view
 
-  def initialize(menu, character)
+  def initialize(menu, entity, **params)
     hh = YAML.safe_load_file("views/menues/#{menu}.yml", symbolize_names: true)
-    @view = hh[:view]
+    @view = params[:view] ? params[:view] : hh[:view] # для составного или простого меню
     @insert_options = hh[:insert_options]
-    @character = character
+    @entity = entity
   end
 
   def render
     @insert_options.each do |i, fields|
       fields.each do |field_char, options|
         field_length = @view[i].scan(/#{field_char}{3,}/)[0].size
-        data = character_with_methods(options[:methods])
+        data = entity_with_methods(options[:methods])
         data_to_insert = length_updater(field_length, data, options[:modifier])
         @view[i].sub!(/#{field_char}{3,}/, data_to_insert)
       end
@@ -22,8 +22,8 @@ class Menu
 
   private
 
-  def character_with_methods(methods)
-    res = @character
+  def entity_with_methods(methods)
+    res = @entity
     methods.each { |method| res = res.send(method) }
     res.to_s
   end

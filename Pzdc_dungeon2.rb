@@ -48,6 +48,8 @@ require_relative "models/skills/treasure_hunter"
 # characters
 require_relative "models/characters/enemy"
 require_relative "models/characters/hero"
+# messages
+require_relative "models/messages/attacks_round_messages"
 
 
 
