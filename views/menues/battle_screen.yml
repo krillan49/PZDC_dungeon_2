@@ -34,6 +34,14 @@ view:
   - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █\n"
   - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █\n"
   - "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█\n"
+arts:
+  enemy:
+    y:
+      - 3
+      - 26
+    x:
+      - 31
+      - 118
 partials:
   _hero_stats_battle:
     i: 0
@@ -51,14 +59,6 @@ partials:
     x:
       - 0
       - 30
-# arts:
-#   _enemy:
-#     y:
-#       - 3
-#       - 26
-#     x:
-#       - 31
-#       - 87
 insert_options:
   1:
     A:
