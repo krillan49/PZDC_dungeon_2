@@ -1,8 +1,8 @@
 class Menu
   attr_reader :view
 
-  def initialize(menu, entity, **params)
-    hh = YAML.safe_load_file("views/menues/#{menu}.yml", symbolize_names: true)
+  def initialize(menu_name, entity, **params)
+    hh = YAML.safe_load_file("views/menues/#{menu_name}.yml", symbolize_names: true)
     @view = params[:view] ? params[:view] : hh[:view] # для составного или простого меню
     @insert_options = hh[:insert_options]
     @entity = entity
