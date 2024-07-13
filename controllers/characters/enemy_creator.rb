@@ -16,7 +16,7 @@ class EnemyCreator
     case fight
     when 'Y'
       puts 'Это рыцарь-зомби, приготовься к сложному бою'
-      Enemy.new("Рыцарь-зомби")
+      Enemy.new("zombie_knight")
     else
       puts 'Правильный выбор, выглядело опасно'
       puts '-' * 40
@@ -26,12 +26,12 @@ class EnemyCreator
 
   def create_standart_enemy
     case @standart_chance
-    when (..5); Enemy.new("Оборванец")
-    when (6..10); Enemy.new("Бешеный пес")
-    when (11..15); Enemy.new("Гоблин")
-    when (16..20); Enemy.new("Бандит")
-    when (21..25); Enemy.new("Дезертир")
-    when (26..); Enemy.new("Орк")
+    when (..5); Enemy.new("rabble")
+    when (6..10); Enemy.new("rabid_dog")
+    when (11..15); Enemy.new("goblin")
+    when (16..20); Enemy.new("thug")
+    when (21..25); Enemy.new("deserter")
+    when (26..); Enemy.new("orc")
     end
   end
 

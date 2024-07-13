@@ -1,6 +1,5 @@
-"Оборванец":
+rabble:
   name: "Оборванец"
-  code_name: rabid_dog
   hp: 80
   min_dmg: 1
   max_dmg: 5
@@ -19,8 +18,7 @@
   shields:
     - without
 
-"Бешеный пес":
-  code_name: rabid_dog
+rabid_dog:
   name: "Бешеный пес"
   hp: 60
   min_dmg: 1
@@ -39,9 +37,8 @@
   shields:
     - without
 
-"Гоблин":
+goblin:
   name: "Гоблин"
-  code_name: rabid_dog
   hp: 65
   min_dmg: 3
   max_dmg: 3
@@ -62,9 +59,8 @@
     - without
     - braided_buckler
 
-"Бандит":
+thug:
   name: "Бандит"
-  code_name: rabid_dog
   hp: 100
   min_dmg: 5
   max_dmg: 5
@@ -88,9 +84,8 @@
     - without
     - wooden_buckler
 
-"Дезертир":
+deserter:
   name: "Дезертир"
-  code_name: rabid_dog
   hp: 120
   min_dmg: 5
   max_dmg: 5
@@ -118,8 +113,7 @@
     - wooden_buckler
     - wooden_shield
 
-"Орк":
-  code_name: rabid_dog
+orc:
   name: "Орк"
   hp: 180
   min_dmg: 7
@@ -139,8 +133,7 @@
   shields:
     - without
 
-"Рыцарь-зомби":
-  code_name: rabid_dog
+zombie_knight:
   name: "Рыцарь-зомби"
   hp: 300
   min_dmg: 5

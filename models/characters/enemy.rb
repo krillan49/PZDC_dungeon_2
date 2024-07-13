@@ -10,9 +10,8 @@ class Enemy
   attr_reader :weapon, :body_armor, :head_armor, :arms_armor, :shield
 
   def initialize(name)
+    @code_name     = name
     enemy = YAML.safe_load_file('data/characters/enemyes.yml', symbolize_names: true)[name.to_sym]
-
-    @code_name     = enemy[:code_name]
 
     @name          = enemy[:name]
     @hp_max        = enemy[:hp]
@@ -79,11 +78,6 @@ class Enemy
     100 - (100 / block_power_coeff()).to_i
   end
 end
-
-# ["Оборванец", "Бешеный пес", "Гоблин", "Бандит", "Дезертир", "Орк", "Рыцарь-зомби"].each do |name|
-#   p Enemy.new(name)
-#   p '==================='
-# end
 
 
 
