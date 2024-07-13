@@ -1,5 +1,6 @@
 "Оборванец":
   name: "Оборванец"
+  code_name: rabid_dog
   hp: 80
   min_dmg: 1
   max_dmg: 5
@@ -19,6 +20,7 @@
     - without
 
 "Бешеный пес":
+  code_name: rabid_dog
   name: "Бешеный пес"
   hp: 60
   min_dmg: 1
@@ -39,6 +41,7 @@
 
 "Гоблин":
   name: "Гоблин"
+  code_name: rabid_dog
   hp: 65
   min_dmg: 3
   max_dmg: 3
@@ -61,6 +64,7 @@
 
 "Бандит":
   name: "Бандит"
+  code_name: rabid_dog
   hp: 100
   min_dmg: 5
   max_dmg: 5
@@ -86,6 +90,7 @@
 
 "Дезертир":
   name: "Дезертир"
+  code_name: rabid_dog
   hp: 120
   min_dmg: 5
   max_dmg: 5
@@ -114,6 +119,7 @@
     - wooden_shield
 
 "Орк":
+  code_name: rabid_dog
   name: "Орк"
   hp: 180
   min_dmg: 7
@@ -134,6 +140,7 @@
     - without
 
 "Рыцарь-зомби":
+  code_name: rabid_dog
   name: "Рыцарь-зомби"
   hp: 300
   min_dmg: 5

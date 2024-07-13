@@ -4,18 +4,19 @@ class MainRenderer
     hh = YAML.safe_load_file("views/menues/#{menu_name}.yml", symbolize_names: true)
     @view = hh[:view]
     @partials = hh[:partials]
-    @insert_options = hh[:insert_options]
+    @insert_options = hh[:insert_options] # опции для полей основного меню
     @characters = characters
     @entity = options[:entity]
+
+    @arts = options[:arts]
+    @view_arts_options = hh[:arts]
   end
 
   def display
-    if @partials
-      @partials.map do |name, options|
-        partial = Menu.new(name, @characters[options[:i]]).render.view
-        insert_partial_to_view(partial, options)
-      end
-      @view = Menu.new(@menu_name, @entity, view: @view).render.view
+    if @partials || @arts
+      partials() if @partials # отрисовываем паршалы в @view
+      arts() if @arts # отрисовываем картинки в @view
+      @view = Menu.new(@menu_name, @entity, view: @view).render.view # заполняем поля материнского экрана
     else
       @view = Menu.new(@menu_name, @characters[0]).render.view
     end
@@ -23,6 +24,35 @@ class MainRenderer
   end
 
   private
+
+  def partials
+    @partials.each do |name, options|
+      partial = Menu.new(name, @characters[options[:i]]).render.view
+      insert_partial_to_view(partial, options)
+    end
+  end
+
+  def arts
+    @arts.each do |name, entity|
+      art = Art.new(name, entity).view
+      y_min, y_max, x_min, x_max = align_art_to_view_field(art)
+      insert_partial_to_view(art, y: [y_min, y_max], x: [x_min, x_max])
+    end
+  end
+
+  def align_art_to_view_field(art)
+    field_y_min, field_y_max = @view_arts_options[:y]
+    field_x_min, field_x_max = @view_arts_options[:x]
+    field_y_center = (field_y_min + field_y_max) / 2
+    field_x_center = (field_x_min + field_x_max) / 2
+    art_height = art.length
+    art_width = art[0].length
+    y_min = field_y_center - (art_height / 2)
+    y_max = field_y_center + (art_height / 2) - 1
+    x_min = field_x_center - (art_width / 2)
+    x_max = field_x_center + (art_width / 2) - 1
+    [y_min, y_max, x_min, x_max]
+  end
 
   def insert_partial_to_view(partial, options)
     y_min, y_max = options[:y]
@@ -52,11 +82,22 @@ end
 # require_relative "../models/ammunition/head_armor"
 # require_relative "../models/ammunition/shield"
 # require_relative "../models/ammunition/weapon"
-#
+# require_relative "../models/messages/attacks_round_messages"
+# require_relative "../renderers/arts/arts"
 # hero = Hero.new('Vasya','watchman')
 # hero.passive_skill = ShieldMaster.new
+# enemy = Enemy.new("Рыцарь-зомби")
+
 # MainRenderer.new(:battle_screen, hero, Enemy.new("Рыцарь-зомби")).display
 # MainRenderer.new(:character_stats, hero, Enemy.new("Рыцарь-зомби")).display
+
+# Пример с 2мя паршалами персонажей, сообщениями меню и картинкой
+# MainRenderer.new(
+#   :battle_screen,
+#   hero, enemy,
+#   entity: AttacksRoundMessages.new,
+#   arts: { attack: enemy }
+# ).display
 
 
 

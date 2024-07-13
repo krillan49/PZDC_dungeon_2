@@ -1,5 +1,5 @@
 class Enemy
-  attr_reader :name
+  attr_reader :name, :code_name
   attr_accessor :hp_max, :hp, :regen_hp_base
   attr_accessor :mp_max, :mp, :regen_mp_base
   attr_accessor :min_dmg_base, :max_dmg_base
@@ -11,6 +11,8 @@ class Enemy
 
   def initialize(name)
     enemy = YAML.safe_load_file('data/characters/enemyes.yml', symbolize_names: true)[name.to_sym]
+
+    @code_name     = enemy[:code_name]
 
     @name          = enemy[:name]
     @hp_max        = enemy[:hp]
