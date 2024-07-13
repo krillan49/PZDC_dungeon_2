@@ -173,6 +173,8 @@ class AttacksRound
         @messages.log << "дополнительный урон от концентрации #{damage_bonus.round(1)}"
       end
     end
+    @messages.main = "Ходит #{@enemy.name}"
+    @messages.actions = "#{@enemy.name} выбирает способ атаки"
     MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { damaged: @enemy }).display
   end
   #
@@ -189,19 +191,25 @@ class AttacksRound
       @messages.log << "#{@enemy.name} промахнулся #{@enemy_attack_type}"
     end
     confirm_and_change_screen()
+    @messages.main = ""
+    @messages.actions = ""
     MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { attack: @enemy }).display
   end
 
   def round_result
     if @hero.hp <= 0
-      @messages.log << "Ты убит - слабак!"
+      # @messages.log << "Ты убит - слабак!"
+      @messages.main = "Ты убит - слабак!"
+      # @messages.actions = ''
       confirm_and_change_screen()
       MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { attack: @enemy }).display
       confirm_and_change_screen()
       Art.display_art(:game_over)
       exit
     elsif @enemy.hp <= 0
-      @messages.log << "#{@enemy.name} убит, победа!!!"
+      # @messages.log << "#{@enemy.name} убит, победа!!!"
+      @messages.main = "#{@enemy.name} убит, победа!!!"
+      # @messages.actions = ''
       confirm_and_change_screen()
       MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { dead: @enemy }).display
     end
