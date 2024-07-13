@@ -44,7 +44,8 @@ class AttacksRound
             @messages.log << "Ты убит - трусливая псина!"
             confirm_and_change_screen()
             MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { attack: @enemy }).display
-            Art.display_art(:game_over)
+            confirm_and_change_screen()
+            MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { game_over: :game_over }).display
             exit
           end
         end
@@ -198,18 +199,14 @@ class AttacksRound
 
   def round_result
     if @hero.hp <= 0
-      # @messages.log << "Ты убит - слабак!"
       @messages.main = "Ты убит - слабак!"
-      # @messages.actions = ''
       confirm_and_change_screen()
       MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { attack: @enemy }).display
       confirm_and_change_screen()
-      Art.display_art(:game_over)
+      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { game_over: :game_over }).display
       exit
     elsif @enemy.hp <= 0
-      # @messages.log << "#{@enemy.name} убит, победа!!!"
       @messages.main = "#{@enemy.name} убит, победа!!!"
-      # @messages.actions = ''
       confirm_and_change_screen()
       MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { dead: @enemy }).display
     end

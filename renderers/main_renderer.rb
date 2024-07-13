@@ -33,8 +33,9 @@ class MainRenderer
   end
 
   def arts
-    @arts.each do |name, entity|
-      art = Art.new(name, entity).view
+    @arts.each do |art_type, entity|
+      art_name = entity.respond_to?(:code_name) ? entity.code_name : entity # для картинок от имени объекта и просто имен картинок
+      art = Art.new(art_type, art_name).view
       y_min, y_max, x_min, x_max = align_art_to_view_field(art)
       insert_partial_to_view(art, y: [y_min, y_max], x: [x_min, x_max])
     end
