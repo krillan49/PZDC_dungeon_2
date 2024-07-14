@@ -87,18 +87,16 @@ end
 # require_relative "../renderers/arts/arts"
 # hero = Hero.new('Vasya','watchman')
 # hero.passive_skill = ShieldMaster.new
-# enemy = Enemy.new("Рыцарь-зомби")
+# enemy = Enemy.new("rabble")
 
 # MainRenderer.new(:battle_screen, hero, Enemy.new("Рыцарь-зомби")).display
 # MainRenderer.new(:character_stats, hero, Enemy.new("Рыцарь-зомби")).display
 
 # Пример с 2мя паршалами персонажей, сообщениями меню и картинкой
-# MainRenderer.new(
-#   :battle_screen,
-#   hero, enemy,
-#   entity: AttacksRoundMessages.new,
-#   arts: { attack: enemy }
-# ).display
+# MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessages.new, arts: { normal: enemy } ).display
+# MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessages.new, arts: { attack: enemy } ).display
+# MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessages.new, arts: { damaged: enemy } ).display
+# MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessages.new, arts: { dead: enemy } ).display
 
 
 
