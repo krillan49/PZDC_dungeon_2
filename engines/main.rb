@@ -18,8 +18,9 @@ class Main
   def load_or_create_hero
     change_screen()
     while !@hero
-      print 'Ведите 1 чтобы загрузить персонажа, введите 2 чтобы создать нового персонажа '
+      MainRenderer.new( :start_screen, arts: [ { poster_start: :poster_start } ] ).display
       new_load = gets.strip
+      change_screen()
       if new_load == '2'
         @hero = HeroCreator.new.create_new_hero # Создание нового персонажа
         autosave()

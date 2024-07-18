@@ -9,6 +9,7 @@ class Menu
   end
 
   def render
+    return self if !@insert_options
     @insert_options.each do |i, fields|
       fields.each do |field_char, options|
         field_length = @view[i].scan(/#{field_char}{3,}/)[0].size

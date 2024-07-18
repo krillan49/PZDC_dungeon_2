@@ -97,10 +97,16 @@ enemy = Enemy.new("rabble")
 # MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessages.new, arts: [{ normal: enemy }] ).display
 # MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessages.new, arts: [{ game_over: :game_over }] ).display
 #
-MainRenderer.new( # 2 картинки
-  :battle_screen,
-  hero, enemy,
-  entity: AttacksRoundMessages.new, arts: [ { normal: enemy }, { game_over: :game_over } ]
+# MainRenderer.new( # 2 картинки
+#   :battle_screen,
+#   hero, enemy,
+#   entity: AttacksRoundMessages.new, arts: [ { normal: enemy }, { game_over: :game_over } ]
+# ).display
+
+# # Без инсерт оптионс
+MainRenderer.new(
+  :start_screen,
+  arts: [ { poster_start: :poster_start } ] 
 ).display
 
 
