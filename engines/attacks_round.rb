@@ -33,19 +33,19 @@ class AttacksRound
         if rand(0..2) >= 1
           @messages.log << "Сбежал ссыкло"
           confirm_and_change_screen()
-          MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { attack: @enemy }).display
+          MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ attack: @enemy }]).display
           return true
         else
           @hero.hp -= @enemy_damage
           @messages.log << "Не удалось убежать #{@enemy.name} нанес #{@enemy_damage.round} урона"
           confirm_and_change_screen()
-          MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { attack: @enemy }).display
+          MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ attack: @enemy }]).display
           if @hero.hp <= 0
             @messages.log << "Ты убит - трусливая псина!"
             confirm_and_change_screen()
-            MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { attack: @enemy }).display
+            MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ attack: @enemy }]).display
             confirm_and_change_screen()
-            MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { game_over: :game_over }).display
+            MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ game_over: :game_over }]).display
             exit
           end
         end
@@ -61,7 +61,7 @@ class AttacksRound
     until success
       @messages.main = 'Атакуйте!'
       @messages.actions = '1.По телу(B) 2.По голове(H) 3.По ногам(L) 4.Навык(S) '
-      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { normal: @enemy }).display
+      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ normal: @enemy }]).display
       selected_type = gets.strip.upcase
       success = case selected_type
       when 'H'; hero_head_attack_type?()
@@ -176,7 +176,7 @@ class AttacksRound
     end
     @messages.main = "Ходит #{@enemy.name}"
     @messages.actions = "#{@enemy.name} выбирает способ атаки"
-    MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { damaged: @enemy }).display
+    MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ damaged: @enemy }]).display
   end
   #
   def enemy_attack_effects
@@ -194,21 +194,21 @@ class AttacksRound
     confirm_and_change_screen()
     @messages.main = ""
     @messages.actions = ""
-    MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { attack: @enemy }).display
+    MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ attack: @enemy }]).display
   end
 
   def round_result
     if @hero.hp <= 0
       @messages.main = "Ты убит - слабак!"
       confirm_and_change_screen()
-      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { attack: @enemy }).display
+      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ attack: @enemy }]).display
       confirm_and_change_screen()
-      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { game_over: :game_over }).display
+      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ game_over: :game_over }]).display
       exit
     elsif @enemy.hp <= 0
       @messages.main = "#{@enemy.name} убит, победа!!!"
       confirm_and_change_screen()
-      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: { dead: @enemy }).display
+      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ dead: @enemy }]).display
     end
   end
 
