@@ -33,19 +33,19 @@ class MainRenderer
   end
 
   def arts
-    @arts.each do |art_params|
+    @arts.each.with_index do |art_params, i|
       art_params.each do |art_type, entity|
         art_name = entity.respond_to?(:code_name) ? entity.code_name : entity # для картинок от имени объекта и просто имен картинок
         art = Art.new(art_type, art_name).view
-        y_min, y_max, x_min, x_max = align_art_to_view_field(art)
+        y_min, y_max, x_min, x_max = align_art_to_view_field(art, i)
         insert_partial_to_view(art, y: [y_min, y_max], x: [x_min, x_max])
       end
     end
   end
 
-  def align_art_to_view_field(art)
-    field_y_min, field_y_max = @view_arts_options[:y]
-    field_x_min, field_x_max = @view_arts_options[:x]
+  def align_art_to_view_field(art, i)
+    field_y_min, field_y_max = @view_arts_options[i][:y]
+    field_x_min, field_x_max = @view_arts_options[i][:x]
     field_y_center = (field_y_min + field_y_max) / 2
     field_x_center = (field_x_min + field_x_max) / 2
     art_height = art.length
@@ -117,4 +117,4 @@ end
 
 
 
-# 
+#
