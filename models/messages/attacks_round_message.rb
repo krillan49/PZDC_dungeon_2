@@ -1,4 +1,4 @@
-class AttacksRoundMessages
+class AttacksRoundMessage
   attr_accessor :main, :actions, :log
 
   def initialize

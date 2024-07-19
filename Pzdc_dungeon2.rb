@@ -49,13 +49,7 @@ require_relative "models/skills/treasure_hunter"
 require_relative "models/characters/enemy"
 require_relative "models/characters/hero"
 # messages
-require_relative "models/messages/attacks_round_messages"
-
-
-
-
-# TODO
-# вынести методы навыка с выводом сообщений из модели hero в контроллер чето типм хиро_скилл_юзер, ? либо вынести сообщения в данные ?
+require_relative "models/messages/attacks_round_message"
 
 
 
