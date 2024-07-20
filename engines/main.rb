@@ -4,6 +4,8 @@ class Main
     @enemy = nil
     @leveling = 0
     @run = false
+
+    @messages = MainMessage.new
   end
 
   def start_game
@@ -58,6 +60,7 @@ class Main
 
     MainRenderer.new(:enemy_header, @enemy).display  # Характеристики противника
     MainRenderer.new(:character_stats, @enemy).display
+    confirm_and_change_screen()
 
     # Ход боя
     @run = false
@@ -83,7 +86,8 @@ class Main
       SecretLoot.new(@hero).looting
     end
 
-    HeroActions.add_exp_and_hero_level_up(@hero, @enemy.exp_gived) if !@run # Получение опыта и очков
+    HeroActions.add_exp_and_hero_level_up(@hero, @enemy.exp_gived, @messages) if !@run # Получение опыта и очков
+    MainRenderer.new(:messages_screen, entity: @messages).display
 
     confirm_and_change_screen()
 

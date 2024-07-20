@@ -13,7 +13,7 @@ class MainRenderer
   end
 
   def display
-    if @partials || @arts
+    if @partials || @arts || @entity
       partials() if @partials # отрисовываем паршалы в @view
       arts() if @arts # отрисовываем картинки в @view
       @view = Menu.new(@menu_name, @entity, view: @view).render.view # заполняем поля материнского экрана

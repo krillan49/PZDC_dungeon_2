@@ -13,7 +13,7 @@ class MainRenderer
   end
 
   def display
-    if @partials || @arts
+    if @partials || @arts || @entity
       partials() if @partials # отрисовываем паршалы в @view
       arts() if @arts # отрисовываем картинки в @view
       @view = Menu.new(@menu_name, @entity, view: @view).render.view # заполняем поля материнского экрана
@@ -85,7 +85,8 @@ require_relative "../models/ammunition/body_armor"
 require_relative "../models/ammunition/head_armor"
 require_relative "../models/ammunition/shield"
 require_relative "../models/ammunition/weapon"
-require_relative "../models/messages/attacks_round_messages"
+require_relative "../models/messages/attacks_round_message"
+require_relative "../models/messages/main_message"
 require_relative "../renderers/arts/arts"
 hero = Hero.new('Vasya','watchman')
 hero.passive_skill = ShieldMaster.new
@@ -104,10 +105,12 @@ enemy = Enemy.new("rabble")
 # ).display
 
 # # Без инсерт оптионс
-MainRenderer.new(
-  :start_screen,
-  arts: [ { poster_start: :poster_start } ] 
-).display
+# MainRenderer.new(
+#   :start_screen,
+#   arts: [ { poster_start: :poster_start } ]
+# ).display
+
+MainRenderer.new(:messages_screen, entity: MainMessage.new).display
 
 
 
