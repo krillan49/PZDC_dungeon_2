@@ -28,21 +28,23 @@ class AttacksRound
     if @hero.hp < (@hero.hp_max * 0.15) && @hero.hp > 0 && @enemy.hp > 0
       @messages.main = 'Ты на пороге смерти'
       @messages.actions = 'Попытаться убежать? (y/N)'
-      sleep(1)
       MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ normal: @enemy }]).display
       run_select = gets.strip.upcase
       if run_select == 'Y'
-        if rand(0..2) >= 1
+        if rand(0..2) >= 10
+          @messages.actions = 'Удалось убежать'
           @messages.log << "Сбежал ссыкло"
           MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ attack: @enemy }]).display
           return true
         else
           @hero.hp -= @enemy_damage
-          @messages.log << "Не удалось убежать #{@enemy.name} нанес #{@enemy_damage.round} урона"
+          @messages.main = 'Не удалось убежать'
+          @messages.actions = 'Чтобы продолжить нажмите Enter'
+          @messages.log << "#{@enemy.name} нанес #{@enemy_damage.round} урона"
           MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ attack: @enemy }]).display
+          enter_to_change_screen()
           if @hero.hp <= 0
             @messages.log << "Ты убит - трусливая псина!"
-            confirm_and_change_screen()
             MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ game_over: :game_over }]).display
             exit
           end
@@ -148,6 +150,7 @@ class AttacksRound
     @hero_hit = @hero_accuracy >= rand(1..100)
     hero_hit_or_miss()
     hero_hit_passive_slill_effects()
+    @messages.actions = ""
     MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ damaged: @enemy }]).display
     sleep(1)
     @messages.main = "Ходит #{@enemy.name}"
@@ -199,22 +202,39 @@ class AttacksRound
 
   def round_result
     if @hero.hp <= 0
+      sleep(1)
       @messages.main = "Ты убит - слабак!"
-      confirm_and_change_screen()
-      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ attack: @enemy }]).display
-      confirm_and_change_screen()
+      @messages.actions = 'Чтобы продолжить нажмите Enter'
       MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ game_over: :game_over }]).display
+      enter_to_change_screen()
       exit
     elsif @enemy.hp <= 0
+      sleep(1)
       @messages.main = "#{@enemy.name} убит, победа!!!"
-      confirm_and_change_screen()
+      @messages.actions = 'Чтобы продолжить нажмите Enter'
       MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ dead: @enemy }]).display
+      enter_to_change_screen()
+    else
+      sleep(1)
+      @messages.main = ''
+      @messages.actions = 'Чтобы продолжить нажмите Enter'
+      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ normal: @enemy }]).display
+      enter_to_change_screen()
     end
   end
 
   def confirm_and_change_screen
     print 'Чтобы продолжить нажмите Enter'
     gets
+    puts "\e[H\e[2J"
+  end
+
+  def enter_to_change_screen
+    gets
+    puts "\e[H\e[2J"
+  end
+
+  def change_screen
     puts "\e[H\e[2J"
   end
 
