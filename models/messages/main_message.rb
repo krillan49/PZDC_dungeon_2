@@ -1,7 +1,8 @@
 class MainMessage
-  attr_accessor :log
+  attr_accessor :main, :log
 
   def initialize
+    @main = ''
     @log = []
   end
 

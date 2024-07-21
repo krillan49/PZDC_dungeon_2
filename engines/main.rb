@@ -77,8 +77,6 @@ class Main
   end
 
   def after_battle
-    puts '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
-
     # Сбор лута
     if @run == false
       EnemyLoot.new(@hero, @enemy).looting
@@ -86,12 +84,10 @@ class Main
       SecretLoot.new(@hero).looting
     end
 
-    HeroActions.add_exp_and_hero_level_up(@hero, @enemy.exp_gived, @messages) if !@run # Получение опыта и очков
-    MainRenderer.new(:messages_screen, entity: @messages).display
+    # Получение опыта и очков
+    HeroActions.add_exp_and_hero_level_up(@hero, @enemy.exp_gived, @messages) if !@run
+    display_message_screen_with_confirm_and_change_screen()
 
-    confirm_and_change_screen()
-
-    puts '-------------------------------------------------------------------------------------------------'
     @leveling += 1
   end
 
@@ -101,6 +97,13 @@ class Main
     print "\nautosave..."
     SaveHero.new(@hero, @leveling).save
     puts "done\n"
+  end
+
+  def display_message_screen_with_confirm_and_change_screen
+    @messages.main = 'Чтобы продолжить нажмите Enter'
+    MainRenderer.new(:messages_screen, entity: @messages).display
+    gets
+    puts "\e[H\e[2J"
   end
 
   def confirm_and_change_screen
