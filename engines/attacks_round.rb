@@ -20,7 +20,7 @@ class AttacksRound
     count_enemy_final_damage()
     hero_attack_effects()
     enemy_attack_effects()
-    HeroActions.regeneration_hp_mp(@hero)
+    HeroActions.regeneration_hp_mp(@hero, @messages)
     round_result()
   end
 
