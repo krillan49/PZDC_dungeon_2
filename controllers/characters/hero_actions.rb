@@ -1,12 +1,12 @@
 module HeroActions
-  def self.rest(hero) # отдых между боями(Восстановления жизней и маны)
+  def self.rest(hero, messages) # отдых между боями(Восстановления жизней и маны)
     if hero.hp < hero.hp_max
       hero.hp += [hero.recovery_hp, hero.hp_max - hero.hp].min
-      puts "Передохнув вы восстанавливаете #{hero.recovery_hp.round} жизней, теперь у вас #{hero.hp.round}/#{hero.hp_max} жизней"
+      messages.log << "Передохнув вы восстанавливаете #{hero.recovery_hp.round} жизней, теперь у вас #{hero.hp.round}/#{hero.hp_max} жизней"
     end
     if hero.mp < hero.mp_max
       hero.mp += [hero.recovery_mp, hero.mp_max - hero.mp].min
-      puts "Передохнув вы восстанавливаете #{hero.recovery_mp.round} выносливости, теперь у вас #{hero.mp.round}/#{hero.mp_max} выносливости"
+      messages.log << "Передохнув вы восстанавливаете #{hero.recovery_mp.round} выносливости, теперь у вас #{hero.mp.round}/#{hero.mp_max} выносливости"
     end
   end
 

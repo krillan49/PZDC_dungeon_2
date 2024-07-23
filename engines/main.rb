@@ -12,6 +12,7 @@ class Main
     load_or_create_hero()
     while true
       before_battle()
+      autosave_and_camp_actions()
       battle()
       after_battle()
     end
@@ -45,12 +46,13 @@ class Main
     MainRenderer.new(:character_skills, @hero).display
 
     confirm_and_change_screen()
+  end
+
+  def autosave_and_camp_actions
     autosave()
-
-    HeroUseSkill.camp_skill(@hero) # Навык Первая помощь
-    HeroActions.rest(@hero) # пассивное восстановления жизней и маны между боями
-
-    confirm_and_change_screen()
+    HeroUseSkill.camp_skill(@hero, @messages) # Навык Первая помощь
+    HeroActions.rest(@hero, @messages) # пассивное восстановления жизней и маны между боями
+    display_message_screen_with_confirm_and_change_screen()
   end
 
   def battle
@@ -94,9 +96,8 @@ class Main
   private
 
   def autosave
-    print "\nautosave..."
     SaveHero.new(@hero, @leveling).save
-    puts "done\n"
+    @messages.log << "autosave... done"
   end
 
   def display_message_screen_with_confirm_and_change_screen
