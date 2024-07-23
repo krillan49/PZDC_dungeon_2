@@ -57,9 +57,6 @@ require_relative "models/messages/main_message"
 Main.new.start_game
 
 
-# В выводе экрана боя не отображается регенерация
-
-
 
 
 

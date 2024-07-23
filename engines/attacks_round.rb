@@ -159,9 +159,9 @@ class AttacksRound
   end
   def hero_hit_or_miss
     if @hero_hit
-      @messages.log << "#{@enemy.name} заблокировал #{@enemy.block_power_in_percents}% урона" if @enemy_block_successful
+      block_message = @enemy_block_successful ? "#{@enemy.name} заблокировал #{@enemy.block_power_in_percents}% урона. " : ''
       @enemy.hp -= @hero_damage
-      @messages.log << "Вы нанесли #{@hero_damage.round} урона #{@hero_attack_type}"
+      @messages.log << block_message + "Вы нанесли #{@hero_damage.round} урона #{@hero_attack_type}"
     else
       @messages.log << "Вы промахнулись #{@hero_attack_type}"
     end
@@ -192,9 +192,9 @@ class AttacksRound
   end
   def enemy_hit_or_miss
     if @enemy_hit
-      @messages.log << "Вы заблокировали #{@hero.block_power_in_percents}% урона" if @hero_block_successful
+      block_message = @hero_block_successful ? "Вы заблокировали #{@hero.block_power_in_percents}% урона. " : ''
       @hero.hp -= @enemy_damage
-      @messages.log << "#{@enemy.name} нанес #{@enemy_damage.round} урона #{@enemy_attack_type}"
+      @messages.log << block_message + "#{@enemy.name} нанес #{@enemy_damage.round} урона #{@enemy_attack_type}"
     else
       @messages.log << "#{@enemy.name} промахнулся #{@enemy_attack_type}"
     end
