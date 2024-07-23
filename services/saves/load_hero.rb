@@ -6,14 +6,17 @@ class LoadHero
 
   def initialize
     @options = YAML.safe_load_file("#{PATH}#{OPTIONS_FILE}") if File::exists?("#{PATH}#{OPTIONS_FILE}")
+    @messages = LoadHeroMessage.new
   end
 
   def load
     if @options && @options['file_names'].length > 0
-      puts 'Выберите героя'
+      @messages.main = 'Выберите героя'
       choose_hero()
     else
-      puts 'Нет сохраненных героев'
+      @messages.main = 'Нет сохраненных героев. Чтобы продолжить нажмите Enter'
+      @messages.heroes = []
+      display_with_confirm_and_change_screen()
     end
   end
 
@@ -21,13 +24,17 @@ class LoadHero
 
   def choose_hero
     @options['names'].each.with_index(1) do |name, i|
-      puts "№ #{i} #{name}"
+      i = '0' + i.to_s if i < 10
+      @messages.heroes << "                                            № #{i}     #{name}"
     end
-    print "Введите номер или имя персонажа "
+    @messages.main = "Введите номер или имя персонажа"
+    display_and_change_screen()
     input = gets.strip
     @file_name = /^\d+$/ === input ? choose_hero_by_number(input.to_i-1) : choose_hero_by_name(input)
     if !@file_name
-      puts 'Такого героя не существует, попробуйте еще раз'
+      @messages.main = 'Такого героя не существует. Чтобы продолжить нажмите Enter'
+      @messages.heroes = []
+      display_with_confirm_and_change_screen()
     else
       load_hero_data()
       hero_recreate()
@@ -66,18 +73,19 @@ class LoadHero
     @leveling = @hero_data['leveling']
   end
 
+  def display_and_change_screen
+    puts "\e[H\e[2J"
+    MainRenderer.new(:load_hero_screen, entity: @messages).display
+  end
+
+  def display_with_confirm_and_change_screen
+    MainRenderer.new(:load_hero_screen, entity: @messages).display
+    gets
+    puts "\e[H\e[2J"
+  end
+
 end
 
-
-# require_relative "skills_creator"
-# require_relative "ammunition_creator"
-# require_relative "hero"
-# require_relative "skills"
-# require_relative "ammunition"
-# load_hero = LoadHero.new
-# load_hero.load
-# p @hero = load_hero.hero
-# p leveling = load_hero.leveling
 
 
 

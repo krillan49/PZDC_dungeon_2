@@ -51,6 +51,7 @@ require_relative "models/characters/hero"
 # messages
 require_relative "models/messages/attacks_round_message"
 require_relative "models/messages/main_message"
+require_relative "models/messages/load_hero_message"
 
 
 
