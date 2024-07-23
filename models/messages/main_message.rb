@@ -12,4 +12,8 @@ class MainMessage
       @log.last(7)[param.to_i]
     end
   end
+
+  def clear_log
+    @log = []
+  end
 end

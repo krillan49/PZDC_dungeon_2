@@ -102,6 +102,7 @@ class Main
   def display_message_screen_with_confirm_and_change_screen
     @messages.main = 'Чтобы продолжить нажмите Enter'
     MainRenderer.new(:messages_screen, entity: @messages).display
+    @messages.clear_log
     gets
     puts "\e[H\e[2J"
   end
