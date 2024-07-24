@@ -3,6 +3,7 @@ require 'yaml'
 # engines -----------------------------
 require_relative "engines/main"
 require_relative "engines/attacks_round"
+require_relative "engines/loot_round"
 
 # renderers ---------------------------
 require_relative "renderers/main_renderer"

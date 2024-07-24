@@ -1,7 +1,9 @@
 class EnemyLoot
-  def initialize(hero, enemy)
+  def initialize(hero, enemy, messages)
     @hero = hero
     @enemy = enemy
+
+    @messages = messages
   end
 
   def looting
@@ -61,4 +63,4 @@ end
 
 
 
-# 
+#

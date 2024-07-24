@@ -80,11 +80,8 @@ class Main
 
   def after_battle
     # Сбор лута
-    if @run == false
-      EnemyLoot.new(@hero, @enemy).looting
-      FieldLoot.new(@hero).looting
-      SecretLoot.new(@hero).looting
-    end
+    loot = LootRound.new(@hero, @enemy, @run)
+    loot.action
 
     # Получение опыта и очков
     HeroActions.add_exp_and_hero_level_up(@hero, @enemy.exp_gived, @messages) if !@run
