@@ -7,12 +7,12 @@ class LootRound
   def action
     return if @run
     enemy_loot()
+    @messages.clear_log
     other_loot()
   end
 
   def enemy_loot
     EnemyLoot.new(@hero, @enemy, @messages).looting
-    # @messages.clear_log
   end
 
   def other_loot
