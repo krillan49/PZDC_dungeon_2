@@ -7,6 +7,10 @@ class AttacksRoundMessage
     @log = []
   end
 
+  def clear_log
+    @log = []
+  end
+
   def log_last4
     @log.last(4)[0]
   end

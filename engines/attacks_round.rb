@@ -1,5 +1,5 @@
 class AttacksRound
-  def initialize(hero, enemy)
+  def initialize(hero, enemy, messages)
     @hero = hero
     @hero_damage = rand(hero.min_dmg..hero.max_dmg)
     @hero_accuracy = @hero.accuracy
@@ -10,7 +10,7 @@ class AttacksRound
     @enemy_accuracy = @enemy.accuracy
     @enemy_block_successful = @enemy.block_chance >= rand(1..100)
 
-    @messages = AttacksRoundMessage.new
+    @messages = messages
   end
 
   def action
@@ -62,6 +62,7 @@ class AttacksRound
       @messages.main = "Attack #{@enemy.name}"
       @messages.actions = 'Hit body [enter 1]     Hit head [enter 2]     Hit legs [enter 3]     Use skill [enter 4]'
       MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ normal: @enemy }]).display
+      @messages.clear_log
       selected_type = gets.strip.upcase
       success = case selected_type
       when '2'; hero_head_attack_type?()
@@ -216,25 +217,11 @@ class AttacksRound
       enter_to_change_screen()
     else
       sleep(1)
-      @messages.main = ''
-      @messages.actions = 'Чтобы продолжить нажмите Enter'
-      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ normal: @enemy }]).display
-      enter_to_change_screen()
     end
-  end
-
-  def confirm_and_change_screen
-    print 'Чтобы продолжить нажмите Enter'
-    gets
-    puts "\e[H\e[2J"
   end
 
   def enter_to_change_screen
     gets
-    puts "\e[H\e[2J"
-  end
-
-  def change_screen
     puts "\e[H\e[2J"
   end
 

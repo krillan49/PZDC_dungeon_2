@@ -67,9 +67,10 @@ class Main
     # Ход боя
     @run = false
     lap = 1 # номер хода
+    attacks_round_messages = AttacksRoundMessage.new
     while @enemy.hp > 0 && @run == false
 
-      round = AttacksRound.new(@hero, @enemy)
+      round = AttacksRound.new(@hero, @enemy, attacks_round_messages)
       round.action
       @run = round.hero_run?
 
