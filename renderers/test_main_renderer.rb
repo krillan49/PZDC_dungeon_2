@@ -90,18 +90,20 @@ require_relative "../models/messages/main_message"
 require_relative "../renderers/arts/arts"
 hero = Hero.new('Vasya','watchman')
 hero.passive_skill = ShieldMaster.new
-enemy = Enemy.new("rabble")
+# enemy = Enemy.new("goblin")
+enemy = Enemy.new("zombie_knight")
+
 
 # MainRenderer.new(:battle_screen, hero, enemy).display
 # MainRenderer.new(:character_stats, hero, enemy).display
 # Пример с 2мя паршалами персонажей, сообщениями меню и картинкой
-# MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessages.new, arts: [{ normal: enemy }] ).display
-# MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessages.new, arts: [{ game_over: :game_over }] ).display
+# MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessage.new, arts: [{ normal: enemy }] ).display
+# MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessage.new, arts: [{ game_over: :game_over }] ).display
 #
 # MainRenderer.new( # 2 картинки
 #   :battle_screen,
 #   hero, enemy,
-#   entity: AttacksRoundMessages.new, arts: [ { normal: enemy }, { game_over: :game_over } ]
+#   entity: AttacksRoundMessage.new, arts: [ { normal: enemy }, { game_over: :game_over } ]
 # ).display
 
 # # Без инсерт оптионс
@@ -109,8 +111,10 @@ enemy = Enemy.new("rabble")
 #   :start_screen,
 #   arts: [ { poster_start: :poster_start } ]
 # ).display
+#
+# MainRenderer.new(:messages_screen, entity: MainMessage.new).display
 
-MainRenderer.new(:messages_screen, entity: MainMessage.new).display
+MainRenderer.new( :enemy_start_screen, enemy, entity: AttacksRoundMessage.new, arts: [{ normal: enemy }] ).display
 
 
 

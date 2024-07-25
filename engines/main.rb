@@ -56,18 +56,19 @@ class Main
   end
 
   def battle
-    puts "++++++++++++++++++++++++++++++++++++++ Бой #{@leveling + 1} +++++++++++++++++++++++++++++++++++++++++++++++++"
-
     @enemy = EnemyCreator.new(@leveling).create_new_enemy # Назначение противника
 
-    MainRenderer.new(:enemy_header, @enemy).display  # Характеристики противника
-    MainRenderer.new(:character_stats, @enemy).display
-    confirm_and_change_screen()
+    # Характеристики противника
+    attacks_round_messages = AttacksRoundMessage.new
+    attacks_round_messages.main = 'Чтобы продолжить нажмите Enter'
+    attacks_round_messages.actions = "++++++++++++ Бой #{@leveling + 1} ++++++++++++"
+    MainRenderer.new(:enemy_start_screen, @enemy, entity: attacks_round_messages, arts: [{ normal: @enemy }]).display
+    gets
+    puts "\e[H\e[2J"
 
     # Ход боя
     @run = false
     lap = 1 # номер хода
-    attacks_round_messages = AttacksRoundMessage.new
     while @enemy.hp > 0 && @run == false
 
       round = AttacksRound.new(@hero, @enemy, attacks_round_messages)
