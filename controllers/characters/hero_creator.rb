@@ -1,8 +1,8 @@
 class HeroCreator
 
   def initialize
-    puts 'Создание персонажа'
-    puts '========================'
+    @messages = MainMessage.new
+
     @hero = Hero.new(name(), background())
   end
 
@@ -18,17 +18,19 @@ class HeroCreator
   def name
     name = nil
     while !name
-      print 'Введите имя персонажа: '
+      @messages.main = 'Введите имя персонажа' if @messages.main == ''
+      @messages.log << 'Имя персонажа должно содержать как минимум 1 букву и быть не более 20 символов'
+      MainRenderer.new(:messages_screen, entity: @messages).display
       input_name = gets.strip
       if !@taken_names && File::exists?("saves/0_options.yml")
         @taken_names = YAML.safe_load_file("saves/0_options.yml")['names']
       end
       if @taken_names && @taken_names.include?(input_name)
-        puts "Персонаж с именем #{input_name} уже существует, выберите другое имя"
+        @messages.main = "Персонаж с именем #{input_name} уже существует, выберите другое имя"
       elsif !input_name.match?(/[a-zA-Zа-яА-Я]/)
-        puts "Некорректное имя. Имя должно содержать как минимум одну букву"
+        @messages.main = "#{input_name} некорректное имя. Имя должно содержать как минимум одну букву"
       elsif input_name.length > 20
-        puts "Некорректное имя. Имя должно быть не более 20 символов"
+        @messages.main = "#{input_name} некорректное имя. Имя должно быть не более 20 символов"
       else
         name = input_name
       end
@@ -37,11 +39,16 @@ class HeroCreator
   end
 
   def background
-    print "\nВыберите предисторию:\n" \
-    "Сторож(G) + 30 жизней, Дубинка\n" \
-    "Карманник(T) + 5 точности, Ножик\n" \
-    "Рабочий(W) + 30 выносливости, Ржавый топорик\n" \
-    "Умник(S) + 5 очков навыков, без оружия\n"
+    @messages.main = 'Выберите предисторию'
+    @messages.log = [
+      "                       Предыстория:   Нажмите:   Бонус:             Экипировка:",
+      "                       Сторож           (G)      30 жизней          Дубинка",
+      "                       Карманник        (T)      5 точности         Ножик",
+      "                       Рабочий          (W)      30 выносливости    Ржавый топорик",
+      "                       Студент          (S)      5 очков навыков    без оружия"
+    ]
+    MainRenderer.new(:messages_screen, entity: @messages).display
+    @messages.clear_log
     choose_story_pl = gets.strip.upcase
     case choose_story_pl
     when 'G'; 'watchman'
@@ -49,17 +56,26 @@ class HeroCreator
     when 'W'; 'worker'
     when 'S'; 'student'
     else
-      puts 'Перепутал буквы, ты тупой алкаш -5 жизней -5 выносливости -10 точность'
+      @messages.main = 'Перепутал буквы, ты тупой алкаш -5 жизней -5 выносливости -10 точность'
+      MainRenderer.new(:messages_screen, entity: @messages).display
+      gets
       'drunk'
     end
   end
 
   def active_skill
-    puts 'Выберите стартовый активный навык '
-    print 'Сильный удар(S) Точный удар(A) '
+    @messages.main = 'Выберите стартовый активный навык'
+    @messages.log = [
+      '   Skill:                  Push:           Description:',
+      '   Сильный удар            (S)             Бей намного сильнее',
+      '   Точный удар             (A)             Бей намного точнее и немного сильнее'
+    ]
+    MainRenderer.new(:messages_screen, entity: @messages).display
     special_choiсe = gets.strip.upcase
     while special_choiсe != 'S' && special_choiсe != 'A'
-      print 'Введен неверный символ. Попробуйте еще раз. Сильный удар(S) Точный удар(A) '
+      @messages.main = 'Введен неверный символ. Попробуйте еще раз'
+      puts "\e[H\e[2J"
+      MainRenderer.new(:messages_screen, entity: @messages).display
       special_choiсe = gets.strip.upcase
     end
     skills = {'S' => 'strong_strike', 'A' => 'srecise_strike'}
@@ -67,11 +83,19 @@ class HeroCreator
   end
 
   def passive_skill
-    puts 'Выберите стартовый пассивный навык '
-    print 'Ошеломление(D) Концентрация(C) Мастер щита(B) '
+    @messages.main = 'Выберите стартовый пассивный навык'
+    @messages.log = [
+      '   Skill:                  Push:           Description:',
+      '   Ошеломление             (D)             Если урон больше части hp врага то он теряет 10-90(%) точности',
+      '   Концентрация            (C)             Если мана больше 100, то наносится случайный доп урон',
+      '   Мастер щита             (B)             Шанс блока щита увеличен'
+    ]
+    MainRenderer.new(:messages_screen, entity: @messages).display
     passive_choiсe = gets.strip.upcase
     while passive_choiсe != 'D' && passive_choiсe != 'C' && passive_choiсe != 'B'
-      print 'Неверный символ попробуйте еще раз. Ошеломление(D) Концентрация(C) Мастер щита(B) '
+      @messages.main = 'Введен неверный символ. Попробуйте еще раз'
+      puts "\e[H\e[2J"
+      MainRenderer.new(:messages_screen, entity: @messages).display
       passive_choiсe = gets.strip.upcase
     end
     skills = {'D' => 'dazed', 'C' => 'concentration', 'B' => 'shield_master'}
@@ -79,23 +103,24 @@ class HeroCreator
   end
 
   def camp_skill
-    puts 'Выберите стартовый небоевой навык '
-    print 'Первая помощь(F) Кладоискатель(T) '
+    @messages.main = 'Выберите стартовый небоевой навык'
+    @messages.log = [
+      '   Skill:                  Push:           Description:',
+      '   Первая помощь           (F)             Восстанавливает hp, чем больше hp потеряно, тем больше эффект',
+      '   Кладоискатель           (T)             Шанс найти уникальный лут увеличен'
+    ]
+    MainRenderer.new(:messages_screen, entity: @messages).display
     noncombat_choiсe = gets.strip.upcase
     while noncombat_choiсe != 'F' && noncombat_choiсe != 'T'
-      print 'Введен неверный символ попробуйте еще раз. Первая помощь(F) Кладоискатель(T) '
+      @messages.main = 'Введен неверный символ. Попробуйте еще раз'
+      puts "\e[H\e[2J"
+      MainRenderer.new(:messages_screen, entity: @messages).display
       noncombat_choiсe = gets.strip.upcase
     end
     skills = {'F' => 'first_aid', 'T' => 'treasure_hunter'}
     @hero.camp_skill = SkillsCreator.create(skills[noncombat_choiсe], @hero)
   end
 end
-
-
-# require_relative "hero"
-# require_relative "skills"
-# hero = HeroCreator.new.create_new_hero
-# p hero
 
 
 

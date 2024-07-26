@@ -26,7 +26,6 @@ class Main
       change_screen()
       if new_load == '2'
         @hero = HeroCreator.new.create_new_hero # Создание нового персонажа
-        autosave()
       else
         load_hero = LoadHero.new
         load_hero.load
@@ -39,12 +38,10 @@ class Main
   def before_battle
     HeroUpdator.new(@hero).spend_stat_points # распределение очков характеристик
     HeroUpdator.new(@hero).spend_skill_points # распределение очков навыков  (тут вызывается старое меню, потом доделать)
-
     # Характеристики персонажа
     MainRenderer.new(:hero_header, @hero).display
     MainRenderer.new(:character_stats, @hero).display
     MainRenderer.new(:character_skills, @hero).display
-
     confirm_and_change_screen()
   end
 
@@ -57,7 +54,6 @@ class Main
 
   def battle
     @enemy = EnemyCreator.new(@leveling).create_new_enemy # Назначение противника
-
     # Характеристики противника
     attacks_round_messages = AttacksRoundMessage.new
     attacks_round_messages.main = 'Чтобы продолжить нажмите Enter'
@@ -65,7 +61,6 @@ class Main
     MainRenderer.new(:enemy_start_screen, @enemy, entity: attacks_round_messages, arts: [{ normal: @enemy }]).display
     gets
     puts "\e[H\e[2J"
-
     # Ход боя
     @run = false
     lap = 1 # номер хода
@@ -77,18 +72,15 @@ class Main
 
       lap += 1 # номер хода
     end
-
   end
 
   def after_battle
     # Сбор лута
     loot = LootRound.new(@hero, @enemy, @run)
     loot.action
-
     # Получение опыта и очков
     HeroActions.add_exp_and_hero_level_up(@hero, @enemy.exp_gived, @messages) if !@run
     display_message_screen_with_confirm_and_change_screen()
-
     @leveling += 1
   end
 
