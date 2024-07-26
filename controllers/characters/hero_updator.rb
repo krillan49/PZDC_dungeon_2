@@ -2,53 +2,72 @@ class HeroUpdator
 
   def initialize(hero)
     @hero = hero
+
+    @messages = MainMessage.new
   end
 
   def spend_stat_points
     while @hero.stat_points != 0
-      MainRenderer.new(:hero_header, @hero).display
-      MainRenderer.new(:character_stats, @hero).display
-      MainRenderer.new(:character_skills, @hero).display
       distribution = ''
-      until %w[H M X A].include?(distribution)
-        puts "Распределите очки характеристик. У вас осталось #{@hero.stat_points} очков"
-        print '+5 жизней(H). +5 выносливости(M). +1 мин/макс случайно урон(X). +1 точность(A)  '
+      until %w[1 2 3 4].include?(distribution)
+        @messages.main = "Распределите очки характеристик. У вас осталось #{@hero.stat_points} очков" if @messages.main == ''
+        @messages.log = [
+          '+5 жизней                 (1)',
+          '+5 выносливости           (2)',
+          '+1 мин/макс случайно урон (3)',
+          '+1 точность               (4)'
+        ]
+        MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
         distribution = gets.strip.upcase
         case distribution
-        when 'H'
+        when '1'
           @hero.hp_max += 5
           @hero.hp += 5
-        when 'M'
+          @messages.main = ''
+        when '2'
           @hero.mp_max += 5
           @hero.mp += 5
-        when 'X'
+          @messages.main = ''
+        when '3'
           @hero.min_dmg_base < @hero.max_dmg_base && rand(0..1) == 0 ? @hero.min_dmg_base += 1 : @hero.max_dmg_base += 1
-        when 'A'
+          @messages.main = ''
+        when '4'
           @hero.accuracy_base += 1
+          @messages.main = ''
         else
-          puts 'Вы ввели неверный символ, попробуйте еще раз'
+          @messages.main = "Вы ввели неверный символ, попробуйте еще раз. У вас осталось #{@hero.stat_points} очков"
         end
       end
       @hero.stat_points -= 1
     end
+    @messages.main = ''
+    @messages.clear_log
   end
 
   def spend_skill_points
     while @hero.skill_points != 0
-      MainRenderer.new(:hero_header, @hero).display
-      MainRenderer.new(:character_stats, @hero).display
-      MainRenderer.new(:character_skills, @hero).display
       distribution = ''
-      until %w[S P N].include?(distribution)
-        puts "Распределите очки навыков. У вас осталось #{@hero.skill_points} очков"
-        print "+1 #{@hero.active_skill.name}(S). +1 #{@hero.passive_skill.name}(P). +1 #{@hero.camp_skill.name}(N) "
+      until %w[1 2 3].include?(distribution)
+        @messages.main = "Распределите очки навыков. У вас осталось #{@hero.skill_points} очков" if @messages.main == ''
+        @messages.log = [
+          "+1 #{@hero.active_skill.name}   (1)",
+          "+1 #{@hero.passive_skill.name}    (2)",
+          "+1 #{@hero.camp_skill.name}  (3)"
+        ]
+        MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
         distribution = gets.strip.upcase
         case distribution
-        when 'S'; @hero.active_skill.lvl += 1
-        when 'P'; @hero.passive_skill.lvl += 1
-        when 'N'; @hero.camp_skill.lvl += 1
+        when '1'
+          @hero.active_skill.lvl += 1
+          @messages.main = ''
+        when '2'
+          @hero.passive_skill.lvl += 1
+          @messages.main = ''
+        when '3'
+          @hero.camp_skill.lvl += 1
+          @messages.main = ''
         else
-          puts 'Вы ввели неверный символ, попробуйте еще раз'
+          @messages.main = "Вы ввели неверный символ, попробуйте еще раз. У вас осталось #{@hero.skill_points} очков"
         end
       end
       @hero.skill_points -= 1

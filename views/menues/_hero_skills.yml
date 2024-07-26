@@ -1,0 +1,61 @@
+view:
+  - "█ active    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                                                   █"
+  - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
+  - "█                                                                                                                      █"
+  - "█ passive   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                                                   █"
+  - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
+  - "█                                                                                                                      █"
+  - "█ camp      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                                                   █"
+  - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
+insert_options:
+  0:
+    A:
+      methods:
+        - active_skill
+        - name
+      modifier: s
+  1:
+    A:
+      methods:
+        - active_skill
+        - description
+      modifier: s
+  3:
+    A:
+      methods:
+        - passive_skill
+        - name
+      modifier: s
+  4:
+    A:
+      methods:
+        - passive_skill
+        - description
+      modifier: s
+  6:
+    A:
+      methods:
+        - camp_skill
+        - name
+      modifier: s
+  7:
+    A:
+      methods:
+        - camp_skill
+        - description
+      modifier: s
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#

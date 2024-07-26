@@ -89,7 +89,9 @@ require_relative "../models/messages/attacks_round_message"
 require_relative "../models/messages/main_message"
 require_relative "../renderers/arts/arts"
 hero = Hero.new('Vasya','watchman')
+hero.active_skill = PreciseStrike.new
 hero.passive_skill = ShieldMaster.new
+hero.camp_skill = TreasureHunter.new
 # enemy = Enemy.new("goblin")
 enemy = Enemy.new("zombie_knight")
 
@@ -113,8 +115,10 @@ enemy = Enemy.new("zombie_knight")
 # ).display
 #
 # MainRenderer.new(:messages_screen, entity: MainMessage.new).display
+#
+# MainRenderer.new( :enemy_start_screen, enemy, entity: AttacksRoundMessage.new, arts: [{ normal: enemy }] ).display
 
-MainRenderer.new( :enemy_start_screen, enemy, entity: AttacksRoundMessage.new, arts: [{ normal: enemy }] ).display
+MainRenderer.new( :hero_update_screen, hero, hero, entity: AttacksRoundMessage.new ).display
 
 
 
