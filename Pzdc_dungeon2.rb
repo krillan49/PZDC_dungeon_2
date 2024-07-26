@@ -59,6 +59,9 @@ require_relative "models/messages/load_hero_message"
 Main.new.start_game
 
 
+# Экран выбора боссфайта
+
+
 
 
 

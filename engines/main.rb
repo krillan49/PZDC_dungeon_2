@@ -39,10 +39,10 @@ class Main
     HeroUpdator.new(@hero).spend_stat_points # распределение очков характеристик
     HeroUpdator.new(@hero).spend_skill_points # распределение очков навыков  (тут вызывается старое меню, потом доделать)
     # Характеристики персонажа
-    MainRenderer.new(:hero_header, @hero).display
-    MainRenderer.new(:character_stats, @hero).display
-    MainRenderer.new(:character_skills, @hero).display
-    confirm_and_change_screen()
+    @messages.main = 'Чтобы продолжить нажмите Enter'
+    MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
+    gets
+    puts "\e[H\e[2J"
   end
 
   def autosave_and_camp_actions
