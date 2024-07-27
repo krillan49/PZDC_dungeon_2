@@ -2,6 +2,8 @@ class EnemyCreator
   def initialize(leveling)
     @boss = rand(1..100) > 99 - leveling
     @standart_chance = rand(1..12) + rand(0..leveling)
+
+    @messages = MainMessage.new
   end
 
   def create_new_enemy
@@ -11,15 +13,18 @@ class EnemyCreator
   private
 
   def create_boss_enemy
-    print 'Вы заметили с одной стороны развилки фигуру рыцаря, идем туда(Y) или свернем в другую сторону? '
+    @messages.main = 'Вы заметили с одной стороны развилки фигуру рыцаря, идем туда(Y) или свернем в другую сторону?'
+    MainRenderer.new(:messages_screen, entity: @messages).display
     fight = gets.strip.upcase
     case fight
     when 'Y'
-      puts 'Это рыцарь-зомби, приготовься к сложному бою'
       Enemy.new("zombie_knight")
     else
-      puts 'Правильный выбор, выглядело опасно'
-      puts '-' * 40
+      @messages.main = 'Чтобы продолжить нажмите Enter'
+      @messages.log << 'Правильный выбор, выглядело опасно'
+      MainRenderer.new(:messages_screen, entity: @messages).display
+      gets
+      puts "\e[H\e[2J"
       create_standart_enemy()
     end
   end
