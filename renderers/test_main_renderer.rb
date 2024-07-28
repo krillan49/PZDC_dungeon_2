@@ -93,13 +93,16 @@ hero.active_skill = PreciseStrike.new
 hero.passive_skill = ShieldMaster.new
 hero.camp_skill = TreasureHunter.new
 # enemy = Enemy.new("goblin")
-enemy = Enemy.new("zombie_knight")
+enemy = Enemy.new("orc")
 
 
 # MainRenderer.new(:battle_screen, hero, enemy).display
 # MainRenderer.new(:character_stats, hero, enemy).display
 # Пример с 2мя паршалами персонажей, сообщениями меню и картинкой
-# MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessage.new, arts: [{ normal: enemy }] ).display
+MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessage.new, arts: [{ normal: enemy }] ).display
+MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessage.new, arts: [{ attack: enemy }] ).display
+MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessage.new, arts: [{ damaged: enemy }] ).display
+MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessage.new, arts: [{ dead: enemy }] ).display
 # MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessage.new, arts: [{ game_over: :game_over }] ).display
 #
 # MainRenderer.new( # 2 картинки
@@ -118,7 +121,7 @@ enemy = Enemy.new("zombie_knight")
 #
 # MainRenderer.new( :enemy_start_screen, enemy, entity: AttacksRoundMessage.new, arts: [{ normal: enemy }] ).display
 
-MainRenderer.new( :hero_update_screen, hero, hero, entity: AttacksRoundMessage.new ).display
+# MainRenderer.new( :hero_update_screen, hero, hero, entity: AttacksRoundMessage.new ).display
 
 
 
