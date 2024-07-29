@@ -162,9 +162,9 @@ class AttacksRound
     if @hero_hit
       block_message = @enemy_block_successful ? "#{@enemy.name} заблокировал #{@enemy.block_power_in_percents}% урона. " : ''
       @enemy.hp -= @hero_damage
-      @messages.log << block_message + "Вы нанесли #{@hero_damage.round} урона #{@hero_attack_type}"
+      @messages.log << block_message + "Ты нанес #{@hero_damage.round} урона #{@hero_attack_type}"
     else
-      @messages.log << "Вы промахнулись #{@hero_attack_type}"
+      @messages.log << "Ты промахнулся #{@hero_attack_type}"
     end
   end
   def hero_hit_passive_slill_effects
@@ -172,13 +172,13 @@ class AttacksRound
     when "Ошеломление"
       if @hero_hit && @hero_damage * @hero.passive_skill.accuracy_reduce_coef > (@enemy.hp + @hero_damage) / 2 # прибавляется дамаг который отнялся выше для подсчета эффекта ошеломления
         @enemy_accuracy *= 0.1 * rand(1..9)
-        @messages.log << "атака ошеломила врага, уменьшив его точность до #{(@enemy.accuracy * 0.1 * rand(1..9)).round}"
+        @messages.log[-1] += " и ошеломил врага, уменьшив его точность до #{(@enemy.accuracy * 0.1 * rand(1..9)).round}"
       end
     when "Концентрация"
       damage_bonus = @hero.passive_skill.damage_bonus # чтобы далее был одинаковый
       if @hero_hit && damage_bonus > 0
         @enemy.hp -= damage_bonus
-        @messages.log << "дополнительный урон от концентрации #{damage_bonus.round(1)}"
+        @messages.log[-1] += ", дополнительный урон от концентрации #{damage_bonus.round(1)}"
       end
     end
   end
