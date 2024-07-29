@@ -7,7 +7,7 @@ drunk:
   accurasy: 70
   armor: 0
   skill_points: 0
-  weapon: "без оружия"
+  weapon: without
   body_armor:
     - without
   head_armor:
@@ -26,7 +26,7 @@ watchman:
   accurasy: 80
   armor: 0
   skill_points: 0
-  weapon: "Дубинка"
+  weapon: club
   body_armor:
     - without
   head_armor:
@@ -45,7 +45,7 @@ thief:
   accurasy: 90
   armor: 0
   skill_points: 0
-  weapon: "Ножик"
+  weapon: knife
   body_armor:
     - without
   head_armor:
@@ -64,7 +64,7 @@ worker:
   accurasy: 80
   armor: 0
   skill_points: 0
-  weapon: "Ржавый топорик"
+  weapon: rusty_hatchet
   body_armor:
     - without
   head_armor:
@@ -83,7 +83,7 @@ student:
   accurasy: 80
   armor: 0
   skill_points: 5
-  weapon: "без оружия"
+  weapon: without
   body_armor:
     - without
   head_armor:

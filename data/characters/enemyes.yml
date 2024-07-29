@@ -7,8 +7,8 @@ rabble:
   armor: 0
   exp_gived: 1
   weapons:
-    - "без оружия"
-    - "Палка"
+    - without
+    - stick
   body_armor:
     - without
   head_armor:
@@ -27,7 +27,7 @@ rabid_dog:
   armor: 0
   exp_gived: 1
   weapons:
-    - "без оружия"
+    - without
   body_armor:
     - without
   head_armor:
@@ -46,8 +46,8 @@ goblin:
   armor: 0
   exp_gived: 2
   weapons:
-    - "Ножик"
-    - "Кинжал"
+    - knife
+    - dagger
   body_armor:
     - without
   head_armor:
@@ -68,9 +68,9 @@ thug:
   armor: 0
   exp_gived: 2
   weapons:
-    - "Ржавый топорик"
-    - "Ножик"
-    - "Дубинка"
+    - rusty_hatchet
+    - knife
+    - club
   body_armor:
     - without
     - leather_jacket
@@ -93,9 +93,10 @@ deserter:
   armor: 0
   exp_gived: 3
   weapons:
-    - "Ржавый топорик"
-    - "Топорик"
-    - "Фальшион"
+    - club
+    - rusty_hatchet
+    - hatchet
+    - falchion
   body_armor:
     - without
     - leather_jacket
@@ -122,8 +123,8 @@ orc:
   armor: 0
   exp_gived: 4
   weapons:
-    - "Топор"
-    - "Цеп"
+    - axe
+    - flail
   body_armor:
     - without
   head_armor:
@@ -142,7 +143,7 @@ zombie_knight:
   armor: 0
   exp_gived: 20
   weapons:
-    - "Ржавый полуторник"
+    - rusty_longsword
   body_armor:
     - rusty_cuirass
   head_armor:
