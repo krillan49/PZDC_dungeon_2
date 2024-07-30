@@ -1,15 +1,15 @@
 view:
-  - "█                             █"
-  - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAA █"
-  - "█   hp AAA/BBB    regen CCC   █"
-  - "█   mp AAA/BBB    regen CCC   █"
-  - "█   damage AAA-BBB            █"
-  - "█   accuracy AAA              █"
-  - "█   armor AAA                 █"
-  - "█   block chance AAA          █"
-  - "█   block power AAA %         █"
-  - "█                             █"
-  - "█                             █"
+  - "                             "
+  - " AAAAAAAAAAAAAAAAAAAAAAAAAAA "
+  - "   hp AAA/BBB    regen CCC   "
+  - "   mp AAA/BBB    regen CCC   "
+  - "   damage AAA-BBB            "
+  - "   accuracy AAA              "
+  - "   armor AAA                 "
+  - "   block chance AAA          "
+  - "   block power AAA %         "
+  - "                             "
+  - "                             "
 insert_options:
   1:
     A:
