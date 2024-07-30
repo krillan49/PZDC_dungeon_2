@@ -25,10 +25,17 @@ class MainRenderer
 
   private
 
+  # def partials
+  #   @partials.each do |name, options|
+  #     partial = Menu.new(name, @characters[options[:i]]).render.view
+  #     insert_partial_to_view(partial, options)
+  #   end
+  # end
+
   def partials
-    @partials.each do |name, options|
-      partial = Menu.new(name, @characters[options[:i]]).render.view
-      insert_partial_to_view(partial, options)
+    @partials.each.with_index do |partial, i|
+      partial_menu = Menu.new(partial[:partial_name], @characters[i]).render.view
+      insert_partial_to_view(partial_menu, y: partial[:y], x: partial[:x])
     end
   end
 

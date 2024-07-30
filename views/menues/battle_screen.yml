@@ -43,16 +43,16 @@ arts:
       - 31
       - 118
 partials:
-  _hero_stats_battle:
-    i: 0
+  -
+    partial_name: _hero_stats_battle
     y:
       - 3
       - 13
     x:
       - 1
       - 29
-  _enemy_stats_battle:
-    i: 1
+  -
+    partial_name: _enemy_stats_battle
     y:
       - 16
       - 26

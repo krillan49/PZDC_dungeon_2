@@ -57,24 +57,24 @@ arts:
       - 79
       - 114
 partials:
-  _enemy_stats_battle:
-    i: 0
+  -
+    partial_name: _enemy_stats_battle
     y:
       - 19
       - 29
     x:
       - 7
       - 35
-  _enemy_stats_battle:
-    i: 1
+  -
+    partial_name: _enemy_stats_battle
     y:
       - 19
       - 29
     x:
       - 44
       - 72
-  _enemy_stats_battle:
-    i: 2
+  -
+    partial_name: _enemy_stats_battle
     y:
       - 19
       - 29

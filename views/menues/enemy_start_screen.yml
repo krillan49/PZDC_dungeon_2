@@ -43,8 +43,8 @@ arts:
       - 31
       - 118
 partials:
-  _enemy_start_stats:
-    i: 0
+  -
+    partial_name: _enemy_start_stats
     y:
       - 3
       - 31
