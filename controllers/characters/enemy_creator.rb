@@ -13,20 +13,7 @@ class EnemyCreator
   private
 
   def create_boss_enemy
-    @messages.main = 'Вы заметили с одной стороны развилки фигуру рыцаря, идем туда(Y) или свернем в другую сторону?'
-    MainRenderer.new(:messages_screen, entity: @messages).display
-    fight = gets.strip.upcase
-    case fight
-    when 'Y'
-      Enemy.new("zombie_knight")
-    else
-      @messages.main = 'Чтобы продолжить нажмите Enter'
-      @messages.log << 'Правильный выбор, выглядело опасно'
-      MainRenderer.new(:messages_screen, entity: @messages).display
-      gets
-      puts "\e[H\e[2J"
-      create_standart_enemy()
-    end
+    Enemy.new("zombie_knight")
   end
 
   def create_standart_enemy

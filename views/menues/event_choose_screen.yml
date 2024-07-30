@@ -81,6 +81,12 @@ partials:
     x:
       - 82
       - 110
+insert_options:
+  1:
+    A:
+      methods:
+        - main
+      modifier: m
 
 
 

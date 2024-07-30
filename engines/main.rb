@@ -53,7 +53,24 @@ class Main
   end
 
   def event_or_enemy_choose
-    @enemy = EnemyCreator.new(@leveling).create_new_enemy # Назначение противника
+    # Выбор противника
+    enemy1 = EnemyCreator.new(@leveling).create_new_enemy
+    enemy2 = EnemyCreator.new(@leveling).create_new_enemy
+    enemy3 = EnemyCreator.new(@leveling).create_new_enemy
+    n = 50
+    @messages.main = 'В какую сторону пойдешь?'
+    until n >= 0 && n <= 2
+      MainRenderer.new(
+        :event_choose_screen, enemy1, enemy2, enemy3,
+        entity: @messages, arts: [{ mini: enemy1 }, { mini: enemy2 }, { mini: enemy3 }]
+      ).display
+      n = gets.to_i - 1
+      if n >= 0 && n <= 2
+        @enemy = [enemy1, enemy2, enemy3][n]
+      else
+        @messages.main = 'Нет такого пути. В какую сторону пойдешь?'
+      end
+    end
     # Характеристики противника
     @attacks_round_messages = AttacksRoundMessage.new
     @attacks_round_messages.main = 'Чтобы продолжить нажмите Enter'
