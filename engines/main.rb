@@ -11,8 +11,9 @@ class Main
   def start_game
     load_or_create_hero()
     while true
-      before_battle()
+      hero_show_and_update()
       autosave_and_camp_actions()
+      event_or_enemy_choose()
       battle()
       after_battle()
     end
@@ -35,14 +36,13 @@ class Main
     end
   end
 
-  def before_battle
+  def hero_show_and_update
     HeroUpdator.new(@hero).spend_stat_points # распределение очков характеристик
     HeroUpdator.new(@hero).spend_skill_points # распределение очков навыков  (тут вызывается старое меню, потом доделать)
     # Характеристики персонажа
     @messages.main = 'Чтобы продолжить нажмите Enter'
     MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
-    gets
-    puts "\e[H\e[2J"
+    confirm_and_change_screen()
   end
 
   def autosave_and_camp_actions
@@ -52,25 +52,24 @@ class Main
     display_message_screen_with_confirm_and_change_screen()
   end
 
-  def battle
+  def event_or_enemy_choose
     @enemy = EnemyCreator.new(@leveling).create_new_enemy # Назначение противника
     # Характеристики противника
-    attacks_round_messages = AttacksRoundMessage.new
-    attacks_round_messages.main = 'Чтобы продолжить нажмите Enter'
-    attacks_round_messages.actions = "++++++++++++ Бой #{@leveling + 1} ++++++++++++"
-    MainRenderer.new(:enemy_start_screen, @enemy, entity: attacks_round_messages, arts: [{ normal: @enemy }]).display
-    gets
-    puts "\e[H\e[2J"
-    # Ход боя
+    @attacks_round_messages = AttacksRoundMessage.new
+    @attacks_round_messages.main = 'Чтобы продолжить нажмите Enter'
+    @attacks_round_messages.actions = "++++++++++++ Бой #{@leveling + 1} ++++++++++++"
+    MainRenderer.new(:enemy_start_screen, @enemy, entity: @attacks_round_messages, arts: [{ normal: @enemy }]).display
+    confirm_and_change_screen()
+  end
+
+  def battle
     @run = false
     lap = 1 # номер хода
     while @enemy.hp > 0 && @run == false
-
-      round = AttacksRound.new(@hero, @enemy, attacks_round_messages)
+      round = AttacksRound.new(@hero, @enemy, @attacks_round_messages)
       round.action
       @run = round.hero_run?
-
-      lap += 1 # номер хода
+      lap += 1
     end
   end
 
@@ -95,14 +94,12 @@ class Main
     @messages.main = 'Чтобы продолжить нажмите Enter'
     MainRenderer.new(:messages_screen, entity: @messages).display
     @messages.clear_log
-    gets
-    puts "\e[H\e[2J"
+    confirm_and_change_screen()
   end
 
   def confirm_and_change_screen
-    print 'Чтобы продолжить нажмите Enter'
     gets
-    puts "\e[H\e[2J"
+    change_screen()
   end
 
   def change_screen
