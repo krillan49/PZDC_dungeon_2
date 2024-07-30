@@ -69,41 +69,6 @@ class MainRenderer
 
 end
 
-# require 'yaml'
-# require_relative "../renderers/menues/menues"
-# require_relative "../models/skills/concentration"
-# require_relative "../models/skills/dazed"
-# require_relative "../models/skills/first_aid"
-# require_relative "../models/skills/precise_strike"
-# require_relative "../models/skills/shield_master"
-# require_relative "../models/skills/strong_strike"
-# require_relative "../models/skills/treasure_hunter"
-# require_relative "../models/characters/enemy"
-# require_relative "../models/characters/hero"
-# require_relative "../models/ammunition/arms_armor"
-# require_relative "../models/ammunition/body_armor"
-# require_relative "../models/ammunition/head_armor"
-# require_relative "../models/ammunition/shield"
-# require_relative "../models/ammunition/weapon"
-# require_relative "../models/messages/attacks_round_messages"
-# require_relative "../renderers/arts/arts"
-# hero = Hero.new('Vasya','watchman')
-# hero.passive_skill = ShieldMaster.new
-# enemy = Enemy.new("rabble")
-
-# MainRenderer.new(:battle_screen, hero, enemy).display
-# MainRenderer.new(:character_stats, hero, enemy).display
-# Пример с 2мя паршалами персонажей, сообщениями меню и картинкой
-# MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessages.new, arts: [{ normal: enemy }] ).display
-# MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessages.new, arts: [{ game_over: :game_over }] ).display
-#
-# MainRenderer.new( # 2 картинки
-#   :battle_screen,
-#   hero, enemy,
-#   entity: AttacksRoundMessages.new, arts: [ { normal: enemy }, { game_over: :game_over } ]
-# ).display
-
-
 
 
 

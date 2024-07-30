@@ -28,17 +28,6 @@ class PreciseStrike
   end
 end
 
-# [PreciseStrike.new].each do |n|
-#   p n
-#   p n.accuracy_mod
-#   p n.description
-#   n.lvl += 3
-#   p n
-#   p n.accuracy_mod
-#   p n.description
-#   p '--------------------'
-# end
-
 
 
 

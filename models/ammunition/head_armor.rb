@@ -8,7 +8,3 @@ class HeadArmor
     @armor = head_armor[:armor]
   end
 end
-
-# %w[without leather_helmet quilted_helmet rusty_topfhelm].each do |armor|
-#   p HeadArmor.new(armor)
-# end

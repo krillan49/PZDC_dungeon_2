@@ -107,12 +107,6 @@ class Hero
 end
 
 
-# ["drunk", "watchman", "thief", "worker", "student"].each do |background|
-#   p Hero.new(background)
-#   p '================================'
-# end
-
-
 
 
 

@@ -8,7 +8,3 @@ class BodyArmor
     @armor = body_armor[:armor]
   end
 end
-
-# %w[without leather_jacket gambeson rusty_cuirass].each do |armor|
-#   p BodyArmor.new(armor)
-# end

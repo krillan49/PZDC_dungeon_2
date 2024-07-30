@@ -7,11 +7,11 @@ class EnemyLoot
   end
 
   def looting
-    weapon_loot() if rand(0..1) == 1 && @enemy.weapon.name != "без оружия"
-    body_armor_loot() if rand(0..1) == 1 && @enemy.body_armor.name != "без нагрудника"
-    head_armor_loot() if rand(0..1) == 1 && @enemy.head_armor.name != "без шлема"
-    arms_armor_loot() if rand(0..1) == 1 && @enemy.arms_armor.name != "без перчаток"
-    shield_loot() if rand(0..1) == 1 && @enemy.shield.name != "без щита"
+    weapon_loot() if rand(0..1) == 1 && @enemy.weapon.code != "without"
+    body_armor_loot() if rand(0..1) == 1 && @enemy.body_armor.code != "without"
+    head_armor_loot() if rand(0..1) == 1 && @enemy.head_armor.code != "without"
+    arms_armor_loot() if rand(0..1) == 1 && @enemy.arms_armor.code != "without"
+    shield_loot() if rand(0..1) == 1 && @enemy.shield.code != "without"
   end
 
   private

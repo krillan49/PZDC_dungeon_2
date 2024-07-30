@@ -26,8 +26,10 @@ class FieldLoot
     @hero.hp -= 5
     @messages.log << "Пока ты шарил по углам, тебя укусила крыса(-5 жизней), теперь у тебя #{@hero.hp.round}/#{@hero.hp_max} жизней"
     if @hero.hp <= 0
-      puts "Ты подох от укуса крысы. Жалкая смерть"
-      Art.new(:game_over, :game_over).view
+      @messages.main = "Нажми Enter, чтобы закончть игру"
+      @messages.log << "Ты подох от укуса крысы. Жалкая смерть"
+      MainRenderer.new(:messages_screen, entity: @messages, arts: [{ game_over: :game_over }]).display
+      gets
       exit
     end
   end

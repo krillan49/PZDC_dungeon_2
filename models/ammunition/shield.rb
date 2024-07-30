@@ -9,8 +9,3 @@ class Shield
     @block_chance = shield[:block_chance]
   end
 end
-
-
-# %w[without braided_buckler wooden_buckler wooden_shield].each do |armor|
-#   p Shield.new(armor)
-# end

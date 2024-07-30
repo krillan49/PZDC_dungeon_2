@@ -9,7 +9,3 @@ class ArmsArmor
     @accuracy = arms_armor[:accuracy]
   end
 end
-
-# %w[without leather_gloves quilted_gloves rusty_mail_gloves].each do |armor|
-#   p ArmsArmor.new(armor)
-# end

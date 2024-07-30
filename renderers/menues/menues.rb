@@ -44,15 +44,6 @@ class Menu
 
 end
 
-# require_relative 'hero'
-# require_relative "skills"
-# hero = Hero.new('Vasya','watchman')
-# hero.passive_skill = ShieldMaster.new
-# Menu.new(:character_stats, hero).display
-
-# require_relative "enemyes"
-# Menu.new(:character_stats, Enemy.new("Рыцарь-зомби")).display
-
 
 
 

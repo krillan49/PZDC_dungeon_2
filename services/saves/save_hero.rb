@@ -90,16 +90,6 @@ class SaveHero
 
 end
 
-# require_relative 'hero'
-# require_relative "skills"
-# hero = Hero.new('Vasya','watchman')
-# hero = Hero.new('Petya','student')
-# hero = Hero.new('Vasya','student')
-# hero.active_skill = StrongStrike.new
-# hero.passive_skill = Concentration.new(hero)
-# hero.camp_skill = FirstAid.new(hero)
-# SaveHero.new(hero, 1).save
-
 
 
 
