@@ -105,23 +105,23 @@ enemy3 = Enemy.new("zombie_knight")
 enemy4 = Enemy.new("rabble")
 enemy5 = Enemy.new("rabid_dog")
 
-MainRenderer.new(
-  :event_choose_screen,
-  enemy, enemy4, enemy5,
-  entity: AttacksRoundMessage.new,
-  arts: [{ mini: enemy }, { mini: enemy4 }, { mini: enemy5 }]
-).display
+# MainRenderer.new(
+#   :event_choose_screen,
+#   enemy, enemy4, enemy5,
+#   entity: AttacksRoundMessage.new,
+#   arts: [{ mini: enemy }, { mini: enemy4 }, { mini: enemy5 }]
+# ).display
 
 
 # MainRenderer.new(:battle_screen, hero, enemy).display
 # MainRenderer.new(:character_stats, hero, enemy).display
 # Пример с 2мя паршалами персонажей, сообщениями меню и картинкой
-# MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessage.new, arts: [{ normal: enemy }] ).display
-# MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessage.new, arts: [{ attack: enemy }] ).display
-# MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessage.new, arts: [{ damaged: enemy }] ).display
-# MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessage.new, arts: [{ dead: enemy }] ).display
+MainRenderer.new( :battle_screen, hero, enemy3, entity: AttacksRoundMessage.new, arts: [{ normal: enemy3 }] ).display
+MainRenderer.new( :battle_screen, hero, enemy3, entity: AttacksRoundMessage.new, arts: [{ attack: enemy3 }] ).display
+MainRenderer.new( :battle_screen, hero, enemy3, entity: AttacksRoundMessage.new, arts: [{ damaged: enemy3 }] ).display
+MainRenderer.new( :battle_screen, hero, enemy3, entity: AttacksRoundMessage.new, arts: [{ dead: enemy3 }] ).display
 # MainRenderer.new( :battle_screen, hero, enemy, entity: AttacksRoundMessage.new, arts: [{ game_over: :game_over }] ).display
-#
+
 # MainRenderer.new( # 2 картинки
 #   :battle_screen,
 #   hero, enemy,
