@@ -19,7 +19,7 @@ class AttacksRound
     count_hero_final_damage()
     count_enemy_final_damage()
     hero_attack_effects()
-    enemy_attack_effects()
+    enemy_attack_effects() if @enemy.hp > 0
     HeroActions.regeneration_hp_mp(@hero, @messages)
     round_result()
   end
@@ -153,10 +153,6 @@ class AttacksRound
     hero_hit_passive_slill_effects()
     @messages.actions = ""
     MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ damaged: @enemy }]).display
-    sleep(1)
-    @messages.main = "Ходит #{@enemy.name}"
-    @messages.actions = "#{@enemy.name} выбирает способ атаки"
-    MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ normal: @enemy }]).display
   end
   def hero_hit_or_miss
     if @hero_hit
@@ -184,7 +180,10 @@ class AttacksRound
   end
   #
   def enemy_attack_effects
-    @enemy_hit = @enemy_accuracy >= rand(1..100)
+    sleep(1)
+    @messages.main = "Ходит #{@enemy.name}"
+    @messages.actions = "#{@enemy.name} выбирает способ атаки"
+    MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ normal: @enemy }]).display
     enemy_hit_or_miss()
     sleep(1)
     @messages.main = "#{@enemy.name} атакует"
@@ -192,7 +191,8 @@ class AttacksRound
     MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ attack: @enemy }]).display
   end
   def enemy_hit_or_miss
-    if @enemy_hit
+    enemy_hit = @enemy_accuracy >= rand(1..100)
+    if enemy_hit
       block_message = @hero_block_successful ? "Вы заблокировали #{@hero.block_power_in_percents}% урона. " : ''
       @hero.hp -= @enemy_damage
       @messages.log << block_message + "#{@enemy.name} нанес #{@enemy_damage.round} урона #{@enemy_attack_type}"
