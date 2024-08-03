@@ -1,5 +1,5 @@
 class LoadHero
-  PATH = 'saves/'
+  PATH = 'saves/hero_in_run/'
   OPTIONS_FILE = '0_options.yml'
 
   attr_reader :hero, :leveling

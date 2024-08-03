@@ -1,5 +1,5 @@
 class SaveHero
-  PATH = 'saves/'
+  PATH = 'saves/hero_in_run/'
   OPTIONS_FILE = '0_options.yml'
   DEFAULT_OPTIONS = { 'n' => 0, 'names' => [], 'ns' => [], 'file_names' => [] }
 
