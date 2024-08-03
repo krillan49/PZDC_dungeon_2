@@ -12,9 +12,8 @@ class NewMain
       MainRenderer.new( :start_game_screen, arts: [ { poster_start: :poster_start } ] ).display
       choose = gets.to_i
       if choose == 2
-        @messages.main = 'Вы вошли в лагерь, нажмите энтер чтобы продолжить'
         change_screen()
-        MainRenderer.new(:messages_screen, entity: @messages).display
+        MainRenderer.new(:camp_screen, entity: @messages).display
         gets
       else
         load_or_create_hero()
@@ -25,7 +24,7 @@ class NewMain
 
   def load_or_create_hero
     change_screen()
-    MainRenderer.new( :start_screen, arts: [ { poster_start: :poster_start } ] ).display
+    MainRenderer.new(:load_new_run_screen).display
     new_load = gets.strip
     change_screen()
     if new_load == '2'
