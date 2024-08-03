@@ -1,6 +1,6 @@
 # PZDC dungeon 2
 
-![Example](assets/alfa_ss.png)
+![Example](assets/choose_enemy.png)
 
 ## What is it?
 

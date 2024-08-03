@@ -7,7 +7,7 @@ class TreasureHunter
 
   def initialize
     @code = 'treasure_hunter'
-    @name = "Кладоискатель"
+    @name = "Treasure hunter"
     @lvl = 0
   end
 
@@ -16,7 +16,7 @@ class TreasureHunter
   end
 
   def description
-    "(#{@lvl}): дополнительный бонус очков поиска сокровищ = #{coeff_lvl()}"
+    "(#{@lvl}): treasure hunt bonus is #{coeff_lvl()}"
   end
 end
 
@@ -32,4 +32,4 @@ end
 
 
 
-# 
+#

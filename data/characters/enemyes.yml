@@ -1,5 +1,5 @@
 rabble:
-  name: "Оборванец"
+  name: Rabble
   hp: 80
   min_dmg: 1
   max_dmg: 5
@@ -19,7 +19,7 @@ rabble:
     - without
 
 rabid_dog:
-  name: "Бешеный пес"
+  name: "Rabid dog"
   hp: 60
   min_dmg: 1
   max_dmg: 8
@@ -38,7 +38,7 @@ rabid_dog:
     - without
 
 goblin:
-  name: "Гоблин"
+  name: Goblin
   hp: 65
   min_dmg: 3
   max_dmg: 3
@@ -60,7 +60,7 @@ goblin:
     - braided_buckler
 
 thug:
-  name: "Бандит"
+  name: Thug
   hp: 100
   min_dmg: 5
   max_dmg: 5
@@ -85,7 +85,7 @@ thug:
     - wooden_buckler
 
 deserter:
-  name: "Дезертир"
+  name: Deserter
   hp: 120
   min_dmg: 5
   max_dmg: 5
@@ -115,7 +115,7 @@ deserter:
     - wooden_shield
 
 orc:
-  name: "Орк"
+  name: Orc
   hp: 180
   min_dmg: 7
   max_dmg: 7
@@ -135,7 +135,7 @@ orc:
     - without
 
 zombie_knight:
-  name: "Рыцарь-зомби"
+  name: "Zombie-knight"
   hp: 300
   min_dmg: 5
   max_dmg: 5

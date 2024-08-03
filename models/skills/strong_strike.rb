@@ -9,7 +9,7 @@ class StrongStrike
 
   def initialize
     @code = 'strong_strike'
-    @name = "Сильный удар"
+    @name = "Strong strike"
     @lvl = 0
     @mp_cost = 15
   end
@@ -23,7 +23,7 @@ class StrongStrike
   end
 
   def description
-    "(#{@lvl}): урон сильнее в #{damage_mod().round(1)}, наносится по телу. Цена #{@mp_cost}"
+    "(#{@lvl}): damage is stronger in #{damage_mod().round(1)}. Cost #{@mp_cost}"
   end
 end
 

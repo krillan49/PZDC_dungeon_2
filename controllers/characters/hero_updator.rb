@@ -10,12 +10,12 @@ class HeroUpdator
     while @hero.stat_points != 0
       distribution = ''
       until %w[1 2 3 4].include?(distribution)
-        @messages.main = "Распределите очки характеристик. У вас осталось #{@hero.stat_points} очков" if @messages.main == ''
+        @messages.main = "Distribute stat points. You have #{@hero.stat_points} points left" if @messages.main == ''
         @messages.log = [
-          '+5 жизней                 (1)',
-          '+5 выносливости           (2)',
-          '+1 мин/макс случайно урон (3)',
-          '+1 точность               (4)'
+          '+5 hp                     (1)',
+          '+5 mp                     (2)',
+          '+1 min/max(random) damage (3)',
+          '+1 accuracy               (4)'
         ]
         MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
         distribution = gets.strip.upcase
@@ -35,7 +35,7 @@ class HeroUpdator
           @hero.accuracy_base += 1
           @messages.main = ''
         else
-          @messages.main = "Вы ввели неверный символ, попробуйте еще раз. У вас осталось #{@hero.stat_points} очков"
+          @messages.main = "You entered an invalid character, please try again. You have #{@hero.stat_points} points remaining"
         end
       end
       @hero.stat_points -= 1
@@ -48,7 +48,7 @@ class HeroUpdator
     while @hero.skill_points != 0
       distribution = ''
       until %w[1 2 3].include?(distribution)
-        @messages.main = "Распределите очки навыков. У вас осталось #{@hero.skill_points} очков" if @messages.main == ''
+        @messages.main = "Distribute skill points. You have #{@hero.skill_points} points left" if @messages.main == ''
         @messages.log = [
           "+1 #{@hero.active_skill.name}   (1)",
           "+1 #{@hero.passive_skill.name}    (2)",
@@ -67,7 +67,7 @@ class HeroUpdator
           @hero.camp_skill.lvl += 1
           @messages.main = ''
         else
-          @messages.main = "Вы ввели неверный символ, попробуйте еще раз. У вас осталось #{@hero.skill_points} очков"
+          @messages.main = "You entered an invalid character, please try again. You have #{@hero.skill_points} points remaining"
         end
       end
       @hero.skill_points -= 1

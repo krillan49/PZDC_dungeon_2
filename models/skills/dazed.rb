@@ -7,7 +7,7 @@ class Dazed
 
   def initialize
     @code = 'dazed'
-    @name = "Ошеломление"
+    @name = "Dazed"
     @lvl = 0
   end
 
@@ -20,7 +20,7 @@ class Dazed
   end
 
   def description
-    "(#{@lvl}): если урон больше #{accuracy_reduce_percent().round}% осташихся жизней врага то он теряет 10-90(%) точности"
+    "(#{@lvl}): if damage is greater #{accuracy_reduce_percent().round}% remaining enemy lives then he loses 10-90(%) accuracy"
   end
 end
 
@@ -34,4 +34,4 @@ end
 
 
 
-# 
+#

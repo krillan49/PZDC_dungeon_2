@@ -9,8 +9,8 @@ class PreciseStrike
   attr_accessor :mp_cost
 
   def initialize
-    @code = 'srecise_strike'
-    @name = "Точный удар"
+    @code = 'precise_strike'
+    @name = "Precise strike"
     @lvl = 0
     @mp_cost = 5
   end
@@ -24,7 +24,7 @@ class PreciseStrike
   end
 
   def description
-    "(#{@lvl}): точнее в #{accuracy_mod().round(1)}, сильнее в #{damage_mod().round(1)} наносится по телу. Цена #{@mp_cost}"
+    "(#{@lvl}): more precisely in #{accuracy_mod().round(1)}, stronger in #{damage_mod().round(1)}. Cost #{@mp_cost}"
   end
 end
 

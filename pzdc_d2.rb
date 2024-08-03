@@ -67,6 +67,10 @@ NewMain.new.start_game
 # services/saves/load_hero_in_run
 
 
+# Устарело:
+# hero_creator -> @taken_names
+
+
 
 
 

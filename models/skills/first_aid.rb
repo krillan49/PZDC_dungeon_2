@@ -10,7 +10,7 @@ class FirstAid
 
   def initialize(hero)
     @code = 'first_aid'
-    @name = "Первая помощь"
+    @name = "First aid"
     @lvl = 0
     @mp_cost = 10
 
@@ -26,7 +26,7 @@ class FirstAid
   end
 
   def description
-    "(#{@lvl}): восстанавливает #{heal_effect().round} жизней, чем больше жизней потеряно, тем больше эффект(#{(HERO_HP_MOD * coeff_lvl() * 100).round}%), цена #{@mp_cost} маны."
+    "(#{@lvl}): restores #{heal_effect().round} hp, the more hp lost, the greater the effect(#{(HERO_HP_MOD * coeff_lvl() * 100).round}%), cost #{@mp_cost} mp"
   end
 end
 
@@ -40,4 +40,4 @@ end
 
 
 
-# 
+#

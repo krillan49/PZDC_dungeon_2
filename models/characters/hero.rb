@@ -88,7 +88,7 @@ class Hero
   end
 
   def block_chance
-    if @passive_skill.name == "Мастер щита" && @shield.name != "без щита"
+    if @passive_skill.name == "Shield master" && @shield.name != "---without---"
       @shield.block_chance + @passive_skill.block_chance_bonus
     else
       @shield.block_chance

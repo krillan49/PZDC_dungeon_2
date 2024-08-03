@@ -1,5 +1,5 @@
 drunk:
-  name: Алкаш
+  name: Drunk
   hp: 95
   mp: 95
   min_dmg: 5
@@ -18,7 +18,7 @@ drunk:
     - without
 
 watchman:
-  name: Сторож
+  name: Watchman
   hp: 130
   mp: 100
   min_dmg: 5
@@ -37,7 +37,7 @@ watchman:
     - without
 
 thief:
-  name: Карманник
+  name: Thief
   hp: 100
   mp: 100
   min_dmg: 5
@@ -56,7 +56,7 @@ thief:
     - without
 
 worker:
-  name: Рабочий
+  name: Worker
   hp: 100
   mp: 130
   min_dmg: 5
@@ -75,7 +75,7 @@ worker:
     - without
 
 student:
-  name: Студент
+  name: Student
   hp: 100
   mp: 100
   min_dmg: 5

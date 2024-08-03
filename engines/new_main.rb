@@ -40,7 +40,7 @@ class NewMain
   private
 
   def display_message_screen_with_confirm_and_change_screen
-    @messages.main = 'Чтобы продолжить нажмите Enter'
+    @messages.main = 'To continue press Enter'
     MainRenderer.new(:messages_screen, entity: @messages).display
     @messages.clear_log
     confirm_and_change_screen()

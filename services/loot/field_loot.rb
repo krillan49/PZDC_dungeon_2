@@ -7,27 +7,27 @@ class FieldLoot
   end
 
   def looting
-    @messages.log << 'Обыскиваем все вокруг... '
+    @messages.log << 'Search everything around... '
     send(@field_loot.sample)
   end
 
   private
 
   def nothing
-    @messages.log << "Рядом нет ничего ценного"
+    @messages.log << "There is nothing valuable"
   end
 
   def potion
     @hero.hp += [20, @hero.hp_max - @hero.hp].min
-    @messages.log << "Нашел зелье восстанавливающее 20 жизней, теперь у тебя #{@hero.hp.round}/#{@hero.hp_max} жизней"
+    @messages.log << "Found a potion that restores 20 hp, now you have it #{@hero.hp.round}/#{@hero.hp_max} hp"
   end
 
   def rat
     @hero.hp -= 5
-    @messages.log << "Пока ты шарил по углам, тебя укусила крыса(-5 жизней), теперь у тебя #{@hero.hp.round}/#{@hero.hp_max} жизней"
+    @messages.log << "While you were rummaging around the corners, you were bitten by a rat (-5 hp), now you have #{@hero.hp.round}/#{@hero.hp_max} hp"
     if @hero.hp <= 0
-      @messages.main = "Нажми Enter, чтобы закончть игру"
-      @messages.log << "Ты подох от укуса крысы. Жалкая смерть"
+      @messages.main = "Press Enter to end the game"
+      @messages.log << "You died from a rat bite. A miserable death"
       MainRenderer.new(:messages_screen, entity: @messages, arts: [{ game_over: :game_over }]).display
       gets
       exit

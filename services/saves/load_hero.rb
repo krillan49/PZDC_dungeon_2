@@ -11,10 +11,10 @@ class LoadHero
 
   def load
     if @options && @options['file_names'].length > 0
-      @messages.main = 'Выберите героя'
+      @messages.main = 'Choose a hero'
       choose_hero()
     else
-      @messages.main = 'Нет сохраненных героев. Чтобы продолжить нажмите Enter'
+      @messages.main = 'No heroes saved. Press Enter to continue'
       @messages.heroes = []
       display_with_confirm_and_change_screen()
     end
@@ -27,12 +27,12 @@ class LoadHero
       i = '0' + i.to_s if i < 10
       @messages.heroes << "                                            № #{i}     #{name}"
     end
-    @messages.main = "Введите номер или имя персонажа"
+    @messages.main = "Enter the character number or name"
     display_and_change_screen()
     input = gets.strip
     @file_name = /^\d+$/ === input ? choose_hero_by_number(input.to_i-1) : choose_hero_by_name(input)
     if !@file_name
-      @messages.main = 'Такого героя не существует. Чтобы продолжить нажмите Enter'
+      @messages.main = 'There is no such hero. To continue press Enter'
       @messages.heroes = []
       display_with_confirm_and_change_screen()
     else

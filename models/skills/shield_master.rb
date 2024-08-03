@@ -7,7 +7,7 @@ class ShieldMaster
 
   def initialize
     @code = 'shield_master'
-    @name = "Мастер щита"
+    @name = "Shield master"
     @lvl = 0
   end
 
@@ -16,7 +16,7 @@ class ShieldMaster
   end
 
   def description
-    "(#{@lvl}): шанс блока щитом увеличен на #{block_chance_bonus()}%"
+    "(#{@lvl}): shield block chance increased by #{block_chance_bonus()}%"
   end
 end
 
@@ -34,4 +34,4 @@ end
 
 
 
-# 
+#

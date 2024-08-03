@@ -22,7 +22,7 @@ class Run
     HeroUpdator.new(@hero).spend_stat_points # распределение очков характеристик
     HeroUpdator.new(@hero).spend_skill_points # распределение очков навыков  (тут вызывается старое меню, потом доделать)
     # Характеристики персонажа
-    @messages.main = 'Чтобы продолжить нажмите Enter'
+    @messages.main = 'To continue press Enter'
     MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
     confirm_and_change_screen()
   end
@@ -40,7 +40,7 @@ class Run
     enemy2 = EnemyCreator.new(@leveling).create_new_enemy
     enemy3 = EnemyCreator.new(@leveling).create_new_enemy
     n = 50
-    @messages.main = 'В какую сторону пойдешь?'
+    @messages.main = 'Which way will you go?'
     until n >= 0 && n <= 2
       MainRenderer.new(
         :event_choose_screen, enemy1, enemy2, enemy3,
@@ -50,13 +50,13 @@ class Run
       if n >= 0 && n <= 2
         @enemy = [enemy1, enemy2, enemy3][n]
       else
-        @messages.main = 'Нет такого пути. В какую сторону пойдешь?'
+        @messages.main = 'There is no such way. Which way will you go?'
       end
     end
     # Характеристики противника
     @attacks_round_messages = AttacksRoundMessage.new
-    @attacks_round_messages.main = 'Чтобы продолжить нажмите Enter'
-    @attacks_round_messages.actions = "++++++++++++ Бой #{@leveling + 1} ++++++++++++"
+    @attacks_round_messages.main = 'To continue press Enter'
+    @attacks_round_messages.actions = "++++++++++++ Battle #{@leveling + 1} ++++++++++++"
     MainRenderer.new(:enemy_start_screen, @enemy, entity: @attacks_round_messages, arts: [{ normal: @enemy }]).display
     confirm_and_change_screen()
   end
@@ -90,7 +90,7 @@ class Run
   end
 
   def display_message_screen_with_confirm_and_change_screen
-    @messages.main = 'Чтобы продолжить нажмите Enter'
+    @messages.main = 'To continue press Enter'
     MainRenderer.new(:messages_screen, entity: @messages).display
     @messages.clear_log
     confirm_and_change_screen()

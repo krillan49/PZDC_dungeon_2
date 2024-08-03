@@ -1,55 +1,55 @@
 without:
-  name: "без оружия"
+  name: "---without---"
   min_dmg: 0
   max_dmg: 0
 
 stick:
-  name: "Палка"
+  name: "Stick"
   min_dmg: 1
   max_dmg: 4
 
 rusty_hatchet:
-  name: "Ржавый топорик"
+  name: "Rusty hatchet"
   min_dmg: 1
   max_dmg: 6
 
 knife:
-  name: "Ножик"
+  name: "Knife"
   min_dmg: 2
   max_dmg: 5
 
 club:
-  name: "Дубинка"
+  name: "Club"
   min_dmg: 3
   max_dmg: 4
 
 dagger:
-  name: "Кинжал"
+  name: "Dagger"
   min_dmg: 3
   max_dmg: 6
 
 hatchet:
-  name: "Топорик"
+  name: "Hatchet"
   min_dmg: 5
   max_dmg: 8
 
 falchion:
-  name: "Фальшион"
+  name: "Falchion"
   min_dmg: 5
   max_dmg: 10
 
 axe:
-  name: "Топор"
+  name: "Axe"
   min_dmg: 6
   max_dmg: 10
 
 flail:
-  name: "Цеп"
+  name: "Flail"
   min_dmg: 0
   max_dmg: 20
 
 rusty_longsword:
-  name: "Ржавый полуторник"
+  name: "Rusty longsword"
   min_dmg: 6
   max_dmg: 17
 

@@ -13,7 +13,7 @@ class LoadHeroInRun
     if @hero_data
       choose_hero()
     else
-      @messages.main = 'Нет сохраненного героя. Чтобы продолжить нажмите Enter'
+      @messages.main = 'No hero saved. Press Enter to continue'
       @messages.heroes = []
       display_with_confirm_and_change_screen()
     end
@@ -22,7 +22,7 @@ class LoadHeroInRun
   private
 
   def choose_hero
-    @messages.main = "Подтвердите загрузку персонажа [y/N]"
+    @messages.main = "Confirm character upload [y/N]"
     hero_recreate()
     display_and_change_screen()
     input = gets.strip.upcase

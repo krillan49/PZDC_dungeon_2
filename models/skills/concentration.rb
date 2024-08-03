@@ -8,7 +8,7 @@ class Concentration
 
   def initialize(hero)
     @code = 'concentration'
-    @name = "Концентрация"
+    @name = "Concentration"
     @lvl = 0
 
     @hero = hero
@@ -23,7 +23,7 @@ class Concentration
   end
 
   def description
-    "(#{@lvl}): если мана больше 100(#{@hero.mp_max}) наносится случайный доп урон до #{damage_coef().round(1)}"
+    "(#{@lvl}): if mp is more than 100(#{@hero.mp_max}) random additional damage is dealt up to #{damage_coef().round(1)}"
   end
 end
 
@@ -38,4 +38,4 @@ end
 
 
 
-# 
+#
