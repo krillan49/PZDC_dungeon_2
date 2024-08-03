@@ -1,18 +1,40 @@
 class NewMain
   def initialize
+    @hero = nil
+    @leveling = 0
 
+    @messages = MainMessage.new
   end
 
   def start_game
     loop do
-      puts'Войти в подземелье(1)    Войти в хаб(2)'
+      change_screen()
+      MainRenderer.new( :start_game_screen, arts: [ { poster_start: :poster_start } ] ).display
       choose = gets.to_i
       if choose == 2
-        puts 'Вы вошли в хаб, нажмите энтер чтобы продолжить'
+        @messages.main = 'Вы вошли в лагерь, нажмите энтер чтобы продолжить'
+        change_screen()
+        MainRenderer.new(:messages_screen, entity: @messages).display
         gets
       else
-        Run.new.start_game
+        load_or_create_hero()
+        Run.new(@hero, @leveling).start if @hero
       end
+    end
+  end
+
+  def load_or_create_hero
+    change_screen()
+    MainRenderer.new( :start_screen, arts: [ { poster_start: :poster_start } ] ).display
+    new_load = gets.strip
+    change_screen()
+    if new_load == '2'
+      @hero = HeroCreator.new.create_new_hero # Создание нового персонажа
+    else
+      load_hero = LoadHeroInRun.new
+      load_hero.load
+      @hero = load_hero.hero
+      @leveling = load_hero.leveling
     end
   end
 

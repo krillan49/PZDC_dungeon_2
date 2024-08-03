@@ -1,38 +1,20 @@
 class Run
-  def initialize
-    @hero = nil
-    @enemy = nil
-    @leveling = 0
-    @run = false
+  def initialize(hero, leveling)
+    @hero = hero
+    @leveling = leveling
 
+    @enemy = nil
+    @run = false
     @messages = MainMessage.new
   end
 
-  def start_game
-    load_or_create_hero()
+  def start
     while true
       hero_show_and_update()
       autosave_and_camp_actions()
       event_or_enemy_choose()
       battle()
       after_battle()
-    end
-  end
-
-  def load_or_create_hero
-    change_screen()
-    while !@hero
-      MainRenderer.new( :start_screen, arts: [ { poster_start: :poster_start } ] ).display
-      new_load = gets.strip
-      change_screen()
-      if new_load == '2'
-        @hero = HeroCreator.new.create_new_hero # Создание нового персонажа
-      else
-        load_hero = LoadHeroInRun.new
-        load_hero.load
-        @hero = load_hero.hero
-        @leveling = load_hero.leveling
-      end
     end
   end
 
@@ -81,12 +63,12 @@ class Run
 
   def battle
     @run = false
-    lap = 1 # номер хода
+    # lap = 1 # номер хода
     while @enemy.hp > 0 && @run == false
       round = AttacksRound.new(@hero, @enemy, @attacks_round_messages)
       round.action
       @run = round.hero_run?
-      lap += 1
+      # lap += 1
     end
   end
 

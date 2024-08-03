@@ -6,7 +6,7 @@
 
 "PZDC dungeon 2" is a small terminal based roguelike game
 
-[Based on](https://github.com/krillan49/rogulike_game_ruby)
+[Based on "PZDC dungeon"](https://github.com/krillan49/rogulike_game_ruby)
 
 ## Installation
 
@@ -27,6 +27,7 @@ ruby Pzdc_dungeon2.rb
 * Various locations for combat runs with enemies corresponding to their lore, for example, an undead crypt with dead people, a cave with greenskins, a bandit camp, etc.
 * More content: characters, enemies, equipment, skills
 * More complex combat system with a greater choice of actions and their combinations
+* Balancing skills, enemies, characters
 * Add documentation
 * Add tests
 * Zomby-hero add to level from dead hero
