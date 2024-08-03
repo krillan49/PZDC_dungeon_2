@@ -29,6 +29,7 @@ ruby Pzdc_dungeon2.rb
 * More complex combat system with a greater choice of actions and their combinations
 * Add documentation
 * Add tests
+* Zomby-hero add to level from dead hero
 
 ## How to play
 

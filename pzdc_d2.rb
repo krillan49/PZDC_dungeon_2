@@ -1,7 +1,9 @@
 require 'yaml'
 
 # engines -----------------------------
-require_relative "engines/main"
+# require_relative "engines/main"
+require_relative "engines/new_main"
+require_relative "engines/run"
 require_relative "engines/attacks_round"
 require_relative "engines/loot_round"
 
@@ -12,8 +14,10 @@ require_relative "renderers/menues/menues"
 
 # services ----------------------------
 # saves
-require_relative "services/saves/save_hero"
-require_relative "services/saves/load_hero"
+require_relative "services/saves/save_hero_in_run"
+require_relative "services/saves/load_hero_in_run"
+# require_relative "services/saves/save_hero"
+# require_relative "services/saves/load_hero"
 # loot
 require_relative "services/loot/enemy_loot"
 require_relative "services/loot/field_loot"
@@ -56,4 +60,21 @@ require_relative "models/messages/load_hero_message"
 
 
 
-Main.new.start_game
+NewMain.new.start_game
+# engines/new_main
+# engines/run
+# services/saves/save_hero_in_run
+# services/saves/load_hero_in_run
+
+
+
+
+
+
+
+
+
+
+
+
+#
