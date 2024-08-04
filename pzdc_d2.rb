@@ -71,7 +71,18 @@ NewMain.new.start_game
 # services/loot/pzdc_monolith_loot
 # models/camp/pzdc_monolith
 
-
+# TODO:
+# Потом переделать сохранение очков монолита от геяроя к монолиту в момент смерти или победы героя вместо автосэйва
+# (АРТЫ и переделка вьюх):
+# Лагерь, пока нет параметров. engines/new_main -> :camp_screen
+# Картинка входа в данжон. engines/new_main -> :load_new_run_screen  [y = 17, x <= 110]
+# Картинка Экран выбора имени персонажа - controllers/hero_creator -> :messages_screen
+# Выбор скилов - другой экран со всеми строками текста
+# Картинка персонажа для :hero_update_screen. load_hero_run, engines/run
+# Картинка отдыха и восстановления (Костер ??). engines/run -> autosave_and_camp_actions -> :messages_screen  [y = 17, x <= 110]
+# Картинка обычного и секретного случайного лута. field_loot -> :messages_screen [y = 17, x <= 110]
+# Картинка получения опыта. run -> after_battle -> :messages_screen [y = 17, x <= 110]
+# Картинки для лута оружия, заменить видимо весь экран тк :messages_screen не подходит. enemy_loot
 
 # Устарело:
 # hero_creator -> @taken_names
