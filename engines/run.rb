@@ -85,6 +85,10 @@ class Run
   private
 
   def autosave
+    # сохранение/передача очков монолита от героя в монолит
+    PzdcMonolith.new.add_points(@hero.pzdc_monolith_points)
+    @hero.pzdc_monolith_points = 0
+    # сохранение персонажа
     SaveHeroInRun.new(@hero, @leveling).save
     @messages.log << "autosave... done"
   end
