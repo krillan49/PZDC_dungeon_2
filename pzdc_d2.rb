@@ -19,6 +19,7 @@ require_relative "services/saves/load_hero_in_run"
 # require_relative "services/saves/save_hero"
 # require_relative "services/saves/load_hero"
 # loot
+require_relative "services/loot/pzdc_monolith_loot"
 require_relative "services/loot/enemy_loot"
 require_relative "services/loot/field_loot"
 require_relative "services/loot/secret_loot"
@@ -36,6 +37,8 @@ require_relative "controllers/characters/hero_actions"
 require_relative "controllers/characters/hero_use_skill"
 
 # models ------------------------------
+# camp
+require_relative "models/camp/pzdc_monolith"
 # ammunition
 require_relative "models/ammunition/arms_armor"
 require_relative "models/ammunition/body_armor"
@@ -65,6 +68,8 @@ NewMain.new.start_game
 # engines/run
 # services/saves/save_hero_in_run
 # services/saves/load_hero_in_run
+# models/camp/pzdc_monolith
+
 
 
 # Устарело:
