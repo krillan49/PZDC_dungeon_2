@@ -68,6 +68,7 @@ NewMain.new.start_game
 # engines/run
 # services/saves/save_hero_in_run
 # services/saves/load_hero_in_run
+# services/loot/pzdc_monolith_loot
 # models/camp/pzdc_monolith
 
 

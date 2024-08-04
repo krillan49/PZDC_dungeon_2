@@ -7,7 +7,10 @@ class PzdcMonolithLoot
 
   def looting
     count_points()
-    display_screen() if @points > 0
+    if @points > 0
+      PzdcMonolith.new.add_points(@points)
+      display_screen()
+    end
   end
 
   private

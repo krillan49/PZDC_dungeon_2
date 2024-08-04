@@ -7,11 +7,15 @@ class NewMain
   end
 
   def start_game
+    # Создание начальных yml
+    PzdcMonolith.new
+    # ход игры
     loop do
       change_screen()
       MainRenderer.new( :start_game_screen, arts: [ { poster_start: :poster_start } ] ).display
       choose = gets.to_i
       if choose == 2
+        # Экран лагеря, потом сделать отдельный класс
         change_screen()
         MainRenderer.new(:camp_screen, entity: @messages).display
         gets
