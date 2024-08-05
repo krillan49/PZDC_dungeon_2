@@ -3,6 +3,7 @@ require 'yaml'
 # engines -----------------------------
 # require_relative "engines/main"
 require_relative "engines/new_main"
+require_relative "engines/camp_engine"
 require_relative "engines/run"
 require_relative "engines/attacks_round"
 require_relative "engines/loot_round"
@@ -70,6 +71,7 @@ NewMain.new.start_game
 # services/saves/load_hero_in_run
 # services/loot/pzdc_monolith_loot
 # models/camp/pzdc_monolith
+# engines/camp_engine
 
 # TODO:
 # Потом переделать сохранение очков монолита от геяроя к монолиту в момент смерти или победы героя вместо автосэйва

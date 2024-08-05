@@ -1,0 +1,141 @@
+view:
+  - "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█"
+  - "█                                          PZDC MONOLITH has AAAAA points                                              █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█      STAT              HAS NOW       PRICE         ENTER                                                             █"
+  - "█                                                                                                                      █"
+  - "█      1 HP              AAAAA         BBBBB         1                                                                 █"
+  - "█      1 MP              AAAAA         BBBBB         2                                                                 █"
+  - "█      1 accuracy        AAAAA         BBBBB         3                                                                 █"
+  - "█      1 damage          AAAAA         BBBBB         4                                                                 █"
+  - "█      1 stat point      AAAAA         BBBBB         5                                                                 █"
+  - "█      1 skill point     AAAAA         BBBBB         6                                                                 █"
+  - "█      1 armor           AAAAA         BBBBB         7                                                                 █"
+  - "█      1 regen-HP        AAAAA         BBBBB         8                                                                 █"
+  - "█      1 regen-MP        AAAAA         BBBBB         9                                                                 █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                   EXIT   [Enter 0]                                                   █"
+  - "█                                                                                                                      █"
+  - "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█"
+# arts:
+#   -
+#     y:
+#       - 3
+#       - 31
+#     x:
+#       - 31
+#       - 118
+insert_options:
+  1:
+    A:
+      methods:
+        - points
+      modifier: m
+  6:
+    A:
+      methods:
+        - hp
+      modifier: s
+    B:
+      methods:
+        - hp_p
+      modifier: s
+  7:
+    A:
+      methods:
+        - mp
+      modifier: s
+    B:
+      methods:
+        - mp_p
+      modifier: s
+  8:
+    A:
+      methods:
+        - accuracy
+      modifier: s
+    B:
+      methods:
+        - accuracy_p
+      modifier: s
+  9:
+    A:
+      methods:
+        - damage
+      modifier: s
+    B:
+      methods:
+        - damage_p
+      modifier: s
+  10:
+    A:
+      methods:
+        - stat_points
+      modifier: s
+    B:
+      methods:
+        - stat_points_p
+      modifier: s
+  11:
+    A:
+      methods:
+        - skill_points
+      modifier: s
+    B:
+      methods:
+        - skill_points_p
+      modifier: s
+  12:
+    A:
+      methods:
+        - armor
+      modifier: s
+    B:
+      methods:
+        - armor_p
+      modifier: s
+  13:
+    A:
+      methods:
+        - regen_hp
+      modifier: s
+    B:
+      methods:
+        - regen_hp_p
+      modifier: s
+  14:
+    A:
+      methods:
+        - regen_mp
+      modifier: s
+    B:
+      methods:
+        - regen_mp_p
+      modifier: s
+
+
+
+
+
+
+
+
+
+#
