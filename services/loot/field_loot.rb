@@ -31,6 +31,7 @@ class FieldLoot
       MainRenderer.new(:messages_screen, entity: @messages, arts: [{ game_over: :game_over }]).display
       gets
       exit
+      puts "\e[H\e[2J"
     end
   end
 end

@@ -46,7 +46,9 @@ class AttacksRound
           if @hero.hp <= 0
             @messages.log << "You are dead - you cowardly dog!"
             MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ game_over: :game_over }]).display
+            gets
             exit
+            puts "\e[H\e[2J"
           end
         end
       end

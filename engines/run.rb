@@ -10,25 +10,36 @@ class Run
 
   def start
     while true
-      hero_show_and_update()
-      autosave_and_camp_actions()
+      hero_update()
+      save_and_exit()
+      camp_actions()
       event_or_enemy_choose()
       battle()
       after_battle()
     end
   end
 
-  def hero_show_and_update
+  def hero_update
     HeroUpdator.new(@hero).spend_stat_points # распределение очков характеристик
     HeroUpdator.new(@hero).spend_skill_points # распределение очков навыков  (тут вызывается старое меню, потом доделать)
-    # Характеристики персонажа
-    @messages.main = 'To continue press Enter'
-    MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
-    confirm_and_change_screen()
   end
 
-  def autosave_and_camp_actions
-    autosave()
+  def save_and_exit
+    @messages.main = 'Save this run and exit game? [y/N]'
+    MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
+    choose = gets.strip.upcase
+    if choose == 'Y'
+      # сохранение/передача очков монолита от героя в монолит
+      PzdcMonolith.new.add_points(@hero.pzdc_monolith_points)
+      @hero.pzdc_monolith_points = 0
+      # сохранение персонажа
+      SaveHeroInRun.new(@hero, @leveling).save
+      change_screen()
+      exit
+    end
+  end
+
+  def camp_actions
     HeroUseSkill.camp_skill(@hero, @messages) # Навык Первая помощь
     HeroActions.rest(@hero, @messages) # пассивное восстановления жизней и маны между боями
     display_message_screen_with_confirm_and_change_screen()
@@ -83,15 +94,6 @@ class Run
   end
 
   private
-
-  def autosave
-    # сохранение/передача очков монолита от героя в монолит
-    PzdcMonolith.new.add_points(@hero.pzdc_monolith_points)
-    @hero.pzdc_monolith_points = 0
-    # сохранение персонажа
-    SaveHeroInRun.new(@hero, @leveling).save
-    @messages.log << "autosave... done"
-  end
 
   def display_message_screen_with_confirm_and_change_screen
     @messages.main = 'To continue press Enter'

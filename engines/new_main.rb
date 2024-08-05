@@ -13,8 +13,11 @@ class NewMain
     loop do
       change_screen()
       MainRenderer.new( :start_game_screen, arts: [ { poster_start: :poster_start } ] ).display
-      choose = gets.to_i
-      if choose == 2
+      choose = gets.strip
+      if choose == '0'
+        change_screen()
+        exit
+      elsif choose == '2'
         # Лагерь
         CampEngine.new.camp
       else
