@@ -23,16 +23,7 @@ class HeroCreator
       @messages.log << 'The character name must contain at least 1 letter and be no more than 20 characters'
       MainRenderer.new(:messages_screen, entity: @messages).display
       input_name = gets.strip
-
-      # устпарело - работает только с отдельным раном
-      if !@taken_names && File::exists?("saves/0_options.yml")
-        @taken_names = YAML.safe_load_file("saves/0_options.yml")['names']
-      end
-
-      # устпарело - 1е условие
-      if @taken_names && @taken_names.include?(input_name)
-        @messages.main = "A character named #{input_name} already exists, please choose another name"
-      elsif !input_name.match?(/[a-zA-Zа-яА-Я]/)
+      if !input_name.match?(/[a-zA-Zа-яА-Я]/)
         @messages.main = "#{input_name} is an incorrect name. The name must contain at least one letter"
       elsif input_name.length > 20
         @messages.main = "#{input_name} is an incorrect name. The name must be no more than 20 characters"
