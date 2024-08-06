@@ -45,6 +45,10 @@ class LoadHeroInRun
     end
     # add leveling
     @leveling = @hero_data['leveling']
+    # add camp_loot
+    @hero_data['camp_loot'].each do |loot_type, value|
+      @hero.send "#{loot_type}=", value
+    end
   end
 
   def display_and_change_screen

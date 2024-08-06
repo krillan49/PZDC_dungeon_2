@@ -54,7 +54,10 @@ class SaveHeroInRun
         'arms_armor' => @hero.arms_armor.code,
         'shield' => @hero.shield.code
       },
-      'leveling' => @leveling
+      'leveling' => @leveling,
+      'camp_loot' => {
+        'pzdc_monolith_points' => @hero.pzdc_monolith_points
+      }
     }
   end
 
