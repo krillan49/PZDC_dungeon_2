@@ -68,7 +68,6 @@ Main.new.start_game
 # TODO:
 # (АРТЫ и переделка вьюх):
 # Лагерь, пока нет параметров. engines/new_main -> :camp_screen
-# Картинка входа в данжон. engines/new_main -> :load_new_run_screen  [y = 17, x <= 110]
 # Картинка Экран выбора имени персонажа - controllers/hero_creator -> :messages_screen
 # Выбор скилов - другой экран со всеми строками текста
 # Картинка персонажа для :hero_update_screen. load_hero_run, engines/run

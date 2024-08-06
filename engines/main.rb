@@ -12,7 +12,7 @@ class Main
     # ход игры
     loop do
       change_screen()
-      MainRenderer.new( :start_game_screen, arts: [ { poster_start: :poster_start } ] ).display
+      MainRenderer.new(:start_game_screen, arts: [ { poster_start: :poster_start } ]).display
       choose = gets.strip
       if choose == '0'
         change_screen()
@@ -30,7 +30,7 @@ class Main
 
   def load_or_create_hero
     change_screen()
-    MainRenderer.new(:load_new_run_screen).display
+    MainRenderer.new(:load_new_run_screen, arts: [ { dungeon_enter: :dungeon_cave } ] ).display
     new_load = gets.strip
     change_screen()
     if new_load == '2'
