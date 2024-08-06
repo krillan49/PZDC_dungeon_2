@@ -19,14 +19,14 @@ drunk:
 
 watchman:
   name: Watchman
-  hp: 130
+  hp: 115
   mp: 100
   min_dmg: 5
   max_dmg: 5
   accurasy: 80
   armor: 0
   skill_points: 0
-  weapon: club
+  weapon: without
   body_armor:
     - without
   head_armor:
@@ -42,10 +42,10 @@ thief:
   mp: 100
   min_dmg: 5
   max_dmg: 5
-  accurasy: 90
+  accurasy: 85
   armor: 0
   skill_points: 0
-  weapon: knife
+  weapon: without
   body_armor:
     - without
   head_armor:
@@ -58,13 +58,13 @@ thief:
 worker:
   name: Worker
   hp: 100
-  mp: 130
+  mp: 115
   min_dmg: 5
   max_dmg: 5
   accurasy: 80
   armor: 0
   skill_points: 0
-  weapon: rusty_hatchet
+  weapon: without
   body_armor:
     - without
   head_armor:
@@ -82,7 +82,7 @@ student:
   max_dmg: 5
   accurasy: 80
   armor: 0
-  skill_points: 5
+  skill_points: 1
   weapon: without
   body_armor:
     - without

@@ -3,6 +3,7 @@ class PreciseStrike
   DAMAGE_LVL_MOD = 0.1
   ACCURACY_BASIC_MOD = 1.5
   ACCURACY_LVL_MOD = 0.1
+  MP_COST = 10
 
   attr_accessor :lvl
   attr_reader :code, :name
@@ -12,7 +13,7 @@ class PreciseStrike
     @code = 'precise_strike'
     @name = "Precise strike"
     @lvl = 0
-    @mp_cost = 5
+    @mp_cost = MP_COST
   end
 
   def damage_mod
@@ -24,7 +25,7 @@ class PreciseStrike
   end
 
   def description
-    "(#{@lvl}): more precisely in #{accuracy_mod().round(1)}, stronger in #{damage_mod().round(1)}. Cost #{@mp_cost}"
+    "(#{@lvl}): more precisely in #{accuracy_mod().round(1)}, stronger in #{damage_mod().round(1)}. Cost #{MP_COST}"
   end
 end
 

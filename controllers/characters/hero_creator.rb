@@ -37,11 +37,11 @@ class HeroCreator
   def background
     @messages.main = 'Select a background'
     @messages.log = [
-      "                       Background:      Push:    Bonus:             Equipment:",
-      "                       Watchman         (1)      30 hp              Club",
-      "                       Thief            (2)      5 accuracy         Knife",
-      "                       Worker           (3)      30 mp              Rusty hatchet",
-      "                       Student          (4)      5 skill points     unarmed"
+      "                       Background:      Push:    Bonus:         ",
+      "                       Watchman         (1)      15 hp          ",
+      "                       Thief            (2)      5 accuracy     ",
+      "                       Worker           (3)      15 mp          ",
+      "                       Student          (4)      1 skill point  "
     ]
     MainRenderer.new(:messages_screen, entity: @messages).display
     @messages.clear_log

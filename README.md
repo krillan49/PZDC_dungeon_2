@@ -73,3 +73,4 @@ Non-combat skills (work between battles):
 * Add documentation
 * Add tests
 * Zomby-hero add to level from dead hero
+* If a large number of enemies of one type are killed, then it will be possible to play with this type of enemy
