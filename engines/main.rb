@@ -30,7 +30,7 @@ class Main
 
   def load_or_create_hero
     change_screen()
-    MainRenderer.new(:load_new_run_screen, arts: [ { dungeon_enter: :dungeon_cave } ] ).display
+    MainRenderer.new(:load_new_run_screen, arts: [ { dungeon_cave: :dungeon_enter } ] ).display
     new_load = gets.strip
     change_screen()
     if new_load == '2'
