@@ -7,6 +7,7 @@ class HeroCreator
   end
 
   def create_new_hero
+    camp_bonuses
     active_skill
     passive_skill
     camp_skill
@@ -65,6 +66,24 @@ class HeroCreator
       gets
       'drunk'
     end
+  end
+
+  def camp_bonuses # ?? потом разбить на отдельные контроллеры/сервисы
+    pzdc_monolith = YAML.safe_load_file("saves/pzdc_monolith.yml")
+    @hero.hp_max += pzdc_monolith['hp']
+    @hero.hp += pzdc_monolith['hp']
+    @hero.mp_max += pzdc_monolith['mp']
+    @hero.mp += pzdc_monolith['mp']
+    @hero.accuracy_base += pzdc_monolith['accuracy']
+    while pzdc_monolith['damage'] > 0
+      @hero.min_dmg_base < @hero.max_dmg_base && rand(0..1) == 0 ? @hero.min_dmg_base += 1 : @hero.max_dmg_base += 1
+      pzdc_monolith['damage'] -= 1
+    end
+    @hero.stat_points += pzdc_monolith['stat_points']
+    @hero.skill_points += pzdc_monolith['skill_points']
+    @hero.armor_base += pzdc_monolith['armor']
+    @hero.regen_hp_base += pzdc_monolith['regen_hp']
+    @hero.regen_mp_base += pzdc_monolith['regen_mp']
   end
 
   def active_skill
