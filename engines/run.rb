@@ -29,9 +29,6 @@ class Run
     MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
     choose = gets.strip.upcase
     if choose == 'Y'
-      # сохранение/передача очков монолита от героя в монолит
-      # PzdcMonolith.new.add_points(@hero.pzdc_monolith_points)
-      # @hero.pzdc_monolith_points = 0
       # сохранение персонажа
       SaveHeroInRun.new(@hero, @leveling).save
       change_screen()

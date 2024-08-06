@@ -30,6 +30,7 @@ class FieldLoot
       @messages.log << "You died from a rat bite. A miserable death"
       MainRenderer.new(:messages_screen, entity: @messages, arts: [{ game_over: :game_over }]).display
       gets
+      DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
       exit
       puts "\e[H\e[2J"
     end

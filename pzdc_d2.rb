@@ -17,6 +17,7 @@ require_relative "renderers/menues/menues"
 # saves
 require_relative "services/saves/save_hero_in_run"
 require_relative "services/saves/load_hero_in_run"
+require_relative "services/saves/delete_hero_in_run"
 # require_relative "services/saves/save_hero"
 # require_relative "services/saves/load_hero"
 # loot
@@ -72,9 +73,9 @@ NewMain.new.start_game
 # services/loot/pzdc_monolith_loot
 # models/camp/pzdc_monolith
 # engines/camp_engine
+# services/saves/delete_hero_in_run
 
 # TODO:
-# Потом переделать сохранение очков монолита от геяроя к монолиту в момент смерти или победы героя вместо автосэйва
 # (АРТЫ и переделка вьюх):
 # Лагерь, пока нет параметров. engines/new_main -> :camp_screen
 # Картинка входа в данжон. engines/new_main -> :load_new_run_screen  [y = 17, x <= 110]
