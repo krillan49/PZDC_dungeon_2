@@ -39,7 +39,7 @@ class Main
       load_hero = LoadHeroInRun.new
       load_hero.load
       @hero = load_hero.hero
-      @leveling = load_hero.leveling
+      @leveling = load_hero.leveling if @hero # условие чтобы не возвращало nil и не было ошибки
     end
   end
 
