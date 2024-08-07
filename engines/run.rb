@@ -39,7 +39,10 @@ class Run
   def camp_actions
     HeroUseSkill.camp_skill(@hero, @messages) # Навык Первая помощь
     HeroActions.rest(@hero, @messages) # пассивное восстановления жизней и маны между боями
-    display_message_screen_with_confirm_and_change_screen()
+    @messages.main = 'To continue press Enter'
+    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ camp_fire: :rest }]).display
+    @messages.clear_log
+    confirm_and_change_screen()
   end
 
   def event_or_enemy_choose
