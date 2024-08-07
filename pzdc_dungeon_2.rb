@@ -33,6 +33,7 @@ require_relative "controllers/characters/enemy_creator"
 require_relative "controllers/characters/hero_creator"
 require_relative "controllers/characters/hero_updator"
 require_relative "controllers/characters/hero_actions"
+require_relative "controllers/characters/enemy_actions"
 require_relative "controllers/characters/hero_use_skill"
 
 # models ------------------------------
@@ -66,6 +67,9 @@ Main.new.start_game
 
 
 # TODO:
+# Случайные события
+# Герой прошел данжен(или часть данжена, если в случайных событиях попадется зона выхода), отдает половину собранного золота лагерю
+# Торговец в лагере, у него появляются случайные вещи из тех, что принесли на себе предыдущие герои и продает их за золото.
 # (АРТЫ и переделка вьюх):
 # Лагерь, пока нет параметров. engines/new_main -> :camp_screen
 # Картинка Экран выбора имени персонажа - controllers/hero_creator -> :messages_screen

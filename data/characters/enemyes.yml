@@ -5,6 +5,7 @@ rabble:
   max_dmg: 5
   accurasy: 60
   armor: 0
+  regen_hp_base: 0
   exp_gived: 1
   weapons:
     - without
@@ -25,6 +26,7 @@ rabid_dog:
   max_dmg: 8
   accurasy: 50
   armor: 0
+  regen_hp_base: 0
   exp_gived: 1
   weapons:
     - without
@@ -44,6 +46,7 @@ goblin:
   max_dmg: 3
   accurasy: 85
   armor: 0
+  regen_hp_base: 0
   exp_gived: 2
   weapons:
     - knife
@@ -66,6 +69,7 @@ thug:
   max_dmg: 5
   accurasy: 80
   armor: 0
+  regen_hp_base: 0
   exp_gived: 2
   weapons:
     - rusty_hatchet
@@ -91,6 +95,7 @@ deserter:
   max_dmg: 5
   accurasy: 80
   armor: 0
+  regen_hp_base: 0
   exp_gived: 3
   weapons:
     - club
@@ -121,6 +126,7 @@ orc:
   max_dmg: 7
   accurasy: 70
   armor: 0
+  regen_hp_base: 1
   exp_gived: 4
   weapons:
     - axe
@@ -141,6 +147,7 @@ zombie_knight:
   max_dmg: 5
   accurasy: 40
   armor: 0
+  regen_hp_base: 3
   exp_gived: 20
   weapons:
     - rusty_longsword

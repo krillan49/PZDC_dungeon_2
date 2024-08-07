@@ -13,11 +13,11 @@ module HeroActions
   def self.regeneration_hp_mp(hero, messages) # регенерация в бою
     if hero.regen_hp > 0 && hero.hp_max > hero.hp
       hero.hp += [hero.regen_hp, hero.hp_max - hero.hp].min
-      messages.log << "Regenerating #{hero.regen_hp} hp, now you have #{hero.hp.round}/#{hero.hp_max} hp"
+      messages.log << "You regenerating #{hero.regen_hp} hp"
     end
     if hero.regen_mp > 0 && hero.mp_max > hero.mp
       hero.mp += [hero.regen_mp, hero.mp_max - hero.mp].min
-      messages.log << "Regenerating #{hero.regen_mp} mp, now you have #{hero.mp.round}/#{hero.mp_max} mp"
+      messages.log << "You regenerating #{hero.regen_mp} mp"
     end
   end
 

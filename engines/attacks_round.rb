@@ -21,6 +21,7 @@ class AttacksRound
     hero_attack_effects()
     enemy_attack_effects() if @enemy.hp > 0
     HeroActions.regeneration_hp_mp(@hero, @messages)
+    EnemyActions.regeneration_hp_mp(@enemy, @messages) if @enemy.hp > 0
     round_result()
   end
 

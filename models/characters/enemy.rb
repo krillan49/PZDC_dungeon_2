@@ -16,7 +16,7 @@ class Enemy
     @name          = enemy[:name]
     @hp_max        = enemy[:hp]
     @hp            = enemy[:hp]
-    @regen_hp_base = 0
+    @regen_hp_base = enemy[:regen_hp_base]
     @mp            = 0
     @mp_max        = 0
     @regen_mp_base = 0
