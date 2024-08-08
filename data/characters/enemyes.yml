@@ -142,10 +142,10 @@ orc:
 
 zombie_knight:
   name: "Zombie-knight"
-  hp: 300
-  min_dmg: 5
-  max_dmg: 5
-  accurasy: 40
+  hp: 400
+  min_dmg: 0
+  max_dmg: 15
+  accurasy: 50
   armor: 0
   regen_hp_base: 3
   exp_gived: 20

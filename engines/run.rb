@@ -4,17 +4,21 @@ class Run
     @leveling = leveling
 
     @enemy = nil
-    @run = false
+    @hero_run_from_battle = false
     @messages = MainMessage.new
+
+    @exit_to_main = false
   end
 
   def start
     while true
       hero_update()
       save_and_exit()
+      break if @exit_to_main
       camp_actions()
       event_or_enemy_choose()
       battle()
+      break if @exit_to_main
       after_battle()
     end
   end
@@ -32,7 +36,7 @@ class Run
       # сохранение персонажа
       SaveHeroInRun.new(@hero, @leveling).save
       change_screen()
-      exit
+      @exit_to_main = true # exit
     end
   end
 
@@ -73,22 +77,27 @@ class Run
   end
 
   def battle
-    @run = false
+    @hero_run_from_battle = false
     # lap = 1 # номер хода
-    while @enemy.hp > 0 && @run == false
+    while @enemy.hp > 0 && @hero_run_from_battle == false
       round = AttacksRound.new(@hero, @enemy, @attacks_round_messages)
       round.action
-      @run = round.hero_run?
+      @hero_run_from_battle = round.hero_run?
+      if round.hero_dead?
+        @exit_to_main = true
+        break
+      end
       # lap += 1
     end
   end
 
   def after_battle
     # Сбор лута
-    loot = LootRound.new(@hero, @enemy, @run)
+    loot = LootRound.new(@hero, @enemy, @hero_run_from_battle)
     loot.action
+    @exit_to_main = false if loot.hero_dead?
     # Получение опыта и очков
-    HeroActions.add_exp_and_hero_level_up(@hero, @enemy.exp_gived, @messages) if !@run
+    HeroActions.add_exp_and_hero_level_up(@hero, @enemy.exp_gived, @messages) if !@hero_run_from_battle
     display_message_screen_with_confirm_and_change_screen()
     @leveling += 1
   end

@@ -11,6 +11,10 @@ class FieldLoot
     send(@field_loot.sample)
   end
 
+  def hero_dead?
+    @hero.hp <= 0
+  end
+
   private
 
   def nothing
@@ -31,7 +35,7 @@ class FieldLoot
       MainRenderer.new(:messages_screen, entity: @messages, arts: [{ game_over: :game_over }]).display
       gets
       DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
-      exit
+      # exit
       puts "\e[H\e[2J"
     end
   end

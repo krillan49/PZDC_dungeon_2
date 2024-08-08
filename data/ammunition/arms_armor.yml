@@ -6,12 +6,12 @@ without:
 leather_gloves:
   name: "Leather gloves"
   armor: 0
-  accuracy: 10
+  accuracy: 5
 
 quilted_gloves:
   name: "Quilted gloves"
   armor: 1
-  accuracy: 7
+  accuracy: 0
 
 rusty_mail_gloves:
   name: "Rusty mail gloves"

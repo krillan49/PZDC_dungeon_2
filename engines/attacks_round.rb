@@ -49,13 +49,17 @@ class AttacksRound
             MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ game_over: :game_over }]).display
             gets
             DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
-            exit
+            # exit
             puts "\e[H\e[2J"
           end
         end
       end
     end
     false
+  end
+
+  def hero_dead?
+    @hero.hp <= 0
   end
 
   private
@@ -213,7 +217,7 @@ class AttacksRound
       MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ game_over: :game_over }]).display
       enter_to_change_screen()
       DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
-      exit
+      # exit
     elsif @enemy.hp <= 0
       sleep(1)
       @messages.main = "#{@enemy.name} dead, victory!"
