@@ -1,7 +1,9 @@
 class EnemyCreator
+  BOSS_LEVEL = 20
+
   def initialize(leveling)
-    @boss = rand(1..100) > 99 - leveling
-    @standart_chance = rand(1..12) + rand(0..leveling)
+    @boss = leveling >= BOSS_LEVEL
+    @standart_chance = rand(12) + rand(0..leveling)
 
     @messages = MainMessage.new
   end
