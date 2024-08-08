@@ -18,6 +18,7 @@ rabble:
     - without
   shields:
     - without
+  status: common
 
 rabid_dog:
   name: "Rabid dog"
@@ -38,6 +39,7 @@ rabid_dog:
     - without
   shields:
     - without
+  status: common
 
 goblin:
   name: Goblin
@@ -61,6 +63,7 @@ goblin:
   shields:
     - without
     - braided_buckler
+  status: common
 
 thug:
   name: Thug
@@ -87,6 +90,7 @@ thug:
   shields:
     - without
     - wooden_buckler
+  status: common
 
 deserter:
   name: Deserter
@@ -118,6 +122,7 @@ deserter:
     - without
     - wooden_buckler
     - wooden_shield
+  status: common
 
 orc:
   name: Orc
@@ -139,6 +144,7 @@ orc:
     - without
   shields:
     - without
+  status: common
 
 zombie_knight:
   name: "Zombie-knight"
@@ -159,6 +165,7 @@ zombie_knight:
     - rusty_mail_gloves
   shields:
     - without
+  status: boss
 
 
 

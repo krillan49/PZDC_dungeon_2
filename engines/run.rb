@@ -20,6 +20,7 @@ class Run
       battle()
       break if @exit_to_main
       after_battle()
+      break if @exit_to_main
     end
   end
 
@@ -95,7 +96,18 @@ class Run
     # Сбор лута
     loot = LootRound.new(@hero, @enemy, @hero_run_from_battle)
     loot.action
-    @exit_to_main = false if loot.hero_dead?
+    if loot.hero_dead?
+      @exit_to_main = true
+      return
+    end
+    if @enemy.status == 'boss'
+      @exit_to_main = true
+      @messages.main = 'Boss killed. To continue press Enter'
+      MainRenderer.new(:messages_screen, entity: @messages).display
+      confirm_and_change_screen()
+      DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
+      return
+    end
     # Получение опыта и очков
     HeroActions.add_exp_and_hero_level_up(@hero, @enemy.exp_gived, @messages) if !@hero_run_from_battle
     display_message_screen_with_confirm_and_change_screen()

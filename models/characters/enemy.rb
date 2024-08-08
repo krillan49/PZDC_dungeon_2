@@ -6,6 +6,7 @@ class Enemy
   attr_accessor :accuracy_base
   attr_accessor :armor_base
   attr_reader :exp_gived
+  attr_reader :status
 
   attr_reader :weapon, :body_armor, :head_armor, :arms_armor, :shield
 
@@ -25,6 +26,7 @@ class Enemy
     @accuracy_base = enemy[:accurasy]
     @armor_base    = enemy[:armor]
     @exp_gived     = enemy[:exp_gived]
+    @status        = enemy[:status]
 
     @weapon = Weapon.new(enemy[:weapons].sample)
     @body_armor = BodyArmor.new(enemy[:body_armor].sample)
