@@ -36,7 +36,6 @@ class Run
     if choose == 'Y'
       # сохранение персонажа
       SaveHeroInRun.new(@hero, @leveling).save
-      change_screen()
       @exit_to_main = true # exit
     end
   end
@@ -47,7 +46,7 @@ class Run
     @messages.main = 'To continue press Enter'
     MainRenderer.new(:messages_screen, entity: @messages, arts: [{ camp_fire: :rest }]).display
     @messages.clear_log
-    confirm_and_change_screen()
+    gets
   end
 
   def event_or_enemy_choose
@@ -74,7 +73,7 @@ class Run
     @attacks_round_messages.main = 'To continue press Enter'
     @attacks_round_messages.actions = "++++++++++++ Battle #{@leveling + 1} ++++++++++++"
     MainRenderer.new(:enemy_start_screen, @enemy, entity: @attacks_round_messages, arts: [{ normal: @enemy }]).display
-    confirm_and_change_screen()
+    gets
   end
 
   def battle
@@ -104,7 +103,7 @@ class Run
       @exit_to_main = true
       @messages.main = 'Boss killed. To continue press Enter'
       MainRenderer.new(:messages_screen, entity: @messages).display
-      confirm_and_change_screen()
+      gets
       DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
       return
     end
@@ -120,17 +119,9 @@ class Run
     @messages.main = 'To continue press Enter'
     MainRenderer.new(:messages_screen, entity: @messages).display
     @messages.clear_log
-    confirm_and_change_screen()
-  end
-
-  def confirm_and_change_screen
     gets
-    change_screen()
   end
 
-  def change_screen
-    puts "\e[H\e[2J"
-  end
 end
 
 

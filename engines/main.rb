@@ -11,11 +11,10 @@ class Main
     PzdcMonolith.new
     # ход игры
     loop do
-      change_screen()
       MainRenderer.new(:start_game_screen, arts: [ { poster_start: :poster_start } ]).display
       choose = gets.strip
       if choose == '0'
-        change_screen()
+        puts "\e[H\e[2J"
         exit
       elsif choose == '2'
         # Лагерь
@@ -29,10 +28,8 @@ class Main
   end
 
   def load_or_create_hero
-    change_screen()
     MainRenderer.new(:load_new_run_screen, arts: [ { dungeon_cave: :dungeon_enter } ] ).display
     new_load = gets.strip
-    change_screen()
     if new_load == '2'
       @hero = HeroCreator.new.create_new_hero # Создание нового персонажа
     else
@@ -49,17 +46,9 @@ class Main
     @messages.main = 'To continue press Enter'
     MainRenderer.new(:messages_screen, entity: @messages).display
     @messages.clear_log
-    confirm_and_change_screen()
-  end
-
-  def confirm_and_change_screen
     gets
-    change_screen()
   end
-
-  def change_screen
-    puts "\e[H\e[2J"
-  end
+  
 end
 
 

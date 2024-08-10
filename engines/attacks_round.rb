@@ -43,14 +43,12 @@ class AttacksRound
           @messages.actions = 'To continue press Enter'
           @messages.log << "#{@enemy.name} dealt #{@enemy_damage.round} damage"
           MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ attack: @enemy }]).display
-          enter_to_change_screen()
+          gets
           if @hero.hp <= 0
             @messages.log << "You are dead - you cowardly dog!"
             MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ game_over: :game_over }]).display
             gets
             DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
-            # exit
-            puts "\e[H\e[2J"
           end
         end
       end
@@ -215,23 +213,17 @@ class AttacksRound
       @messages.main = "You're dead!"
       @messages.actions = 'To continue press Enter'
       MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ game_over: :game_over }]).display
-      enter_to_change_screen()
+      gets
       DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
-      # exit
     elsif @enemy.hp <= 0
       sleep(1)
       @messages.main = "#{@enemy.name} dead, victory!"
       @messages.actions = 'To continue press Enter'
       MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ dead: @enemy }]).display
-      enter_to_change_screen()
+      gets
     else
       sleep(1)
     end
-  end
-
-  def enter_to_change_screen
-    gets
-    puts "\e[H\e[2J"
   end
 
 end

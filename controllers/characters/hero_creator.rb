@@ -88,7 +88,6 @@ class HeroCreator
     special_choiсe = gets.strip.upcase
     while special_choiсe != '1' && special_choiсe != '2'
       @messages.main = 'Invalid character entered. Try again'
-      puts "\e[H\e[2J"
       MainRenderer.new(:messages_screen, entity: @messages).display
       special_choiсe = gets.strip.upcase
     end
@@ -108,7 +107,6 @@ class HeroCreator
     passive_choiсe = gets.strip.upcase
     while passive_choiсe != '1' && passive_choiсe != '2' && passive_choiсe != '3'
       @messages.main = 'Invalid character entered. Try again'
-      puts "\e[H\e[2J"
       MainRenderer.new(:messages_screen, entity: @messages).display
       passive_choiсe = gets.strip.upcase
     end
@@ -127,7 +125,6 @@ class HeroCreator
     noncombat_choiсe = gets.strip.upcase
     while noncombat_choiсe != '1' && noncombat_choiсe != '2'
       @messages.main = 'Invalid character entered. Try again'
-      puts "\e[H\e[2J"
       MainRenderer.new(:messages_screen, entity: @messages).display
       noncombat_choiсe = gets.strip.upcase
     end

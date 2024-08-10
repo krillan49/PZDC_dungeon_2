@@ -39,6 +39,5 @@ class LootRound
     @messages.main = 'To continue press Enter'
     MainRenderer.new(:messages_screen, entity: @messages).display
     gets
-    puts "\e[H\e[2J"
   end
 end

@@ -74,14 +74,12 @@ class LoadHero
   end
 
   def display_and_change_screen
-    puts "\e[H\e[2J"
     MainRenderer.new(:load_hero_screen, entity: @messages).display
   end
 
   def display_with_confirm_and_change_screen
     MainRenderer.new(:load_hero_screen, entity: @messages).display
     gets
-    puts "\e[H\e[2J"
   end
 
 end

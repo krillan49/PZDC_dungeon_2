@@ -54,7 +54,6 @@ class EnemyLoot
   private
 
   def display_message_screen
-    puts "\e[H\e[2J"
     MainRenderer.new(:messages_screen, entity: @messages).display
   end
 end

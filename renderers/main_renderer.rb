@@ -13,6 +13,11 @@ class MainRenderer
   end
 
   def display
+    render_screen()
+    show_screen()
+  end
+
+  def render_screen
     if @partials || @arts || @entity
       partials() if @partials # отрисовываем паршалы в @view
       arts() if @arts # отрисовываем картинки в @view
@@ -20,6 +25,10 @@ class MainRenderer
     else
       @view = Menu.new(@menu_name, @characters[0]).render.view
     end
+  end
+
+  def show_screen
+    puts "\e[H\e[2J"
     puts @view
   end
 
