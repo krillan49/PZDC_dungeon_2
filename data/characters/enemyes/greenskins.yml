@@ -1,0 +1,62 @@
+2:
+  name: Goblin
+  hp: 65
+  min_dmg: 3
+  max_dmg: 3
+  accurasy: 85
+  armor: 0
+  regen_hp_base: 0
+  exp_gived: 2
+  weapons:
+    - knife
+    - dagger
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+    - leather_gloves
+  shields:
+    - without
+    - braided_buckler
+  # status: common
+
+5:
+  name: Orc
+  hp: 180
+  min_dmg: 7
+  max_dmg: 7
+  accurasy: 70
+  armor: 0
+  regen_hp_base: 1
+  exp_gived: 4
+  weapons:
+    - axe
+    - flail
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shields:
+    - without
+  # status: common
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#

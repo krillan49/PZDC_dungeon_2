@@ -1,5 +1,5 @@
 class Enemy
-  attr_reader :name, :code_name
+  attr_reader :name, :code_name, :dungeon_name
   attr_accessor :hp_max, :hp, :regen_hp_base
   attr_accessor :mp_max, :mp, :regen_mp_base
   attr_accessor :min_dmg_base, :max_dmg_base
@@ -10,9 +10,14 @@ class Enemy
 
   attr_reader :weapon, :body_armor, :head_armor, :arms_armor, :shield
 
-  def initialize(name)
-    @code_name     = name
-    enemy = YAML.safe_load_file('data/characters/enemyes.yml', symbolize_names: true)[name.to_sym]
+  def initialize(code_name, dungeon_name='')
+    @code_name     = code_name  # заменить на просто code потом, @status уже будет не нужен
+    @dungeon_name  = dungeon_name
+    # enemyNew = YAML.safe_load_file("data/characters/enemyes/#{dungeon_name}.yml", symbolize_names: true)[code_name.to_sym]
+    enemy = YAML.safe_load_file('data/characters/enemyes.yml', symbolize_names: true)[code_name.to_sym]
+
+    @art_url = enemy[:art_url] # будет храниться в инфе противника
+
 
     @name          = enemy[:name]
     @hp_max        = enemy[:hp]
@@ -26,7 +31,7 @@ class Enemy
     @accuracy_base = enemy[:accurasy]
     @armor_base    = enemy[:armor]
     @exp_gived     = enemy[:exp_gived]
-    @status        = enemy[:status]
+    @status        = enemy[:status]     # потом можно будет удалить
 
     @weapon = Weapon.new(enemy[:weapons].sample)
     @body_armor = BodyArmor.new(enemy[:body_armor].sample)

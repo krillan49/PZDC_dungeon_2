@@ -1,0 +1,117 @@
+1:
+  name: Rabble
+  hp: 80
+  min_dmg: 1
+  max_dmg: 5
+  accurasy: 60
+  armor: 0
+  regen_hp_base: 0
+  exp_gived: 1
+  weapons:
+    - without
+    - stick
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shields:
+    - without
+  # status: common
+
+2:
+  name: "Rabid dog"
+  hp: 60
+  min_dmg: 1
+  max_dmg: 8
+  accurasy: 50
+  armor: 0
+  regen_hp_base: 0
+  exp_gived: 1
+  weapons:
+    - without
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shields:
+    - without
+  # status: common
+
+3:
+  name: Thug
+  hp: 100
+  min_dmg: 5
+  max_dmg: 5
+  accurasy: 80
+  armor: 0
+  regen_hp_base: 0
+  exp_gived: 2
+  weapons:
+    - rusty_hatchet
+    - knife
+    - club
+  body_armor:
+    - without
+    - leather_jacket
+  head_armor:
+    - without
+    - leather_helmet
+  arms_armor:
+    - without
+    - leather_gloves
+  shields:
+    - without
+    - wooden_buckler
+  # status: common
+
+4:
+  name: Deserter
+  hp: 120
+  min_dmg: 5
+  max_dmg: 5
+  accurasy: 80
+  armor: 0
+  regen_hp_base: 0
+  exp_gived: 3
+  weapons:
+    - club
+    - rusty_hatchet
+    - hatchet
+    - falchion
+  body_armor:
+    - without
+    - leather_jacket
+    - gambeson
+  head_armor:
+    - without
+    - leather_helmet
+    - quilted_helmet
+  arms_armor:
+    - without
+    - leather_gloves
+    - quilted_gloves
+  shields:
+    - without
+    - wooden_buckler
+    - wooden_shield
+  # status: common
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
