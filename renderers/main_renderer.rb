@@ -50,10 +50,14 @@ class MainRenderer
     field_x_center = (field_x_min + field_x_max) / 2
     art_height = art.length
     art_width = art[0].length
-    y_min = field_y_center - (art_height / 2)
-    y_max = field_y_center + (art_height / 2) - 1
-    x_min = field_x_center - (art_width / 2)
-    x_max = field_x_center + (art_width / 2) - 1
+    y_half_1 = art_height / 2 - (art_height.odd? ? 0 : 1)
+    y_half_2 = art_height / 2
+    y_min = field_y_center - y_half_1
+    y_max = field_y_center + y_half_2
+    x_half_1 = art_width / 2 - (art_width.odd? ? 0 : 1)
+    x_half_2 = art_width / 2
+    x_min = field_x_center - x_half_1
+    x_max = field_x_center + x_half_2
     [y_min, y_max, x_min, x_max]
   end
 
