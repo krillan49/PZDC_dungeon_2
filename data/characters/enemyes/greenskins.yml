@@ -1,4 +1,5 @@
-2:
+e2:
+  code_name: goblin
   name: Goblin
   hp: 65
   min_dmg: 3
@@ -20,9 +21,9 @@
   shields:
     - without
     - braided_buckler
-  # status: common
 
-5:
+e5:
+  code_name: orc
   name: Orc
   hp: 180
   min_dmg: 7
@@ -42,7 +43,6 @@
     - without
   shields:
     - without
-  # status: common
 
 
 

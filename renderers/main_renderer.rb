@@ -43,14 +43,8 @@ class MainRenderer
 
   def arts
     @arts.each.with_index do |art_params, i|
-      art_params.each do |art_type, entity|
-
-        art_name = entity.respond_to?(:code_name) ? entity.code_name : entity # для картинок от имени объекта и просто имен картинок
-        art = Art.new(art_type, art_name).view
-
-        # Новый варик, передаем просто сущьность
-        # artNew = ArtNew.new(art_type, entity).view
-
+      art_params.each do |art_name, entity|
+        art = Art.new(art_name, entity).view
         y_min, y_max, x_min, x_max = align_art_to_view_field(art, i)
         insert_partial_to_view(art, y: [y_min, y_max], x: [x_min, x_max])
       end
