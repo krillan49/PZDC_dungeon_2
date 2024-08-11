@@ -23,6 +23,11 @@ club:
   min_dmg: 3
   max_dmg: 4
 
+rusty_sword:
+  name: "Rusty sword"
+  min_dmg: 2
+  max_dmg: 7
+
 dagger:
   name: "Dagger"
   min_dmg: 3

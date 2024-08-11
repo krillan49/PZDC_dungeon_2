@@ -1,3 +1,25 @@
+e1:
+  code_name: skeleton
+  name: Skeleton
+  hp: 50
+  min_dmg: 0
+  max_dmg: 5
+  accurasy: 70
+  armor: 1
+  regen_hp_base: 0
+  exp_gived: 2
+  weapons:
+    - rusty_hatchet
+    - rusty_sword
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shields:
+    - without
+
 boss:
   code_name: zombie_knight
   name: "Zombie-knight"
