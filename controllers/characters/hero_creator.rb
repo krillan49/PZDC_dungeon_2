@@ -1,9 +1,9 @@
 class HeroCreator
 
-  def initialize
+  def initialize(dungeon_name)
     @messages = MainMessage.new
 
-    @hero = Hero.new(name(), background())
+    @hero = Hero.new(name(), background(), dungeon_name)
   end
 
   def create_new_hero

@@ -51,9 +51,9 @@ class Run
 
   def event_or_enemy_choose
     # Выбор противника
-    enemy1 = EnemyCreator.new(@leveling, 'bandits').create_new_enemy
-    enemy2 = EnemyCreator.new(@leveling, 'bandits').create_new_enemy
-    enemy3 = EnemyCreator.new(@leveling, 'bandits').create_new_enemy
+    enemy1 = EnemyCreator.new(@leveling, @hero.dungeon_name).create_new_enemy
+    enemy2 = EnemyCreator.new(@leveling, @hero.dungeon_name).create_new_enemy
+    enemy3 = EnemyCreator.new(@leveling, @hero.dungeon_name).create_new_enemy
     n = 50
     @messages.main = 'Which way will you go?'
     until n >= 0 && n <= 2

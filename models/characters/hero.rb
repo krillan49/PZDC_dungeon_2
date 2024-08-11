@@ -18,9 +18,12 @@ class Hero
 
   attr_accessor :pzdc_monolith_points
 
-  def initialize(name, background)
+  attr_accessor :dungeon_name
+
+  def initialize(name, background, dungeon_name=nil)
     @name = name
     @background = background
+    @dungeon_name = dungeon_name
 
     hero = YAML.safe_load_file('data/characters/heroes.yml', symbolize_names: true)[background.to_sym]
 

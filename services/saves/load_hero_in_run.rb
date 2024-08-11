@@ -43,6 +43,8 @@ class LoadHeroInRun
     @hero_data['hero_ammunition'].each do |ammunition_type, ammunition_name|
       @hero.send "#{ammunition_type}=", AmmunitionCreator.create(ammunition_type, ammunition_name)
     end
+    # add dungeon_name
+    @hero.dungeon_name = @hero_data['dungeon_name']
     # add leveling
     @leveling = @hero_data['leveling']
     # add camp_loot

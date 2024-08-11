@@ -21,34 +21,36 @@ class Main
         CampEngine.new.camp
       else
         # Забег
-        load_or_create_hero()
+        load_or_start_new_run()
         Run.new(@hero, @leveling).start if @hero
       end
     end
   end
 
-  def load_or_create_hero
+  def load_or_start_new_run
     MainRenderer.new(:load_new_run_screen, arts: [ { dungeon_cave: :dungeon_enter } ] ).display
     new_load = gets.strip
-    if new_load == '2'
-      @hero = HeroCreator.new.create_new_hero # Создание нового персонажа
-    else
-      load_hero = LoadHeroInRun.new
-      load_hero.load
-      @hero = load_hero.hero
-      @leveling = load_hero.leveling if @hero # условие чтобы не возвращало nil и не было ошибки
+    new_load == '2' ? start_new_run() : load_run()
+  end
+
+  def load_run
+    load_hero = LoadHeroInRun.new
+    load_hero.load
+    @hero = load_hero.hero
+    @leveling = load_hero.leveling if @hero # условие чтобы не возвращало nil и не было ошибки
+  end
+
+  def start_new_run
+    new_dungeon_num = 0
+    until [1].include?(new_dungeon_num)
+      MainRenderer.new(:choose_dungeon_screen).display
+      new_dungeon_num = gets.to_i
     end
+    dungeon_name = %w[bandits][new_dungeon_num-1]
+    # Создание нового персонажа
+    @hero = HeroCreator.new(dungeon_name).create_new_hero
   end
 
-  private
-
-  def display_message_screen_with_confirm_and_change_screen
-    @messages.main = 'To continue press Enter'
-    MainRenderer.new(:messages_screen, entity: @messages).display
-    @messages.clear_log
-    gets
-  end
-  
 end
 
 
