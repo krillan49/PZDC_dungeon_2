@@ -13,3 +13,7 @@ quilted_helmet:
 rusty_topfhelm:
   name: "Rusty topfhelm"
   armor: 3
+
+barbute:
+  name: Barbute
+  armor: 3

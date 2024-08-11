@@ -48,6 +48,11 @@ flail:
   min_dmg: 0
   max_dmg: 20
 
+mace:
+  name: Mace
+  min_dmg: 8
+  max_dmg: 12
+
 rusty_longsword:
   name: "Rusty longsword"
   min_dmg: 6

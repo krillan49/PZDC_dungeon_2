@@ -68,7 +68,7 @@ e3:
     - without
     - wooden_buckler
 
-boss:
+e4:
   code_name: deserter
   name: Deserter
   hp: 120
@@ -99,6 +99,27 @@ boss:
     - without
     - wooden_buckler
     - wooden_shield
+
+boss:
+  code_name: bandit_leader
+  name: "Bandit leader"
+  hp: 150
+  min_dmg: 5
+  max_dmg: 5
+  accurasy: 95
+  armor: 0
+  regen_hp_base: 0
+  exp_gived: 10
+  weapons:
+    - mace
+  body_armor:
+    - chain_mail
+  head_armor:
+    - barbute
+  arms_armor:
+    - quilted_gloves
+  shields:
+    - without
 
 
 

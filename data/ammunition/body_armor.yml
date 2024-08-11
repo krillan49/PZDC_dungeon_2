@@ -13,3 +13,7 @@ gambeson:
 rusty_cuirass:
   name: "Rusty cuirass"
   armor: 3
+
+chain_mail:
+  name: Chain mail
+  armor: 3
