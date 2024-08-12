@@ -9,6 +9,7 @@ class Main
   def start_game
     # Создание начальных yml
     PzdcMonolith.new
+    Shop.new
     # ход игры
     loop do
       MainRenderer.new(:start_game_screen, arts: [ { poster_start: :poster_start } ]).display

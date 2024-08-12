@@ -42,6 +42,7 @@ require_relative "controllers/characters/hero_use_skill"
 # models ------------------------------
 # camp
 require_relative "models/camp/pzdc_monolith"
+require_relative "models/camp/shop"
 # ammunition
 require_relative "models/ammunition/arms_armor"
 require_relative "models/ammunition/body_armor"
@@ -70,7 +71,8 @@ Main.new.start_game
 
 
 # TODO:
-# Ошибки
+# Конфигурация со всеми настройками(мб потом применить ее в меню)
+# Ошибки:
 # При создании нового перса(?когда нет фаила?) левелинг сразу 2
 # ??При создании нового перса(или нет??) до сохранения берется левелинг старого сохраненного перса??
 # Случайные события
