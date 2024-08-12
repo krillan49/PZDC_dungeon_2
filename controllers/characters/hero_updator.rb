@@ -13,7 +13,6 @@ class HeroUpdator
       loop do
         @messages.main = "Distribute stat points. You have #{@hero.stat_points} points left" if @messages.main == ''
         @messages.log = [
-          "strong stst == #{strong_stat}",
           '+5 hp                     (1)',
           '+5 mp                     (2)',
           '+1 accuracy               (3)'

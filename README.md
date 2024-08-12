@@ -6,8 +6,6 @@
 
 "PZDC dungeon 2" is a small terminal based roguelike game
 
-[Based on "PZDC dungeon"](https://github.com/krillan49/rogulike_game_ruby)
-
 ## Installation
 
 ```shell

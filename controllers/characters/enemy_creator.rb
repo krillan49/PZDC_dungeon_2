@@ -22,10 +22,10 @@ class EnemyCreator
 
   def create_standart_enemy
     case @standart_chance
-    when (..5); Enemy.new("e1", @dungeon_name)
-    when (6..10); Enemy.new("e2", @dungeon_name)
-    when (11..15); Enemy.new("e3", @dungeon_name)
-    when (16..20); Enemy.new("e4", @dungeon_name)
+    when (..4); Enemy.new("e1", @dungeon_name)
+    when (5..8); Enemy.new("e2", @dungeon_name)
+    when (9..12); Enemy.new("e3", @dungeon_name)
+    when (13..16); Enemy.new("e4", @dungeon_name)
     # when (21..25); Enemy.new("e5", @dungeon_name)
     # when (26..); Enemy.new("e6", @dungeon_name)
     else; Enemy.new("e5", @dungeon_name)

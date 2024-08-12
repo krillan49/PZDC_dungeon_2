@@ -4,12 +4,12 @@ class PzdcMonolith
     'hp' => 1,
     'mp' => 1,
     'accuracy' => 5,
-    'damage' => 5,
+    'damage' => 10,
     'stat_points' => 7,
     'skill_points' => 15,
     'armor' => 30,
-    'regen_hp' => 100,
-    'regen_mp' => 100
+    'regen_hp' => 70,
+    'regen_mp' => 40
   }
 
   attr_reader :hp_p, :mp_p, :accuracy_p, :damage_p, :stat_points_p, :skill_points_p, :armor_p, :regen_hp_p, :regen_mp_p
