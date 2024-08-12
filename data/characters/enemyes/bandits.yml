@@ -42,6 +42,31 @@ e2:
     - without
 
 e3:
+  code_name: poacher
+  name: Poacher
+  hp: 90
+  min_dmg: 5
+  max_dmg: 5
+  accurasy: 80
+  armor: 0
+  regen_hp_base: 0
+  exp_gived: 2
+  weapons:
+    - knife
+    - rusty_sword
+    - dagger
+  body_armor:
+    - without
+    - leather_jacket
+  head_armor:
+    - without
+  arms_armor:
+    - without
+    - leather_gloves
+  shields:
+    - without
+
+e4:
   code_name: thug
   name: Thug
   hp: 100
@@ -50,7 +75,7 @@ e3:
   accurasy: 80
   armor: 0
   regen_hp_base: 0
-  exp_gived: 2
+  exp_gived: 3
   weapons:
     - rusty_hatchet
     - knife
@@ -68,7 +93,7 @@ e3:
     - without
     - wooden_buckler
 
-e4:
+e5:
   code_name: deserter
   name: Deserter
   hp: 120
@@ -77,7 +102,7 @@ e4:
   accurasy: 80
   armor: 0
   regen_hp_base: 0
-  exp_gived: 3
+  exp_gived: 5
   weapons:
     - club
     - rusty_hatchet

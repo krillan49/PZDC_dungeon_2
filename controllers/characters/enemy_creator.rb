@@ -26,9 +26,9 @@ class EnemyCreator
     when (6..10); Enemy.new("e2", @dungeon_name)
     when (11..15); Enemy.new("e3", @dungeon_name)
     when (16..20); Enemy.new("e4", @dungeon_name)
-    # when (21..25); Enemy.new("5", @dungeon_name)
-    # when (26..); Enemy.new("6", @dungeon_name)
-    else; Enemy.new("e4", @dungeon_name)
+    # when (21..25); Enemy.new("e5", @dungeon_name)
+    # when (26..); Enemy.new("e6", @dungeon_name)
+    else; Enemy.new("e5", @dungeon_name)
     end
   end
 
