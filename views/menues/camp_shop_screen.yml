@@ -1,0 +1,141 @@
+view:
+  - "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█"
+  - "█                                           SHOP. You has AAAAA coins                                                  █"
+  - "█                                                                                                                      █"
+  - "█      WEAPON:                      damage:                     price:    enter:                                       █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    BBB-CCC                     PPP         1                                          █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    BBB-CCC                     PPP         2                                          █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    BBB-CCC                     PPP         3                                          █"
+  - "█                                                                                                                      █"
+  - "█      BODY ARMOR:                  armor:                      price:    enter:                                       █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    BBB                         PPP         4                                          █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    BBB                         PPP         5                                          █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    BBB                         PPP         6                                          █"
+  - "█                                                                                                                      █"
+  - "█      HEAD ARMOR:                  armor:                      price:    enter:                                       █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    BBB                         PPP         7                                          █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    BBB                         PPP         8                                          █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    BBB                         PPP         9                                          █"
+  - "█                                                                                                                      █"
+  - "█      ARMS ARMOR:                  armor:     accuracy:        price:    enter:                                       █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    BBB        CCC              PPP         10                                         █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    BBB        CCC              PPP         11                                         █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    BBB        CCC              PPP         12                                         █"
+  - "█                                                                                                                      █"
+  - "█      SHIELD:                      armor:     block chance:    price:    enter:                                       █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    BBB        CCC              PPP         13                                         █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    BBB        CCC              PPP         14                                         █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    BBB        CCC              PPP         15                                         █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                   EXIT   [Enter 0]                                                   █"
+  - "█                                                                                                                      █"
+  - "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█"
+# arts:
+#   -
+#     y:
+#       - 3
+#       - 31
+#     x:
+#       - 31
+#       - 118
+# insert_options:
+#   1:
+#     A:
+#       methods:
+#         - coins
+#       modifier: m
+#   6:
+#     A:
+#       methods:
+#         - hp
+#       modifier: s
+#     B:
+#       methods:
+#         - hp_p
+#       modifier: s
+#   7:
+#     A:
+#       methods:
+#         - mp
+#       modifier: s
+#     B:
+#       methods:
+#         - mp_p
+#       modifier: s
+#   8:
+#     A:
+#       methods:
+#         - accuracy
+#       modifier: s
+#     B:
+#       methods:
+#         - accuracy_p
+#       modifier: s
+#   9:
+#     A:
+#       methods:
+#         - damage
+#       modifier: s
+#     B:
+#       methods:
+#         - damage_p
+#       modifier: s
+#   10:
+#     A:
+#       methods:
+#         - stat_points
+#       modifier: s
+#     B:
+#       methods:
+#         - stat_points_p
+#       modifier: s
+#   11:
+#     A:
+#       methods:
+#         - skill_points
+#       modifier: s
+#     B:
+#       methods:
+#         - skill_points_p
+#       modifier: s
+#   12:
+#     A:
+#       methods:
+#         - armor
+#       modifier: s
+#     B:
+#       methods:
+#         - armor_p
+#       modifier: s
+#   13:
+#     A:
+#       methods:
+#         - regen_hp
+#       modifier: s
+#     B:
+#       methods:
+#         - regen_hp_p
+#       modifier: s
+#   14:
+#     A:
+#       methods:
+#         - regen_mp
+#       modifier: s
+#     B:
+#       methods:
+#         - regen_mp_p
+#       modifier: s
+
+
+
+
+
+
+
+
+
+#

@@ -1,7 +1,7 @@
 class Shop
   PATH = 'saves/shop.yml'
   SELL_CHANCE = 3
-  MAX_CAPACITY = 5
+  MAX_CAPACITY = 3
 
   def initialize
     create()
@@ -12,26 +12,28 @@ class Shop
     %w[weapon body_armor head_armor arms_armor shield].each do |ammunition_type|
       ammunition_code = hero.send(ammunition_type).code
       if rand(SELL_CHANCE) == 0 && ammunition_code != 'without'
-        @shop['ammunition'][ammunition_type] = [] unless @shop['ammunition'][ammunition_type]
-        remove_random_item_of_type(ammunition_type) if @shop['ammunition'][ammunition_type].length >= MAX_CAPACITY
-        @shop['ammunition'][ammunition_type] << ammunition_code
+        @shop['shop'][ammunition_type] = [] unless @shop['shop'][ammunition_type]
+        remove_random_item_of_type(ammunition_type) if @shop['shop'][ammunition_type].length >= MAX_CAPACITY
+        @shop['shop'][ammunition_type] << ammunition_code
       end
     end
     update()
   end
 
   def remove_random_item_of_type(ammunition_type)
-    choose = rand(@shop['ammunition'][ammunition_type].length)
-    @shop['ammunition'][ammunition_type] = @shop['ammunition'][ammunition_type].reject.with_index{|_, i| i == choose}
+    choose = rand(@shop['shop'][ammunition_type].length)
+    @shop['shop'][ammunition_type] = @shop['shop'][ammunition_type].reject.with_index{|_, i| i == choose}
   end
 
-  def sell_amunition_to()
+  def sell_amunition()
   end
 
-  # getters:
-  # def method_missing(method)
-  #   @shop[method.to_s]
-  # end
+  # getters for screen: weapon__0__name, body_armor__0__, head_armor__0, arms_armor__0, shield__0
+  # Или ппросто выводить название, а чтобы посмотреть статы амуниции открывать окно от ее сущности
+  def method_missing(method)
+    ammunition_type, i = method.split('__')
+    # @shop['shop'][ammunition_type][i]
+  end
 
   private
 
@@ -45,13 +47,19 @@ class Shop
 
   def new_file_data
     {
-      'ammunition' => {
+      'shop' => {
         'arms_armor' => nil,
         'body_armor' => nil,
         'head_armor' => nil,
         'shield' => nil,
         'weapon' => nil
-      }
+      },
+      'coins' => 0,
+      'arms_armor' => 'without',
+      'body_armor' => 'without',
+      'head_armor' => 'without',
+      'shield' => 'without',
+      'weapon' => 'without'
     }
   end
 end
