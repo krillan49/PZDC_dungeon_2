@@ -5,7 +5,9 @@ class LoadHeroInRun
   attr_reader :hero, :leveling
 
   def initialize
-    @hero_data = YAML.safe_load_file("#{PATH}#{HERO_FILE}") if File::exists?("#{PATH}#{HERO_FILE}")
+    if RubyVersionFixHelper.file_exists?("#{PATH}#{HERO_FILE}") # File::exists?("#{PATH}#{HERO_FILE}")
+      @hero_data = YAML.safe_load_file("#{PATH}#{HERO_FILE}")
+    end
     @messages = LoadHeroMessage.new
   end
 

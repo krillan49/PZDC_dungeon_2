@@ -5,7 +5,7 @@ class LoadHero
   attr_reader :hero, :leveling
 
   def initialize
-    @options = YAML.safe_load_file("#{PATH}#{OPTIONS_FILE}") if File::exists?("#{PATH}#{OPTIONS_FILE}")
+    @options = YAML.safe_load_file("#{PATH}#{OPTIONS_FILE}") if RubyVersionFixHelper.file_exists?("#{PATH}#{OPTIONS_FILE}") # File::exists?("#{PATH}#{OPTIONS_FILE}")
     @messages = LoadHeroMessage.new
   end
 

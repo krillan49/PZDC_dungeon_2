@@ -18,6 +18,8 @@ class DeleteHeroInRun
   end
 
   def delete_hero_file
-    File.delete("#{PATH}#{HERO_FILE}") if File::exists?("#{PATH}#{HERO_FILE}")
+    if RubyVersionFixHelper.file_exists?("#{PATH}#{HERO_FILE}") # File::exists?("#{PATH}#{HERO_FILE}")
+      File.delete("#{PATH}#{HERO_FILE}")
+    end
   end
 end

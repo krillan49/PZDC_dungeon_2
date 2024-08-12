@@ -24,7 +24,7 @@ class SaveHero
   private
 
   def load_or_create_options
-    if File::exists?("#{PATH}#{OPTIONS_FILE}")
+    if RubyVersionFixHelper.file_exists?("#{PATH}#{OPTIONS_FILE}") # File::exists?("#{PATH}#{OPTIONS_FILE}")
       YAML.safe_load_file("#{PATH}#{OPTIONS_FILE}")
     else
       File.write("#{PATH}#{OPTIONS_FILE}", {}.to_yaml)

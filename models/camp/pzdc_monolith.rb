@@ -51,7 +51,7 @@ class PzdcMonolith
   private
 
   def create
-    File.write(PATH, new_file_data().to_yaml) unless File::exists?(PATH)
+    File.write(PATH, new_file_data().to_yaml) unless RubyVersionFixHelper.file_exists?(PATH) # File::exists?(PATH)
   end
 
   def update

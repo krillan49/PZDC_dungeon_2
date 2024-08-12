@@ -1,5 +1,8 @@
 require 'yaml'
 
+# helpers -----------------------------
+require_relative "helpers/ruby_version_fix_helper"
+
 # engines -----------------------------
 require_relative "engines/main"
 require_relative "engines/camp_engine"
