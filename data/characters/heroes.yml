@@ -42,7 +42,7 @@ thief:
   mp: 100
   min_dmg: 5
   max_dmg: 5
-  accurasy: 85
+  accurasy: 83
   armor: 0
   skill_points: 0
   weapon: without

@@ -39,7 +39,7 @@ class HeroCreator
     @messages.log = [
       "                       Background:      Push:    Bonus:         ",
       "                       Watchman         (1)      15 hp          ",
-      "                       Thief            (2)      5 accuracy     ",
+      "                       Thief            (2)      3 accuracy     ",
       "                       Worker           (3)      15 mp          ",
       "                       Student          (4)      1 skill point  "
     ]

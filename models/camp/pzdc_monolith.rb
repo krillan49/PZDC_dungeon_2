@@ -14,8 +14,8 @@ class PzdcMonolith
   PRICE_MULTIPLER = {
     'hp' => 1.03,
     'mp' => 1.03,
-    'accuracy' => 1.1,
-    'damage' => 1.2,
+    'accuracy' => 1.3,
+    'damage' => 1.3,
     'stat_points' => 1.2,
     'skill_points' => 1.3,
     'armor' => 1.5,
