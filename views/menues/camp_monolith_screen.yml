@@ -55,7 +55,7 @@ insert_options:
       modifier: s
     B:
       methods:
-        - hp_p
+        - hp__p
       modifier: s
   7:
     A:
@@ -64,7 +64,7 @@ insert_options:
       modifier: s
     B:
       methods:
-        - mp_p
+        - mp__p
       modifier: s
   8:
     A:
@@ -73,7 +73,7 @@ insert_options:
       modifier: s
     B:
       methods:
-        - accuracy_p
+        - accuracy__p
       modifier: s
   9:
     A:
@@ -82,7 +82,7 @@ insert_options:
       modifier: s
     B:
       methods:
-        - damage_p
+        - damage__p
       modifier: s
   10:
     A:
@@ -91,7 +91,7 @@ insert_options:
       modifier: s
     B:
       methods:
-        - stat_points_p
+        - stat_points__p
       modifier: s
   11:
     A:
@@ -100,7 +100,7 @@ insert_options:
       modifier: s
     B:
       methods:
-        - skill_points_p
+        - skill_points__p
       modifier: s
   12:
     A:
@@ -109,7 +109,7 @@ insert_options:
       modifier: s
     B:
       methods:
-        - armor_p
+        - armor__p
       modifier: s
   13:
     A:
@@ -118,7 +118,7 @@ insert_options:
       modifier: s
     B:
       methods:
-        - regen_hp_p
+        - regen_hp__p
       modifier: s
   14:
     A:
@@ -127,7 +127,7 @@ insert_options:
       modifier: s
     B:
       methods:
-        - regen_mp_p
+        - regen_mp__p
       modifier: s
 
 

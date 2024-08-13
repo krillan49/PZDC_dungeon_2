@@ -11,23 +11,21 @@ class PzdcMonolith
     'regen_hp' => 70,
     'regen_mp' => 40
   }
-
-  attr_reader :hp_p, :mp_p, :accuracy_p, :damage_p, :stat_points_p, :skill_points_p, :armor_p, :regen_hp_p, :regen_mp_p
+  PRICE_MULTIPLER = {
+    'hp' => 1.03,
+    'mp' => 1.03,
+    'accuracy' => 1.1,
+    'damage' => 1.2,
+    'stat_points' => 1.2,
+    'skill_points' => 1.3,
+    'armor' => 1.5,
+    'regen_hp' => 2,
+    'regen_mp' => 1.7
+  }
 
   def initialize
     create()
     @monolith = YAML.safe_load_file(PATH)
-
-    # prices in @points for view
-    @hp_p = PRICES['hp']
-    @mp_p = PRICES['mp']
-    @accuracy_p = PRICES['accuracy']
-    @damage_p = PRICES['damage']
-    @stat_points_p = PRICES['stat_points']
-    @skill_points_p = PRICES['skill_points']
-    @armor_p = PRICES['armor']
-    @regen_hp_p = PRICES['regen_hp']
-    @regen_mp_p = PRICES['regen_mp']
   end
 
   def add_points(n)
@@ -36,16 +34,26 @@ class PzdcMonolith
   end
 
   def take_points_to(characteristic)
-    if @monolith['points'] >= PRICES[characteristic]
-      @monolith['points'] -= PRICES[characteristic]
+    price = real_price_with_multiplier(characteristic)
+    if @monolith['points'] >= price
+      @monolith['points'] -= price
       @monolith[characteristic] += 1
       update()
     end
   end
 
-  # getters:
+  def real_price_with_multiplier(characteristic)
+    (PRICES[characteristic] * PRICE_MULTIPLER[characteristic]**@monolith[characteristic]).floor
+  end
+
+  # getters for views:
   def method_missing(method)
-    @monolith[method.to_s]
+    if method.to_s.include?('__') # prices
+      characteristic = method.to_s.split('__')[0]
+      real_price_with_multiplier(characteristic)
+    else # count has now
+      @monolith[method.to_s]
+    end
   end
 
   private
