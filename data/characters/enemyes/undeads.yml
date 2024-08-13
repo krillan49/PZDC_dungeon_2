@@ -8,7 +8,7 @@ e1:
   armor: 1
   regen_hp_base: 0
   exp_gived: 2
-  weapons:
+  weapon:
     - rusty_hatchet
     - rusty_sword
   body_armor:
@@ -17,7 +17,7 @@ e1:
     - without
   arms_armor:
     - without
-  shields:
+  shield:
     - without
 
 boss:
@@ -30,7 +30,7 @@ boss:
   armor: 0
   regen_hp_base: 3
   exp_gived: 20
-  weapons:
+  weapon:
     - rusty_longsword
   body_armor:
     - rusty_cuirass
@@ -38,7 +38,7 @@ boss:
     - rusty_topfhelm
   arms_armor:
     - rusty_mail_gloves
-  shields:
+  shield:
     - without
 
 

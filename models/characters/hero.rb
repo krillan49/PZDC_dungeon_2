@@ -57,7 +57,7 @@ class Hero
     @body_armor = BodyArmor.new(hero[:body_armor].sample)
     @head_armor = HeadArmor.new(hero[:head_armor].sample)
     @arms_armor = ArmsArmor.new(hero[:arms_armor].sample)
-    @shield = Shield.new(hero[:shields].sample)
+    @shield = Shield.new(hero[:shield].sample)
   end
 
   # Геттеры - Методы зависимых характеристик:

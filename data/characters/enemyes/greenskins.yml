@@ -8,7 +8,7 @@ e2:
   armor: 0
   regen_hp_base: 0
   exp_gived: 2
-  weapons:
+  weapon:
     - knife
     - dagger
   body_armor:
@@ -18,7 +18,7 @@ e2:
   arms_armor:
     - without
     - leather_gloves
-  shields:
+  shield:
     - without
     - braided_buckler
 
@@ -32,7 +32,7 @@ e5:
   armor: 0
   regen_hp_base: 1
   exp_gived: 4
-  weapons:
+  weapon:
     - axe
     - flail
   body_armor:
@@ -41,7 +41,7 @@ e5:
     - without
   arms_armor:
     - without
-  shields:
+  shield:
     - without
 
 

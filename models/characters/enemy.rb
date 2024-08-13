@@ -33,11 +33,11 @@ class Enemy
     @armor_base    = enemy[:armor]
     @exp_gived     = enemy[:exp_gived]
 
-    @weapon = Weapon.new(enemy[:weapons].sample)
+    @weapon = Weapon.new(enemy[:weapon].sample)
     @body_armor = BodyArmor.new(enemy[:body_armor].sample)
     @head_armor = HeadArmor.new(enemy[:head_armor].sample)
     @arms_armor = ArmsArmor.new(enemy[:arms_armor].sample)
-    @shield = Shield.new(enemy[:shields].sample)
+    @shield = Shield.new(enemy[:shield].sample)
   end
 
   # Геттеры - Методы зависимых характеристик:

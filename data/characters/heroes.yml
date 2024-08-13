@@ -14,7 +14,7 @@ drunk:
     - without
   arms_armor:
     - without
-  shields:
+  shield:
     - without
 
 watchman:
@@ -33,7 +33,7 @@ watchman:
     - without
   arms_armor:
     - without
-  shields:
+  shield:
     - without
 
 thief:
@@ -52,7 +52,7 @@ thief:
     - without
   arms_armor:
     - without
-  shields:
+  shield:
     - without
 
 worker:
@@ -71,7 +71,7 @@ worker:
     - without
   arms_armor:
     - without
-  shields:
+  shield:
     - without
 
 student:
@@ -90,7 +90,7 @@ student:
     - without
   arms_armor:
     - without
-  shields:
+  shield:
     - without
 
 

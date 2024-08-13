@@ -8,7 +8,7 @@ e1:
   armor: 0
   regen_hp_base: 0
   exp_gived: 1
-  weapons:
+  weapon:
     - without
     - stick
   body_armor:
@@ -17,7 +17,7 @@ e1:
     - without
   arms_armor:
     - without
-  shields:
+  shield:
     - without
 
 e2:
@@ -30,7 +30,7 @@ e2:
   armor: 0
   regen_hp_base: 0
   exp_gived: 1
-  weapons:
+  weapon:
     - without
   body_armor:
     - without
@@ -38,7 +38,7 @@ e2:
     - without
   arms_armor:
     - without
-  shields:
+  shield:
     - without
 
 e3:
@@ -51,7 +51,7 @@ e3:
   armor: 0
   regen_hp_base: 0
   exp_gived: 2
-  weapons:
+  weapon:
     - knife
     - rusty_sword
     - dagger
@@ -63,7 +63,7 @@ e3:
   arms_armor:
     - without
     - leather_gloves
-  shields:
+  shield:
     - without
 
 e4:
@@ -76,7 +76,7 @@ e4:
   armor: 0
   regen_hp_base: 0
   exp_gived: 3
-  weapons:
+  weapon:
     - rusty_hatchet
     - knife
     - club
@@ -89,7 +89,7 @@ e4:
   arms_armor:
     - without
     - leather_gloves
-  shields:
+  shield:
     - without
     - wooden_buckler
 
@@ -103,7 +103,7 @@ e5:
   armor: 0
   regen_hp_base: 0
   exp_gived: 5
-  weapons:
+  weapon:
     - club
     - rusty_hatchet
     - hatchet
@@ -120,7 +120,7 @@ e5:
     - without
     - leather_gloves
     - quilted_gloves
-  shields:
+  shield:
     - without
     - wooden_buckler
     - wooden_shield
@@ -135,7 +135,7 @@ boss:
   armor: 0
   regen_hp_base: 0
   exp_gived: 10
-  weapons:
+  weapon:
     - mace
   body_armor:
     - chain_mail
@@ -143,7 +143,7 @@ boss:
     - barbute
   arms_armor:
     - quilted_gloves
-  shields:
+  shield:
     - without
 
 
