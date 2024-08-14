@@ -28,7 +28,7 @@ e2:
   accurasy: 80
   armor: 1
   regen_hp_base: 0
-  exp_gived: 2
+  exp_gived: 1
   weapon:
     - rusty_hatchet
     - rusty_sword
