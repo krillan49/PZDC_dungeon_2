@@ -5,7 +5,7 @@ class EnemyCreator
     @dungeon_name = dungeon_name
 
     @boss = leveling >= BOSS_LEVEL
-    @standart_chance = rand(12) + rand(0..leveling)
+    @standart_chance = rand(9) + rand(0..leveling)
 
     @messages = MainMessage.new
   end

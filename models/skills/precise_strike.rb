@@ -1,9 +1,9 @@
 class PreciseStrike
-  DAMAGE_BASIC_MOD = 1
+  DAMAGE_BASIC_MOD = 1.2
   DAMAGE_LVL_MOD = 0.1
   ACCURACY_BASIC_MOD = 1.5
   ACCURACY_LVL_MOD = 0.1
-  MP_COST = 10
+  MP_COST = 8
 
   attr_accessor :lvl
   attr_reader :code, :name

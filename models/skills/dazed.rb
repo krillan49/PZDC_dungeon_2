@@ -1,6 +1,6 @@
 class Dazed
-  BASIC_MOD = 1
-  LVL_MOD = 0.1
+  BASIC_MOD = 1.2
+  LVL_MOD = 0.15
 
   attr_accessor :lvl
   attr_reader :code, :name

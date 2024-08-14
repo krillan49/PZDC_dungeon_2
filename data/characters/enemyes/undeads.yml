@@ -7,7 +7,7 @@ e1:
   accurasy: 30
   armor: 0
   regen_hp_base: 0
-  exp_gived: 1
+  exp_gived: 2
   weapon:
     - without
   body_armor:
@@ -28,7 +28,7 @@ e2:
   accurasy: 80
   armor: 1
   regen_hp_base: 0
-  exp_gived: 1
+  exp_gived: 2
   weapon:
     - rusty_hatchet
     - rusty_sword
@@ -44,12 +44,12 @@ e2:
 e3:
   code_name: ghost
   name: Ghost
-  hp: 20
-  min_dmg: 0
-  max_dmg: 20
+  hp: 30
+  min_dmg: 5
+  max_dmg: 15
   accurasy: 150
-  armor: 7
-  regen_hp_base: 0
+  armor: 8
+  regen_hp_base: 1
   exp_gived: 3
   weapon:
     - without
@@ -65,7 +65,7 @@ e3:
 e4:
   code_name: fat_ghoul
   name: "Fat ghoul"
-  hp: 200
+  hp: 150
   min_dmg: 8
   max_dmg: 12
   accurasy: 70

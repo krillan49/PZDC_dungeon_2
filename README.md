@@ -4,7 +4,7 @@
 
 ## What is it?
 
-"PZDC dungeon 2" is a small terminal based roguelike game
+"PZDC dungeon 2" is a terminal based roguelike game
 
 ## Installation
 
@@ -18,19 +18,27 @@ git clone https://github.com/krillan49/Pzdc_dungeon2.git
 ruby pzdc_dungeon_2.rb
 ```
 
-## How to play
-
 For a better picture, make the terminal window to the outline of the game screen and one line below it for input
 
-Create a new character, go to the dungeon, kill monsters, level up, earn camp bonuses. It's okay if the character dies, because the camp bonuses will be saved, distribute them so that the new character has more opportunities for a new run in the dungeon
+## How to play
+
+Create a new character, go to one of the dungeons, kill enemies, level up, earn camp bonuses. It's okay if the character dies, because the camp bonuses will be saved, distribute them so that the new character has more opportunities for a new run into the dungeon
 
 You can also save (and exit) a dungeon run after each battle to continue it at another time. However, if you start a new run, the old one will be deleted.
 
+* Different dungeons vary in difficulty
 * The battles are step-by-step, you can choose from several types of attacks
 * When you get a new level, you can upgrade your characteristics and skills
 * There is equipment that is knocked out of opponents
 * The further you go into the dungeon, the greater the chance to meet stronger opponents
-* The dungeon runs is endless for now, but you can count killing the boss "Zombie Knight" as a victory
+
+
+## Camp
+
+In the camp menu you can distribute bonuses for completing or killing opponents in dungeons
+
+* monolith - accumulates points for killing the enemy, the stronger the enemy, the greater the chance. For monolith points in the camp, you can strengthen the characteristics of the characters
+* shop (under development) - if your character survived the previous run, then with some probability he can sell his items to the shop, and you can buy them from the merchant for new heroes
 
 
 Characteristics and effects:
@@ -63,9 +71,7 @@ Non-combat skills (work between battles):
 ## TODO
 
 * Add translations
-* Update camp area for distributing bonuses: viewing statistics, opening new characters, a store, etc. between battle runs
-* Various locations for combat runs with enemies corresponding to their lore, for example, an undead crypt with dead people, a cave with greenskins, a bandit camp, etc.
-* More content: characters, enemies, equipment, skills
+* More content: dungeons, buildings, characters, enemies, equipment, skills
 * More complex combat system with a greater choice of actions and their combinations
 * Balancing skills, enemies, characters
 * Add documentation
