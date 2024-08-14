@@ -16,6 +16,7 @@ e1:
     - without
   arms_armor:
     - without
+    - worn_gloves
   shield:
     - without
 

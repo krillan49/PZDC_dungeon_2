@@ -3,6 +3,11 @@ without:
   armor: 0
   accuracy: 0
 
+worn_gloves:
+  name: "Worn gloves"
+  armor: 0
+  accuracy: 2
+
 leather_gloves:
   name: "Leather gloves"
   armor: 0

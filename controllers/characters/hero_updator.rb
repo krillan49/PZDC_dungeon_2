@@ -14,12 +14,14 @@ class HeroUpdator
         @messages.main = "Distribute stat points. You have #{@hero.stat_points} points left" if @messages.main == ''
         @messages.log = [
           '+5 hp                     (1)',
-          '+5 mp                     (2)',
-          '+1 accuracy               (3)'
+          '+5 mp                     (2)'
         ]
         @messages.log += [
+          '+1 accuracy               (3)'
+        ] if strong_stat >= 2
+        @messages.log += [
           '+1 min/max(random) damage (4)'
-        ] if strong_stat == 4
+        ] if strong_stat >= 4
         MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
         distribution = gets.strip
         if distribution == '1'
@@ -32,11 +34,11 @@ class HeroUpdator
           @hero.mp += 5
           @messages.main = ''
           break
-        elsif distribution == '3'
+        elsif distribution == '3' && strong_stat >= 2
           @hero.accuracy_base += 1
           @messages.main = ''
           break
-        elsif distribution == '4' && strong_stat == 4
+        elsif distribution == '4' && strong_stat >= 4
           @hero.min_dmg_base < @hero.max_dmg_base && rand(0..1) == 0 ? @hero.min_dmg_base += 1 : @hero.max_dmg_base += 1
           @messages.main = ''
           break
