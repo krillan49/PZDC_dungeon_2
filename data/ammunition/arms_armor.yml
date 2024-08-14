@@ -8,6 +8,11 @@ leather_gloves:
   armor: 0
   accuracy: 5
 
+rusty_quilted_gloves:
+  name: "Rusty quilted gloves"
+  armor: 1
+  accuracy: -2
+
 quilted_gloves:
   name: "Quilted gloves"
   armor: 1

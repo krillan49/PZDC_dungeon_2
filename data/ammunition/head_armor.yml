@@ -6,8 +6,16 @@ leather_helmet:
   name: "Leather helmet"
   armor: 1
 
+rusty_quilted_helmet:
+  name: "Rusty quilted helmet"
+  armor: 1
+
 quilted_helmet:
   name: "Quilted helmet"
+  armor: 2
+
+rusty_mail_helmet:
+  name: "Rusty mail helmet"
   armor: 2
 
 rusty_topfhelm:
@@ -16,4 +24,4 @@ rusty_topfhelm:
 
 barbute:
   name: Barbute
-  armor: 3
+  armor: 4

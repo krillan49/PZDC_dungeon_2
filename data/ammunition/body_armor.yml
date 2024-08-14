@@ -6,8 +6,16 @@ leather_jacket:
   name: "Leather jacket"
   armor: 1
 
+rusty_gambeson:
+  name: "Rusty gambeson"
+  armor: 1
+
 gambeson:
   name: "Gambeson"
+  armor: 2
+
+rusty_chain_mail:
+  name: "Rusty chain mail"
   armor: 2
 
 rusty_cuirass:

@@ -17,3 +17,8 @@ wooden_shield:
   name: "Wooden shield"
   armor: 2
   block_chance: 15
+
+rusty_scutum:
+  name: "Rusty scutum"
+  armor: 1
+  block_chance: 40

@@ -1,10 +1,31 @@
 e1:
+  code_name: zombie
+  name: Zombie
+  hp: 120
+  min_dmg: 4
+  max_dmg: 10
+  accurasy: 30
+  armor: 0
+  regen_hp_base: 0
+  exp_gived: 1
+  weapon:
+    - without
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shield:
+    - without
+
+e2:
   code_name: skeleton
   name: Skeleton
-  hp: 50
-  min_dmg: 0
-  max_dmg: 5
-  accurasy: 70
+  hp: 60
+  min_dmg: 2
+  max_dmg: 2
+  accurasy: 80
   armor: 1
   regen_hp_base: 0
   exp_gived: 2
@@ -20,11 +41,82 @@ e1:
   shield:
     - without
 
+e3:
+  code_name: ghost
+  name: Ghost
+  hp: 20
+  min_dmg: 0
+  max_dmg: 20
+  accurasy: 150
+  armor: 7
+  regen_hp_base: 0
+  exp_gived: 3
+  weapon:
+    - without
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shield:
+    - without
+
+e4:
+  code_name: fat_ghoul
+  name: "Fat ghoul"
+  hp: 200
+  min_dmg: 8
+  max_dmg: 12
+  accurasy: 70
+  armor: 0
+  regen_hp_base: 2
+  exp_gived: 4
+  weapon:
+    - without
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shield:
+    - without
+
+e5:
+  code_name: skeleton_soldier
+  name: "Skeleton soldier"
+  hp: 90
+  min_dmg: 2
+  max_dmg: 2
+  accurasy: 85
+  armor: 1
+  regen_hp_base: 0
+  exp_gived: 6
+  weapon:
+    - rusty_sword
+    - rusty_falchion
+    - rusty_axe
+    - rusty_flail
+  body_armor:
+    - without
+    - rusty_gambeson
+    - rusty_chain_mail
+  head_armor:
+    - rusty_quilted_helmet
+    - rusty_mail_helmet
+  arms_armor:
+    - without
+    - rusty_quilted_gloves
+    - rusty_mail_gloves
+  shield:
+    - rusty_scutum
+
 boss:
   code_name: zombie_knight
   name: "Zombie-knight"
   hp: 400
-  min_dmg: 0
+  min_dmg: 5
   max_dmg: 15
   accurasy: 50
   armor: 0

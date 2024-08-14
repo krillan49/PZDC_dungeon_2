@@ -33,15 +33,30 @@ dagger:
   min_dmg: 3
   max_dmg: 6
 
+rusty_falchion:
+  name: "Rusty falchion"
+  min_dmg: 4
+  max_dmg: 8
+
 hatchet:
   name: "Hatchet"
   min_dmg: 5
   max_dmg: 8
 
+rusty_axe:
+  name: "Rusty axe"
+  min_dmg: 5
+  max_dmg: 9
+
 falchion:
   name: "Falchion"
   min_dmg: 5
   max_dmg: 10
+
+rusty_flail:
+  name: "Rusty flail"
+  min_dmg: 0
+  max_dmg: 15
 
 axe:
   name: "Axe"
