@@ -6,7 +6,7 @@ module RubyVersionFixHelper
       if e.message.include?("undefined method `exists?' for File:Class")
         File.exist?(path)
       else
-        raise NoMethodError, e.message
+        raise
       end
     end
   end
