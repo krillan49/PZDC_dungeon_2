@@ -8,6 +8,7 @@ e1:
   armor: 0
   regen_hp_base: 0
   exp_gived: 2
+  coins_gived: 1
   weapon:
     - without
   body_armor:
@@ -30,6 +31,7 @@ e2:
   armor: 1
   regen_hp_base: 0
   exp_gived: 2
+  coins_gived: 1
   weapon:
     - rusty_hatchet
     - rusty_sword
@@ -52,6 +54,7 @@ e3:
   armor: 8
   regen_hp_base: 1
   exp_gived: 3
+  coins_gived: 0
   weapon:
     - without
   body_armor:
@@ -73,6 +76,7 @@ e4:
   armor: 0
   regen_hp_base: 2
   exp_gived: 4
+  coins_gived: 0
   weapon:
     - without
   body_armor:
@@ -94,6 +98,7 @@ e5:
   armor: 1
   regen_hp_base: 0
   exp_gived: 6
+  coins_gived: 10
   weapon:
     - rusty_sword
     - rusty_falchion
@@ -123,6 +128,7 @@ boss:
   armor: 0
   regen_hp_base: 3
   exp_gived: 20
+  coins_gived: 70
   weapon:
     - rusty_longsword
   body_armor:

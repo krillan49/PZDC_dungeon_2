@@ -8,6 +8,11 @@ class Shop
     @shop = YAML.safe_load_file(PATH)
   end
 
+  def add_coins_from(hero)
+    @shop['coins'] += hero.coins
+    update()
+  end
+
   def add_ammunition_from(hero)
     %w[weapon body_armor head_armor arms_armor shield].each do |ammunition_type|
       ammunition_code = hero.send(ammunition_type).code

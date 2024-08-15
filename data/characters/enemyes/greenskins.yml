@@ -8,6 +8,7 @@ e2:
   armor: 0
   regen_hp_base: 0
   exp_gived: 2
+  coins_gived: 2
   weapon:
     - knife
     - dagger
@@ -32,6 +33,7 @@ e5:
   armor: 0
   regen_hp_base: 1
   exp_gived: 4
+  coins_gived: 3
   weapon:
     - axe
     - flail

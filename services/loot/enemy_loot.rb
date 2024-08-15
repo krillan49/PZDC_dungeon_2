@@ -12,6 +12,7 @@ class EnemyLoot
     head_armor_loot() if rand(0..1) == 1 && @enemy.head_armor.code != "without"
     arms_armor_loot() if rand(0..1) == 1 && @enemy.arms_armor.code != "without"
     shield_loot() if rand(0..1) == 1 && @enemy.shield.code != "without"
+    coins_loot() if @enemy.coins_gived > 0
   end
 
   private
@@ -49,6 +50,14 @@ class EnemyLoot
     @messages.main = "Let's swap #{@hero.shield.name}(arm-#{@hero.shield.armor} block-#{@hero.shield.block_chance}) for a #{@enemy.shield.name}(arm-#{@enemy.shield.armor} block-#{@enemy.shield.block_chance}) y/N?"
     display_message_screen
     @hero.shield = @enemy.shield if gets.strip.upcase == 'Y'
+  end
+
+  def coins_loot
+    @hero.coins += @enemy.coins_gived
+    @messages.log << "Having searched the body #{@enemy.name} you found #{@enemy.coins_gived} coins. Now you have #{@hero.coins} coins"
+    @messages.main = "Мy precious... Press Eenter to continue"
+    display_message_screen
+    gets
   end
 
   private

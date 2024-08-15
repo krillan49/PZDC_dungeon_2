@@ -15,8 +15,12 @@ class DeleteHeroInRun
     # сохранение/передача очков монолита от героя в монолит
     PzdcMonolith.new.add_points(@hero.pzdc_monolith_points)
     @hero.pzdc_monolith_points = 0
-    # добавление вещей в магазин
-    Shop.new.add_ammunition_from(@hero) if @hero.hp > 0
+    # добавление вещей и монет в магазин
+    if @hero.hp > 0
+      shop = Shop.new
+      shop.add_ammunition_from(@hero)
+      shop.add_coins_from(@hero)
+    end
   end
 
   def delete_hero_file

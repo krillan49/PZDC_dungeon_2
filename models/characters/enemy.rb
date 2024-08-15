@@ -6,14 +6,14 @@ class Enemy
   attr_accessor :min_dmg_base, :max_dmg_base
   attr_accessor :accuracy_base
   attr_accessor :armor_base
-  attr_reader :exp_gived
+  attr_reader :exp_gived, :coins_gived
 
   attr_reader :weapon, :body_armor, :head_armor, :arms_armor, :shield
 
   def initialize(code, dungeon_name)
     @entity_type = 'enemyes'
 
-    @code     = code
+    @code          = code
     @dungeon_name  = dungeon_name
 
     enemy = YAML.safe_load_file("data/characters/enemyes/#{dungeon_name}.yml", symbolize_names: true)[code.to_sym]
@@ -32,6 +32,7 @@ class Enemy
     @accuracy_base = enemy[:accurasy]
     @armor_base    = enemy[:armor]
     @exp_gived     = enemy[:exp_gived]
+    @coins_gived   = rand(0..enemy[:coins_gived])
 
     @weapon = Weapon.new(enemy[:weapon].sample)
     @body_armor = BodyArmor.new(enemy[:body_armor].sample)

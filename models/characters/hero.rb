@@ -16,7 +16,7 @@ class Hero
 
   attr_accessor :weapon, :body_armor, :head_armor, :arms_armor, :shield
 
-  attr_accessor :pzdc_monolith_points
+  attr_accessor :pzdc_monolith_points, :coins
 
   attr_accessor :dungeon_name
 
@@ -52,6 +52,7 @@ class Hero
     @skill_points = hero[:skill_points]
 
     @pzdc_monolith_points = 0
+    @coins = 0
 
     @weapon = Weapon.new(hero[:weapon])
     @body_armor = BodyArmor.new(hero[:body_armor].sample)
