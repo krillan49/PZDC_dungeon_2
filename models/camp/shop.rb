@@ -29,6 +29,8 @@ class Shop
     @shop['shop'][ammunition_type] = @shop['shop'][ammunition_type].reject.with_index{|_, i| i == choose}
   end
 
+  # add ammunition to your warehouse
+
   def sell_amunition(n)
     ammunition_type, i = [
       ['weapon', 0], ['weapon', 1], ['weapon', 2],
@@ -45,6 +47,22 @@ class Shop
       @shop['shop'][ammunition_type][i] = 'without'
       update()
     end
+  end
+
+  # add ammunition to hero from warehouse
+
+  def take_ammunition_by(hero)
+    hero.weapon = Weapon.new(@shop['weapon'])
+    @shop['weapon'] = 'without'
+    hero.body_armor = BodyArmor.new(@shop['body_armor'])
+    @shop['body_armor'] = 'without'
+    hero.head_armor = HeadArmor.new(@shop['head_armor'])
+    @shop['head_armor'] = 'without'
+    hero.arms_armor = ArmsArmor.new(@shop['arms_armor'])
+    @shop['arms_armor'] = 'without'
+    hero.shield = Shield.new(@shop['shield'])
+    @shop['shield'] = 'without'
+    update()
   end
 
   # Wiew:

@@ -60,6 +60,7 @@ class HeroCreator
   end
 
   def camp_bonuses # ?? потом разбить на отдельные контроллеры/сервисы
+    # 1. Monolith bonuses:
     pzdc_monolith = YAML.safe_load_file("saves/pzdc_monolith.yml")
     @hero.hp_max += pzdc_monolith['hp']
     @hero.hp += pzdc_monolith['hp']
@@ -75,6 +76,9 @@ class HeroCreator
     @hero.armor_base += pzdc_monolith['armor']
     @hero.regen_hp_base += pzdc_monolith['regen_hp']
     @hero.regen_mp_base += pzdc_monolith['regen_mp']
+
+    # 2. Shop warehouse ammunition:
+    Shop.new.take_ammunition_by(@hero)
   end
 
   def active_skill
