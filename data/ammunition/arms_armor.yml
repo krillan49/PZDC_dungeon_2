@@ -8,28 +8,28 @@ worn_gloves:
   name: "Worn gloves"
   armor: 0
   accuracy: 2
-  price: 0
+  price: 1
 
 leather_gloves:
   name: "Leather gloves"
   armor: 0
   accuracy: 5
-  price: 0
+  price: 5
 
 rusty_quilted_gloves:
   name: "Rusty quilted gloves"
   armor: 1
   accuracy: -2
-  price: 0
+  price: 5
 
 quilted_gloves:
   name: "Quilted gloves"
   armor: 1
   accuracy: 0
-  price: 0
+  price: 7
 
 rusty_mail_gloves:
   name: "Rusty mail gloves"
   armor: 2
   accuracy: -5
-  price: 0
+  price: 15

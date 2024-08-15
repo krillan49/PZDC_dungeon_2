@@ -121,7 +121,7 @@ e5:
 boss:
   code_name: zombie_knight
   name: "Zombie-knight"
-  hp: 400
+  hp: 300
   min_dmg: 5
   max_dmg: 15
   accurasy: 50
