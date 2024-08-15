@@ -2,23 +2,28 @@ without:
   name: "---without---"
   armor: 0
   block_chance: 0
+  price: 0
 
 braided_buckler:
   name: "Braided buckler"
   armor: 0
   block_chance: 30
+  price: 0
 
 wooden_buckler:
   name: "Wooden buckler"
   armor: 1
   block_chance: 25
+  price: 0
 
 wooden_shield:
   name: "Wooden shield"
   armor: 2
   block_chance: 15
+  price: 0
 
 rusty_scutum:
   name: "Rusty scutum"
   armor: 1
   block_chance: 40
+  price: 0

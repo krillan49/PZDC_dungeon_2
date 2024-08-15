@@ -2,36 +2,36 @@ view:
   - "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█"
   - "█                                           SHOP. You has AAAAA coins                                                  █"
   - "█                                                                                                                      █"
-  - "█      WEAPON:                      SHOW:        PRICE:    BUY:                                                        █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter A]     PPP      [Enter  1]                                                  █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter B]     PPP      [Enter  2]                                                  █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter C]     PPP      [Enter  3]                                                  █"
+  - "█      WEAPON:                      SHOW:        PRICE:    BUY:                       IN YOUR WAREHOUSE:               █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter A]    PPPPP     [Enter  1]                                                  █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter B]    PPPPP     [Enter  2]              BBBBBBBBBBBBBBBBBBBBBBBBB           █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter C]    PPPPP     [Enter  3]              Show:   [Enter C]                   █"
   - "█                                                                                                                      █"
   - "█      BODY ARMOR:                  SHOW:        PRICE:    BUY:                                                        █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter D]     PPP      [Enter  4]                                                  █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter E]     PPP      [Enter  5]                                                  █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter F]     PPP      [Enter  6]                                                  █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter D]    PPPPP     [Enter  4]                                                  █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter E]    PPPPP     [Enter  5]              BBBBBBBBBBBBBBBBBBBBBBBBB           █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter F]    PPPPP     [Enter  6]              Show:   [Enter C]                   █"
   - "█                                                                                                                      █"
   - "█      HEAD ARMOR:                  SHOW:        PRICE:    BUY:                                                        █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter G]     PPP      [Enter  7]                                                  █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter H]     PPP      [Enter  8]                                                  █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter I]     PPP      [Enter  9]                                                  █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter G]    PPPPP     [Enter  7]                                                  █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter H]    PPPPP     [Enter  8]              BBBBBBBBBBBBBBBBBBBBBBBBB           █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter I]    PPPPP     [Enter  9]              Show:   [Enter C]                   █"
   - "█                                                                                                                      █"
   - "█      ARMS ARMOR:                  SHOW:        PRICE:    BUY:                                                        █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter J]     PPP      [Enter 10]                                                  █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter K]     PPP      [Enter 11]                                                  █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter L]     PPP      [Enter 12]                                                  █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter J]    PPPPP     [Enter 10]                                                  █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter K]    PPPPP     [Enter 11]              BBBBBBBBBBBBBBBBBBBBBBBBB           █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter L]    PPPPP     [Enter 12]              Show:   [Enter C]                   █"
   - "█                                                                                                                      █"
   - "█      SHIELD:                      SHOW:        PRICE:    BUY:                                                        █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter M]     PPP      [Enter 13]                                                  █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter N]     PPP      [Enter 14]                                                  █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter O]     PPP      [Enter 15]                                                  █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter M]    PPPPP     [Enter 13]                                                  █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter N]    PPPPP     [Enter 14]              BBBBBBBBBBBBBBBBBBBBBBBBB           █"
+  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter O]    PPPPP     [Enter 15]              Show:   [Enter C]                   █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
+  - "█           !! You can only store one item of each type, if you buy another, the old one will be replaced !!           █"
+  - "█                                    (maybe it will change in new versions)                                            █"
   - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                   EXIT   [Enter 0]                                                   █"
+  - "█                                                EXIT   [Enter 0]                                                      █"
   - "█                                                                                                                      █"
   - "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█"
 # arts:
@@ -54,140 +54,160 @@ insert_options:
       methods:
         - weapon__0
       modifier: s
-    # P:
-    #   methods:
-    #     -
-    #   modifier: e
+    P:
+      methods:
+        - weapon__0__p
+      modifier: e
   5:
     A:
       methods:
         - weapon__1
       modifier: s
-    # P:
-    #   methods:
-    #     -
-    #   modifier: e
+    P:
+      methods:
+        - weapon__1__p
+      modifier: e
+    B:
+      methods:
+        - weapon
+      modifier: s
   6:
     A:
       methods:
         - weapon__2
       modifier: s
-    # P:
-    #   methods:
-    #     -
-    #   modifier: e
+    P:
+      methods:
+        - weapon__2__p
+      modifier: e
   # BODY ARMOR:
   9:
     A:
       methods:
         - body_armor__0
       modifier: s
-    # P:
-    #   methods:
-    #     -
-    #   modifier: e
+    P:
+      methods:
+        - body_armor__0__p
+      modifier: e
   10:
     A:
       methods:
         - body_armor__1
       modifier: s
-    # P:
-    #   methods:
-    #     -
-    #   modifier: e
+    P:
+      methods:
+        - body_armor__1__p
+      modifier: e
+    B:
+      methods:
+        - body_armor
+      modifier: s
   11:
     A:
       methods:
         - body_armor__2
       modifier: s
-    # P:
-    #   methods:
-    #     -
-    #   modifier: e
+    P:
+      methods:
+        - body_armor__2__p
+      modifier: e
   # HEAD ARMOR:
   14:
     A:
       methods:
         - head_armor__0
       modifier: s
-    # P:
-    #   methods:
-    #     -
-    #   modifier: e
+    P:
+      methods:
+        - head_armor__0__p
+      modifier: e
   15:
     A:
       methods:
         - head_armor__1
       modifier: s
-    # P:
-    #   methods:
-    #     -
-    #   modifier: e
+    P:
+      methods:
+        - head_armor__1__p
+      modifier: e
+    B:
+      methods:
+        - head_armor
+      modifier: s
   16:
     A:
       methods:
         - head_armor__2
       modifier: s
-    # P:
-    #   methods:
-    #     -
-    #   modifier: e
+    P:
+      methods:
+        - head_armor__2__p
+      modifier: e
   # ARMS ARMOR:
   19:
     A:
       methods:
         - arms_armor__0
       modifier: s
-    # P:
-    #   methods:
-    #     -
-    #   modifier: e
+    P:
+      methods:
+        - arms_armor__0__p
+      modifier: e
   20:
     A:
       methods:
         - arms_armor__1
       modifier: s
-    # P:
-    #   methods:
-    #     -
-    #   modifier: e
+    P:
+      methods:
+        - arms_armor__1__p
+      modifier: e
+    B:
+      methods:
+        - arms_armor
+      modifier: s
   21:
     A:
       methods:
         - arms_armor__2
       modifier: s
-    # P:
-    #   methods:
-    #     -
-    #   modifier: e
+    P:
+      methods:
+        - arms_armor__2__p
+      modifier: e
   # SHIELD:
   24:
     A:
       methods:
         - shield__0
       modifier: s
-    # P:
-    #   methods:
-    #     -
-    #   modifier: e
+    P:
+      methods:
+        - shield__0__p
+      modifier: e
   25:
     A:
       methods:
         - shield__1
       modifier: s
-    # P:
-    #   methods:
-    #     -
-    #   modifier: e
+    P:
+      methods:
+        - shield__1__p
+      modifier: e
+    B:
+      methods:
+        - shield
+      modifier: s
   26:
     A:
       methods:
         - shield__2
       modifier: s
-    # P:
-    #   methods:
-    #     -
-    #   modifier: e
+    P:
+      methods:
+        - shield__2__p
+      modifier: e
 
 
 

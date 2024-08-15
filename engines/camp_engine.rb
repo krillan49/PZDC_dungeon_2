@@ -37,9 +37,9 @@ class CampEngine
       choose = gets.to_i
       if choose == 0
         break
-      # elsif choose > 0 && choose <= 15
-      #   characteristic = %w[hp mp accuracy damage stat_points skill_points armor regen_hp regen_mp][choose-1]
-      #   @pzdc_monolith.take_points_to(characteristic)
+      elsif choose > 0 && choose <= 15
+        @shop = Shop.new
+        @shop.sell_amunition(choose)
       end
     end
   end

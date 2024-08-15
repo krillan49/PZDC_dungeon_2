@@ -2,81 +2,97 @@ without:
   name: "---without---"
   min_dmg: 0
   max_dmg: 0
+  price: 0
 
 stick:
   name: "Stick"
   min_dmg: 1
   max_dmg: 4
+  price: 0
 
 rusty_hatchet:
   name: "Rusty hatchet"
   min_dmg: 1
   max_dmg: 6
+  price: 0
 
 knife:
   name: "Knife"
   min_dmg: 2
   max_dmg: 5
+  price: 0
 
 club:
   name: "Club"
   min_dmg: 3
   max_dmg: 4
+  price: 0
 
 rusty_sword:
   name: "Rusty sword"
   min_dmg: 2
   max_dmg: 7
+  price: 0
 
 dagger:
   name: "Dagger"
   min_dmg: 3
   max_dmg: 6
+  price: 0
 
 rusty_falchion:
   name: "Rusty falchion"
   min_dmg: 4
   max_dmg: 8
+  price: 0
 
 hatchet:
   name: "Hatchet"
   min_dmg: 5
   max_dmg: 8
+  price: 0
 
 rusty_axe:
   name: "Rusty axe"
   min_dmg: 5
   max_dmg: 9
+  price: 0
 
 falchion:
   name: "Falchion"
   min_dmg: 5
   max_dmg: 10
+  price: 0
 
 rusty_flail:
   name: "Rusty flail"
   min_dmg: 0
   max_dmg: 15
+  price: 0
 
 axe:
   name: "Axe"
   min_dmg: 6
   max_dmg: 10
+  price: 0
 
 flail:
   name: "Flail"
   min_dmg: 0
   max_dmg: 20
+  price: 0
 
 mace:
   name: Mace
   min_dmg: 8
   max_dmg: 12
+  price: 0
 
 rusty_longsword:
   name: "Rusty longsword"
   min_dmg: 6
   max_dmg: 17
+  price: 0
 
 
 

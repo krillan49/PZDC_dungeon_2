@@ -2,28 +2,34 @@ without:
   name: "---without---"
   armor: 0
   accuracy: 0
+  price: 0
 
 worn_gloves:
   name: "Worn gloves"
   armor: 0
   accuracy: 2
+  price: 0
 
 leather_gloves:
   name: "Leather gloves"
   armor: 0
   accuracy: 5
+  price: 0
 
 rusty_quilted_gloves:
   name: "Rusty quilted gloves"
   armor: 1
   accuracy: -2
+  price: 0
 
 quilted_gloves:
   name: "Quilted gloves"
   armor: 1
   accuracy: 0
+  price: 0
 
 rusty_mail_gloves:
   name: "Rusty mail gloves"
   armor: 2
   accuracy: -5
+  price: 0
