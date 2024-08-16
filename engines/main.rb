@@ -12,7 +12,7 @@ class Main
     Shop.new
     # ход игры
     loop do
-      MainRenderer.new(:start_game_screen, arts: [ { poster_start: :poster_start } ]).display
+      MainRenderer.new(:start_game_screen).display
       choose = gets.strip
       if choose == '0'
         puts "\e[H\e[2J"
