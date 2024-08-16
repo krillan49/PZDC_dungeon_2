@@ -2,30 +2,30 @@ view:
   - "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█"
   - "█                                           SHOP. You has AAAAA coins                                                  █"
   - "█                                                                                                                      █"
-  - "█      WEAPON:                      SHOW:        PRICE:    BUY:                       IN YOUR WAREHOUSE:               █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter A]    PPPPP     [Enter  1]                                                  █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter B]    PPPPP     [Enter  2]              BBBBBBBBBBBBBBBBBBBBBBBBB           █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter C]    PPPPP     [Enter  3]              Show:   [Enter C]                   █"
+  - "█      SHOW:        WEAPON:                      PRICE:    BUY:                       IN YOUR WAREHOUSE:               █"
+  - "█      [Enter A]    AAAAAAAAAAAAAAAAAAAAAAAAA    PPPPP     [Enter  1]                                                  █"
+  - "█      [Enter B]    AAAAAAAAAAAAAAAAAAAAAAAAA    PPPPP     [Enter  2]              BBBBBBBBBBBBBBBBBBBBBBBBB           █"
+  - "█      [Enter C]    AAAAAAAAAAAAAAAAAAAAAAAAA    PPPPP     [Enter  3]              Show:   [Enter V]                   █"
   - "█                                                                                                                      █"
-  - "█      BODY ARMOR:                  SHOW:        PRICE:    BUY:                                                        █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter D]    PPPPP     [Enter  4]                                                  █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter E]    PPPPP     [Enter  5]              BBBBBBBBBBBBBBBBBBBBBBBBB           █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter F]    PPPPP     [Enter  6]              Show:   [Enter C]                   █"
+  - "█      SHOW:        BODY ARMOR:                  PRICE:    BUY:                                                        █"
+  - "█      [Enter D]    AAAAAAAAAAAAAAAAAAAAAAAAA    PPPPP     [Enter  4]                                                  █"
+  - "█      [Enter E]    AAAAAAAAAAAAAAAAAAAAAAAAA    PPPPP     [Enter  5]              BBBBBBBBBBBBBBBBBBBBBBBBB           █"
+  - "█      [Enter F]    AAAAAAAAAAAAAAAAAAAAAAAAA    PPPPP     [Enter  6]              Show:   [Enter W]                   █"
   - "█                                                                                                                      █"
-  - "█      HEAD ARMOR:                  SHOW:        PRICE:    BUY:                                                        █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter G]    PPPPP     [Enter  7]                                                  █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter H]    PPPPP     [Enter  8]              BBBBBBBBBBBBBBBBBBBBBBBBB           █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter I]    PPPPP     [Enter  9]              Show:   [Enter C]                   █"
+  - "█      SHOW:        HEAD ARMOR:                  PRICE:    BUY:                                                        █"
+  - "█      [Enter G]    AAAAAAAAAAAAAAAAAAAAAAAAA    PPPPP     [Enter  7]                                                  █"
+  - "█      [Enter H]    AAAAAAAAAAAAAAAAAAAAAAAAA    PPPPP     [Enter  8]              BBBBBBBBBBBBBBBBBBBBBBBBB           █"
+  - "█      [Enter I]    AAAAAAAAAAAAAAAAAAAAAAAAA    PPPPP     [Enter  9]              Show:   [Enter X]                   █"
   - "█                                                                                                                      █"
-  - "█      ARMS ARMOR:                  SHOW:        PRICE:    BUY:                                                        █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter J]    PPPPP     [Enter 10]                                                  █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter K]    PPPPP     [Enter 11]              BBBBBBBBBBBBBBBBBBBBBBBBB           █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter L]    PPPPP     [Enter 12]              Show:   [Enter C]                   █"
+  - "█      SHOW:        ARMS ARMOR:                  PRICE:    BUY:                                                        █"
+  - "█      [Enter J]    AAAAAAAAAAAAAAAAAAAAAAAAA    PPPPP     [Enter 10]                                                  █"
+  - "█      [Enter K]    AAAAAAAAAAAAAAAAAAAAAAAAA    PPPPP     [Enter 11]              BBBBBBBBBBBBBBBBBBBBBBBBB           █"
+  - "█      [Enter L]    AAAAAAAAAAAAAAAAAAAAAAAAA    PPPPP     [Enter 12]              Show:   [Enter Y]                   █"
   - "█                                                                                                                      █"
-  - "█      SHIELD:                      SHOW:        PRICE:    BUY:                                                        █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter M]    PPPPP     [Enter 13]                                                  █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter N]    PPPPP     [Enter 14]              BBBBBBBBBBBBBBBBBBBBBBBBB           █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA    [Enter O]    PPPPP     [Enter 15]              Show:   [Enter C]                   █"
+  - "█      SHOW:        SHIELD:                      PRICE:    BUY:                                                        █"
+  - "█      [Enter M]    AAAAAAAAAAAAAAAAAAAAAAAAA    PPPPP     [Enter 13]                                                  █"
+  - "█      [Enter N]    AAAAAAAAAAAAAAAAAAAAAAAAA    PPPPP     [Enter 14]              BBBBBBBBBBBBBBBBBBBBBBBBB           █"
+  - "█      [Enter O]    AAAAAAAAAAAAAAAAAAAAAAAAA    PPPPP     [Enter 15]              Show:   [Enter Z]                   █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█           !! You can only store one item of each type, if you buy another, the old one will be replaced !!           █"
@@ -56,7 +56,7 @@ insert_options:
       modifier: s
     P:
       methods:
-        - weapon__0__p
+        - weapon__0__price
       modifier: e
   5:
     A:
@@ -65,7 +65,7 @@ insert_options:
       modifier: s
     P:
       methods:
-        - weapon__1__p
+        - weapon__1__price
       modifier: e
     B:
       methods:
@@ -78,7 +78,7 @@ insert_options:
       modifier: s
     P:
       methods:
-        - weapon__2__p
+        - weapon__2__price
       modifier: e
   # BODY ARMOR:
   9:
@@ -88,7 +88,7 @@ insert_options:
       modifier: s
     P:
       methods:
-        - body_armor__0__p
+        - body_armor__0__price
       modifier: e
   10:
     A:
@@ -97,7 +97,7 @@ insert_options:
       modifier: s
     P:
       methods:
-        - body_armor__1__p
+        - body_armor__1__price
       modifier: e
     B:
       methods:
@@ -110,7 +110,7 @@ insert_options:
       modifier: s
     P:
       methods:
-        - body_armor__2__p
+        - body_armor__2__price
       modifier: e
   # HEAD ARMOR:
   14:
@@ -120,7 +120,7 @@ insert_options:
       modifier: s
     P:
       methods:
-        - head_armor__0__p
+        - head_armor__0__price
       modifier: e
   15:
     A:
@@ -129,7 +129,7 @@ insert_options:
       modifier: s
     P:
       methods:
-        - head_armor__1__p
+        - head_armor__1__price
       modifier: e
     B:
       methods:
@@ -142,7 +142,7 @@ insert_options:
       modifier: s
     P:
       methods:
-        - head_armor__2__p
+        - head_armor__2__price
       modifier: e
   # ARMS ARMOR:
   19:
@@ -152,7 +152,7 @@ insert_options:
       modifier: s
     P:
       methods:
-        - arms_armor__0__p
+        - arms_armor__0__price
       modifier: e
   20:
     A:
@@ -161,7 +161,7 @@ insert_options:
       modifier: s
     P:
       methods:
-        - arms_armor__1__p
+        - arms_armor__1__price
       modifier: e
     B:
       methods:
@@ -174,7 +174,7 @@ insert_options:
       modifier: s
     P:
       methods:
-        - arms_armor__2__p
+        - arms_armor__2__price
       modifier: e
   # SHIELD:
   24:
@@ -184,7 +184,7 @@ insert_options:
       modifier: s
     P:
       methods:
-        - shield__0__p
+        - shield__0__price
       modifier: e
   25:
     A:
@@ -193,7 +193,7 @@ insert_options:
       modifier: s
     P:
       methods:
-        - shield__1__p
+        - shield__1__price
       modifier: e
     B:
       methods:
@@ -206,7 +206,7 @@ insert_options:
       modifier: s
     P:
       methods:
-        - shield__2__p
+        - shield__2__price
       modifier: e
 
 
