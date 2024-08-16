@@ -29,6 +29,7 @@ require_relative "services/loot/secret_loot"
 # controllers -------------------------
 # ammunition
 require_relative "controllers/ammunition/ammunition_creator"
+require_relative "controllers/ammunition/ammunition_show"
 # skills
 require_relative "controllers/skills/skills_creator"
 # characters

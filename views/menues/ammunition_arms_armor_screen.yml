@@ -1,7 +1,7 @@
 view:
   - "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█"
   - "█                                                                                                                      █"
-  - "█                                                                     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
+  - "█                                    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                        █"
   - "█                                                                                                                      █"
   - "█                                                                     Armor:            AAAA                           █"
   - "█                                                                     Accuracy:         AAAA                           █"
@@ -47,7 +47,7 @@ insert_options:
     A:
       methods:
         - name
-      modifier: s
+      modifier: m
   4:
     A:
       methods:

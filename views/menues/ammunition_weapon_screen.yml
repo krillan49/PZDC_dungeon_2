@@ -1,7 +1,7 @@
 view:
   - "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█"
   - "█                                                                                                                      █"
-  - "█                                                                     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
+  - "█                                    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                        █"
   - "█                                                                                                                      █"
   - "█                                                                     Min damage:  AAAA                                █"
   - "█                                                                     Max davage:  AAAA                                █"
@@ -47,7 +47,7 @@ insert_options:
     A:
       methods:
         - name
-      modifier: s
+      modifier: m
   4:
     A:
       methods:
