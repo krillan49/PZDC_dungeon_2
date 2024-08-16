@@ -1,5 +1,5 @@
 class ArmsArmor
-  attr_reader :code, :name, :armor, :accuracy
+  attr_reader :code, :name, :armor, :accuracy, :price
 
   def initialize(name)
     @code = name
@@ -7,5 +7,6 @@ class ArmsArmor
     @name  = arms_armor[:name]
     @armor = arms_armor[:armor]
     @accuracy = arms_armor[:accuracy]
+    @price = arms_armor[:price]
   end
 end

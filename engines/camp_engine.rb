@@ -39,8 +39,10 @@ class CampEngine
         break
       elsif %w[A B C D E F G H I J K L M N O V W X Y Z].include?(choose.upcase)
         ammunition_type, ammunition_code = Shop.new.get_item_type_and_code_name(choose)
-        # p [ammunition_type, ammunition_code]
         if ammunition_code != 'without'
+          ammunition_obj = AmmunitionCreator.create(ammunition_type, ammunition_code)
+          MainRenderer.new(:"ammunition_#{ammunition_type}_screen", entity: ammunition_obj).display
+          gets
         end
       elsif choose.to_i > 0 && choose.to_i <= 15
         @shop = Shop.new

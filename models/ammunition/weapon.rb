@@ -1,5 +1,5 @@
 class Weapon
-  attr_reader :code, :name, :min_dmg, :max_dmg
+  attr_reader :code, :name, :min_dmg, :max_dmg, :price
 
   def initialize(name)
     @code = name
@@ -7,5 +7,6 @@ class Weapon
     @name    = weapon[:name]
     @min_dmg = weapon[:min_dmg]
     @max_dmg = weapon[:max_dmg]
+    @price   = weapon[:price]
   end
 end

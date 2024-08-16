@@ -1,5 +1,5 @@
 class Shield
-  attr_reader :code, :name, :armor, :block_chance
+  attr_reader :code, :name, :armor, :block_chance, :price
 
   def initialize(name)
     @code = name
@@ -7,5 +7,6 @@ class Shield
     @name  = shield[:name]
     @armor = shield[:armor]
     @block_chance = shield[:block_chance]
+    @price = shield[:price]
   end
 end
