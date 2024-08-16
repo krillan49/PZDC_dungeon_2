@@ -89,6 +89,33 @@ class Shop
     end
   end
 
+  # return item_code for display item screen
+
+  def get_item_type_and_code_name(char_code)
+    {
+      'a' => ['weapon', @shop['shop']['weapon'][0]],
+      'b' => ['weapon', @shop['shop']['weapon'][1]],
+      'c' => ['weapon', @shop['shop']['weapon'][2]],
+      'd' => ['body_armor', @shop['shop']['body_armor'][0]],
+      'e' => ['body_armor', @shop['shop']['body_armor'][1]],
+      'f' => ['body_armor', @shop['shop']['body_armor'][2]],
+      'g' => ['head_armor', @shop['shop']['head_armor'][0]],
+      'h' => ['head_armor', @shop['shop']['head_armor'][1]],
+      'i' => ['head_armor', @shop['shop']['head_armor'][2]],
+      'j' => ['arms_armor', @shop['shop']['arms_armor'][0]],
+      'k' => ['arms_armor', @shop['shop']['arms_armor'][1]],
+      'l' => ['arms_armor', @shop['shop']['arms_armor'][2]],
+      'm' => ['shield', @shop['shop']['shield'][0]],
+      'n' => ['shield', @shop['shop']['shield'][1]],
+      'o' => ['shield', @shop['shop']['shield'][2]],
+      'v' => ['weapon', @shop['weapon']],
+      'w' => ['body_armor', @shop['body_armor']],
+      'x' => ['head_armor', @shop['head_armor']],
+      'y' => ['arms_armor', @shop['arms_armor']],
+      'z' => ['shield', @shop['shield']]
+    }[char_code]
+  end
+
   private
 
   def create

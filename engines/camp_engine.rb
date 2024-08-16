@@ -32,14 +32,19 @@ class CampEngine
 
   def shop
     choose = nil
-    until choose == 0
+    until choose == '0'
       MainRenderer.new(:camp_shop_screen, entity: @shop).display
-      choose = gets.to_i
-      if choose == 0
+      choose = gets.strip
+      if choose == '0'
         break
-      elsif choose > 0 && choose <= 15
+      elsif %w[A B C D E F G H I J K L M N O V W X Y Z].include?(choose.upcase)
+        ammunition_type, ammunition_code = Shop.new.get_item_type_and_code_name(choose)
+        # p [ammunition_type, ammunition_code]
+        if ammunition_code != 'without'
+        end
+      elsif choose.to_i > 0 && choose.to_i <= 15
         @shop = Shop.new
-        @shop.sell_amunition(choose)
+        @shop.sell_amunition(choose.to_i)
       end
     end
   end
