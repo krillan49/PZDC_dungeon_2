@@ -26,10 +26,10 @@ quilted_gloves:
   name: "Quilted gloves"
   armor: 1
   accuracy: 0
-  price: 7
+  price: 10
 
 rusty_mail_gloves:
   name: "Rusty mail gloves"
   armor: 2
   accuracy: -5
-  price: 15
+  price: 25

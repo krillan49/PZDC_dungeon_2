@@ -6,29 +6,29 @@ without:
 leather_helmet:
   name: "Leather helmet"
   armor: 1
-  price: 7
+  price: 10
 
 rusty_quilted_helmet:
   name: "Rusty quilted helmet"
   armor: 1
-  price: 7
+  price: 10
 
 quilted_helmet:
   name: "Quilted helmet"
   armor: 2
-  price: 20
+  price: 45
 
 rusty_mail_helmet:
   name: "Rusty mail helmet"
   armor: 2
-  price: 20
+  price: 45
 
 rusty_topfhelm:
   name: "Rusty topfhelm"
   armor: 3
-  price: 60
+  price: 100
 
 barbute:
   name: Barbute
   armor: 4
-  price: 120
+  price: 200

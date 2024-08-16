@@ -96,6 +96,8 @@ Main.new.start_game
 # Картинка персонажа для :hero_update_screen. load_hero_run, engines/run
 # Картинка обычного и секретного случайного лута. field_loot -> :messages_screen [y = 17, x <= 110]
 # Картинка получения опыта. run -> after_battle -> :messages_screen [y = 17, x <= 110]
+# Картинка для монолита когда выпадает очко монолита [y = 17, x <= 110]
+# Картинка монет, когда выпадают монеты [y = 17, x <= 110]
 # Картинки для лута оружия, заменить видимо весь экран тк :messages_screen не подходит. enemy_loot
 
 

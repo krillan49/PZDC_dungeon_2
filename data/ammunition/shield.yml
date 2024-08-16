@@ -8,22 +8,22 @@ braided_buckler:
   name: "Braided buckler"
   armor: 0
   block_chance: 30
-  price: 15
+  price: 25
 
 wooden_buckler:
   name: "Wooden buckler"
   armor: 1
   block_chance: 25
-  price: 30
+  price: 50
 
 wooden_shield:
   name: "Wooden shield"
   armor: 2
   block_chance: 15
-  price: 70
+  price: 100
 
 rusty_scutum:
   name: "Rusty scutum"
   armor: 1
   block_chance: 40
-  price: 100
+  price: 200

@@ -7,12 +7,15 @@ class CampEngine
   end
 
   def camp
-    MainRenderer.new(:camp_screen, entity: @messages).display
-    choose = gets.to_i
-    if choose == 1
-      pzdc_monolith()
-    elsif choose == 2
-      shop()
+    choose = nil
+    until choose == 0
+      MainRenderer.new(:camp_screen, entity: @messages).display
+      choose = gets.to_i
+      if choose == 1
+        pzdc_monolith()
+      elsif choose == 2
+        shop()
+      end
     end
   end
 
