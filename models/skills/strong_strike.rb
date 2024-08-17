@@ -1,8 +1,8 @@
 class StrongStrike
   DAMAGE_BASIC_MOD = 1.6
-  DAMAGE_LVL_MOD = 0.2
+  DAMAGE_LVL_MOD = 0.15
   ACCURACY_MOD = 1
-  MP_COST = 10
+  MP_COST = 12
 
   attr_accessor :lvl
   attr_reader :code, :name

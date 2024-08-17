@@ -1,6 +1,4 @@
-# PZDC dungeon 2
-
-![Example](assets/choose_enemy.png)
+![PZDC_dungeon_2_title](assets/title.png)
 
 ## What is it?
 
@@ -33,12 +31,18 @@ You can also save (and exit) a dungeon run after each battle to continue it at a
 * The further you go into the dungeon, the greater the chance to meet stronger opponents
 
 
+![shop](assets/shop.png)
+
+
 ## Camp
 
 In the camp menu you can distribute bonuses for completing or killing opponents in dungeons
 
 * monolith - accumulates points for killing the enemy, the stronger the enemy, the greater the chance. For monolith points in the camp, you can strengthen the characteristics of the characters
-* shop (under development) - if your character survived the previous run, then with some probability he can sell his items to the shop, and you can buy them from the merchant for new heroes
+* shop     - if your character survived the previous run, then with some probability he can sell his items to the shop, and you can buy them from the merchant for new heroes
+
+
+![load_or_new_run](assets/run.png)
 
 
 Characteristics and effects:
@@ -78,3 +82,12 @@ Non-combat skills (work between battles):
 * Add tests
 * Zomby-hero add to level from dead hero
 * If a large number of enemies of one type are killed, then it will be possible to play with this type of enemy
+
+## SCREENS
+
+![choose_bandit](assets/choose_bandit.png)
+![battle_bandit_1](assets/battle_bandit_1.png)
+![boss_bandit](assets/boss_bandit.png)
+![choose_undead](assets/choose_undead.png)
+![battle_skeleton](assets/battle_skeleton.png)
+![battle_fat_ghoul](assets/battle_fat_ghoul.png)
