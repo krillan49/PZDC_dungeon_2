@@ -30,9 +30,7 @@ You can also save (and exit) a dungeon run after each battle to continue it at a
 * There is equipment that is knocked out of opponents
 * The further you go into the dungeon, the greater the chance to meet stronger opponents
 
-
-![shop](assets/shop.png)
-
+![load_or_new_run](assets/run.png)
 
 ## Camp
 
@@ -41,9 +39,7 @@ In the camp menu you can distribute bonuses for completing or killing opponents 
 * monolith - accumulates points for killing the enemy, the stronger the enemy, the greater the chance. For monolith points in the camp, you can strengthen the characteristics of the characters
 * shop     - if your character survived the previous run, then with some probability he can sell his items to the shop, and you can buy them from the merchant for new heroes
 
-
-![load_or_new_run](assets/run.png)
-
+![shop](assets/shop.png)
 
 Characteristics and effects:
 -
@@ -88,6 +84,6 @@ Non-combat skills (work between battles):
 ![choose_bandit](assets/choose_bandit.png)
 ![battle_bandit_1](assets/battle_bandit_1.png)
 ![boss_bandit](assets/boss_bandit.png)
-![choose_undead](assets/choose_undead.png)
+![choose_undead](assets/choose_undeadl.png)
 ![battle_skeleton](assets/battle_skeleton.png)
 ![battle_fat_ghoul](assets/battle_fat_ghoul.png)
