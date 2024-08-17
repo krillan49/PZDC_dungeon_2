@@ -16,7 +16,17 @@ git clone https://github.com/krillan49/Pzdc_dungeon2.git
 ruby pzdc_dungeon_2.rb
 ```
 
+## Terminal settings
+
 For a better picture, make the terminal window to the outline of the game screen and one line below it for input
+
+Recommended terminal dimensions:
+width  - 120
+height - 36
+
+
+![load_or_new_run](assets/run.png)
+
 
 ## How to play
 
@@ -30,7 +40,9 @@ You can also save (and exit) a dungeon run after each battle to continue it at a
 * There is equipment that is knocked out of opponents
 * The further you go into the dungeon, the greater the chance to meet stronger opponents
 
-![load_or_new_run](assets/run.png)
+
+![choose_undead](assets/choose_undeadl.png)
+
 
 ## Camp
 
@@ -39,7 +51,9 @@ In the camp menu you can distribute bonuses for completing or killing opponents 
 * monolith - accumulates points for killing the enemy, the stronger the enemy, the greater the chance. For monolith points in the camp, you can strengthen the characteristics of the characters
 * shop     - if your character survived the previous run, then with some probability he can sell his items to the shop, and you can buy them from the merchant for new heroes
 
+
 ![shop](assets/shop.png)
+
 
 Characteristics and effects:
 -
@@ -81,9 +95,7 @@ Non-combat skills (work between battles):
 
 ## SCREENS
 
-![choose_bandit](assets/choose_bandit.png)
+![battle_fat_ghoul](assets/battle_fat_ghoul.png)
+![battle_skeleton](assets/battle_skeleton.png)
 ![battle_bandit_1](assets/battle_bandit_1.png)
 ![boss_bandit](assets/boss_bandit.png)
-![choose_undead](assets/choose_undeadl.png)
-![battle_skeleton](assets/battle_skeleton.png)
-![battle_fat_ghoul](assets/battle_fat_ghoul.png)
