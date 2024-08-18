@@ -95,6 +95,15 @@ rusty_longsword:
   price: 200
 
 
+# Secret:
+
+bambuga:
+  name: BAMBUGA
+  min_dmg: 20
+  max_dmg: 30
+  price: 9000
+
+
 
 
 

@@ -11,6 +11,7 @@ class HeroCreator
     active_skill
     passive_skill
     camp_skill
+    cheating
     @hero
   end
 
@@ -134,6 +135,13 @@ class HeroCreator
     end
     skills = {'1' => 'first_aid', '2' => 'treasure_hunter'}
     @hero.camp_skill = SkillsCreator.create(skills[noncombat_choiсe], @hero)
+  end
+
+  def cheating
+    if @hero.name == 'BAMBUGA'
+      @hero.weapon = Weapon.new('bambuga')
+      @hero.name = 'Cheater'
+    end
   end
 end
 

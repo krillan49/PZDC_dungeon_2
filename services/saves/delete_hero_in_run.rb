@@ -7,7 +7,7 @@ class DeleteHeroInRun
   end
 
   def add_camp_loot_and_delete_hero_file
-    add_camp_loot()
+    add_camp_loot() if @hero.name != 'Cheater'
     delete_hero_file()
   end
 
