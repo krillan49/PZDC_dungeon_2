@@ -102,7 +102,7 @@ class Run
     if @enemy.code == 'boss'
       @exit_to_main = true
       @messages.main = 'Boss killed. To continue press Enter'
-      MainRenderer.new(:messages_screen, entity: @messages).display
+      MainRenderer.new(:run_win_screen, entity: @messages).display
       gets
       DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
       return

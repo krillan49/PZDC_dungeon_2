@@ -34,6 +34,8 @@ Create a new character, go to one of the dungeons, kill enemies, level up, earn 
 
 You can also save (and exit) a dungeon run after each battle to continue it at another time. However, if you start a new run, the old one will be deleted.
 
+If you want an easy game, then create a character named BAMBUGA then you will get a strong weapon for this run, but you will not get bonus camp points.
+
 * Different dungeons vary in difficulty
 * The battles are step-by-step, you can choose from several types of attacks
 * When you get a new level, you can upgrade your characteristics and skills
