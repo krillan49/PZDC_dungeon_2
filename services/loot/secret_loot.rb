@@ -23,6 +23,9 @@ class SecretLoot
     when 31; troll_elixir()
     when 32; unicorn_elixir()
     end
+    @messages.main = 'To continue press Enter'
+    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ loot_secret: :loot_secret }]).display
+    gets
   end
 
   private

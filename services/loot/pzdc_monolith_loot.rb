@@ -31,7 +31,7 @@ class PzdcMonolithLoot
     @messages.main = "You hear PZDC Monolith. Press Enter to continue"
     @messages.log << "probability is #{@probability.round(2)}"
     @messages.log << "The death of the #{@enemy.name} filled the monolith on #{@points}"
-    MainRenderer.new(:messages_screen, entity: @messages).display
+    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ loot_pzdc_monolith: :loot_pzdc_monolith }]).display
     gets
   end
 end

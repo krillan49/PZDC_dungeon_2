@@ -69,7 +69,7 @@ class EnemyLoot
   end
 
   def display_message_screen
-    MainRenderer.new(:messages_screen, entity: @messages).display
+    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ loot_coins: :loot_coins }]).display
   end
 end
 
