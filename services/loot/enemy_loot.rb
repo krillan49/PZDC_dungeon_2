@@ -18,37 +18,32 @@ class EnemyLoot
   private
 
   def weapon_loot
-    @messages.log << "Having searched the body #{@enemy.name} you found #{@enemy.weapon.name}"
-    @messages.main = "Let's swap #{@hero.weapon.name}(#{@hero.weapon.min_dmg}-#{@hero.weapon.max_dmg}) for a #{@enemy.weapon.name}(#{@enemy.weapon.min_dmg}-#{@enemy.weapon.max_dmg}) y/N?"
-    display_message_screen
+    @messages.main = "Having searched the body #{@enemy.name} you found #{@enemy.weapon.name}"
+    display_loot_screen(:weapon)
     @hero.weapon = @enemy.weapon if gets.strip.upcase == 'Y'
   end
 
   def body_armor_loot
-    @messages.log << "Having searched the body #{@enemy.name} you found #{@enemy.body_armor.name}"
-    @messages.main = "Let's swap #{@hero.body_armor.name}(#{@hero.body_armor.armor}) for a #{@enemy.body_armor.name}(#{@enemy.body_armor.armor}) y/N?"
-    display_message_screen
+    @messages.main = "Having searched the body #{@enemy.name} you found #{@enemy.body_armor.name}"
+    display_loot_screen(:body_armor)
     @hero.body_armor = @enemy.body_armor if gets.strip.upcase == 'Y'
   end
 
   def head_armor_loot
-    @messages.log << "Having searched the body #{@enemy.name} you found #{@enemy.head_armor.name}"
-    @messages.main = "Let's swap #{@hero.head_armor.name}(#{@hero.head_armor.armor}) for a #{@enemy.head_armor.name}(#{@enemy.head_armor.armor}) y/N?"
-    display_message_screen
+    @messages.main = "Having searched the body #{@enemy.name} you found #{@enemy.head_armor.name}"
+    display_loot_screen(:head_armor)
     @hero.head_armor = @enemy.head_armor if gets.strip.upcase == 'Y'
   end
 
   def arms_armor_loot
-    @messages.log << "Having searched the body #{@enemy.name} you found #{@enemy.arms_armor.name}"
-    @messages.main = "Let's swap #{@hero.arms_armor.name}(arm-#{@hero.arms_armor.armor} acc-#{@hero.arms_armor.accuracy}) for a #{@enemy.arms_armor.name}(arm-#{@enemy.arms_armor.armor} acc-#{@enemy.arms_armor.accuracy}) y/N?"
-    display_message_screen
+    @messages.main = "Having searched the body #{@enemy.name} you found #{@enemy.arms_armor.name}"
+    display_loot_screen(:arms_armor)
     @hero.arms_armor = @enemy.arms_armor if gets.strip.upcase == 'Y'
   end
 
   def shield_loot
-    @messages.log << "Having searched the body #{@enemy.name} you found #{@enemy.shield.name}"
-    @messages.main = "Let's swap #{@hero.shield.name}(arm-#{@hero.shield.armor} block-#{@hero.shield.block_chance}) for a #{@enemy.shield.name}(arm-#{@enemy.shield.armor} block-#{@enemy.shield.block_chance}) y/N?"
-    display_message_screen
+    @messages.main = "Having searched the body #{@enemy.name} you found #{@enemy.shield.name}"
+    display_loot_screen(:shield)
     @hero.shield = @enemy.shield if gets.strip.upcase == 'Y'
   end
 
@@ -61,6 +56,17 @@ class EnemyLoot
   end
 
   private
+
+  def display_loot_screen(ammunition_type)
+    hero_ammunition_obj = @hero.send(ammunition_type)
+    enemy_ammunition_obj = @enemy.send(ammunition_type)
+    MainRenderer.new(
+      :"loot_enemy_#{ammunition_type}",
+      hero_ammunition_obj,
+      enemy_ammunition_obj,
+      entity: @messages
+    ).display
+  end
 
   def display_message_screen
     MainRenderer.new(:messages_screen, entity: @messages).display

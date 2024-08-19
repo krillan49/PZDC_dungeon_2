@@ -1,0 +1,40 @@
+view:
+  - "      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA      "
+  - "                                                      "
+  - "                  Armor:       AAAA                   "
+  - "                                                      "
+  - "                                                      "
+  - "                                                      "
+  - "                  Price:       AAAA                   "
+  - "                                                      "
+  - "                                                      "
+  - "                                                      "
+insert_options:
+  0:
+    A:
+      methods:
+        - name
+      modifier: m
+  2:
+    A:
+      methods:
+        - armor
+      modifier: e
+  6:
+    A:
+      methods:
+        - price
+      modifier: e
+
+
+
+
+
+
+
+
+
+
+
+
+#

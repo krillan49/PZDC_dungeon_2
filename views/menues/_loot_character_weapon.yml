@@ -1,0 +1,32 @@
+view:
+  - "      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA      "
+  - "                                                      "
+  - "                  Min damage:  AAAA                   "
+  - "                                                      "
+  - "                  Max damage:  AAAA                   "
+  - "                                                      "
+  - "                  Price:       AAAA                   "
+  - "                                                      "
+  - "                                                      "
+  - "                                                      "
+insert_options:
+  0:
+    A:
+      methods:
+        - name
+      modifier: m
+  2:
+    A:
+      methods:
+        - min_dmg
+      modifier: e
+  4:
+    A:
+      methods:
+        - max_dmg
+      modifier: e
+  6:
+    A:
+      methods:
+        - price
+      modifier: e

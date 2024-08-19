@@ -1,0 +1,45 @@
+view:
+  - "      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA      "
+  - "                                                      "
+  - "               Armor:            AAAA                 "
+  - "                                                      "
+  - "               Block chance:     AAAA                 "
+  - "                                                      "
+  - "               Price:            AAAA                 "
+  - "                                                      "
+  - "                                                      "
+  - "                                                      "
+insert_options:
+  0:
+    A:
+      methods:
+        - name
+      modifier: m
+  2:
+    A:
+      methods:
+        - armor
+      modifier: e
+  4:
+    A:
+      methods:
+        - block_chance
+      modifier: e
+  6:
+    A:
+      methods:
+        - price
+      modifier: e
+
+
+
+
+
+
+
+
+
+
+
+
+#
