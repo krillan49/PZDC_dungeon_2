@@ -24,12 +24,7 @@ class HeroUpdator
         ] if strong_stat >= 4
         MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
         distribution = gets.strip.upcase
-        if distribution == 'A' # show all ammunition
-        elsif %w[B C D E F].include?(distribution) # show chosen ammunition
-          ammunition_type = {B: 'weapon', C: 'head_armor', D: 'body_armor', E: 'arms_armor', F: 'shield'}[distribution.to_sym]
-          ammunition_code = @hero.send(ammunition_type).code
-          AmmunitionShow.show(ammunition_type, ammunition_code) if ammunition_code != 'without'
-        end
+        show_weapon_buttons_actions(distribution)
         if distribution == '1'
           @hero.hp_max += 5
           @hero.hp += 5
@@ -70,12 +65,7 @@ class HeroUpdator
         ]
         MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
         distribution = gets.strip.upcase
-        if distribution == 'A' # show all ammunition
-        elsif %w[B C D E F].include?(distribution) # show chosen ammunition
-          ammunition_type = {B: 'weapon', C: 'head_armor', D: 'body_armor', E: 'arms_armor', F: 'shield'}[distribution.to_sym]
-          ammunition_code = @hero.send(ammunition_type).code
-          AmmunitionShow.show(ammunition_type, ammunition_code) if ammunition_code != 'without'
-        end
+        show_weapon_buttons_actions(distribution)
         case distribution
         when '1'
           @hero.active_skill.lvl += 1
@@ -91,6 +81,17 @@ class HeroUpdator
         end
       end
       @hero.skill_points -= 1
+    end
+  end
+
+  private
+
+  def show_weapon_buttons_actions(distribution)
+    if distribution == 'A' # show all ammunition
+    elsif %w[B C D E F].include?(distribution) # show chosen ammunition
+      ammunition_type = {B: 'weapon', C: 'head_armor', D: 'body_armor', E: 'arms_armor', F: 'shield'}[distribution.to_sym]
+      ammunition_code = @hero.send(ammunition_type).code
+      AmmunitionShow.show(ammunition_type, ammunition_code) if ammunition_code != 'without'
     end
   end
 

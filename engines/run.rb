@@ -39,12 +39,8 @@ class Run
         # сохранение персонажа
         SaveHeroInRun.new(@hero, @leveling).save
         @exit_to_main = true # exit
-      elsif choose == 'A' # show all ammunition
-      elsif %w[B C D E F].include?(choose) # show chosen ammunition
-        ammunition_type = {B: 'weapon', C: 'head_armor', D: 'body_armor', E: 'arms_armor', F: 'shield'}[choose.to_sym]
-        ammunition_code = @hero.send(ammunition_type).code
-        AmmunitionShow.show(ammunition_type, ammunition_code) if ammunition_code != 'without'
       end
+      show_weapon_buttons_actions(choose)
     end
   end
 
@@ -128,6 +124,15 @@ class Run
     MainRenderer.new(:messages_screen, entity: @messages).display
     @messages.clear_log
     gets
+  end
+
+  def show_weapon_buttons_actions(distribution)
+    if distribution == 'A' # show all ammunition
+    elsif %w[B C D E F].include?(distribution) # show chosen ammunition
+      ammunition_type = {B: 'weapon', C: 'head_armor', D: 'body_armor', E: 'arms_armor', F: 'shield'}[distribution.to_sym]
+      ammunition_code = @hero.send(ammunition_type).code
+      AmmunitionShow.show(ammunition_type, ammunition_code) if ammunition_code != 'without'
+    end
   end
 
 end
