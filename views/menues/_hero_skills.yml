@@ -1,12 +1,12 @@
 view:
-  - "█ active    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                                                   █"
-  - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
-  - "█                                                                                                                      █"
-  - "█ passive   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                                                   █"
-  - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
-  - "█                                                                                                                      █"
-  - "█ camp      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                                                   █"
-  - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
+  - " active    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                                                   "
+  - " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA "
+  - "                                                                                                                      "
+  - " passive   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                                                   "
+  - " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA "
+  - "                                                                                                                      "
+  - " camp      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                                                   "
+  - " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA "
 insert_options:
   0:
     A:

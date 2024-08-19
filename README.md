@@ -21,7 +21,9 @@ ruby pzdc_dungeon_2.rb
 For a better picture, make the terminal window to the outline of the game screen and one line below it for input
 
 Recommended terminal dimensions:
+
 width  - 120
+
 height - 36
 
 
