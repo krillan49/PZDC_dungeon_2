@@ -2,22 +2,24 @@ view:
   - "                                                                          "
   - " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA            lvl BBB          exp CCCC/DDDD "
   - "──────────────────────────────────────────────────────────────────────────"
-  - " hp AAA/BBB       hp regen CCC       hp recovery DDD                      "
-  - " mp AAA/BBB       mp regen CCC       mp recovery DDD                      "
+  - "   hp AAA/BBB              hp regen CCC               hp recovery DDD     "
+  - "   mp AAA/BBB              mp regen CCC               mp recovery DDD     "
   - "                                                                          "
-  - " damage AAA-BBB   basic CCC-DDD   EEEEEEEEEEEEEEEEEEEEE FFF-GGG           "
+  - "   damage   AAA-BBB                      basic CCC-DDD                    "
   - "                                                                          "
-  - " accuracy AAA     basic   BBB     CCCCCCCCCCCCCCCCCCCCC   DDD             "
+  - "   accuracy   AAA                        basic   BBB                      "
   - "                                                                          "
-  - " armor    AAA                                                             "
-  - " basic    AAA                                                             "
-  - " head     AAA   BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB                            "
-  - " body     AAA   BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB                            "
-  - " arms     AAA   BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB                            "
-  - " shield   AAA   BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB                            "
+  - "   armor      AAA                        basic   BBB                      "
   - "                                                                          "
-  - " block chance    AAA     shield   BBB   CCCCCCCCCCCCCCCCCCCCCCCCCCCCCC    "
-  - " block power     AAA %                                                    "
+  - "   block chance    AAA                   block power     BBB %            "
+  - "──────────────────────────────────────────────────────────────────────────"
+  - "                       AMMUNITION     [Enter A]                           "
+  - "                                                                          "
+  - "   [Enter B]   weapon    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
+  - "   [Enter C]   head      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
+  - "   [Enter D]   body      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
+  - "   [Enter E]   arms      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
+  - "   [Enter F]   shield    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
   - "                                                                          "
 insert_options:
   1:
@@ -92,21 +94,6 @@ insert_options:
       methods:
         - max_dmg_base
       modifier: s
-    E:
-      methods:
-        - weapon
-        - name
-      modifier: s
-    F:
-      methods:
-        - weapon
-        - min_dmg
-      modifier: e
-    G:
-      methods:
-        - weapon
-        - max_dmg
-      modifier: s
   8:
     A:
       methods:
@@ -116,90 +103,54 @@ insert_options:
       methods:
         - accuracy_base
       modifier: m
-    C:
-      methods:
-        - arms_armor
-        - name
-      modifier: s
-    D:
-      methods:
-        - arms_armor
-        - accuracy
-      modifier: m
   10:
     A:
       methods:
         - armor
       modifier: e
-  11:
-    A:
+    B:
       methods:
         - armor_base
       modifier: e
   12:
     A:
       methods:
-        - head_armor
-        - armor
-      modifier: e
+        - block_chance
+      modifier: m
     B:
       methods:
-        - head_armor
-        - name
-      modifier: s
-  13:
+        - block_power_in_percents
+      modifier: m
+  16:
     A:
       methods:
-        - body_armor
-        - armor
-      modifier: e
-    B:
-      methods:
-        - body_armor
-        - name
-      modifier: s
-  14:
-    A:
-      methods:
-        - arms_armor
-        - armor
-      modifier: e
-    B:
-      methods:
-        - arms_armor
-        - name
-      modifier: s
-  15:
-    A:
-      methods:
-        - shield
-        - armor
-      modifier: e
-    B:
-      methods:
-        - shield
+        - weapon
         - name
       modifier: s
   17:
     A:
       methods:
-        - block_chance
-      modifier: m
-    B:
-      methods:
-        - shield
-        - block_chance
-      modifier: e
-    C:
-      methods:
-        - shield
+        - head_armor
         - name
       modifier: s
   18:
     A:
       methods:
-        - block_power_in_percents
-      modifier: m
+        - body_armor
+        - name
+      modifier: s
+  19:
+    A:
+      methods:
+        - arms_armor
+        - name
+      modifier: s
+  20:
+    A:
+      methods:
+        - shield
+        - name
+      modifier: s
 
 
 

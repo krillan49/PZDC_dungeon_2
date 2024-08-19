@@ -24,11 +24,7 @@ class LoadHeroInRun
   private
 
   def choose_hero
-    @messages.main = "Confirm character upload [y/N]"
     hero_recreate()
-    display_and_change_screen()
-    input = gets.strip.upcase
-    @hero = nil if input != 'Y'
   end
 
   def hero_recreate
@@ -53,10 +49,6 @@ class LoadHeroInRun
     @hero_data['camp_loot'].each do |loot_type, value|
       @hero.send "#{loot_type}=", value
     end
-  end
-
-  def display_and_change_screen
-    MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
   end
 
   def display_with_confirm_and_change_screen

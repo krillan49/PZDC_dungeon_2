@@ -23,7 +23,13 @@ class HeroUpdator
           '+1 min/max(random) damage (4)'
         ] if strong_stat >= 4
         MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
-        distribution = gets.strip
+        distribution = gets.strip.upcase
+        if distribution == 'A' # show all ammunition
+        elsif %w[B C D E F].include?(distribution) # show chosen ammunition
+          ammunition_type = {B: 'weapon', C: 'head_armor', D: 'body_armor', E: 'arms_armor', F: 'shield'}[distribution.to_sym]
+          ammunition_code = @hero.send(ammunition_type).code
+          AmmunitionShow.show(ammunition_type, ammunition_code) if ammunition_code != 'without'
+        end
         if distribution == '1'
           @hero.hp_max += 5
           @hero.hp += 5
@@ -64,6 +70,12 @@ class HeroUpdator
         ]
         MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
         distribution = gets.strip.upcase
+        if distribution == 'A' # show all ammunition
+        elsif %w[B C D E F].include?(distribution) # show chosen ammunition
+          ammunition_type = {B: 'weapon', C: 'head_armor', D: 'body_armor', E: 'arms_armor', F: 'shield'}[distribution.to_sym]
+          ammunition_code = @hero.send(ammunition_type).code
+          AmmunitionShow.show(ammunition_type, ammunition_code) if ammunition_code != 'without'
+        end
         case distribution
         when '1'
           @hero.active_skill.lvl += 1

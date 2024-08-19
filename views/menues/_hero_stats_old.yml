@@ -5,18 +5,18 @@ view:
   - " hp AAA/BBB       hp regen CCC       hp recovery DDD                      "
   - " mp AAA/BBB       mp regen CCC       mp recovery DDD                      "
   - "                                                                          "
-  - " damage AAA-BBB   basic CCC-DDD                                           "
+  - " damage AAA-BBB   basic CCC-DDD   EEEEEEEEEEEEEEEEEEEEE FFF-GGG           "
   - "                                                                          "
-  - " accuracy AAA     basic   BBB                                             "
+  - " accuracy AAA     basic   BBB     CCCCCCCCCCCCCCCCCCCCC   DDD             "
   - "                                                                          "
-  - " armor    AAA     basic   AAA                                             "
-  - "                                                                          "
+  - " armor    AAA                                                             "
+  - " basic    AAA                                                             "
   - " head     AAA   BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB                            "
   - " body     AAA   BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB                            "
   - " arms     AAA   BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB                            "
   - " shield   AAA   BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB                            "
   - "                                                                          "
-  - " block chance    AAA                                                      "
+  - " block chance    AAA     shield   BBB   CCCCCCCCCCCCCCCCCCCCCCCCCCCCCC    "
   - " block power     AAA %                                                    "
   - "                                                                          "
 insert_options:
@@ -92,6 +92,21 @@ insert_options:
       methods:
         - max_dmg_base
       modifier: s
+    E:
+      methods:
+        - weapon
+        - name
+      modifier: s
+    F:
+      methods:
+        - weapon
+        - min_dmg
+      modifier: e
+    G:
+      methods:
+        - weapon
+        - max_dmg
+      modifier: s
   8:
     A:
       methods:
@@ -101,12 +116,23 @@ insert_options:
       methods:
         - accuracy_base
       modifier: m
+    C:
+      methods:
+        - arms_armor
+        - name
+      modifier: s
+    D:
+      methods:
+        - arms_armor
+        - accuracy
+      modifier: m
   10:
     A:
       methods:
         - armor
       modifier: e
-    B:
+  11:
+    A:
       methods:
         - armor_base
       modifier: e
@@ -159,6 +185,16 @@ insert_options:
       methods:
         - block_chance
       modifier: m
+    B:
+      methods:
+        - shield
+        - block_chance
+      modifier: e
+    C:
+      methods:
+        - shield
+        - name
+      modifier: s
   18:
     A:
       methods:

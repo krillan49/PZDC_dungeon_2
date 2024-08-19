@@ -30,13 +30,21 @@ class Run
   end
 
   def save_and_exit
-    @messages.main = 'Save this run and exit game? [y/N]'
-    MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
-    choose = gets.strip.upcase
-    if choose == 'Y'
-      # сохранение персонажа
-      SaveHeroInRun.new(@hero, @leveling).save
-      @exit_to_main = true # exit
+    choose = nil
+    until %w[Y N 0].include?(choose)
+      @messages.main = 'Save this run and exit game? [y/N]'
+      MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
+      choose = gets.strip.upcase
+      if choose == 'Y'
+        # сохранение персонажа
+        SaveHeroInRun.new(@hero, @leveling).save
+        @exit_to_main = true # exit
+      elsif choose == 'A' # show all ammunition
+      elsif %w[B C D E F].include?(choose) # show chosen ammunition
+        ammunition_type = {B: 'weapon', C: 'head_armor', D: 'body_armor', E: 'arms_armor', F: 'shield'}[choose.to_sym]
+        ammunition_code = @hero.send(ammunition_type).code
+        AmmunitionShow.show(ammunition_type, ammunition_code) if ammunition_code != 'without'
+      end
     end
   end
 
