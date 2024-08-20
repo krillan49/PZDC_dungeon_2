@@ -10,6 +10,10 @@
 git clone https://github.com/krillan49/Pzdc_dungeon2.git
 ```
 
+## Requirements
+
+The only requirement for "PZDC dungeon 2" is a local installation of Ruby 3.0.0+.
+
 ## Run
 
 ```shell

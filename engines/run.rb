@@ -113,18 +113,22 @@ class Run
     end
     # Получение опыта и очков
     HeroActions.add_exp_and_hero_level_up(@hero, @enemy.exp_gived, @messages) if !@hero_run_from_battle
-    display_message_screen_with_confirm_and_change_screen()
+    # display_message_screen_with_confirm_and_change_screen()
+    @messages.main = 'To continue press Enter'
+    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ exp_gained: :exp_gained }]).display
+    @messages.clear_log
+    gets
     @leveling += 1
   end
 
   private
 
-  def display_message_screen_with_confirm_and_change_screen
-    @messages.main = 'To continue press Enter'
-    MainRenderer.new(:messages_screen, entity: @messages).display
-    @messages.clear_log
-    gets
-  end
+  # def display_message_screen_with_confirm_and_change_screen
+  #   @messages.main = 'To continue press Enter'
+  #   MainRenderer.new(:messages_screen, entity: @messages).display
+  #   @messages.clear_log
+  #   gets
+  # end
 
   def show_weapon_buttons_actions(distribution)
     if distribution == 'A' # show all ammunition
