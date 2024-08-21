@@ -31,7 +31,7 @@ class Run
 
   def save_and_exit
     choose = nil
-    until %w[Y N 0].include?(choose)
+    until ['Y', 'N', ''].include?(choose)
       @messages.main = 'Save this run and exit game? [y/N]'
       MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
       choose = gets.strip.upcase
@@ -115,7 +115,7 @@ class Run
     if @enemy.code == 'boss'
       @exit_to_main = true
       @messages.main = 'Boss killed. To continue press Enter'
-      MainRenderer.new(:run_win_screen, entity: @messages).display
+      MainRenderer.new(:run_win_screen, entity: @messages, arts: [{ win_art: :win_art }]).display
       gets
       DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
       return

@@ -17,7 +17,11 @@ module HeroActions
     end
     if hero.regen_mp > 0 && hero.mp_max > hero.mp
       hero.mp += [hero.regen_mp, hero.mp_max - hero.mp].min
-      messages.log << "You regenerating #{hero.regen_mp} mp"
+      if messages.log[-1].include?('regenerating')
+        messages.log[-1] += ". You regenerating #{hero.regen_mp} mp"
+      else
+        messages.log << "You regenerating #{hero.regen_mp} mp"
+      end
     end
   end
 

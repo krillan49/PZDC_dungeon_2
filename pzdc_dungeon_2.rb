@@ -93,7 +93,7 @@ Main.new.start_game
 # Картинка Экран выбора имени персонажа - controllers/hero_creator -> :messages_screen
 # Выбор скилов - другой экран со всеми строками текста
 # Картинка персонажа для :hero_update_screen. load_hero_run, engines/run
-# Картинки для лута оружия,  enemy_loot
+# Картинки для лута оружия,  enemy_loot   y-16 x-53
 
 
 

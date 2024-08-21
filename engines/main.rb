@@ -31,7 +31,11 @@ class Main
   def load_or_start_new_run
     MainRenderer.new(:load_new_run_screen, arts: [ { dungeon_cave: :dungeon_enter } ] ).display
     new_load = gets.strip
-    new_load == '2' ? start_new_run() : load_run()
+    if new_load == '1'
+      load_run()
+    elsif new_load == '2'
+      start_new_run()
+    end
   end
 
   def load_run
