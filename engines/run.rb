@@ -96,6 +96,15 @@ class Run
   end
 
   def after_battle
+    # Получение опыта и очков
+    if !@hero_run_from_battle
+      HeroActions.add_exp_and_hero_level_up(@hero, @enemy.exp_gived, @messages)
+      # display_message_screen_with_confirm_and_change_screen()
+      @messages.main = 'To continue press Enter'
+      MainRenderer.new(:messages_screen, entity: @messages, arts: [{ exp_gained: :exp_gained }]).display
+      @messages.clear_log
+      gets
+    end
     # Сбор лута
     loot = LootRound.new(@hero, @enemy, @hero_run_from_battle)
     loot.action
@@ -111,24 +120,10 @@ class Run
       DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
       return
     end
-    # Получение опыта и очков
-    HeroActions.add_exp_and_hero_level_up(@hero, @enemy.exp_gived, @messages) if !@hero_run_from_battle
-    # display_message_screen_with_confirm_and_change_screen()
-    @messages.main = 'To continue press Enter'
-    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ exp_gained: :exp_gained }]).display
-    @messages.clear_log
-    gets
     @leveling += 1
   end
 
   private
-
-  # def display_message_screen_with_confirm_and_change_screen
-  #   @messages.main = 'To continue press Enter'
-  #   MainRenderer.new(:messages_screen, entity: @messages).display
-  #   @messages.clear_log
-  #   gets
-  # end
 
   def show_weapon_buttons_actions(distribution)
     if distribution == 'A' # show all ammunition
