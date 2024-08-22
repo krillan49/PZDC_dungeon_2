@@ -1,11 +1,11 @@
 class SecretLoot
-  def initialize(hero, messages)
+  def initialize(hero)
     @hero = hero
-    @messages = messages
 
     basic_loot_chanse = rand(1..200)
     @loot_chanse = basic_loot_chanse + (@hero.camp_skill.name == "Treasure hunter" ? @hero.camp_skill.coeff_lvl : 0)
 
+    @messages = MainMessage.new
     @messages.log << "#{basic_loot_chanse} + treasure hunter(#{@hero.camp_skill.coeff_lvl}) = #{@loot_chanse}"
   end
 

@@ -29,15 +29,7 @@ class LootRound
     fl = FieldLoot.new(@hero, @messages)
     fl.looting
     return if fl.hero_dead?
-    SecretLoot.new(@hero, @messages).looting
-    # display_message_screen_with_confirm_and_change_screen()
+    SecretLoot.new(@hero).looting
   end
 
-  private
-
-  # def display_message_screen_with_confirm_and_change_screen
-  #   @messages.main = 'To continue press Enter'
-  #   MainRenderer.new(:messages_screen, entity: @messages).display
-  #   gets
-  # end
 end

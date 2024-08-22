@@ -3,12 +3,19 @@ class FieldLoot
     @hero = hero
     @messages = messages
 
-    @field_loot = ['potion', 'rat', 'nothing']
+    @basic_loot_chanse = rand(1..200)
+    @loot_chanse = @basic_loot_chanse + (@hero.camp_skill.name == "Treasure hunter" ? @hero.camp_skill.coeff_lvl : 0)
   end
 
   def looting
-    @messages.log << 'Search everything around... '
-    send(@field_loot.sample)
+    @messages.log << "Search everything around... (#{@basic_loot_chanse} => #{@loot_chanse})"
+    if @loot_chanse > 140
+      potion()
+    elsif @loot_chanse > 70
+      nothing()
+    else
+      rat()
+    end
   end
 
   def hero_dead?
@@ -22,8 +29,8 @@ class FieldLoot
   end
 
   def potion
-    @hero.hp += [20, @hero.hp_max - @hero.hp].min
-    @messages.log << "Found a potion that restores 20 hp, now you have it #{@hero.hp.round}/#{@hero.hp_max} hp"
+    @hero.hp += [15, @hero.hp_max - @hero.hp].min
+    @messages.log << "Found a potion that restores 15 hp, now you have it #{@hero.hp.round}/#{@hero.hp_max} hp"
     display_message_screen()
   end
 
