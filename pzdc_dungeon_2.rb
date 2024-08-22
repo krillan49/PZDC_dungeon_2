@@ -51,12 +51,13 @@ require_relative "models/ammunition/head_armor"
 require_relative "models/ammunition/shield"
 require_relative "models/ammunition/weapon"
 # skills
+require_relative "models/skills/precise_strike"
+require_relative "models/skills/strong_strike"
+require_relative "models/skills/berserk"
 require_relative "models/skills/concentration"
 require_relative "models/skills/dazed"
-require_relative "models/skills/first_aid"
-require_relative "models/skills/precise_strike"
 require_relative "models/skills/shield_master"
-require_relative "models/skills/strong_strike"
+require_relative "models/skills/first_aid"
 require_relative "models/skills/treasure_hunter"
 # characters
 require_relative "models/characters/enemy"
@@ -87,7 +88,6 @@ Main.new.start_game
 # Герой прошел данжен(или часть данжена, если в случайных событиях попадется зона выхода)
 
 # Навыки:
-# Чем меньше жизни тем больше урон
 
 # (АРТЫ и переделка вьюх):
 # Картинка Экран выбора имени персонажа - controllers/hero_creator -> :messages_screen

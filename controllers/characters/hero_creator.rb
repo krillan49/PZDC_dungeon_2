@@ -106,16 +106,17 @@ class HeroCreator
       '   Skill:                  Push:           Description:',
       "   Dazed                   (1)             If the damage is more than a portion of the enemy's HP, he loses 10-90(%) accuracy",
       '   Concentration           (2)             If mp is more than 100, then random additional damage is inflicted',
-      '   Shield Master           (3)             Shield block chance increased'
+      '   Shield Master           (3)             Shield block chance increased',
+      '   Berserk                 (4)             The less hitpoints are left from the maximum, the more damage'
     ]
     MainRenderer.new(:messages_screen, entity: @messages).display
     passive_choiсe = gets.strip.upcase
-    while passive_choiсe != '1' && passive_choiсe != '2' && passive_choiсe != '3'
+    while !%w[1 2 3 4].include?(passive_choiсe)
       @messages.main = 'Invalid character entered. Try again'
       MainRenderer.new(:messages_screen, entity: @messages).display
       passive_choiсe = gets.strip.upcase
     end
-    skills = {'1' => 'dazed', '2' => 'concentration', '3' => 'shield_master'}
+    skills = {'1' => 'dazed', '2' => 'concentration', '3' => 'shield_master', '4' => 'berserk'}
     @hero.passive_skill = SkillsCreator.create(skills[passive_choiсe], @hero)
   end
 

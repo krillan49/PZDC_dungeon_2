@@ -81,9 +81,10 @@ Active skills (spend mp):
 
 Passive skills:
 -
+* "Berserk" - the less hitpoints are left from the maximum, the more damage
 * "Concentration" - deals additional damage when attacking depending on the maximum mp
-* "Shield Master" - increases the chance block with a shield (the amount of damage blocked by the shield does not depend on the skill, but only on the character's current health)
 * "Dazed" - with a certain ratio of one-time damage inflicted to the enemy's remaining hit points, you can reduce the accuracy of his next blow
+* "Shield Master" - increases the chance block with a shield (the amount of damage blocked by the shield does not depend on the skill, but only on the character's current health)
 
 Non-combat skills (work between battles):
 -

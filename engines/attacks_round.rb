@@ -130,8 +130,15 @@ class AttacksRound
   end
 
   def count_hero_final_damage
+    hero_before_hit_passive_slill_effects()
     hero_damage_reduced_by_enemy_block()
     hero_damage_reduced_by_enemy_armor()
+  end
+  def hero_before_hit_passive_slill_effects
+    case @hero.passive_skill.name
+    when "Berserk"
+      @hero_damage *= @hero.passive_skill.damage_coef
+    end
   end
   def hero_damage_reduced_by_enemy_block
     @hero_damage /= @enemy.block_power_coeff if @enemy_block_successful
@@ -156,7 +163,7 @@ class AttacksRound
   def hero_attack_effects
     @hero_hit = @hero_accuracy >= rand(1..100)
     hero_hit_or_miss()
-    hero_hit_passive_slill_effects()
+    hero_after_hit_passive_slill_effects()
     @messages.actions = ""
     MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ damaged: @enemy }]).display
   end
@@ -169,18 +176,18 @@ class AttacksRound
       @messages.log << "You missed #{@hero_attack_type}"
     end
   end
-  def hero_hit_passive_slill_effects
+  def hero_after_hit_passive_slill_effects
     case @hero.passive_skill.name
-    when "Dazed"
-      if @hero_hit && @hero_damage * @hero.passive_skill.accuracy_reduce_coef > (@enemy.hp + @hero_damage) / 2 # прибавляется дамаг который отнялся выше для подсчета эффекта ошеломления
-        @enemy_accuracy *= 0.1 * rand(1..9)
-        @messages.log[-1] += " and dazed the enemy, reducing his accuracy to #{(@enemy.accuracy * 0.1 * rand(1..9)).round}"
-      end
     when "Concentration"
       damage_bonus = @hero.passive_skill.damage_bonus # чтобы далее был одинаковый
       if @hero_hit && damage_bonus > 0
         @enemy.hp -= damage_bonus
         @messages.log[-1] += ", additional damage from concentration #{damage_bonus.round(1)}"
+      end
+    when "Dazed"
+      if @hero_hit && @hero_damage * @hero.passive_skill.accuracy_reduce_coef > (@enemy.hp + @hero_damage) / 2 # прибавляется дамаг который отнялся выше для подсчета эффекта ошеломления
+        @enemy_accuracy *= 0.1 * rand(1..9)
+        @messages.log[-1] += " and dazed the enemy, reducing his accuracy to #{(@enemy.accuracy * 0.1 * rand(1..9)).round}"
       end
     end
   end

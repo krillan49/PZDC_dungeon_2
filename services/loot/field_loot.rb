@@ -9,7 +9,7 @@ class FieldLoot
 
   def looting
     @messages.log << "Search everything around... (#{@basic_loot_chanse} => #{@loot_chanse})"
-    if @loot_chanse > 140
+    if @loot_chanse > 160
       potion()
     elsif @loot_chanse > 70
       nothing()
@@ -29,8 +29,8 @@ class FieldLoot
   end
 
   def potion
-    @hero.hp += [15, @hero.hp_max - @hero.hp].min
-    @messages.log << "Found a potion that restores 15 hp, now you have it #{@hero.hp.round}/#{@hero.hp_max} hp"
+    @hero.hp += [10, @hero.hp_max - @hero.hp].min
+    @messages.log << "Found a potion that restores 10 hp, now you have it #{@hero.hp.round}/#{@hero.hp_max} hp"
     display_message_screen()
   end
 
