@@ -21,4 +21,8 @@ class Berserk
   def description
     "(#{@lvl}): The less HP are left(#{@hero.hp.round}) from the maximum(#{@hero.hp_max}), the more damage X(#{damage_coef().round(2)})"
   end
+
+  def description_short
+    "The less HP the more damage"
+  end
 end

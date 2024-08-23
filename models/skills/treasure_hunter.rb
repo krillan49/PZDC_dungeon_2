@@ -18,6 +18,10 @@ class TreasureHunter
   def description
     "(#{@lvl}): treasure hunt bonus is #{coeff_lvl()}"
   end
+
+  def description_short
+    "Treasure hunt bonus is #{coeff_lvl()}"
+  end
 end
 
 

@@ -18,6 +18,10 @@ class ShieldMaster
   def description
     "(#{@lvl}): shield block chance increased by #{block_chance_bonus()}%"
   end
+
+  def description_short
+    "Shield block chance increased by #{block_chance_bonus()}%"
+  end
 end
 
 

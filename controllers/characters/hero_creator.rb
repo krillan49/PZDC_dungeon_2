@@ -84,11 +84,7 @@ class HeroCreator
 
   def active_skill
     @messages.main = 'Select an active skill'
-    @messages.log = [
-      '   Skill:                  Push:           Description:',
-      '   Strong Strike           (1)             Hit much harder',
-      '   Precision Strike        (2)             Hit much more accurately and a little harder'
-    ]
+    @messages.log = SkillsShow.new('active_skill').show_in_hero_creator(@hero)
     MainRenderer.new(:messages_screen, entity: @messages).display
     special_choiсe = gets.strip.upcase
     while special_choiсe != '1' && special_choiсe != '2'
@@ -96,19 +92,13 @@ class HeroCreator
       MainRenderer.new(:messages_screen, entity: @messages).display
       special_choiсe = gets.strip.upcase
     end
-    skills = {'1' => 'strong_strike', '2' => 'precise_strike'}
+    skills = {'1' => 'precise_strike', '2' => 'strong_strike' }
     @hero.active_skill = SkillsCreator.create(skills[special_choiсe], @hero)
   end
 
   def passive_skill
     @messages.main = 'Select a passive skill'
-    @messages.log = [
-      '   Skill:                  Push:           Description:',
-      "   Dazed                   (1)             If the damage is more than a portion of the enemy's HP, he loses 10-90(%) accuracy",
-      '   Concentration           (2)             If mp is more than 100, then random additional damage is inflicted',
-      '   Shield Master           (3)             Shield block chance increased',
-      '   Berserk                 (4)             The less hitpoints are left from the maximum, the more damage'
-    ]
+    @messages.log = SkillsShow.new('passive_skill').show_in_hero_creator(@hero)
     MainRenderer.new(:messages_screen, entity: @messages).display
     passive_choiсe = gets.strip.upcase
     while !%w[1 2 3 4].include?(passive_choiсe)
@@ -116,17 +106,13 @@ class HeroCreator
       MainRenderer.new(:messages_screen, entity: @messages).display
       passive_choiсe = gets.strip.upcase
     end
-    skills = {'1' => 'dazed', '2' => 'concentration', '3' => 'shield_master', '4' => 'berserk'}
+    skills = {'1' => 'berserk', '2' => 'concentration', '3' => 'dazed', '4' => 'shield_master'}
     @hero.passive_skill = SkillsCreator.create(skills[passive_choiсe], @hero)
   end
 
   def camp_skill
     @messages.main = 'Select a non-combat skill'
-    @messages.log = [
-      '   Skill:                  Push:           Description:',
-      '   First Aid               (1)             Restores HP, the more HP lost, the greater the effect',
-      '   Treasure Hunter         (2)             Chance to find unique loot increased'
-    ]
+    @messages.log = SkillsShow.new('camp_skill').show_in_hero_creator(@hero)
     MainRenderer.new(:messages_screen, entity: @messages).display
     noncombat_choiсe = gets.strip.upcase
     while noncombat_choiсe != '1' && noncombat_choiсe != '2'

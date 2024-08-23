@@ -26,7 +26,11 @@ class FirstAid
   end
 
   def description
-    "(#{@lvl}): restores #{heal_effect().round} hp, the more hp lost, the greater the effect(#{(HERO_HP_MOD * coeff_lvl() * 100).round}%), cost #{@mp_cost} mp"
+    "(#{@lvl}): restores #{heal_effect().round} HP, the more HP lost, the greater the effect(#{(HERO_HP_MOD * coeff_lvl() * 100).round}%). Cost #{@mp_cost} MP"
+  end
+
+  def description_short
+    "Restores HP, the more HP lost, the greater the effect. Cost #{@mp_cost} MP"
   end
 end
 

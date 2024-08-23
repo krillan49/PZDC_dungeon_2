@@ -26,6 +26,10 @@ class StrongStrike
   def description
     "(#{@lvl}): damage is stronger in #{damage_mod().round(1)}. Cost #{MP_COST}"
   end
+
+  def description_short
+    "Damage is stronger in #{damage_mod().round(1)}. Cost #{MP_COST}"
+  end
 end
 
 

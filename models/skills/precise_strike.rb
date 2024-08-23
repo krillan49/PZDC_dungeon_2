@@ -27,6 +27,10 @@ class PreciseStrike
   def description
     "(#{@lvl}): more precisely in #{accuracy_mod().round(1)}, stronger in #{damage_mod().round(1)}. Cost #{MP_COST}"
   end
+
+  def description_short
+    "More precisely in #{accuracy_mod().round(1)}, stronger in #{damage_mod().round(1)}. Cost #{MP_COST}"
+  end
 end
 
 
