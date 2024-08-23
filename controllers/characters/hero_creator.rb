@@ -44,7 +44,7 @@ class HeroCreator
       "                       Worker           (3)      15 mp          ",
       "                       Student          (4)      1 skill point  "
     ]
-    MainRenderer.new(:messages_screen, entity: @messages).display
+    MainRenderer.new(:messages_full_screen, entity: @messages).display
     @messages.clear_log
     choose_story_pl = gets.strip.upcase
     case choose_story_pl
@@ -54,7 +54,7 @@ class HeroCreator
     when '4'; 'student'
     else
       @messages.main = 'You mixed up the letters, you stupid drunk -5 lives -5 stamina -10 accuracy'
-      MainRenderer.new(:messages_screen, entity: @messages).display
+      MainRenderer.new(:messages_full_screen, entity: @messages).display
       gets
       'drunk'
     end
@@ -108,12 +108,12 @@ class HeroCreator
 
   def select_skill(skill_type)
     @messages.log = SkillsShow.new(skill_type).show_in_hero_creator(@hero)
-    MainRenderer.new(:messages_screen, entity: @messages).display
+    MainRenderer.new(:messages_full_screen, entity: @messages).display
     choiсe = gets.strip.upcase
     indexes = SkillsShow.indexes_of_type(skill_type)
     until indexes.include?(choiсe)
       @messages.main = 'Invalid character entered. Try again'
-      MainRenderer.new(:messages_screen, entity: @messages).display
+      MainRenderer.new(:messages_full_screen, entity: @messages).display
       choiсe = gets.strip.upcase
     end
     skill_code = SkillsShow.skill_code_by_index(skill_type, choiсe.to_i - 1)
