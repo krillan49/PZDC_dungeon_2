@@ -84,44 +84,17 @@ class HeroCreator
 
   def active_skill
     @messages.main = 'Select an active skill'
-    @messages.log = SkillsShow.new('active_skill').show_in_hero_creator(@hero)
-    MainRenderer.new(:messages_screen, entity: @messages).display
-    special_choiсe = gets.strip.upcase
-    while special_choiсe != '1' && special_choiсe != '2'
-      @messages.main = 'Invalid character entered. Try again'
-      MainRenderer.new(:messages_screen, entity: @messages).display
-      special_choiсe = gets.strip.upcase
-    end
-    skills = {'1' => 'precise_strike', '2' => 'strong_strike' }
-    @hero.active_skill = SkillsCreator.create(skills[special_choiсe], @hero)
+    select_skill('active_skill')
   end
 
   def passive_skill
     @messages.main = 'Select a passive skill'
-    @messages.log = SkillsShow.new('passive_skill').show_in_hero_creator(@hero)
-    MainRenderer.new(:messages_screen, entity: @messages).display
-    passive_choiсe = gets.strip.upcase
-    while !%w[1 2 3 4].include?(passive_choiсe)
-      @messages.main = 'Invalid character entered. Try again'
-      MainRenderer.new(:messages_screen, entity: @messages).display
-      passive_choiсe = gets.strip.upcase
-    end
-    skills = {'1' => 'berserk', '2' => 'concentration', '3' => 'dazed', '4' => 'shield_master'}
-    @hero.passive_skill = SkillsCreator.create(skills[passive_choiсe], @hero)
+    select_skill('passive_skill')
   end
 
   def camp_skill
     @messages.main = 'Select a non-combat skill'
-    @messages.log = SkillsShow.new('camp_skill').show_in_hero_creator(@hero)
-    MainRenderer.new(:messages_screen, entity: @messages).display
-    noncombat_choiсe = gets.strip.upcase
-    while noncombat_choiсe != '1' && noncombat_choiсe != '2'
-      @messages.main = 'Invalid character entered. Try again'
-      MainRenderer.new(:messages_screen, entity: @messages).display
-      noncombat_choiсe = gets.strip.upcase
-    end
-    skills = {'1' => 'first_aid', '2' => 'treasure_hunter'}
-    @hero.camp_skill = SkillsCreator.create(skills[noncombat_choiсe], @hero)
+    select_skill('camp_skill')
   end
 
   def cheating
@@ -129,6 +102,22 @@ class HeroCreator
       @hero.weapon = Weapon.new('bambuga')
       @hero.name = 'Cheater'
     end
+  end
+
+  private
+
+  def select_skill(skill_type)
+    @messages.log = SkillsShow.new(skill_type).show_in_hero_creator(@hero)
+    MainRenderer.new(:messages_screen, entity: @messages).display
+    choiсe = gets.strip.upcase
+    indexes = SkillsShow.indexes_of_type(skill_type)
+    until indexes.include?(choiсe)
+      @messages.main = 'Invalid character entered. Try again'
+      MainRenderer.new(:messages_screen, entity: @messages).display
+      choiсe = gets.strip.upcase
+    end
+    skill_code = SkillsShow.skill_code_by_index(skill_type, choiсe.to_i - 1)
+    @hero.send "#{skill_type}=", SkillsCreator.create(skill_code, @hero)
   end
 end
 
