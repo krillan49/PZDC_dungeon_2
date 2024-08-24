@@ -88,7 +88,8 @@ Passive skills:
 
 Non-combat skills (work between battles):
 -
-* "First Aid" (active) - at a halt between battles restores part of the health, the more the greater the difference between the maximum health and the remaining
+* "Bloody ritual" (active) - at a halt between battles restores part of the MP, the more the greater the difference between the maximum MP and the remaining
+* "First Aid" (active) - at a halt between battles restores part of the HP, the more the greater the difference between the maximum HP and the remaining
 * "Treasure Hunter" (passive) - increases the chance and value of loot dropped after the battle
 
 ## TODO
