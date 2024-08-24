@@ -7,6 +7,7 @@ module SkillsCreator
     when 'concentration'; Concentration.new(hero)
     when 'dazed'; Dazed.new
     when 'shield_master'; ShieldMaster.new
+    when 'bloody_ritual'; BloodyRitual.new(hero)
     when 'first_aid'; FirstAid.new(hero)
     when 'treasure_hunter'; TreasureHunter.new
     end

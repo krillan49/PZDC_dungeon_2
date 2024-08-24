@@ -58,6 +58,7 @@ require_relative "models/skills/berserk"
 require_relative "models/skills/concentration"
 require_relative "models/skills/dazed"
 require_relative "models/skills/shield_master"
+require_relative "models/skills/bloody_ritual"
 require_relative "models/skills/first_aid"
 require_relative "models/skills/treasure_hunter"
 # characters

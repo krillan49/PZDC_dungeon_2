@@ -2,11 +2,11 @@ class SkillsShow
   SKILLS_BY_TYPES = {
     'active_skill' => %w[precise_strike strong_strike],
     'passive_skill' => %w[berserk concentration dazed shield_master],
-    'camp_skill' => %w[first_aid treasure_hunter],
+    'camp_skill' => %w[bloody_ritual first_aid treasure_hunter],
     'all' => [
       'precise_strike', 'strong_strike',
       'berserk', 'concentration', 'dazed', 'shield_master',
-      'first_aid', 'treasure_hunter'
+      'bloody_ritual', 'first_aid', 'treasure_hunter'
     ]
   }
 
