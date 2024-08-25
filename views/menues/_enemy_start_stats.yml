@@ -9,24 +9,24 @@ view:
   - "   block chance AAA          "
   - "   block power AAA %         "
   - "                             "
-  - "         AMMUNITION          "
+  - "   AMMUNITION    [Enter A]   "
   - "                             "
   - "   AAAAAAAAAAAAAAAAAAAAAAAAA "
-  - "   damage:      AAA-BBB      "
+  - "   [Enter B]                 "
   - "                             "
   - "   AAAAAAAAAAAAAAAAAAAAAAAAA "
-  - "   armor:         AAA        "
+  - "   [Enter C]                 "
   - "                             "
   - "   AAAAAAAAAAAAAAAAAAAAAAAAA "
-  - "   armor:         AAA        "
+  - "   [Enter D]                 "
   - "                             "
   - "   AAAAAAAAAAAAAAAAAAAAAAAAA "
-  - "   armor:         AAA        "
-  - "   accuracy:      AAA        "
+  - "   [Enter E]                 "
   - "                             "
   - "   AAAAAAAAAAAAAAAAAAAAAAAAA "
-  - "   armor:         AAA        "
-  - "   block chance:  AAA        "
+  - "   [Enter F]                 "
+  - "                             "
+  - "                             "
   - "                             "
 insert_options:
   1:
@@ -91,23 +91,12 @@ insert_options:
       methods:
         - block_power_in_percents
       modifier: m
-
+# AMMUNITION
   12:
     A:
       methods:
         - weapon
         - name
-      modifier: s
-  13:
-    A:
-      methods:
-        - weapon
-        - min_dmg
-      modifier: e
-    B:
-      methods:
-        - weapon
-        - max_dmg
       modifier: s
   15:
     A:
@@ -115,60 +104,24 @@ insert_options:
         - head_armor
         - name
       modifier: s
-  16:
-    A:
-      methods:
-        - head_armor
-        - armor
-      modifier: e
   18:
     A:
       methods:
         - body_armor
         - name
       modifier: s
-  19:
-    A:
-      methods:
-        - body_armor
-        - armor
-      modifier: e
   21:
     A:
       methods:
         - arms_armor
         - name
       modifier: s
-  22:
-    A:
-      methods:
-        - arms_armor
-        - armor
-      modifier: e
-  23:
-    A:
-      methods:
-        - arms_armor
-        - accuracy
-      modifier: e
-  25:
+  24:
     A:
       methods:
         - shield
         - name
       modifier: s
-  26:
-    A:
-      methods:
-        - shield
-        - armor
-      modifier: e
-  27:
-    A:
-      methods:
-        - shield
-        - block_chance
-      modifier: e
 
 
 

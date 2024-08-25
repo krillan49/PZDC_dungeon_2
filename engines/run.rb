@@ -40,7 +40,7 @@ class Run
         SaveHeroInRun.new(@hero, @leveling).save
         @exit_to_main = true # exit
       end
-      show_weapon_buttons_actions(choose)
+      show_weapon_buttons_actions(choose, @hero)
     end
   end
 
@@ -76,8 +76,12 @@ class Run
     @attacks_round_messages = AttacksRoundMessage.new
     @attacks_round_messages.main = 'To continue press Enter'
     @attacks_round_messages.actions = "++++++++++++ Battle #{@leveling + 1} ++++++++++++"
-    MainRenderer.new(:enemy_start_screen, @enemy, entity: @attacks_round_messages, arts: [{ normal: @enemy }]).display
-    gets
+    choose = nil
+    until [''].include?(choose)
+      MainRenderer.new(:enemy_start_screen, @enemy, entity: @attacks_round_messages, arts: [{ normal: @enemy }]).display
+      choose = gets.strip.upcase
+      show_weapon_buttons_actions(choose, @enemy)
+    end
   end
 
   def battle
@@ -125,11 +129,11 @@ class Run
 
   private
 
-  def show_weapon_buttons_actions(distribution)
+  def show_weapon_buttons_actions(distribution, character)
     if distribution == 'A' # show all ammunition
     elsif %w[B C D E F].include?(distribution) # show chosen ammunition
       ammunition_type = {B: 'weapon', C: 'head_armor', D: 'body_armor', E: 'arms_armor', F: 'shield'}[distribution.to_sym]
-      ammunition_code = @hero.send(ammunition_type).code
+      ammunition_code = character.send(ammunition_type).code
       AmmunitionShow.show(ammunition_type, ammunition_code) if ammunition_code != 'without'
     end
   end
