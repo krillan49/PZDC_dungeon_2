@@ -1,4 +1,4 @@
-e2:
+e1: #e2:
   code_name: goblin
   name: Goblin
   hp: 65
@@ -23,7 +23,7 @@ e2:
     - without
     - braided_buckler
 
-e5:
+e2: #e5:
   code_name: orc
   name: Orc
   hp: 180
