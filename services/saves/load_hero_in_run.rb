@@ -49,6 +49,7 @@ class LoadHeroInRun
     @hero_data['camp_loot'].each do |loot_type, value|
       @hero.send "#{loot_type}=", value
     end
+    @hero.ingredients = @hero_data['ingredients']
   end
 
   def display_with_confirm_and_change_screen

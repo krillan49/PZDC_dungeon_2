@@ -20,6 +20,9 @@ e1:
     - worn_gloves
   shield:
     - without
+  ingredients:
+    - without
+    - zombie_brain
 
 e2:
   code_name: skeleton
@@ -43,6 +46,9 @@ e2:
     - without
   shield:
     - without
+  ingredients:
+    - without
+    - living_bone
 
 e3:
   code_name: ghost
@@ -65,6 +71,9 @@ e3:
     - without
   shield:
     - without
+  ingredients:
+    - without
+    - ghost_dust
 
 e4:
   code_name: fat_ghoul
@@ -87,6 +96,9 @@ e4:
     - without
   shield:
     - without
+  ingredients:
+    - without
+    - ghoul_heart
 
 e5:
   code_name: skeleton_soldier
@@ -117,6 +129,9 @@ e5:
     - rusty_mail_gloves
   shield:
     - rusty_scutum
+  ingredients:
+    - without
+    - living_bone
 
 boss:
   code_name: zombie_knight
@@ -139,6 +154,9 @@ boss:
     - rusty_mail_gloves
   shield:
     - without
+  ingredients:
+    - without
+    - zombie_brain
 
 
 

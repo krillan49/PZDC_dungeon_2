@@ -19,6 +19,9 @@ e1:
     - without
   shield:
     - without
+  ingredients:
+    - without
+    - leech_tongue
 
 e2:
   code_name: sworm
@@ -41,6 +44,9 @@ e2:
     - without
   shield:
     - without
+  ingredients:
+    - without
+    - worm_skin
 
 e3:
   code_name: spider
@@ -63,6 +69,9 @@ e3:
     - without
   shield:
     - without
+  ingredients:
+    - without
+    - chelicerae
 
 e4:
   code_name: snail
@@ -85,6 +94,9 @@ e4:
     - without
   shield:
     - without
+  ingredients:
+    - without
+    - piece_of_snail_shell
 
 
 

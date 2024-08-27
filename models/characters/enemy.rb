@@ -6,7 +6,7 @@ class Enemy
   attr_accessor :min_dmg_base, :max_dmg_base
   attr_accessor :accuracy_base
   attr_accessor :armor_base
-  attr_reader :exp_gived, :coins_gived
+  attr_reader :exp_gived, :coins_gived, :ingredients
 
   attr_reader :weapon, :body_armor, :head_armor, :arms_armor, :shield
 
@@ -33,6 +33,7 @@ class Enemy
     @armor_base    = enemy[:armor]
     @exp_gived     = enemy[:exp_gived]
     @coins_gived   = rand(0..enemy[:coins_gived])
+    @ingredients   = enemy[:ingredients].sample
 
     @weapon = Weapon.new(enemy[:weapon].sample)
     @body_armor = BodyArmor.new(enemy[:body_armor].sample)

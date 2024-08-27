@@ -13,6 +13,7 @@ class EnemyLoot
     arms_armor_loot() if rand(0..1) == 1 && @enemy.arms_armor.code != "without"
     shield_loot() if rand(0..1) == 1 && @enemy.shield.code != "without"
     coins_loot() if @enemy.coins_gived > 0
+    ingredients_loot() #if rand(0..2) == 2 && @enemy.ingredients != "without"
   end
 
   private
@@ -51,6 +52,19 @@ class EnemyLoot
     @hero.coins += @enemy.coins_gived
     @messages.log << "After searching the #{@enemy.name}'s body you found #{@enemy.coins_gived} coins. Now you have #{@hero.coins} coins"
     @messages.main = "Мy precious... Press Eenter to continue"
+    display_message_screen([{ loot_coins: :loot_coins }])
+    gets
+  end
+
+  def ingredients_loot
+    if @hero.ingredients[@enemy.ingredients]
+      @hero.ingredients[@enemy.ingredients] += 1
+    else
+      @hero.ingredients[@enemy.ingredients] = 1
+    end
+    ingredient = @enemy.ingredients.tr('_',' ').capitalize
+    @messages.main = "After searching the #{@enemy.name}'s body you found #{ingredient}"
+    @messages.clear_log
     display_message_screen
     gets
   end
@@ -68,8 +82,8 @@ class EnemyLoot
     ).display
   end
 
-  def display_message_screen
-    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ loot_coins: :loot_coins }]).display
+  def display_message_screen(arts=nil)
+    MainRenderer.new(:messages_screen, entity: @messages, arts: arts).display
   end
 end
 

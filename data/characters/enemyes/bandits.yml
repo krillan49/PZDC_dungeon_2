@@ -20,6 +20,9 @@ e1:
     - without
   shield:
     - without
+  ingredients:
+    - without
+    - ear
 
 e2:
   code_name: rabid_dog
@@ -42,6 +45,9 @@ e2:
     - without
   shield:
     - without
+  ingredients:
+    - without
+    - dog_skin
 
 e3:
   code_name: poacher
@@ -68,6 +74,9 @@ e3:
     - leather_gloves
   shield:
     - without
+  ingredients:
+    - without
+    - ear
 
 e4:
   code_name: thug
@@ -96,6 +105,9 @@ e4:
   shield:
     - without
     - wooden_buckler
+  ingredients:
+    - without
+    - ear
 
 e5:
   code_name: deserter
@@ -129,6 +141,9 @@ e5:
     - without
     - wooden_buckler
     - wooden_shield
+  ingredients:
+    - without
+    - ear
 
 boss:
   code_name: bandit_leader
@@ -151,6 +166,9 @@ boss:
     - quilted_gloves
   shield:
     - without
+  ingredients:
+    - without
+    - ear
 
 
 

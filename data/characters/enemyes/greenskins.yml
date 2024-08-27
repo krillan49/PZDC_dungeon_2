@@ -22,6 +22,9 @@ e1: #e2:
   shield:
     - without
     - braided_buckler
+  ingredients:
+    - without
+    - green_ear
 
 e2: #e5:
   code_name: orc
@@ -45,6 +48,9 @@ e2: #e5:
     - without
   shield:
     - without
+  ingredients:
+    - without
+    - green_ear
 
 
 
