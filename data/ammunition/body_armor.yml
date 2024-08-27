@@ -1,34 +1,41 @@
 without:
   name: "---without---"
   armor: 0
+  accuracy: 0
   price: 0
 
 leather_jacket:
   name: "Leather jacket"
   armor: 1
+  accuracy: 0
   price: 10
 
 rusty_gambeson:
   name: "Rusty gambeson"
-  armor: 1
-  price: 10
+  armor: 2
+  accuracy: -5
+  price: 20
 
 gambeson:
   name: "Gambeson"
   armor: 2
-  price: 45
+  accuracy: -2
+  price: 50
 
 rusty_chain_mail:
   name: "Rusty chain mail"
   armor: 2
+  accuracy: -3
   price: 45
 
 rusty_cuirass:
   name: "Rusty cuirass"
   armor: 3
+  accuracy: -8
   price: 100
 
 chain_mail:
   name: Chain mail
   armor: 3
-  price: 100
+  accuracy: -3
+  price: 150

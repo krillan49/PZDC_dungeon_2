@@ -1,29 +1,34 @@
 without:
   name: "---without---"
   armor: 0
+  accuracy: 0
   block_chance: 0
   price: 0
 
 braided_buckler:
   name: "Braided buckler"
   armor: 0
-  block_chance: 30
+  accuracy: 0
+  block_chance: 25
   price: 25
 
 wooden_buckler:
   name: "Wooden buckler"
   armor: 1
+  accuracy: -2
   block_chance: 25
   price: 50
 
 wooden_shield:
   name: "Wooden shield"
   armor: 2
+  accuracy: -5
   block_chance: 15
   price: 100
 
 rusty_scutum:
   name: "Rusty scutum"
   armor: 1
-  block_chance: 40
-  price: 200
+  accuracy: -8
+  block_chance: 50
+  price: 150

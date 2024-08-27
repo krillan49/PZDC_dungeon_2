@@ -4,9 +4,9 @@ view:
   - "█                                    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                        █"
   - "█                                                                                                                      █"
   - "█                                                                     Armor:            AAAA                           █"
+  - "█                                                                     Accuracy:         AAAA                           █"
   - "█                                                                     Block chance:     AAAA                           █"
   - "█                                                                     Price:            AAAA                           █"
-  - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
@@ -56,9 +56,14 @@ insert_options:
   5:
     A:
       methods:
-        - block_chance
+        - accuracy
       modifier: e
   6:
+    A:
+      methods:
+        - block_chance
+      modifier: e
+  7:
     A:
       methods:
         - price

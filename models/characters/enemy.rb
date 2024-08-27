@@ -72,7 +72,7 @@ class Enemy
   end
 
   def accuracy
-    @accuracy_base + @arms_armor.accuracy
+    @accuracy_base + @weapon.accuracy + @body_armor.accuracy + @head_armor.accuracy + @arms_armor.accuracy + @shield.accuracy
   end
 
   def block_chance

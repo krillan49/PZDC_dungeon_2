@@ -3,10 +3,10 @@ view:
   - "█                                                                                                                      █"
   - "█                                    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                        █"
   - "█                                                                                                                      █"
-  - "█                                                                     Min damage:  AAAA                                █"
-  - "█                                                                     Max damage:  AAAA                                █"
-  - "█                                                                     Price:       AAAA                                █"
-  - "█                                                                                                                      █"
+  - "█                                                                     Min damage:       AAAA                           █"
+  - "█                                                                     Max damage:       AAAA                           █"
+  - "█                                                                     Accuracy:         AAAA                           █"
+  - "█                                                                     Price:            AAAA                           █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
@@ -59,6 +59,11 @@ insert_options:
         - max_dmg
       modifier: e
   6:
+    A:
+      methods:
+        - accuracy
+      modifier: e
+  7:
     A:
       methods:
         - price

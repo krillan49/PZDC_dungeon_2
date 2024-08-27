@@ -1,34 +1,41 @@
 without:
   name: "---without---"
   armor: 0
+  accuracy: 0
   price: 0
 
 leather_helmet:
   name: "Leather helmet"
   armor: 1
+  accuracy: 0
   price: 10
 
 rusty_quilted_helmet:
   name: "Rusty quilted helmet"
   armor: 1
-  price: 10
+  accuracy: -5
+  price: 5
 
 quilted_helmet:
   name: "Quilted helmet"
   armor: 2
-  price: 45
+  accuracy: -3
+  price: 50
 
 rusty_mail_helmet:
   name: "Rusty mail helmet"
   armor: 2
-  price: 45
+  accuracy: -5
+  price: 40
 
 rusty_topfhelm:
   name: "Rusty topfhelm"
-  armor: 3
+  armor: 4
+  accuracy: -10
   price: 100
 
 barbute:
   name: Barbute
   armor: 4
+  accuracy: -5
   price: 200

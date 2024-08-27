@@ -2,8 +2,8 @@ view:
   - "      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA      "
   - "                                                      "
   - "                  Armor:       AAAA                   "
-  - "                                                      "
   - "                  Accuracy:    AAAA                   "
+  - "                                                      "
   - "                                                      "
   - "                  Price:       AAAA                   "
   - "                                                      "
@@ -20,7 +20,7 @@ insert_options:
       methods:
         - armor
       modifier: e
-  4:
+  3:
     A:
       methods:
         - accuracy

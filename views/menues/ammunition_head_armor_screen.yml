@@ -4,7 +4,7 @@ view:
   - "█                                    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                        █"
   - "█                                                                                                                      █"
   - "█                                                                     Armor:            AAAA                           █"
-  - "█                                                                                                                      █"
+  - "█                                                                     Accuracy:         AAAA                           █"
   - "█                                                                     Price:            AAAA                           █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
@@ -53,11 +53,11 @@ insert_options:
       methods:
         - armor
       modifier: e
-  # 5:
-  #   A:
-  #     methods:
-  #       - accuracy
-  #     modifier: e
+  5:
+    A:
+      methods:
+        - accuracy
+      modifier: e
   6:
     A:
       methods:

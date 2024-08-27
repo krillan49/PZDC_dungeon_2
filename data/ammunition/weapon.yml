@@ -2,96 +2,112 @@ without:
   name: "---without---"
   min_dmg: 0
   max_dmg: 0
+  accuracy: 0
   price: 0
 
 stick:
   name: "Stick"
   min_dmg: 1
   max_dmg: 4
+  accuracy: 0
   price: 1
 
 rusty_hatchet:
   name: "Rusty hatchet"
   min_dmg: 1
   max_dmg: 6
-  price: 3
+  accuracy: -2
+  price: 2
 
 knife:
   name: "Knife"
   min_dmg: 2
   max_dmg: 5
+  accuracy: 0
   price: 3
 
 club:
   name: "Club"
   min_dmg: 3
   max_dmg: 4
+  accuracy: 0
   price: 3
 
 rusty_sword:
   name: "Rusty sword"
   min_dmg: 2
   max_dmg: 7
+  accuracy: -3
   price: 8
 
 dagger:
   name: "Dagger"
   min_dmg: 3
   max_dmg: 6
-  price: 10
+  accuracy: 5
+  price: 35
 
 rusty_falchion:
   name: "Rusty falchion"
   min_dmg: 4
   max_dmg: 8
-  price: 25
+  accuracy: -3
+  price: 20
 
 hatchet:
   name: "Hatchet"
   min_dmg: 5
   max_dmg: 8
+  accuracy: 0
   price: 40
 
 rusty_axe:
   name: "Rusty axe"
   min_dmg: 5
   max_dmg: 9
-  price: 50
+  accuracy: -3
+  price: 40
 
 falchion:
   name: "Falchion"
   min_dmg: 5
   max_dmg: 10
+  accuracy: 0
   price: 70
 
 rusty_flail:
   name: "Rusty flail"
   min_dmg: 0
   max_dmg: 15
-  price: 60
+  accuracy: -5
+  price: 50
 
 axe:
   name: "Axe"
   min_dmg: 6
   max_dmg: 10
+  accuracy: 0
   price: 80
 
 flail:
   name: "Flail"
   min_dmg: 0
   max_dmg: 20
-  price: 120
+  accuracy: -5
+  price: 100
 
 mace:
   name: Mace
   min_dmg: 8
   max_dmg: 12
+  accuracy: 0
   price: 150
 
 rusty_longsword:
   name: "Rusty longsword"
   min_dmg: 6
   max_dmg: 17
+  accuracy: -2
   price: 200
 
 
@@ -101,6 +117,7 @@ bambuga:
   name: BAMBUGA
   min_dmg: 20
   max_dmg: 30
+  accuracy: 10
   price: 9000
 
 

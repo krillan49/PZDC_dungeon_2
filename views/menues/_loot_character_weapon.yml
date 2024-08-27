@@ -2,8 +2,8 @@ view:
   - "      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA      "
   - "                                                      "
   - "                  Min damage:  AAAA                   "
-  - "                                                      "
   - "                  Max damage:  AAAA                   "
+  - "                  Accuracy:    AAAA                   "
   - "                                                      "
   - "                  Price:       AAAA                   "
   - "                                                      "
@@ -20,10 +20,15 @@ insert_options:
       methods:
         - min_dmg
       modifier: e
-  4:
+  3:
     A:
       methods:
         - max_dmg
+      modifier: e
+  4:
+    A:
+      methods:
+        - accuracy
       modifier: e
   6:
     A:
