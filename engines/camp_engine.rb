@@ -22,7 +22,7 @@ class CampEngine
   def pzdc_monolith
     choose = nil
     until choose == 0
-      MainRenderer.new(:camp_monolith_screen, entity: @pzdc_monolith).display
+      MainRenderer.new(:camp_monolith_screen, entity: @pzdc_monolith, arts: [{ camp: :pzdc_monolith }]).display
       choose = gets.to_i
       if choose == 0
         break
