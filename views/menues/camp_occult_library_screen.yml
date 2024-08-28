@@ -1,5 +1,19 @@
 view:
   - "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█"
+  - "█                                            Occult Library. Buy recipe                                                █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█      STAT                                                                                                            █"
+  - "█                                                                                                                      █"
+  - "█      AAAAA         BBBBB         1                                                                                   █"
+  - "█      AAAAA         BBBBB         2                                                                                   █"
+  - "█      AAAAA         BBBBB         3                                                                                   █"
+  - "█      AAAAA         BBBBB         4                                                                                   █"
+  - "█      AAAAA         BBBBB         5                                                                                   █"
+  - "█      AAAAA         BBBBB         6                                                                                   █"
+  - "█      AAAAA         BBBBB         7                                                                                   █"
+  - "█      AAAAA         BBBBB         8                                                                                   █"
+  - "█      AAAAA         BBBBB         9                                                                                   █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
@@ -17,28 +31,104 @@ view:
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                            PZDC MONOLITH     [Enter 1]                                               █"
-  - "█                                                                                                                      █"
-  - "█                                            SHOP              [Enter 2]                                               █"
-  - "█                                                                                                                      █"
-  - "█                      -- alpha version --   OCCULT LIBRARY    [Enter 3]   -- alpha version --                         █"
-  - "█                                                                                                                      █"
-  - "█                                            location under development                                                █"
-  - "█                                                                                                                      █"
-  - "█                                            location under development                                                █"
-  - "█                                                                                                                      █"
-  - "█                                            EXIT              [Enter 0]                                               █"
+  - "█                                                   EXIT   [Enter 0]                                                   █"
   - "█                                                                                                                      █"
   - "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█"
-
-
-
-
-
+# arts:
+#   -
+#     y:
+#       - 3
+#       - 29
+#     x:
+#       - 66
+#       - 117
+# insert_options:
+#   1:
+#     A:
+#       methods:
+#         - points
+#       modifier: m
+#   6:
+#     A:
+#       methods:
+#         - hp
+#       modifier: s
+#     B:
+#       methods:
+#         - hp__p
+#       modifier: s
+#   7:
+#     A:
+#       methods:
+#         - mp
+#       modifier: s
+#     B:
+#       methods:
+#         - mp__p
+#       modifier: s
+#   8:
+#     A:
+#       methods:
+#         - accuracy
+#       modifier: s
+#     B:
+#       methods:
+#         - accuracy__p
+#       modifier: s
+#   9:
+#     A:
+#       methods:
+#         - damage
+#       modifier: s
+#     B:
+#       methods:
+#         - damage__p
+#       modifier: s
+#   10:
+#     A:
+#       methods:
+#         - stat_points
+#       modifier: s
+#     B:
+#       methods:
+#         - stat_points__p
+#       modifier: s
+#   11:
+#     A:
+#       methods:
+#         - skill_points
+#       modifier: s
+#     B:
+#       methods:
+#         - skill_points__p
+#       modifier: s
+#   12:
+#     A:
+#       methods:
+#         - armor
+#       modifier: s
+#     B:
+#       methods:
+#         - armor__p
+#       modifier: s
+#   13:
+#     A:
+#       methods:
+#         - regen_hp
+#       modifier: s
+#     B:
+#       methods:
+#         - regen_hp__p
+#       modifier: s
+#   14:
+#     A:
+#       methods:
+#         - regen_mp
+#       modifier: s
+#     B:
+#       methods:
+#         - regen_mp__p
+#       modifier: s
 
 
 
