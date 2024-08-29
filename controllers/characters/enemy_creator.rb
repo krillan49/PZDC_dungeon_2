@@ -24,18 +24,6 @@ class EnemyCreator
     Enemy.new("boss", @dungeon_name)
   end
 
-  # def create_standart_enemy_old
-  #   case @standart_chance
-  #   when (1..4); Enemy.new("e1", @dungeon_name)
-  #   when (5..8); Enemy.new("e2", @dungeon_name)
-  #   when (9..12); Enemy.new("e3", @dungeon_name)
-  #   when (13..16); Enemy.new("e4", @dungeon_name)
-  #   # when (21..25); Enemy.new("e5", @dungeon_name)
-  #   # when (26..); Enemy.new("e6", @dungeon_name)
-  #   else; Enemy.new("e5", @dungeon_name)
-  #   end
-  # end
-
   # depending on the number of enemies described in the data file of a specific dungeon, a number of ranges is assigned depending on the CHANCE_STEP constant and an enemy is selected in the corresponding range
   def create_standart_enemy
     (1..@standart_enemyes_count).each do |n|

@@ -91,7 +91,7 @@ Main.new.start_game
 
 # Навыки:
 
-# (АРТЫ и переделка вьюх):
+# Втюхи:
 # Картинка Экран выбора имени персонажа - controllers/hero_creator -> :messages_screen
 # Картинка персонажа для :hero_update_screen. load_hero_run, engines/run
 # Картинки для лута оружия,  enemy_loot   y-16 x-53

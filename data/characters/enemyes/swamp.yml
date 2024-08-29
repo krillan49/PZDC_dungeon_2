@@ -3,7 +3,7 @@ e1:
   name: Leech
   hp: 100
   min_dmg: 7
-  max_dmg: 10
+  max_dmg: 9
   accurasy: 60
   armor: 0
   regen_hp_base: 0
@@ -24,14 +24,43 @@ e1:
     - leech_tongue
 
 e2:
+  code_name: goblin
+  name: Goblin
+  hp: 75
+  min_dmg: 4
+  max_dmg: 4
+  accurasy: 90
+  armor: 0
+  regen_hp_base: 0
+  exp_gived: 2
+  coins_gived: 2
+  weapon:
+    - knife
+    - dagger
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+    - worn_gloves
+    - leather_gloves
+  shield:
+    - without
+    - braided_buckler
+  ingredients:
+    - without
+    - green_ear
+
+e3:
   code_name: sworm
   name: Snake-worm
   hp: 120
   min_dmg: 6
-  max_dmg: 12
+  max_dmg: 15
   accurasy: 70
   armor: 0
-  regen_hp_base: 1
+  regen_hp_base: 2
   exp_gived: 3
   coins_gived: 0
   weapon:
@@ -48,16 +77,16 @@ e2:
     - without
     - worm_skin
 
-e3:
+e4:
   code_name: spider
   name: Spider
-  hp: 120
+  hp: 140
   min_dmg: 10
   max_dmg: 14
   accurasy: 90
   armor: 0
   regen_hp_base: 0
-  exp_gived: 4
+  exp_gived: 5
   coins_gived: 0
   weapon:
     - without
@@ -73,16 +102,49 @@ e3:
     - without
     - chelicerae
 
-e4:
-  code_name: snail
-  name: Snail
-  hp: 180
-  min_dmg: 5
-  max_dmg: 15
+e5:
+  code_name: orc
+  name: Orc
+  hp: 160
+  min_dmg: 7
+  max_dmg: 7
+  accurasy: 85
+  armor: 0
+  regen_hp_base: 1
+  exp_gived: 7
+  coins_gived: 3
+  weapon:
+    - rusty_axe
+    - rusty_flail
+    - axe
+    - flail
+  body_armor:
+    - without
+    - leather_jacket
+    - rusty_chain_mail
+  head_armor:
+    - without
+    - leather_helmet
+  arms_armor:
+    - without
+    - worn_gloves
+    - leather_gloves
+  shield:
+    - without
+  ingredients:
+    - without
+    - green_ear
+
+boss:
+  code_name: ancient_snail
+  name: "Ancient Snail"
+  hp: 500
+  min_dmg: 25
+  max_dmg: 30
   accurasy: 70
   armor: 5
-  regen_hp_base: 3
-  exp_gived: 6
+  regen_hp_base: 5
+  exp_gived: 30
   coins_gived: 0
   weapon:
     - without
@@ -97,7 +159,6 @@ e4:
   ingredients:
     - without
     - piece_of_snail_shell
-
 
 
 
