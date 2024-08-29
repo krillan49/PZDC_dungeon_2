@@ -47,14 +47,16 @@ class Main
   end
 
   def start_new_run
-    new_dungeon_num = 0
-    until [1, 2, 3].include?(new_dungeon_num)
+    new_dungeon_num = 9000
+    until [0, 1, 2, 3].include?(new_dungeon_num)
       MainRenderer.new(:choose_dungeon_screen).display
       new_dungeon_num = gets.to_i
     end
-    dungeon_name = %w[bandits undeads swamp][new_dungeon_num-1]
-    # Создание нового персонажа
-    @hero = HeroCreator.new(dungeon_name).create_new_hero
+    if [1, 2, 3].include?(new_dungeon_num)
+      dungeon_name = %w[bandits undeads swamp][new_dungeon_num-1]
+      # Создание нового персонажа
+      @hero = HeroCreator.new(dungeon_name).create_new_hero
+    end
   end
 
 end

@@ -48,6 +48,8 @@ class AttacksRound
             @messages.log << "You are dead - you cowardly dog!"
             MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ game_over: :game_over }]).display
             gets
+            MainRenderer.new(:run_end_screen, entity: @messages, arts: [{ end: :run_end_art }]).display
+            gets
             DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
           end
         end
@@ -220,6 +222,8 @@ class AttacksRound
       @messages.main = "You're dead!"
       @messages.actions = 'To continue press Enter'
       MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ game_over: :game_over }]).display
+      gets
+      MainRenderer.new(:run_end_screen, entity: @messages, arts: [{ end: :run_end_art }]).display
       gets
       DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
     elsif @enemy.hp <= 0
