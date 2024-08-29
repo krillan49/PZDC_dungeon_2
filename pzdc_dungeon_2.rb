@@ -43,6 +43,7 @@ require_relative "controllers/characters/hero_use_skill"
 
 # models ------------------------------
 # camp
+require_relative "models/camp/warehouse"
 require_relative "models/camp/pzdc_monolith"
 require_relative "models/camp/shop"
 # ammunition

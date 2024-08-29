@@ -10,6 +10,7 @@ class Main
     # Создание начальных yml
     PzdcMonolith.new
     Shop.new
+    Warehouse.new
     # ход игры
     loop do
       MainRenderer.new(:start_game_screen).display

@@ -106,11 +106,11 @@ e5:
   hp: 90
   min_dmg: 2
   max_dmg: 2
-  accurasy: 85
+  accurasy: 95
   armor: 1
   regen_hp_base: 0
   exp_gived: 6
-  coins_gived: 10
+  coins_gived: 6
   weapon:
     - rusty_sword
     - rusty_falchion
@@ -139,7 +139,7 @@ boss:
   hp: 300
   min_dmg: 5
   max_dmg: 15
-  accurasy: 50
+  accurasy: 65
   armor: 0
   regen_hp_base: 3
   exp_gived: 20

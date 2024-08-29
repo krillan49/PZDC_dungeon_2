@@ -115,7 +115,7 @@ e5:
   hp: 120
   min_dmg: 5
   max_dmg: 5
-  accurasy: 80
+  accurasy: 85
   armor: 0
   regen_hp_base: 0
   exp_gived: 5

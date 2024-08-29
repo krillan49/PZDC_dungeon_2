@@ -20,6 +20,9 @@ class DeleteHeroInRun
       shop = Shop.new
       shop.add_ammunition_from(@hero)
       shop.add_coins_from(@hero)
+      
+      warehouse = Warehouse.new
+      warehouse.add_coins_from(@hero)
     end
   end
 
