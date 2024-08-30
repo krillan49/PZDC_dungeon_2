@@ -78,8 +78,8 @@ class HeroCreator
     @hero.regen_hp_base += pzdc_monolith['regen_hp']
     @hero.regen_mp_base += pzdc_monolith['regen_mp']
 
-    # 2. Shop warehouse ammunition:
-    Shop.new.take_ammunition_by(@hero)
+    # 2. ammunition from Warehouse:
+    Warehouse.new.take_ammunition_by(@hero)
   end
 
   def active_skill

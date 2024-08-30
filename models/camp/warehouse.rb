@@ -1,8 +1,6 @@
 class Warehouse
   PATH = 'saves/warehouse.yml'
 
-  attr_accessor :warehouse
-
   def initialize
     create()
     @warehouse = YAML.safe_load_file(PATH)
@@ -11,6 +9,50 @@ class Warehouse
   def add_coins_from(hero)
     @warehouse['coins'] += hero.coins
     update()
+  end
+
+  def take_coins_from_warehouse(n)
+    if @warehouse['coins'] >= n
+      @warehouse['coins'] -= n
+      update()
+      true
+    else
+      false
+    end
+  end
+
+  def add_ammunition_to_warehouse(ammunition_type, ammunition_code)
+    @warehouse[ammunition_type] = ammunition_code
+    update()
+  end
+
+  # add ammunition to hero from warehouse
+  def take_ammunition_by(hero)
+    hero.weapon = Weapon.new(@warehouse['weapon'])
+    @warehouse['weapon'] = 'without'
+    hero.body_armor = BodyArmor.new(@warehouse['body_armor'])
+    @warehouse['body_armor'] = 'without'
+    hero.head_armor = HeadArmor.new(@warehouse['head_armor'])
+    @warehouse['head_armor'] = 'without'
+    hero.arms_armor = ArmsArmor.new(@warehouse['arms_armor'])
+    @warehouse['arms_armor'] = 'without'
+    hero.shield = Shield.new(@warehouse['shield'])
+    @warehouse['shield'] = 'without'
+    update()
+  end
+
+  # Тогда это наверно не надо или варик на будущее вместо take_ammunition_by(hero)
+  def take_ammunition_from_warehouse(ammunition_type)
+    ammunition_code = @warehouse[ammunition_type]
+    @warehouse[ammunition_type] = 'without'
+    update()
+    ammunition_code
+  end
+
+  # getters
+
+  def show(type)
+    @warehouse[type]
   end
 
   private

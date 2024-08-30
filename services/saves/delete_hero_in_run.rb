@@ -19,8 +19,8 @@ class DeleteHeroInRun
     if @hero.hp > 0
       shop = Shop.new
       shop.add_ammunition_from(@hero)
-      shop.add_coins_from(@hero)
-      
+      # shop.add_coins_from(@hero)
+
       warehouse = Warehouse.new
       warehouse.add_coins_from(@hero)
     end
