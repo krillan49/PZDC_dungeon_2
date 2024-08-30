@@ -35,10 +35,11 @@ class CampEngine
 
   def shop
     choose = nil
-    until choose && choose.to_i == 0
+    buttons = %w[A B C D E F G H I J K L M N O V W X Y Z]
+    until choose && !buttons.include?(choose.upcase) && choose.to_i == 0
       MainRenderer.new(:camp_shop_screen, entity: @shop).display
       choose = gets.strip
-      if %w[A B C D E F G H I J K L M N O V W X Y Z].include?(choose.upcase)
+      if buttons.include?(choose.upcase)
         ammunition_type, ammunition_code = Shop.new.get_item_type_and_code_name(choose)
         AmmunitionShow.show(ammunition_type, ammunition_code) if ammunition_code != 'without'
       elsif choose.to_i > 0 && choose.to_i <= 15
