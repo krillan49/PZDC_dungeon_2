@@ -1,34 +1,34 @@
 view:
   - "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█"
-  - "█                                            Occult Library. Buy recipe                                                █"
+  - "█                                    Occult Library. Buy recipe. You has AAAAA coins                                   █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
-  - "█      STAT                                                                                                            █"
+  - "█      Show:          Recipe:                                  Price:      Buy:                                        █"
   - "█                                                                                                                      █"
-  - "█      AAAAA         BBBBB         1                                                                                   █"
-  - "█      AAAAA         BBBBB         2                                                                                   █"
-  - "█      AAAAA         BBBBB         3                                                                                   █"
-  - "█      AAAAA         BBBBB         4                                                                                   █"
-  - "█      AAAAA         BBBBB         5                                                                                   █"
-  - "█      AAAAA         BBBBB         6                                                                                   █"
-  - "█      AAAAA         BBBBB         7                                                                                   █"
-  - "█      AAAAA         BBBBB         8                                                                                   █"
-  - "█      AAAAA         BBBBB         9                                                                                   █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC        DDDDDDDDDDDDDDDDDDDDDDDDD                   █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                   BACK   [Enter 0]                                                   █"
@@ -42,95 +42,420 @@ view:
 #     x:
 #       - 66
 #       - 117
-# insert_options:
-#   1:
-#     A:
-#       methods:
-#         - points
-#       modifier: m
-#   6:
-#     A:
-#       methods:
-#         - hp
-#       modifier: s
-#     B:
-#       methods:
-#         - hp__p
-#       modifier: s
-#   7:
-#     A:
-#       methods:
-#         - mp
-#       modifier: s
-#     B:
-#       methods:
-#         - mp__p
-#       modifier: s
-#   8:
-#     A:
-#       methods:
-#         - accuracy
-#       modifier: s
-#     B:
-#       methods:
-#         - accuracy__p
-#       modifier: s
-#   9:
-#     A:
-#       methods:
-#         - damage
-#       modifier: s
-#     B:
-#       methods:
-#         - damage__p
-#       modifier: s
-#   10:
-#     A:
-#       methods:
-#         - stat_points
-#       modifier: s
-#     B:
-#       methods:
-#         - stat_points__p
-#       modifier: s
-#   11:
-#     A:
-#       methods:
-#         - skill_points
-#       modifier: s
-#     B:
-#       methods:
-#         - skill_points__p
-#       modifier: s
-#   12:
-#     A:
-#       methods:
-#         - armor
-#       modifier: s
-#     B:
-#       methods:
-#         - armor__p
-#       modifier: s
-#   13:
-#     A:
-#       methods:
-#         - regen_hp
-#       modifier: s
-#     B:
-#       methods:
-#         - regen_hp__p
-#       modifier: s
-#   14:
-#     A:
-#       methods:
-#         - regen_mp
-#       modifier: s
-#     B:
-#       methods:
-#         - regen_mp__p
-#       modifier: s
-
-
+insert_options:
+  1:
+    A:
+      methods:
+        - coins
+      modifier: m
+  6:
+    A:
+      methods:
+        - show__1
+      modifier: s
+    B:
+      methods:
+        - name__1
+      modifier: s
+    C:
+      methods:
+        - price__1
+      modifier: s
+    D:
+      methods:
+        - status__1
+      modifier: s
+  7:
+    A:
+      methods:
+        - show__2
+      modifier: s
+    B:
+      methods:
+        - name__2
+      modifier: s
+    C:
+      methods:
+        - price__2
+      modifier: s
+    D:
+      methods:
+        - status__2
+      modifier: s
+  8:
+    A:
+      methods:
+        - show__3
+      modifier: s
+    B:
+      methods:
+        - name__3
+      modifier: s
+    C:
+      methods:
+        - price__3
+      modifier: s
+    D:
+      methods:
+        - status__3
+      modifier: s
+  9:
+    A:
+      methods:
+        - show__4
+      modifier: s
+    B:
+      methods:
+        - name__4
+      modifier: s
+    C:
+      methods:
+        - price__4
+      modifier: s
+    D:
+      methods:
+        - status__4
+      modifier: s
+  10:
+    A:
+      methods:
+        - show__5
+      modifier: s
+    B:
+      methods:
+        - name__5
+      modifier: s
+    C:
+      methods:
+        - price__5
+      modifier: s
+    D:
+      methods:
+        - status__5
+      modifier: s
+  11:
+    A:
+      methods:
+        - show__6
+      modifier: s
+    B:
+      methods:
+        - name__6
+      modifier: s
+    C:
+      methods:
+        - price__6
+      modifier: s
+    D:
+      methods:
+        - status__6
+      modifier: s
+  12:
+    A:
+      methods:
+        - show__7
+      modifier: s
+    B:
+      methods:
+        - name__7
+      modifier: s
+    C:
+      methods:
+        - price__7
+      modifier: s
+    D:
+      methods:
+        - status__7
+      modifier: s
+  13:
+    A:
+      methods:
+        - show__8
+      modifier: s
+    B:
+      methods:
+        - name__8
+      modifier: s
+    C:
+      methods:
+        - price__8
+      modifier: s
+    D:
+      methods:
+        - status__8
+      modifier: s
+  14:
+    A:
+      methods:
+        - show__9
+      modifier: s
+    B:
+      methods:
+        - name__9
+      modifier: s
+    C:
+      methods:
+        - price__9
+      modifier: s
+    D:
+      methods:
+        - status__9
+      modifier: s
+  15:
+    A:
+      methods:
+        - show__10
+      modifier: s
+    B:
+      methods:
+        - name__10
+      modifier: s
+    C:
+      methods:
+        - price__10
+      modifier: s
+    D:
+      methods:
+        - status__10
+      modifier: s
+  16:
+    A:
+      methods:
+        - show__11
+      modifier: s
+    B:
+      methods:
+        - name__11
+      modifier: s
+    C:
+      methods:
+        - price__11
+      modifier: s
+    D:
+      methods:
+        - status__11
+      modifier: s
+  17:
+    A:
+      methods:
+        - show__12
+      modifier: s
+    B:
+      methods:
+        - name__12
+      modifier: s
+    C:
+      methods:
+        - price__12
+      modifier: s
+    D:
+      methods:
+        - status__12
+      modifier: s
+  18:
+    A:
+      methods:
+        - show__13
+      modifier: s
+    B:
+      methods:
+        - name__13
+      modifier: s
+    C:
+      methods:
+        - price__13
+      modifier: s
+    D:
+      methods:
+        - status__13
+      modifier: s
+  19:
+    A:
+      methods:
+        - show__14
+      modifier: s
+    B:
+      methods:
+        - name__14
+      modifier: s
+    C:
+      methods:
+        - price__14
+      modifier: s
+    D:
+      methods:
+        - status__14
+      modifier: s
+  20:
+    A:
+      methods:
+        - show__15
+      modifier: s
+    B:
+      methods:
+        - name__15
+      modifier: s
+    C:
+      methods:
+        - price__15
+      modifier: s
+    D:
+      methods:
+        - status__15
+      modifier: s
+  21:
+    A:
+      methods:
+        - show__16
+      modifier: s
+    B:
+      methods:
+        - name__16
+      modifier: s
+    C:
+      methods:
+        - price__16
+      modifier: s
+    D:
+      methods:
+        - status__16
+      modifier: s
+  22:
+    A:
+      methods:
+        - show__17
+      modifier: s
+    B:
+      methods:
+        - name__17
+      modifier: s
+    C:
+      methods:
+        - price__17
+      modifier: s
+    D:
+      methods:
+        - status__17
+      modifier: s
+  23:
+    A:
+      methods:
+        - show__18
+      modifier: s
+    B:
+      methods:
+        - name__18
+      modifier: s
+    C:
+      methods:
+        - price__18
+      modifier: s
+    D:
+      methods:
+        - status__18
+      modifier: s
+  24:
+    A:
+      methods:
+        - show__19
+      modifier: s
+    B:
+      methods:
+        - name__19
+      modifier: s
+    C:
+      methods:
+        - price__19
+      modifier: s
+    D:
+      methods:
+        - status__19
+      modifier: s
+  25:
+    A:
+      methods:
+        - show__20
+      modifier: s
+    B:
+      methods:
+        - name__20
+      modifier: s
+    C:
+      methods:
+        - price__20
+      modifier: s
+    D:
+      methods:
+        - status__20
+      modifier: s
+  26:
+    A:
+      methods:
+        - show__21
+      modifier: s
+    B:
+      methods:
+        - name__21
+      modifier: s
+    C:
+      methods:
+        - price__21
+      modifier: s
+    D:
+      methods:
+        - status__21
+      modifier: s
+  27:
+    A:
+      methods:
+        - show__22
+      modifier: s
+    B:
+      methods:
+        - name__22
+      modifier: s
+    C:
+      methods:
+        - price__22
+      modifier: s
+    D:
+      methods:
+        - status__22
+      modifier: s
+  28:
+    A:
+      methods:
+        - show__23
+      modifier: s
+    B:
+      methods:
+        - name__23
+      modifier: s
+    C:
+      methods:
+        - price__23
+      modifier: s
+    D:
+      methods:
+        - status__23
+      modifier: s
+  29:
+    A:
+      methods:
+        - show__24
+      modifier: s
+    B:
+      methods:
+        - name__24
+      modifier: s
+    C:
+      methods:
+        - price__24
+      modifier: s
+    D:
+      methods:
+        - status__24
+      modifier: s
 
 
 

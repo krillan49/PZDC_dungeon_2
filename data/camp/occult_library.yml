@@ -1,0 +1,40 @@
+tumor_with_ears:
+  view_code: 1
+  name: "Tumor with ears"
+  price: 100
+  recipe:
+    - ear
+    - ear
+    - ear
+  effect:
+    weapon:
+      accuracy: 3
+    head_armor:
+      accuracy: 1
+    body_armor:
+      accuracy: 1
+    arms_armor:
+      accuracy: 2
+    shield:
+      accuracy: 1
+
+windings_with_ears:
+  view_code: 2
+  name: "Windings with ears"
+  price: 100
+  recipe:
+    - dog_skin
+    - ear
+    - ear
+  effect:
+    weapon:
+      accuracy: 1
+      max_dmg: 1
+    head_armor:
+      accuracy: 1
+    body_armor:
+      accuracy: 1
+    arms_armor:
+      accuracy: 1
+    shield:
+      block_chance: 3

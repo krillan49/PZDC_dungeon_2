@@ -8,9 +8,10 @@ class Main
 
   def start_game
     # Создание начальных yml
+    Warehouse.new
     PzdcMonolith.new
     Shop.new
-    Warehouse.new
+    OccultLibrary.new
     # ход игры
     loop do
       MainRenderer.new(:start_game_screen).display

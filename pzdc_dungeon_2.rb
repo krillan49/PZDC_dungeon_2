@@ -46,6 +46,7 @@ require_relative "controllers/characters/hero_use_skill"
 require_relative "models/camp/warehouse"
 require_relative "models/camp/pzdc_monolith"
 require_relative "models/camp/shop"
+require_relative "models/camp/occult_library"
 # ammunition
 require_relative "models/ammunition/arms_armor"
 require_relative "models/ammunition/body_armor"
