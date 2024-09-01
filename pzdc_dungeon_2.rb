@@ -25,6 +25,8 @@ require_relative "services/loot/pzdc_monolith_loot"
 require_relative "services/loot/enemy_loot"
 require_relative "services/loot/field_loot"
 require_relative "services/loot/secret_loot"
+# actions
+require_relative "services/actions/enhance_by_recipe"
 
 # controllers -------------------------
 # ammunition

@@ -3,9 +3,7 @@ tumor_with_ears:
   name: "Tumor with ears"
   price: 100
   recipe:
-    - ear
-    - ear
-    - ear
+    ear: 3
   effect:
     weapon:
       accuracy: 3
@@ -23,9 +21,8 @@ windings_with_ears:
   name: "Windings with ears"
   price: 100
   recipe:
-    - dog_skin
-    - ear
-    - ear
+    dog_skin: 1
+    ear: 2
   effect:
     weapon:
       accuracy: 1

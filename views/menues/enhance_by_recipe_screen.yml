@@ -1,0 +1,370 @@
+view:
+  - "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█"
+  - "█                                        Your recipes for enhance ammunition                                           █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█      Show:          Recipe:                                  Has ingredients:                                        █"
+  - "█                                                                                                                      █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█      AAAAAAAAA      BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB      CCCC                                                    █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                   BACK   [Enter 0]                                                   █"
+  - "█                                                                                                                      █"
+  - "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█"
+# arts:
+#   -
+#     y:
+#       - 3
+#       - 29
+#     x:
+#       - 66
+#       - 117
+insert_options:
+  1:
+    A:
+      methods:
+        - coins
+      modifier: m
+  6:
+    A:
+      methods:
+        - show__1
+      modifier: s
+    B:
+      methods:
+        - name__1
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__1
+      modifier: s
+  7:
+    A:
+      methods:
+        - show__2
+      modifier: s
+    B:
+      methods:
+        - name__2
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__2
+      modifier: s
+  8:
+    A:
+      methods:
+        - show__3
+      modifier: s
+    B:
+      methods:
+        - name__3
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__3
+      modifier: s
+  9:
+    A:
+      methods:
+        - show__4
+      modifier: s
+    B:
+      methods:
+        - name__4
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__4
+      modifier: s
+  10:
+    A:
+      methods:
+        - show__5
+      modifier: s
+    B:
+      methods:
+        - name__5
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__5
+      modifier: s
+  11:
+    A:
+      methods:
+        - show__6
+      modifier: s
+    B:
+      methods:
+        - name__6
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__6
+      modifier: s
+  12:
+    A:
+      methods:
+        - show__7
+      modifier: s
+    B:
+      methods:
+        - name__7
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__7
+      modifier: s
+  13:
+    A:
+      methods:
+        - show__8
+      modifier: s
+    B:
+      methods:
+        - name__8
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__8
+      modifier: s
+  14:
+    A:
+      methods:
+        - show__9
+      modifier: s
+    B:
+      methods:
+        - name__9
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__9
+      modifier: s
+  15:
+    A:
+      methods:
+        - show__10
+      modifier: s
+    B:
+      methods:
+        - name__10
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__10
+      modifier: s
+  16:
+    A:
+      methods:
+        - show__11
+      modifier: s
+    B:
+      methods:
+        - name__11
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__11
+      modifier: s
+  17:
+    A:
+      methods:
+        - show__12
+      modifier: s
+    B:
+      methods:
+        - name__12
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__12
+      modifier: s
+  18:
+    A:
+      methods:
+        - show__13
+      modifier: s
+    B:
+      methods:
+        - name__13
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__13
+      modifier: s
+  19:
+    A:
+      methods:
+        - show__14
+      modifier: s
+    B:
+      methods:
+        - name__14
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__14
+      modifier: s
+  20:
+    A:
+      methods:
+        - show__15
+      modifier: s
+    B:
+      methods:
+        - name__15
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__15
+      modifier: s
+  21:
+    A:
+      methods:
+        - show__16
+      modifier: s
+    B:
+      methods:
+        - name__16
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__16
+      modifier: s
+  22:
+    A:
+      methods:
+        - show__17
+      modifier: s
+    B:
+      methods:
+        - name__17
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__17
+      modifier: s
+  23:
+    A:
+      methods:
+        - show__18
+      modifier: s
+    B:
+      methods:
+        - name__18
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__18
+      modifier: s
+  24:
+    A:
+      methods:
+        - show__19
+      modifier: s
+    B:
+      methods:
+        - name__19
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__19
+      modifier: s
+  25:
+    A:
+      methods:
+        - show__20
+      modifier: s
+    B:
+      methods:
+        - name__20
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__20
+      modifier: s
+  26:
+    A:
+      methods:
+        - show__21
+      modifier: s
+    B:
+      methods:
+        - name__21
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__21
+      modifier: s
+  27:
+    A:
+      methods:
+        - show__22
+      modifier: s
+    B:
+      methods:
+        - name__22
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__22
+      modifier: s
+  28:
+    A:
+      methods:
+        - show__23
+      modifier: s
+    B:
+      methods:
+        - name__23
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__23
+      modifier: s
+  29:
+    A:
+      methods:
+        - show__24
+      modifier: s
+    B:
+      methods:
+        - name__24
+      modifier: s
+    C:
+      methods:
+        - has_ingredients__24
+      modifier: s
+
+
+
+
+
+
+
+#
