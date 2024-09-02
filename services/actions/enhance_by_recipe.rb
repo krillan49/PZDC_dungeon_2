@@ -5,7 +5,9 @@ class EnhanceByRecipe
   end
 
   def has_ingredients?(recipe)
-    recipe.all?{|recipe_name, count| @hero.ingredients[recipe_name] && @hero.ingredients[recipe_name] >= count}
+    recipe[1]['recipe'].all? do |ingredient_name, count|
+      @hero.ingredients[ingredient_name] && @hero.ingredients[ingredient_name] >= count
+    end
   end
 
   # Wiew:
@@ -13,10 +15,10 @@ class EnhanceByRecipe
   def method_missing(method_name)
     method_args = method_name.to_s.split('__')
     name, i = method_args
-    recipe = @accessible_recipes[i.to_i]
+    recipe = @accessible_recipes[i.to_i-1]
     return '' unless recipe
     if name == 'has_ingredients'
-      # @recipes[recipe[0]] ? 'IN YOUR WAREHOUSE' : "[Enter #{i}]"
+      has_ingredients?(@accessible_recipes[i.to_i-1]) ? 'YES' : 'NO'
     elsif name == 'show'
       "[Enter #{(i.to_i+64).chr}]"
     else

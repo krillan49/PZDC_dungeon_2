@@ -47,10 +47,19 @@ class Run
   def camp_actions
     HeroUseSkill.camp_skill(@hero, @messages) # Навык Первая помощь
     HeroActions.rest(@hero, @messages) # пассивное восстановления жизней и маны между боями
-    @messages.main = 'To continue press Enter'
-    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ camp_fire: :rest }]).display
-    @messages.clear_log
-    gets
+    @messages.main = 'Continue: [Enter 0]            Echace ammunition: [Enter 1]'
+    choose = nil
+    until ['0', ''].include?(choose)
+      MainRenderer.new(:messages_screen, entity: @messages, arts: [{ camp_fire: :rest }]).display
+      @messages.clear_log
+      choose = gets.strip.upcase
+      if choose == '1'
+        @ebr = EnhanceByRecipe.new(@hero) unless @ebr
+        # MainRenderer.new(:enhance_by_recipe_screen).display
+        MainRenderer.new(:enhance_by_recipe_screen, entity: @ebr).display
+        gets
+      end
+    end
   end
 
   def event_or_enemy_choose
