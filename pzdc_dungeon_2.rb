@@ -49,6 +49,7 @@ require_relative "models/camp/warehouse"
 require_relative "models/camp/pzdc_monolith"
 require_relative "models/camp/shop"
 require_relative "models/camp/occult_library"
+require_relative "models/camp/occult_library_recipe"
 # ammunition
 require_relative "models/ammunition/arms_armor"
 require_relative "models/ammunition/body_armor"

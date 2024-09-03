@@ -45,8 +45,9 @@ class Run
   end
 
   def camp_actions
-    HeroUseSkill.camp_skill(@hero, @messages) # Навык Первая помощь
-    HeroActions.rest(@hero, @messages) # пассивное восстановления жизней и маны между боями
+    HeroUseSkill.camp_skill(@hero, @messages)
+    HeroActions.rest(@hero, @messages)
+    # enhance:
     @messages.main = 'Continue: [Enter 0]            Echace ammunition: [Enter 1]'
     choose = nil
     until ['0', ''].include?(choose)
@@ -55,7 +56,6 @@ class Run
       choose = gets.strip.upcase
       if choose == '1'
         @ebr = EnhanceByRecipe.new(@hero) unless @ebr
-        # MainRenderer.new(:enhance_by_recipe_screen).display
         MainRenderer.new(:enhance_by_recipe_screen, entity: @ebr).display
         gets
       end

@@ -50,11 +50,11 @@ class OccultLibrary
     end
   end
 
-  private
-
   def find_recipe(n)
     @occult_library.find{|_,v| v['view_code'] == n}
   end
+
+  private
 
   def create
     File.write(SAVE_PATH, new_file_data().to_yaml) unless RubyVersionFixHelper.file_exists?(SAVE_PATH) # File::exists?(SAVE_PATH)

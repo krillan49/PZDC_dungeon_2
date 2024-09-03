@@ -57,11 +57,11 @@ class CampEngine
       MainRenderer.new(:camp_occult_library_screen, entity: @occult_library).display
       choose = gets.strip
       if buttons.include?(choose.upcase) && @occult_library.can_show_this_recipe?(choose.upcase)
-        # p 'AAAAAAAAAAAAAA'
-        # ammunition_type, ammunition_code = Shop.new.get_item_type_and_code_name(choose)
-        # AmmunitionShow.show(ammunition_type, ammunition_code) if ammunition_code != 'without'
+        recipe_data = @occult_library.find_recipe(choose.upcase.ord - 64)
+        @recipe = OccultLibraryRecipe.new(recipe_data)
+        MainRenderer.new(:camp_ol_recipe_screen, entity: @recipe).display
+        gets
       elsif choose.to_i > 0 && choose.to_i <= 24 && @occult_library.can_sell_this_recipe?(choose.to_i)
-        # p 1111111111111111
         @occult_library.sell(choose.to_i)
       end
     end
