@@ -9,17 +9,17 @@ view:
   - "█                                                                                                                      █"
   - "█      Weapon effect:        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
   - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
   - "█      Head armor effect:    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
+  - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█      Body armor effect:    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
   - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
   - "█      Arms armor effect:    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
   - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
   - "█      Shield effect:        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
@@ -55,22 +55,22 @@ insert_options:
       methods:
         - weapon
       modifier: s
-  10:
+  11:
     A:
       methods:
         - head_armor
       modifier: s
-  12:
+  14:
     A:
       methods:
         - body_armor
       modifier: s
-  14:
+  17:
     A:
       methods:
         - arms_armor
       modifier: s
-  16:
+  20:
     A:
       methods:
         - shield

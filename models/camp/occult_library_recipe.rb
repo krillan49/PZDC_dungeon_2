@@ -33,7 +33,7 @@ class OccultLibraryRecipe
   private
 
   def hh_data_to_s(hh_data)
-    hh_data.map{|name, value| "#{name.capitalize.tr('_',' ')}: #{value}"}.join(';   ')
+    hh_data.map{|name, value| "#{name.capitalize.tr('_',' ')}: #{value}"}.sort.join(';   ')
   end
 
 end
