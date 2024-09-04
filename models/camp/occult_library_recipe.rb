@@ -22,7 +22,10 @@ class OccultLibraryRecipe
 
   # show
   def method_missing(method_name)
-    if method_name.to_s == 'ingredients'
+    if @hero && method_name.to_s.include?('hero__')
+      ammunition_type, ammunition_method = method_name.to_s.split('__')[1..2]
+      @hero.send(ammunition_type).send(ammunition_method)
+    elsif method_name.to_s == 'ingredients'
       @hero ? "Your ingredients:     #{hh_data_to_s(@hero.ingredients)}" : ''
     else
       result_data = method_name.to_s == 'recipe' ? @data[1]['recipe'] : @data[1]['effect'][method_name.to_s]

@@ -6,27 +6,27 @@ view:
   - "█      Ingredients needed:   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
   - "█      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
   - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█      Weapon effect:        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA   Show: [Enter A]  Enhance: [Enter 1]                                                 █"
-  - "█                                                                                                                      █"
-  - "█      Head armor effect:    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA   Show: [Enter B]  Enhance: [Enter 2]                                                 █"
-  - "█                                                                                                                      █"
-  - "█      Body armor effect:    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA   Show: [Enter C]  Enhance: [Enter 3]                                                 █"
-  - "█                                                                                                                      █"
-  - "█      Arms armor effect:    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA   Show: [Enter D]  Enhance: [Enter 4]                                                 █"
-  - "█                                                                                                                      █"
-  - "█      Shield effect:        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
-  - "█      AAAAAAAAAAAAAAAAAAAAAAAAA   Show: [Enter E]  Enhance: [Enter 5]                                                 █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
+  - "█      ---------------------------------------------------------------------------------------------------------       █"
+  - "█      WEAPON                     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                  Show: [Enter A]       █"
+  - "█      Enhance effect:       AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
+  - "█                                                                                             Enhance: [Enter 1]       █"
+  - "█      ---------------------------------------------------------------------------------------------------------       █"
+  - "█      HEAD ARMOR                 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                  Show: [Enter B]       █"
+  - "█      Enhance effect:       AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
+  - "█                                                                                             Enhance: [Enter 2]       █"
+  - "█      ---------------------------------------------------------------------------------------------------------       █"
+  - "█      BODY ARMOR                 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                  Show: [Enter C]       █"
+  - "█      Enhance effect:       AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
+  - "█                                                                                             Enhance: [Enter 3]       █"
+  - "█      ---------------------------------------------------------------------------------------------------------       █"
+  - "█      ARMS ARMOR                 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                  Show: [Enter D]       █"
+  - "█      Enhance effect:       AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
+  - "█                                                                                             Enhance: [Enter 4]       █"
+  - "█      ---------------------------------------------------------------------------------------------------------       █"
+  - "█      SHIELD                     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                  Show: [Enter E]       █"
+  - "█      Enhance effect:       AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
+  - "█                                                                                             Enhance: [Enter 5]       █"
+  - "█      ---------------------------------------------------------------------------------------------------------       █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
@@ -53,28 +53,54 @@ insert_options:
   8:
     A:
       methods:
+        - hero__weapon__name
+      modifier: m
+  9:
+    A:
+      methods:
         - weapon
       modifier: s
-  11:
+  12:
+    A:
+      methods:
+        - hero__head_armor__name
+      modifier: m
+  13:
     A:
       methods:
         - head_armor
       modifier: s
-  14:
+  16:
+    A:
+      methods:
+        - hero__body_armor__name
+      modifier: m
+  17:
     A:
       methods:
         - body_armor
       modifier: s
-  17:
+  20:
+    A:
+      methods:
+        - hero__arms_armor__name
+      modifier: m
+  21:
     A:
       methods:
         - arms_armor
       modifier: s
-  20:
+  24:
+    A:
+      methods:
+        - hero__shield__name
+      modifier: m
+  25:
     A:
       methods:
         - shield
       modifier: s
+
 
 
 
