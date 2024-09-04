@@ -32,7 +32,7 @@ class OccultLibraryEnhanceEngine
     if @ebr.accessible_recipes.size > i && @ebr.has_ingredients?(i)
       recipe_data = @ebr.accessible_recipes[i]
       @recipe = OccultLibraryRecipe.new(recipe_data, @hero)
-      MainRenderer.new(:camp_ol_recipe_screen, entity: @recipe).display
+      MainRenderer.new(:camp_ol_enhance_screen, entity: @recipe).display
       gets
     elsif @ebr.accessible_recipes.size > i
       recipe_data = @ebr.accessible_recipes[i]
