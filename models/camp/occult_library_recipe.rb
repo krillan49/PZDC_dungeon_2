@@ -2,8 +2,9 @@ class OccultLibraryRecipe
   attr_reader :code_name, :view_code, :name, :price
   # attr_reader :recipe, :weapon, :head_armor, :body_armor, :arms_armor, :shield
 
-  def initialize(data)
+  def initialize(data, hero=nil)
     @data = data
+    @hero = hero
 
     @code_name = data[0]
     @view_code = data[1]['view_code']
@@ -21,8 +22,18 @@ class OccultLibraryRecipe
 
   # show
   def method_missing(method_name)
-    result_data = method_name.to_s == 'recipe' ? @data[1]['recipe'] : @data[1]['effect'][method_name.to_s]
-    result_data.map{|name, value| "#{name.capitalize.tr('_',' ')}: #{value}"}.join(';   ')
+    if method_name.to_s == 'ingredients'
+      @hero ? "Your ingredients:     #{hh_data_to_s(@hero.ingredients)}" : ''
+    else
+      result_data = method_name.to_s == 'recipe' ? @data[1]['recipe'] : @data[1]['effect'][method_name.to_s]
+      hh_data_to_s(result_data)
+    end
+  end
+
+  private
+
+  def hh_data_to_s(hh_data)
+    hh_data.map{|name, value| "#{name.capitalize.tr('_',' ')}: #{value}"}.join(';   ')
   end
 
 end
