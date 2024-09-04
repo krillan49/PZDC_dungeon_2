@@ -20,6 +20,10 @@ class OccultLibraryRecipe
     # @shield = data[1]['effect']['shield']
   end
 
+  def effect_of(ammunition_type)
+    @data[1]['effect'][ammunition_type]
+  end
+
   # show
   def method_missing(method_name)
     if @hero && method_name.to_s.include?('hero__')

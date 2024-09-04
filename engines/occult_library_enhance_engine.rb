@@ -18,6 +18,8 @@ class OccultLibraryEnhanceEngine
     end
   end
 
+  private
+
   def recipes_list
     choose = nil
     buttons = 'A'..'X'
@@ -32,13 +34,44 @@ class OccultLibraryEnhanceEngine
     if @ebr.accessible_recipes.size > i && @ebr.has_ingredients?(i)
       recipe_data = @ebr.accessible_recipes[i]
       @recipe = OccultLibraryRecipe.new(recipe_data, @hero)
-      MainRenderer.new(:camp_ol_enhance_screen, entity: @recipe).display
-      gets
+      show_or_enhance_ammunition()
     elsif @ebr.accessible_recipes.size > i
       recipe_data = @ebr.accessible_recipes[i]
       @recipe = OccultLibraryRecipe.new(recipe_data, @hero)
       MainRenderer.new(:camp_ol_recipe_screen, entity: @recipe).display
       gets
+    end
+  end
+
+  def show_or_enhance_ammunition
+    choose = nil
+    show_buttons, enhance_buttons = 'A'..'E', '1'..'5'
+    until ['0', ''].include?(choose)
+      MainRenderer.new(:camp_ol_enhance_screen, entity: @recipe).display
+      choose = gets.strip.upcase
+      if show_buttons.include?(choose)
+        show_ammunition(choose)
+      elsif enhance_buttons.include?(choose)
+        enhance_ammunition(choose.to_i-1)
+      end
+    end
+  end
+
+  def show_ammunition(char)
+    ammunition_type = {'A'=>'weapon','B'=>'head_armor','C'=>'body_armor','D'=>'arms_armor','E'=>'shield'}[char]
+    MainRenderer.new(:"ammunition_#{ammunition_type}_screen", entity: @hero.send(ammunition_type)).display
+    gets
+  end
+
+  def enhance_ammunition(n)
+    ammunition_type = %w[weapon head_armor body_armor arms_armor shield][n]
+    ammunition_obj = @hero.send(ammunition_type)
+    if ammunition_obj != 'without'
+      # effect = @recipe.effect_of(ammunition_type)
+      # effect.each do |stat_name, value|
+      #   ammunition_obj.send("#{stat_name}=", value)
+      # end
+      # ammunition_obj
     end
   end
 
