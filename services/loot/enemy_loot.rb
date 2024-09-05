@@ -65,7 +65,7 @@ class EnemyLoot
     ingredient = @enemy.ingredients.tr('_',' ').capitalize
     @messages.main = "After searching the #{@enemy.name}'s body you found #{ingredient}"
     @messages.clear_log
-    display_message_screen
+    display_message_screen([{ dead: @enemy }])
     gets
   end
 
