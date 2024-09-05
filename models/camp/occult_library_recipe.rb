@@ -1,6 +1,5 @@
 class OccultLibraryRecipe
-  attr_reader :code_name, :view_code, :name, :price
-  # attr_reader :recipe, :weapon, :head_armor, :body_armor, :arms_armor, :shield
+  attr_reader :code_name, :view_code, :name, :price, :recipe_ingredients
 
   def initialize(data, hero=nil)
     @data = data
@@ -12,12 +11,19 @@ class OccultLibraryRecipe
     @price = data[1]['price']
 
     # hashes:
-    # @recipe = data[1]['recipe']
+    @recipe_ingredients = data[1]['recipe']
     # @weapon = data[1]['effect']['weapon']
     # @head_armor = data[1]['effect']['head_armor']
     # @body_armor = data[1]['effect']['body_armor']
     # @arms_armor = data[1]['effect']['arms_armor']
     # @shield = data[1]['effect']['shield']
+  end
+
+  def hero_has_ingredients?
+    return false unless @hero
+    @recipe_ingredients.all? do |ingredient_name, count|
+      @hero.ingredients[ingredient_name] && @hero.ingredients[ingredient_name] >= count
+    end
   end
 
   def effect_of(ammunition_type)

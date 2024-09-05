@@ -19,7 +19,7 @@ class HeadArmor
   end
 
   def name
-    @enhance ? @basic_name + ' (E+)' : @basic_name
+    @enhance ? '(E+) ' + @basic_name : @basic_name
   end
 
   def armor
