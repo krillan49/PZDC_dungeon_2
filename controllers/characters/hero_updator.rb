@@ -93,13 +93,7 @@ class HeroUpdator
     if distribution == 'A' # show all ammunition
     elsif %w[B C D E F].include?(distribution) # show chosen ammunition
       ammunition_type = {B: 'weapon', C: 'head_armor', D: 'body_armor', E: 'arms_armor', F: 'shield'}[distribution.to_sym]
-      # ammunition_code = @hero.send(ammunition_type).code
-      # AmmunitionShow.show(ammunition_type, ammunition_code) if ammunition_code != 'without'
       ammunition_obj = @hero.send(ammunition_type)
-      # if ammunition_obj.code != 'without'
-      #   MainRenderer.new(:"ammunition_#{ammunition_type}_screen", entity: ammunition_obj).display
-      #   gets
-      # end
       AmmunitionShow.display(obj: ammunition_obj, type: ammunition_type) if ammunition_obj.code != 'without'
     end
   end
