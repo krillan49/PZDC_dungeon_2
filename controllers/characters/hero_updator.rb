@@ -96,10 +96,11 @@ class HeroUpdator
       # ammunition_code = @hero.send(ammunition_type).code
       # AmmunitionShow.show(ammunition_type, ammunition_code) if ammunition_code != 'without'
       ammunition_obj = @hero.send(ammunition_type)
-      if ammunition_obj.code != 'without'
-        MainRenderer.new(:"ammunition_#{ammunition_type}_screen", entity: ammunition_obj).display
-        gets
-      end
+      # if ammunition_obj.code != 'without'
+      #   MainRenderer.new(:"ammunition_#{ammunition_type}_screen", entity: ammunition_obj).display
+      #   gets
+      # end
+      AmmunitionShow.display(obj: ammunition_obj, type: ammunition_type) if ammunition_obj.code != 'without'
     end
   end
 
