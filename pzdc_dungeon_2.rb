@@ -27,7 +27,6 @@ require_relative "services/loot/enemy_loot"
 require_relative "services/loot/field_loot"
 require_relative "services/loot/secret_loot"
 # actions
-require_relative "services/actions/enhance_by_recipe"
 
 # controllers -------------------------
 # ammunition
@@ -50,6 +49,7 @@ require_relative "models/camp/warehouse"
 require_relative "models/camp/pzdc_monolith"
 require_relative "models/camp/shop"
 require_relative "models/camp/occult_library"
+require_relative "models/camp/occult_library_at_run"
 require_relative "models/camp/occult_library_recipe"
 # ammunition
 require_relative "models/ammunition/arms_armor"
@@ -87,7 +87,6 @@ Main.new.start_game
 
 # Ошибки:
 # Монеты не сохраняются в фаил персонажа и потому теряются при сэйвлоад ??
-# EnhanceByRecipe  - это мб модель ?
 # При создании нового перса(?когда нет фаила?) левелинг сразу 2 ??При создании нового перса(или нет??) до сохранения берется левелинг старого сохраненного перса??
 # Не срабатыает перк когда маны ровно для него. (при регенерации маны ??)
 

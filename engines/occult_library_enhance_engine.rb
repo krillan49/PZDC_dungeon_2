@@ -12,7 +12,7 @@ class OccultLibraryEnhanceEngine
       MainRenderer.new(:messages_screen, entity: @messages, arts: [{ camp_fire: :rest }]).display
       choose = gets.strip.upcase
       if choose == '1'
-        @ebr = EnhanceByRecipe.new(@hero) unless @ebr
+        @ebr = OccultLibraryAtRun.new(@hero) unless @ebr
         recipes_list()
       end
     end

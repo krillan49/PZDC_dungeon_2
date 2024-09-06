@@ -1,4 +1,4 @@
-class EnhanceByRecipe
+class OccultLibraryAtRun
   def initialize(hero)
     @hero = hero
     @accessible_recipes = accessible_recipes()
