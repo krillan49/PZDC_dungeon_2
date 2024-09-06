@@ -63,19 +63,11 @@ class OccultLibraryEnhanceEngine
     gets
   end
 
-  def enhance_ammunition(n) # потом вынести функционал в сервис ??
+  def enhance_ammunition(n)
     ammunition_type = %w[weapon head_armor body_armor arms_armor shield][n]
     ammunition_obj = @hero.send(ammunition_type)
     if ammunition_obj.code != 'without' && @recipe.hero_has_ingredients?
-      @recipe.recipe_ingredients.each do |ingredient_name, value|
-        @hero.ingredients[ingredient_name] -= value
-      end
-      ammunition_obj.enhance = true
-      ammunition_obj.enhance_name = @recipe.code_name
-      effect = @recipe.effect_of(ammunition_type)
-      effect.each do |stat_name, value|
-        ammunition_obj.send("enhance_#{stat_name}=", value)
-      end
+      OccultLibraryEnhanceService.new(@hero, ammunition_obj, ammunition_type, @recipe).enhance
     end
   end
 

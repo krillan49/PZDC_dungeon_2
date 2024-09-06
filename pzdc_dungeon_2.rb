@@ -27,6 +27,7 @@ require_relative "services/loot/enemy_loot"
 require_relative "services/loot/field_loot"
 require_relative "services/loot/secret_loot"
 # actions
+require_relative "services/actions/occult_library_enhance_service"
 
 # controllers -------------------------
 # ammunition
