@@ -1,9 +1,9 @@
 tumor_with_ears:
   view_code: 1
   name: "Tumor with ears"
-  price: 100
+  price: 10
   recipe:
-    ear: 3
+    ear: 2
   effect:
     weapon:
       accuracy: 3
@@ -19,10 +19,10 @@ tumor_with_ears:
 windings_with_ears:
   view_code: 2
   name: "Windings with ears"
-  price: 100
+  price: 10
   recipe:
     dog_skin: 1
-    ear: 2
+    ear: 1
   effect:
     weapon:
       accuracy: 1
@@ -35,3 +35,44 @@ windings_with_ears:
       accuracy: 1
     shield:
       block_chance: 3
+
+reinforced_flesh:
+  view_code: 3
+  name: "Reinforced flesh"
+  price: 20
+  recipe:
+    dead_flesh: 1
+    living_bone: 2
+  effect:
+    weapon:
+      accuracy: -5
+      min_dmg: 1
+      max_dmg: 2
+    head_armor:
+      accuracy: -5
+      armor: 1
+    body_armor:
+      accuracy: -3
+      armor: 1
+    arms_armor:
+      accuracy: -8
+      armor: 1
+    shield:
+      block_chance: 10
+      accuracy: -10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#

@@ -22,7 +22,7 @@ e1:
     - without
   ingredients:
     - without
-    - zombie_brain
+    - dead_flesh
 
 e2:
   code_name: skeleton
@@ -98,6 +98,7 @@ e4:
     - without
   ingredients:
     - without
+    - dead_flesh
     - ghoul_heart
 
 e5:
@@ -155,7 +156,6 @@ boss:
   shield:
     - without
   ingredients:
-    - without
     - zombie_brain
 
 

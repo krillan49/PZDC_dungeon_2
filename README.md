@@ -95,14 +95,12 @@ Non-combat skills (work between battles):
 
 ## TODO
 
-* Add translations
 * More content: dungeons, buildings, characters, enemies, equipment, skills
 * More complex combat system with a greater choice of actions and their combinations
 * Balancing skills, enemies, characters
-* Add documentation
-* Add tests
 * Zomby-hero add to level from dead hero
 * If a large number of enemies of one type are killed, then it will be possible to play with this type of enemy
+* Add translations
 
 ## SCREENS
 

@@ -50,7 +50,7 @@ e2:
     - braided_buckler
   ingredients:
     - without
-    - green_ear
+    - ear
 
 e3:
   code_name: sworm
@@ -133,7 +133,7 @@ e5:
     - without
   ingredients:
     - without
-    - green_ear
+    - ear
 
 boss:
   code_name: ancient_snail
@@ -157,7 +157,6 @@ boss:
   shield:
     - without
   ingredients:
-    - without
     - piece_of_snail_shell
 
 
