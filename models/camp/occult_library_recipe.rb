@@ -2,16 +2,16 @@ class OccultLibraryRecipe
   attr_reader :code_name, :view_code, :name, :price, :recipe_ingredients
 
   def initialize(data, hero=nil)
-    @data = data
+    @data = data.class == Array ? data : [data, YAML.safe_load_file('data/camp/occult_library.yml')[data]]
     @hero = hero
 
-    @code_name = data[0]
-    @view_code = data[1]['view_code']
-    @name = data[1]['name']
-    @price = data[1]['price']
+    @code_name = @data[0]
+    @view_code = @data[1]['view_code']
+    @name = @data[1]['name']
+    @price = @data[1]['price']
 
     # hashes:
-    @recipe_ingredients = data[1]['recipe']
+    @recipe_ingredients = @data[1]['recipe']
     # @weapon = data[1]['effect']['weapon']
     # @head_armor = data[1]['effect']['head_armor']
     # @body_armor = data[1]['effect']['body_armor']

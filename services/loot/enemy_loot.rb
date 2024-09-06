@@ -13,7 +13,7 @@ class EnemyLoot
     arms_armor_loot() if rand(0..1) == 1 && @enemy.arms_armor.code != "without"
     shield_loot() if rand(0..1) == 1 && @enemy.shield.code != "without"
     coins_loot() if @enemy.coins_gived > 0
-    ingredients_loot() if @enemy.ingredients != "without" && rand(0..1) == 1
+    ingredients_loot() if @enemy.ingredients != "without" #&& rand(0..1) == 1
   end
 
   private

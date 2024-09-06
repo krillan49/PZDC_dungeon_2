@@ -56,8 +56,9 @@ If you want an easy game, then create a character named BAMBUGA then you will ge
 
 In the camp menu you can distribute bonuses for completing or killing opponents in dungeons
 
-* monolith - accumulates points for killing the enemy, the stronger the enemy, the greater the chance. For monolith points in the camp, you can strengthen the characteristics of the characters
-* shop     - if your character survived the previous run, then with some probability he can sell his items to the shop, and you can buy them from the merchant for new heroes
+* Monolith - accumulates points for killing the enemy, the stronger the enemy, the greater the chance. For monolith points in the camp, you can strengthen the characteristics of the characters
+* Shop - if your character survived the previous run, then with some probability he can sell his items to the shop, and you can buy them from the merchant for new heroes
+* Occult Library - Sells recipes that can be used to create living enhancements for weapons and armor from body parts of slain enemies
 
 
 ![shop](assets/shop.png)

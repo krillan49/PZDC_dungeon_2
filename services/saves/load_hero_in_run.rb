@@ -37,11 +37,18 @@ class LoadHeroInRun
       @hero.send "#{slill_type}=", SkillsCreator.create(params['code'], @hero)
       @hero.send(slill_type).lvl = params['lvl']
     end
-    # add ammunition
+    # add ammunition and enhance
     @hero_data['hero_ammunition'].each do |ammunition_type, data|
-      ammunition_code, enhance_code = data['code'], data['enhance_code']
-      @hero.send "#{ammunition_type}=", AmmunitionCreator.create(ammunition_type, ammunition_code)
-      # @hero.send(ammunition_type) if enhance_code != ''
+      # add ammunition
+      ammunition_code = data['code']
+      ammunition_obj = AmmunitionCreator.create(ammunition_type, ammunition_code)
+      @hero.send "#{ammunition_type}=", ammunition_obj
+      # add enhance
+      enhance_code = data['enhance_code']
+      if enhance_code != ''
+        recipe = OccultLibraryRecipe.new(enhance_code)
+        OccultLibraryEnhanceService.new(@hero, ammunition_obj, ammunition_type, recipe).ammunition_enhance
+      end
     end
     # add dungeon_name
     @hero.dungeon_name = @hero_data['dungeon_name']
