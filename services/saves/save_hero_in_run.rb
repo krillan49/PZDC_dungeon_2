@@ -48,11 +48,26 @@ class SaveHeroInRun
         }
       },
       'hero_ammunition' => {
-        'weapon' => @hero.weapon.code,
-        'body_armor' => @hero.body_armor.code,
-        'head_armor' => @hero.head_armor.code,
-        'arms_armor' => @hero.arms_armor.code,
-        'shield' => @hero.shield.code
+        'weapon' => {
+          'code' => @hero.weapon.code,
+          'enhance_code' => @hero.weapon.enhance_name
+        },
+        'body_armor' => {
+          'code' => @hero.body_armor.code,
+          'enhance_code' => @hero.body_armor.enhance_name
+        },
+        'head_armor' => {
+          'code' => @hero.head_armor.code,
+          'enhance_code' => @hero.head_armor.enhance_name
+        },
+        'arms_armor' => {
+          'code' => @hero.arms_armor.code,
+          'enhance_code' => @hero.arms_armor.enhance_name
+        },
+        'shield' => {
+          'code' => @hero.shield.code,
+          'enhance_code' => @hero.shield.enhance_name
+        }
       },
       'dungeon_name' => @hero.dungeon_name,
       'leveling' => @leveling,

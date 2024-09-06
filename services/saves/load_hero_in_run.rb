@@ -38,8 +38,10 @@ class LoadHeroInRun
       @hero.send(slill_type).lvl = params['lvl']
     end
     # add ammunition
-    @hero_data['hero_ammunition'].each do |ammunition_type, ammunition_name|
-      @hero.send "#{ammunition_type}=", AmmunitionCreator.create(ammunition_type, ammunition_name)
+    @hero_data['hero_ammunition'].each do |ammunition_type, data|
+      ammunition_code, enhance_code = data['code'], data['enhance_code']
+      @hero.send "#{ammunition_type}=", AmmunitionCreator.create(ammunition_type, ammunition_code)
+      # @hero.send(ammunition_type) if enhance_code != ''
     end
     # add dungeon_name
     @hero.dungeon_name = @hero_data['dungeon_name']
