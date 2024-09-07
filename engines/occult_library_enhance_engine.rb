@@ -59,8 +59,10 @@ class OccultLibraryEnhanceEngine
 
   def show_ammunition(char)
     ammunition_type = {'A'=>'weapon','B'=>'head_armor','C'=>'body_armor','D'=>'arms_armor','E'=>'shield'}[char]
-    MainRenderer.new(:"ammunition_#{ammunition_type}_screen", entity: @hero.send(ammunition_type)).display
-    gets
+    ammunition_obj = @hero.send(ammunition_type)
+    AmmunitionShow.display(type: ammunition_type, obj: ammunition_obj, arts: [{normal: ammunition_obj}])
+    # MainRenderer.new(:"ammunition_#{ammunition_type}_screen", entity: @hero.send(ammunition_type)).display
+    # gets
   end
 
   def enhance_ammunition(n)
