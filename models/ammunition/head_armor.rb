@@ -1,9 +1,13 @@
 class HeadArmor
+  attr_reader :entity_type, :ammunition_type
   attr_reader :code, :price
   attr_reader :basic_name, :basic_armor, :basic_accuracy
   attr_accessor :enhance, :enhance_name, :enhance_armor, :enhance_accuracy
 
   def initialize(code_name)
+    @entity_type = 'ammunition'
+    @ammunition_type = 'head_armor'
+
     @code = code_name
     head_armor = YAML.safe_load_file('data/ammunition/head_armor.yml', symbolize_names: true)[code_name.to_sym]
     @price = head_armor[:price]

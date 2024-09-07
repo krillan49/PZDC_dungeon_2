@@ -37,11 +37,18 @@ view:
 arts:
   -
     y:
-      - 4
-      - 23
+      - 6
+      - 22
     x:
-      - 3
-      - 118
+      - 2
+      - 55
+  -
+    y:
+      - 6
+      - 22
+    x:
+      - 64
+      - 117
 partials:
   -
     partial_name: _loot_character_shield

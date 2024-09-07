@@ -8,7 +8,7 @@ module AmmunitionShow
       ammunition_code = params[:code]
       ammunition_obj = AmmunitionCreator.create(ammunition_type, ammunition_code)
     end
-    MainRenderer.new(:"ammunition_#{ammunition_type}_screen", entity: ammunition_obj).display
+    MainRenderer.new(:"ammunition_#{ammunition_type}_screen", entity: ammunition_obj, arts: params[:arts]).display
     gets
   end
 

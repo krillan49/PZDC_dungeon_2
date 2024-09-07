@@ -42,7 +42,10 @@ class CampEngine
       choose = gets.strip
       if buttons.include?(choose.upcase)
         ammunition_type, ammunition_code = Shop.new.get_item_type_and_code_name(choose)
-        AmmunitionShow.display(type: ammunition_type, code: ammunition_code) if ammunition_code != 'without'
+        if ammunition_code != 'without'
+          ammunition_obj = AmmunitionCreator.create(ammunition_type, ammunition_code)
+          AmmunitionShow.display(type: ammunition_type, code: ammunition_code, arts: [{normal: ammunition_obj}])
+        end
       elsif choose.to_i > 0 && choose.to_i <= 15
         @shop = Shop.new
         @shop.sell_amunition(choose.to_i)

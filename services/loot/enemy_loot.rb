@@ -20,31 +20,31 @@ class EnemyLoot
 
   def weapon_loot
     @messages.main = "After searching the #{@enemy.name}'s body you found #{@enemy.weapon.name}"
-    display_loot_screen(:weapon)
+    display_loot_screen(:weapon, [{normal: @hero.weapon}, {normal: @enemy.weapon}])
     @hero.weapon = @enemy.weapon if gets.strip.upcase == 'Y'
   end
 
   def body_armor_loot
     @messages.main = "After searching the #{@enemy.name}'s body you found #{@enemy.body_armor.name}"
-    display_loot_screen(:body_armor)
+    display_loot_screen(:body_armor, [{normal: @hero.body_armor}, {normal: @enemy.body_armor}])
     @hero.body_armor = @enemy.body_armor if gets.strip.upcase == 'Y'
   end
 
   def head_armor_loot
     @messages.main = "After searching the #{@enemy.name}'s body you found #{@enemy.head_armor.name}"
-    display_loot_screen(:head_armor)
+    display_loot_screen(:head_armor, [{normal: @hero.head_armor}, {normal: @enemy.head_armor}])
     @hero.head_armor = @enemy.head_armor if gets.strip.upcase == 'Y'
   end
 
   def arms_armor_loot
     @messages.main = "After searching the #{@enemy.name}'s body you found #{@enemy.arms_armor.name}"
-    display_loot_screen(:arms_armor)
+    display_loot_screen(:arms_armor, [{normal: @hero.arms_armor}, {normal: @enemy.arms_armor}])
     @hero.arms_armor = @enemy.arms_armor if gets.strip.upcase == 'Y'
   end
 
   def shield_loot
     @messages.main = "After searching the #{@enemy.name}'s body you found #{@enemy.shield.name}"
-    display_loot_screen(:shield)
+    display_loot_screen(:shield, [{normal: @hero.shield}, {normal: @enemy.shield}])
     @hero.shield = @enemy.shield if gets.strip.upcase == 'Y'
   end
 
@@ -71,14 +71,15 @@ class EnemyLoot
 
   private
 
-  def display_loot_screen(ammunition_type)
+  def display_loot_screen(ammunition_type, arts=nil)
     hero_ammunition_obj = @hero.send(ammunition_type)
     enemy_ammunition_obj = @enemy.send(ammunition_type)
     MainRenderer.new(
       :"loot_enemy_#{ammunition_type}",
       hero_ammunition_obj,
       enemy_ammunition_obj,
-      entity: @messages
+      entity: @messages,
+      arts: arts
     ).display
   end
 

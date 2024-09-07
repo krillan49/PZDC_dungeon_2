@@ -1,9 +1,13 @@
 class Shield
+  attr_reader :entity_type, :ammunition_type
   attr_reader :code, :price
   attr_reader :basic_name, :basic_armor, :basic_accuracy, :basic_block_chance
   attr_accessor :enhance, :enhance_name, :enhance_armor, :enhance_accuracy, :enhance_block_chance
 
   def initialize(code_name)
+    @entity_type = 'ammunition'
+    @ammunition_type = 'shield'
+
     @code = code_name
     shield = YAML.safe_load_file('data/ammunition/shield.yml', symbolize_names: true)[code_name.to_sym]
     @price = shield[:price]
