@@ -61,14 +61,10 @@ class OccultLibrary
   end
 
   def update
-    not_all_keys = false
     @occult_library.keys.each do |k|
-      unless @recipes[k]
-        @recipes[k] = false
-        not_all_keys = true
-      end
+      @recipes[k] = false unless @recipes[k]
     end
-    File.write(SAVE_PATH, @recipes.to_yaml) if not_all_keys
+    File.write(SAVE_PATH, @recipes.to_yaml)
   end
 
   def new_file_data
