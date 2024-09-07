@@ -114,8 +114,10 @@ e5:
   exp_gived: 7
   coins_gived: 3
   weapon:
+    - rusty_pernach
     - rusty_axe
     - rusty_flail
+    - pernach
     - axe
     - flail
   body_armor:

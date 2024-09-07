@@ -123,8 +123,11 @@ e5:
   weapon:
     - club
     - rusty_hatchet
+    - rusty_falchion
+    - rusty_pernach
     - hatchet
     - falchion
+    - pernach
   body_armor:
     - without
     - leather_jacket

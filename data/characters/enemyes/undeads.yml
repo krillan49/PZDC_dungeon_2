@@ -115,6 +115,7 @@ e5:
   weapon:
     - rusty_sword
     - rusty_falchion
+    - rusty_pernach
     - rusty_axe
     - rusty_flail
   body_armor:
