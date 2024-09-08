@@ -71,7 +71,8 @@ ethereal_flesh:
     ghost_dust: 1
   effect:
     weapon:
-      accuracy: 8
+      accuracy: 3
+      block_chance: 5
       min_dmg: -1
       max_dmg: -1
     head_armor:
@@ -82,7 +83,7 @@ ethereal_flesh:
       accuracy: 7
       armor: -1
     shield:
-      block_chance: 5
+      block_chance: 7
       accuracy: 2
       armor: -1
 
