@@ -21,7 +21,7 @@ windings_with_ears:
   name: "Windings with ears"
   price: 10
   recipe:
-    dog_skin: 1
+    skin: 1
     ear: 1
   effect:
     weapon:
@@ -60,6 +60,31 @@ reinforced_flesh:
     shield:
       block_chance: 10
       accuracy: -10
+
+ethereal_flesh:
+  view_code: 4
+  name: "Ethereal flesh"
+  price: 25
+  recipe:
+    dead_flesh: 1
+    living_bone: 1
+    ghost_dust: 1
+  effect:
+    weapon:
+      accuracy: 8
+      min_dmg: -1
+      max_dmg: -1
+    head_armor:
+      accuracy: 3
+    body_armor:
+      accuracy: 2
+    arms_armor:
+      accuracy: 7
+      armor: -1
+    shield:
+      block_chance: 5
+      accuracy: 2
+      armor: -1
 
 
 

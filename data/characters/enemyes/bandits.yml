@@ -47,7 +47,7 @@ e2:
     - without
   ingredients:
     - without
-    - dog_skin
+    - skin
 
 e3:
   code_name: poacher

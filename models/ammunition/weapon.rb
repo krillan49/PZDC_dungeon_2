@@ -33,7 +33,8 @@ class Weapon
   end
 
   def max_dmg
-    @basic_max_dmg + @enhance_max_dmg
+    dmg = @basic_max_dmg + @enhance_max_dmg
+    dmg >= 0 ? dmg : 0
   end
 
   def accuracy
