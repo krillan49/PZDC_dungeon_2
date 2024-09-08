@@ -6,9 +6,9 @@ view:
   - "█                                                                     Min damage:       AAAA                           █"
   - "█                                                                     Max damage:       AAAA                           █"
   - "█                                                                     Accuracy:         AAAA                           █"
+  - "█                                                                     Block chance:     AAAA                           █"
+  - "█                                                                                                                      █"
   - "█                                                                     Price:            AAAA                           █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
@@ -64,6 +64,11 @@ insert_options:
         - accuracy
       modifier: e
   7:
+    A:
+      methods:
+        - block_chance
+      modifier: e
+  9:
     A:
       methods:
         - price

@@ -77,7 +77,7 @@ class Enemy
   end
 
   def block_chance
-    @shield.block_chance
+    @shield.block_chance + @weapon.block_chance
   end
 
   def block_power_coeff

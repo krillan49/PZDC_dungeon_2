@@ -3,6 +3,7 @@ without:
   min_dmg: 0
   max_dmg: 0
   accuracy: 0
+  block_chance: 0
   price: 0
 
 stick:
@@ -10,6 +11,7 @@ stick:
   min_dmg: 1
   max_dmg: 4
   accuracy: 0
+  block_chance: 2
   price: 1
 
 rusty_hatchet:
@@ -17,6 +19,7 @@ rusty_hatchet:
   min_dmg: 1
   max_dmg: 6
   accuracy: -2
+  block_chance: 0
   price: 2
 
 knife:
@@ -24,6 +27,7 @@ knife:
   min_dmg: 2
   max_dmg: 5
   accuracy: 0
+  block_chance: 0
   price: 3
 
 club:
@@ -31,6 +35,7 @@ club:
   min_dmg: 3
   max_dmg: 4
   accuracy: 0
+  block_chance: 0
   price: 3
 
 rusty_sword:
@@ -38,13 +43,15 @@ rusty_sword:
   min_dmg: 2
   max_dmg: 7
   accuracy: -3
-  price: 8
+  block_chance: 3
+  price: 15
 
 dagger:
   name: "Dagger"
   min_dmg: 3
   max_dmg: 6
   accuracy: 5
+  block_chance: 2
   price: 35
 
 rusty_falchion:
@@ -52,6 +59,7 @@ rusty_falchion:
   min_dmg: 4
   max_dmg: 8
   accuracy: -3
+  block_chance: 2
   price: 20
 
 rusty_pernach:
@@ -59,6 +67,7 @@ rusty_pernach:
   min_dmg: 5
   max_dmg: 7
   accuracy: -3
+  block_chance: 0
   price: 25
 
 hatchet:
@@ -66,6 +75,7 @@ hatchet:
   min_dmg: 5
   max_dmg: 8
   accuracy: 0
+  block_chance: 0
   price: 40
 
 rusty_axe:
@@ -73,6 +83,7 @@ rusty_axe:
   min_dmg: 5
   max_dmg: 9
   accuracy: -3
+  block_chance: 0
   price: 40
 
 falchion:
@@ -80,6 +91,7 @@ falchion:
   min_dmg: 5
   max_dmg: 10
   accuracy: 0
+  block_chance: 3
   price: 70
 
 pernach:
@@ -87,6 +99,7 @@ pernach:
   min_dmg: 7
   max_dmg: 8
   accuracy: 0
+  block_chance: 0
   price: 80
 
 rusty_flail:
@@ -94,6 +107,7 @@ rusty_flail:
   min_dmg: 0
   max_dmg: 15
   accuracy: -5
+  block_chance: 0
   price: 50
 
 axe:
@@ -101,6 +115,7 @@ axe:
   min_dmg: 6
   max_dmg: 10
   accuracy: 0
+  block_chance: 0
   price: 80
 
 flail:
@@ -108,6 +123,7 @@ flail:
   min_dmg: 0
   max_dmg: 20
   accuracy: -5
+  block_chance: 0
   price: 100
 
 mace:
@@ -115,6 +131,7 @@ mace:
   min_dmg: 8
   max_dmg: 12
   accuracy: 0
+  block_chance: 0
   price: 150
 
 rusty_longsword:
@@ -122,6 +139,7 @@ rusty_longsword:
   min_dmg: 6
   max_dmg: 17
   accuracy: -2
+  block_chance: 5
   price: 200
 
 
@@ -132,6 +150,7 @@ bambuga:
   min_dmg: 20
   max_dmg: 30
   accuracy: 10
+  block_chance: 0
   price: 9000
 
 

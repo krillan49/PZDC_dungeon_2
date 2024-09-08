@@ -1,12 +1,12 @@
 view:
   - "      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA      "
   - "                                                      "
-  - "                  Min damage:  AAAA                   "
-  - "                  Max damage:  AAAA                   "
-  - "                  Accuracy:    AAAA                   "
+  - "                  Min damage:   AAAA                  "
+  - "                  Max damage:   AAAA                  "
+  - "                  Accuracy:     AAAA                  "
+  - "                  Block chance: AAAA                  "
   - "                                                      "
-  - "                  Price:       AAAA                   "
-  - "                                                      "
+  - "                  Price:        AAAA                  "
   - "                                                      "
   - "                                                      "
 insert_options:
@@ -30,7 +30,12 @@ insert_options:
       methods:
         - accuracy
       modifier: e
-  6:
+  5:
+    A:
+      methods:
+        - block_chance
+      modifier: e
+  7:
     A:
       methods:
         - price

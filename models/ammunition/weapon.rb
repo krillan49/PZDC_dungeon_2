@@ -1,7 +1,7 @@
 class Weapon
   attr_reader :entity_type, :ammunition_type
   attr_reader :code, :price
-  attr_reader :basic_name, :basic_min_dmg, :basic_max_dmg, :basic_accuracy
+  attr_reader :basic_name, :basic_min_dmg, :basic_max_dmg, :basic_accuracy, :basic_block_chance
   attr_accessor :enhance, :enhance_name, :enhance_min_dmg, :enhance_max_dmg, :enhance_accuracy
 
   def initialize(code_name)
@@ -16,12 +16,14 @@ class Weapon
     @basic_min_dmg = weapon[:min_dmg]
     @basic_max_dmg = weapon[:max_dmg]
     @basic_accuracy = weapon[:accuracy]
+    @basic_block_chance = weapon[:block_chance]
 
     @enhance = false
     @enhance_name    = ''
     @enhance_min_dmg = 0
     @enhance_max_dmg = 0
     @enhance_accuracy = 0
+    @enhance_block_chance = 0
   end
 
   def name
@@ -39,5 +41,9 @@ class Weapon
 
   def accuracy
     @basic_accuracy + @enhance_accuracy
+  end
+
+  def block_chance
+    @basic_block_chance + @enhance_block_chance
   end
 end
