@@ -6,6 +6,7 @@ require_relative "helpers/ruby_version_fix_helper"
 # engines -----------------------------
 require_relative "engines/main"
 require_relative "engines/camp_engine"
+require_relative "engines/options_engine"
 require_relative "engines/run"
 require_relative "engines/attacks_round"
 require_relative "engines/loot_round"
@@ -45,6 +46,8 @@ require_relative "controllers/characters/enemy_actions"
 require_relative "controllers/characters/hero_use_skill"
 
 # models ------------------------------
+# options
+require_relative "models/options/options"
 # camp
 require_relative "models/camp/warehouse"
 require_relative "models/camp/pzdc_monolith"

@@ -11,6 +11,8 @@ class AttacksRound
     @enemy_block_successful = @enemy.block_chance >= rand(1..100)
 
     @messages = messages
+
+    @enemy_animation_speed = Options.new.get_enemy_actions_animation_speed
   end
 
   def action
@@ -195,12 +197,12 @@ class AttacksRound
   end
   #
   def enemy_attack_effects
-    sleep(1)
+    sleep_with_enemy_animation_speed()
     @messages.main = "#{@enemy.name}'s move"
     @messages.actions = "#{@enemy.name} chooses the method of attack"
     MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ normal: @enemy }]).display
     enemy_hit_or_miss()
-    sleep(1)
+    sleep_with_enemy_animation_speed()
     @messages.main = "#{@enemy.name} attacks"
     @messages.actions = ""
     MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ attack: @enemy }]).display
@@ -218,7 +220,7 @@ class AttacksRound
 
   def round_result
     if @hero.hp <= 0
-      sleep(1)
+      sleep_with_enemy_animation_speed()
       @messages.main = "You're dead!"
       @messages.actions = 'To continue press Enter'
       MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ game_over: :game_over }]).display
@@ -227,14 +229,20 @@ class AttacksRound
       gets
       DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
     elsif @enemy.hp <= 0
-      sleep(1)
+      sleep_with_enemy_animation_speed()
       @messages.main = "#{@enemy.name} dead, victory!"
       @messages.actions = 'To continue press Enter'
       MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ dead: @enemy }]).display
       gets
     else
-      sleep(1)
+      sleep_with_enemy_animation_speed()
     end
+  end
+
+  private
+
+  def sleep_with_enemy_animation_speed
+    sleep(@enemy_animation_speed)
   end
 
 end

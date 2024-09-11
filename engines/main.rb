@@ -12,6 +12,7 @@ class Main
     PzdcMonolith.new
     Shop.new
     OccultLibrary.new
+    Options.new
     # ход игры
     loop do
       MainRenderer.new(:start_game_screen).display
@@ -22,6 +23,8 @@ class Main
       elsif choose == '2'
         # Лагерь
         CampEngine.new.camp
+      elsif choose == '3'
+        OptionsEngine.new.main
       else
         # Забег
         load_or_start_new_run()
