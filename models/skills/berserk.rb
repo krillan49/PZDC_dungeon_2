@@ -18,8 +18,12 @@ class Berserk
     1 + (1 - @hero.hp.to_f / @hero.hp_max) * (BASIC_MOD + LVL_MOD * @lvl)
   end
 
+  def show_cost
+    'passive'
+  end
+
   def description
-    "(#{@lvl}): The less HP are left(#{@hero.hp.round}) from the maximum(#{@hero.hp_max}), the more damage X(#{damage_coef().round(2)})"
+    "The less HP are left(#{@hero.hp.round}) from the maximum(#{@hero.hp_max}), the more damage X(#{damage_coef().round(2)})"
   end
 
   def description_short

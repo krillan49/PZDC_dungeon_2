@@ -19,8 +19,12 @@ class Dazed
     100 / (2 * accuracy_reduce_coef())
   end
 
+  def show_cost
+    'passive'
+  end
+
   def description
-    "(#{@lvl}): if damage is greater #{accuracy_reduce_percent().round}% remaining enemy HP then he loses 10-90% accuracy"
+    "If damage is greater #{accuracy_reduce_percent().round}% remaining enemy HP then he loses 10-90% accuracy"
   end
 
   def description_short

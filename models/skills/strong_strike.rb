@@ -23,8 +23,12 @@ class StrongStrike
     ACCURACY_MOD
   end
 
+  def show_cost
+    "#{MP_COST} MP"
+  end
+
   def description
-    "(#{@lvl}): damage is stronger in #{damage_mod().round(1)}. Cost #{MP_COST}"
+    "Damage is stronger in #{damage_mod().round(1)}"
   end
 
   def description_short

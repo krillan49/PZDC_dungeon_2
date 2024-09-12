@@ -22,8 +22,12 @@ class Concentration
     rand(0..damage_coef()) || 0
   end
 
+  def show_cost
+    'passive'
+  end
+
   def description
-    "(#{@lvl}): if max MP is more than 100(#{@hero.mp_max}) random additional damage is dealt up to #{damage_coef().round(1)}"
+    "If max MP is more than 100(#{@hero.mp_max}) random additional damage is dealt up to #{damage_coef().round(1)}"
   end
 
   def description_short

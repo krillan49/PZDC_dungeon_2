@@ -1,19 +1,29 @@
 view:
-  - " active    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                                                   "
+  - " BBBBBBBBBBBBBBBBBBBBBBBBB (combat skill)         AAA lvl                                                   CCCCCCCCC "
   - " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA "
-  - "                                                                                                                      "
-  - " passive   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                                                   "
+  - "──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────"
+  - " BBBBBBBBBBBBBBBBBBBBBBBBB (combat skill)         AAA lvl                                                   CCCCCCCCC "
   - " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA "
-  - "                                                                                                                      "
-  - " camp      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                                                                   "
+  - "──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────"
+  - " BBBBBBBBBBBBBBBBBBBBBBBBB (camp skill)           AAA lvl                                                   CCCCCCCCC "
   - " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA "
 insert_options:
   0:
     A:
       methods:
         - active_skill
+        - lvl
+      modifier: e
+    B:
+      methods:
+        - active_skill
         - name
       modifier: s
+    C:
+      methods:
+        - active_skill
+        - show_cost
+      modifier: e
   1:
     A:
       methods:
@@ -24,8 +34,18 @@ insert_options:
     A:
       methods:
         - passive_skill
+        - lvl
+      modifier: e
+    B:
+      methods:
+        - passive_skill
         - name
       modifier: s
+    C:
+      methods:
+        - passive_skill
+        - show_cost
+      modifier: e
   4:
     A:
       methods:
@@ -36,8 +56,18 @@ insert_options:
     A:
       methods:
         - camp_skill
+        - lvl
+      modifier: e
+    B:
+      methods:
+        - camp_skill
         - name
       modifier: s
+    C:
+      methods:
+        - camp_skill
+        - show_cost
+      modifier: e
   7:
     A:
       methods:

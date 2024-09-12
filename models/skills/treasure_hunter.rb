@@ -15,8 +15,12 @@ class TreasureHunter
     BASIC_MOD + LVL_MOD * @lvl
   end
 
+  def show_cost
+    'passive'
+  end
+
   def description
-    "(#{@lvl}): treasure hunt bonus is #{coeff_lvl()}"
+    "Treasure hunt bonus is #{coeff_lvl()}"
   end
 
   def description_short

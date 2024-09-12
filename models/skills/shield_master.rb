@@ -15,8 +15,12 @@ class ShieldMaster
     BASIC_CHANCE_MOD + LVL_CHANCE_MOD * @lvl
   end
 
+  def show_cost
+    'passive'
+  end
+
   def description
-    "(#{@lvl}): shield block chance increased by #{block_chance_bonus()}%"
+    "Shield block chance increased by #{block_chance_bonus()}%"
   end
 
   def description_short

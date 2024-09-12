@@ -24,8 +24,12 @@ class PreciseStrike
     ACCURACY_BASIC_MOD + ACCURACY_LVL_MOD * @lvl
   end
 
+  def show_cost
+    "#{MP_COST} MP"
+  end
+
   def description
-    "(#{@lvl}): more precisely in #{accuracy_mod().round(1)}, stronger in #{damage_mod().round(1)}. Cost #{MP_COST}"
+    "More precisely in #{accuracy_mod().round(1)}, stronger in #{damage_mod().round(1)}"
   end
 
   def description_short

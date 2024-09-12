@@ -25,8 +25,12 @@ class BloodyRitual
     (@hero.mp_max - @hero.mp) * HERO_MP_MOD * coeff_lvl()
   end
 
+  def show_cost
+    "#{@hp_cost} HP"
+  end
+
   def description
-    "(#{@lvl}): restores #{restore_effect().round} MP, the more MP lost, the greater the effect(#{(HERO_MP_MOD * coeff_lvl() * 100).round}%). Cost #{@hp_cost} HP"
+    "Restores #{restore_effect().round} MP, the more MP lost, the greater the effect(#{(HERO_MP_MOD * coeff_lvl() * 100).round}%)"
   end
 
   def description_short
