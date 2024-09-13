@@ -50,7 +50,7 @@ dagger:
   name: "Dagger"
   min_dmg: 3
   max_dmg: 6
-  accuracy: 5
+  accuracy: 3
   block_chance: 2
   price: 35
 
@@ -61,6 +61,14 @@ rusty_falchion:
   accuracy: -3
   block_chance: 2
   price: 20
+
+sword:
+  name: "Sword"
+  min_dmg: 4
+  max_dmg: 7
+  accuracy: 3
+  block_chance: 5
+  price: 50
 
 rusty_pernach:
   name: "Rusty pernach"
