@@ -15,6 +15,8 @@ class Main
     Options.new
     # ход игры
     loop do
+      @leveling = 0 # иначе при загрузке выходе и после начале новой игры левелин сохраняется
+
       MainRenderer.new(:start_game_screen).display
       choose = gets.strip
       if choose == '0'
