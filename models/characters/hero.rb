@@ -65,11 +65,11 @@ class Hero
   # Геттеры - Методы зависимых характеристик:
 
   def min_dmg
-    @min_dmg_base + @weapon.min_dmg
+    @min_dmg_base + @weapon.min_dmg + @shield.min_dmg
   end
 
   def max_dmg
-    @max_dmg_base + @weapon.max_dmg
+    @max_dmg_base + @weapon.max_dmg + @shield.max_dmg
   end
 
   def recovery_hp

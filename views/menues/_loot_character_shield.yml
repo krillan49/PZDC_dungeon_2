@@ -4,9 +4,9 @@ view:
   - "               Armor:            AAAA                 "
   - "               Accuracy:         AAAA                 "
   - "               Block chance:     AAAA                 "
+  - "               Damage:           AAA-BBB              "
   - "                                                      "
   - "               Price:            AAAA                 "
-  - "                                                      "
   - "                                                      "
   - "                                                      "
 insert_options:
@@ -30,7 +30,16 @@ insert_options:
       methods:
         - block_chance
       modifier: e
-  6:
+  5:
+    A:
+      methods:
+        - min_dmg
+      modifier: e
+    B:
+      methods:
+        - max_dmg
+      modifier: s
+  7:
     A:
       methods:
         - price

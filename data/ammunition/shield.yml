@@ -3,6 +3,8 @@ without:
   armor: 0
   accuracy: 0
   block_chance: 0
+  min_dmg: 0
+  max_dmg: 0
   price: 0
 
 braided_buckler:
@@ -10,6 +12,8 @@ braided_buckler:
   armor: 0
   accuracy: 0
   block_chance: 25
+  min_dmg: 0
+  max_dmg: 0
   price: 25
 
 wooden_buckler:
@@ -17,6 +21,8 @@ wooden_buckler:
   armor: 1
   accuracy: -2
   block_chance: 25
+  min_dmg: 0
+  max_dmg: 0
   price: 50
 
 wooden_shield:
@@ -24,6 +30,8 @@ wooden_shield:
   armor: 2
   accuracy: -5
   block_chance: 15
+  min_dmg: 0
+  max_dmg: 0
   price: 100
 
 rusty_scutum:
@@ -31,4 +39,6 @@ rusty_scutum:
   armor: 1
   accuracy: -8
   block_chance: 50
+  min_dmg: 0
+  max_dmg: 0
   price: 150

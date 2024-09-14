@@ -6,10 +6,10 @@ view:
   - "█                                                                     Armor:            AAAA                           █"
   - "█                                                                     Accuracy:         AAAA                           █"
   - "█                                                                     Block chance:     AAAA                           █"
+  - "█                                                                     Min damage:       AAAA                           █"
+  - "█                                                                     Max damage:       AAAA                           █"
+  - "█                                                                                                                      █"
   - "█                                                                     Price:            AAAA                           █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
@@ -64,6 +64,16 @@ insert_options:
         - block_chance
       modifier: e
   7:
+    A:
+      methods:
+        - min_dmg
+      modifier: e
+  8:
+    A:
+      methods:
+        - max_dmg
+      modifier: e
+  10:
     A:
       methods:
         - price

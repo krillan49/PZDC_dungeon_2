@@ -1,8 +1,9 @@
 class Shield
   attr_reader :entity_type, :ammunition_type
   attr_reader :code, :price
-  attr_reader :basic_name, :basic_armor, :basic_accuracy, :basic_block_chance
-  attr_accessor :enhance, :enhance_name, :enhance_armor, :enhance_accuracy, :enhance_block_chance
+  attr_reader :basic_name, :basic_min_dmg, :basic_max_dmg, :basic_armor, :basic_accuracy, :basic_block_chance
+  attr_accessor :enhance, :enhance_name, :enhance_armor, :enhance_accuracy, :enhance_block_chance,
+                :enhance_min_dmg, :enhance_max_dmg
 
   def initialize(code_name)
     @entity_type = 'ammunition'
@@ -16,9 +17,13 @@ class Shield
     @basic_armor = shield[:armor]
     @basic_accuracy = shield[:accuracy]
     @basic_block_chance = shield[:block_chance]
+    @basic_min_dmg = shield[:min_dmg]
+    @basic_max_dmg = shield[:max_dmg]
 
     @enhance = false
     @enhance_name = ''
+    @enhance_min_dmg = 0
+    @enhance_max_dmg = 0
     @enhance_armor = 0
     @enhance_accuracy = 0
     @enhance_block_chance = 0
@@ -26,6 +31,16 @@ class Shield
 
   def name
     @enhance ? '(E+) ' + @basic_name : @basic_name
+  end
+
+  def min_dmg
+    res_min_dmg = @basic_min_dmg + @enhance_min_dmg
+    res_min_dmg >= 0 ? res_min_dmg : 0
+  end
+
+  def max_dmg
+    res_max_dmg = @basic_max_dmg + @enhance_max_dmg
+    res_max_dmg >= 0 ? res_max_dmg : 0
   end
 
   def armor
