@@ -1,6 +1,6 @@
 class EventCreator
-  STANDART_EVENT_CONSTANS = [FieldLootEvent, SecretLootEvent]
-  # STANDART_EVENT_CONSTANS = [SecretLootEvent]
+  STANDART_EVENT_CONSTANS = [FieldLootEvent, SecretLootEvent, ExitRunEvent]
+  # STANDART_EVENT_CONSTANS = [ExitRunEvent]
 
   def initialize(leveling, dungeon_name)
     @dungeon_name = dungeon_name

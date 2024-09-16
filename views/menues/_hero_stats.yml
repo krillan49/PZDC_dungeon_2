@@ -1,6 +1,6 @@
 view:
   - "                                                                          "
-  - " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA            lvl BBB          exp CCCC/DDDD "
+  - " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA    lvl BBB    exp CCCC/DDDD    coins EEEE "
   - "──────────────────────────────────────────────────────────────────────────"
   - "   hp AAA/BBB              hp regen CCC               hp recovery DDD     "
   - "   mp AAA/BBB              mp regen CCC               mp recovery DDD     "
@@ -39,6 +39,10 @@ insert_options:
       methods:
         - next_lvl_exp
       modifier: s
+    E:
+      methods:
+        - coins
+      modifier: s  
   3:
     A:
       methods:

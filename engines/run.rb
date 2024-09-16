@@ -135,8 +135,8 @@ class Run
   def event_choose
     event_constant_1 = EventCreator.new(@leveling, @hero.dungeon_name).create_new_event
     event = event_constant_1.new(@hero)
-    event.start
-    if @hero.hp <= 0
+    hero_exit_run = event.start
+    if @hero.hp <= 0 || hero_exit_run == 'exit_run'
       @exit_to_main = true
       return
     end
