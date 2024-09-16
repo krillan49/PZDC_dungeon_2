@@ -1,13 +1,14 @@
-class FieldLoot
-  def initialize(hero, messages)
+class FieldLootEvent
+  def initialize(hero)
     @hero = hero
-    @messages = messages
+
+    @messages = MainMessage.new
 
     @basic_loot_chanse = rand(1..200)
     @loot_chanse = @basic_loot_chanse + (@hero.camp_skill.name == "Treasure hunter" ? @hero.camp_skill.coeff_lvl : 0)
   end
 
-  def looting
+  def start
     @messages.log << "Search everything around... (#{@basic_loot_chanse} => #{@loot_chanse})"
     if @loot_chanse > 160
       potion()
@@ -25,7 +26,8 @@ class FieldLoot
   private
 
   def nothing
-    # @messages.log << "There is nothing valuable"
+    @messages.log << "There is nothing valuable"
+    display_message_screen()
   end
 
   def potion

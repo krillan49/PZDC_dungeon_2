@@ -25,10 +25,11 @@ require_relative "services/saves/delete_hero_in_run"
 # loot
 require_relative "services/loot/pzdc_monolith_loot"
 require_relative "services/loot/enemy_loot"
-require_relative "services/loot/field_loot"
 require_relative "services/loot/secret_loot"
 # actions
 require_relative "services/actions/occult_library_enhance_service"
+# events
+require_relative "services/events/field_loot_event"
 
 # controllers -------------------------
 # ammunition
@@ -44,6 +45,8 @@ require_relative "controllers/characters/hero_updator"
 require_relative "controllers/characters/hero_actions"
 require_relative "controllers/characters/enemy_actions"
 require_relative "controllers/characters/hero_use_skill"
+# events
+require_relative "controllers/events/event_creator"
 
 # models ------------------------------
 # options

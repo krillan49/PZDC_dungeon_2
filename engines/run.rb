@@ -11,15 +11,19 @@ class Run
   end
 
   def start
-    while true
+    (1..Float::INFINITY).each do |n|
       hero_update()
       save_and_exit()
       break if @exit_to_main
       camp_actions()
-      event_or_enemy_choose()
-      battle()
-      break if @exit_to_main
-      after_battle()
+      if n.even? && event?() # event
+        event_choose()
+      else # enemy
+        enemy_choose()
+        battle()
+        break if @exit_to_main
+        after_battle()
+      end
       break if @exit_to_main
     end
   end
@@ -51,7 +55,13 @@ class Run
     OccultLibraryEnhanceEngine.new(@hero).start
   end
 
-  def event_or_enemy_choose
+  def event?
+    true # потом сделать зависимость от удачи
+  end
+
+  # enemy
+
+  def enemy_choose
     # Выбор противника
     enemy1 = EnemyCreator.new(@leveling, @hero.dungeon_name).create_new_enemy
     enemy2 = EnemyCreator.new(@leveling, @hero.dungeon_name).create_new_enemy
@@ -60,7 +70,7 @@ class Run
     @messages.main = 'Which way will you go?'
     until n >= 0 && n <= 2
       MainRenderer.new(
-        :event_choose_screen, enemy1, enemy2, enemy3,
+        :enemy_choose_screen, enemy1, enemy2, enemy3,
         entity: @messages, arts: [{ mini: enemy1 }, { mini: enemy2 }, { mini: enemy3 }]
       ).display
       n = gets.to_i - 1
@@ -101,7 +111,6 @@ class Run
     # Получение опыта и очков
     if !@hero_run_from_battle
       HeroActions.add_exp_and_hero_level_up(@hero, @enemy.exp_gived, @messages)
-      # display_message_screen_with_confirm_and_change_screen()
       @messages.main = 'To continue press Enter'
       MainRenderer.new(:messages_screen, entity: @messages, arts: [{ exp_gained: :exp_gained }]).display
       @messages.clear_log
@@ -110,10 +119,6 @@ class Run
     # Сбор лута
     loot = LootRound.new(@hero, @enemy, @hero_run_from_battle)
     loot.action
-    if loot.hero_dead?
-      @exit_to_main = true
-      return
-    end
     if @enemy.code == 'boss'
       @exit_to_main = true
       @messages.main = 'Boss killed. To continue press Enter'
@@ -123,6 +128,18 @@ class Run
       return
     end
     @leveling += 1
+  end
+
+  # event
+
+  def event_choose
+    event_constant_1 = EventCreator.new(@leveling, @hero.dungeon_name).create_new_event
+    event = event_constant_1.new(@hero)
+    event.start
+    if event.hero_dead?
+      @exit_to_main = true
+      return
+    end
   end
 
   private
