@@ -19,10 +19,6 @@ class FieldLootEvent
     end
   end
 
-  def hero_dead?
-    @hero.hp <= 0
-  end
-
   private
 
   def nothing

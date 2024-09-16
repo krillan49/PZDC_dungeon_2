@@ -9,8 +9,6 @@ class LootRound
     pzdc_monolith_loot()
     @messages.clear_log
     enemy_loot()
-    @messages.clear_log
-    other_loot()
   end
 
   def pzdc_monolith_loot()
@@ -19,10 +17,6 @@ class LootRound
 
   def enemy_loot
     EnemyLoot.new(@hero, @enemy, @messages).looting
-  end
-
-  def other_loot
-    SecretLoot.new(@hero).looting
   end
 
 end

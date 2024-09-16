@@ -1,4 +1,4 @@
-class SecretLoot
+class SecretLootEvent
   def initialize(hero)
     @hero = hero
 
@@ -9,19 +9,22 @@ class SecretLoot
     @messages.log << "#{basic_loot_chanse} + treasure hunter(#{@hero.camp_skill.coeff_lvl}) = #{@loot_chanse}"
   end
 
-  def looting
-    return if @loot_chanse < 180
+  def start
     @messages.log << "Looking around, you noticed the magician's hiding place, and in it... "
-    stash_magic_treasure = rand(1..32)
-    case stash_magic_treasure
-    when (..10); hp_elixir()
-    when (11..20); mp_elixir()
-    when (21..25); accuracy_elixir()
-    when (26..27); book_of_knowledge()
-    when (28..29); book_of_skills()
-    when 30; stone_elixir()
-    when 31; troll_elixir()
-    when 32; unicorn_elixir()
+    if @loot_chanse >= 180
+      stash_magic_treasure = rand(1..32)
+      case stash_magic_treasure
+      when (..10); hp_elixir()
+      when (11..20); mp_elixir()
+      when (21..25); accuracy_elixir()
+      when (26..27); book_of_knowledge()
+      when (28..29); book_of_skills()
+      when 30; stone_elixir()
+      when 31; troll_elixir()
+      when 32; unicorn_elixir()
+      end
+    else
+      nothing()
     end
     @messages.main = 'To continue press Enter'
     MainRenderer.new(:messages_screen, entity: @messages, arts: [{ loot_secret: :loot_secret }]).display
@@ -29,6 +32,10 @@ class SecretLoot
   end
 
   private
+
+  def nothing
+    @messages.log << "There is nothing valuable"
+  end
 
   def hp_elixir
     bonus_hp = rand(1..3)

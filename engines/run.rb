@@ -136,7 +136,7 @@ class Run
     event_constant_1 = EventCreator.new(@leveling, @hero.dungeon_name).create_new_event
     event = event_constant_1.new(@hero)
     event.start
-    if event.hero_dead?
+    if @hero.hp <= 0
       @exit_to_main = true
       return
     end
