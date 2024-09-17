@@ -110,14 +110,6 @@ pernach:
   block_chance: 0
   price: 80
 
-rusty_flail:
-  name: "Rusty flail"
-  min_dmg: 0
-  max_dmg: 15
-  accuracy: -5
-  block_chance: 0
-  price: 50
-
 axe:
   name: "Axe"
   min_dmg: 6

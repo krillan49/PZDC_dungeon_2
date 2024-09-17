@@ -117,7 +117,6 @@ e5:
     - rusty_falchion
     - rusty_pernach
     - rusty_axe
-    - rusty_flail
   body_armor:
     - without
     - rusty_gambeson
