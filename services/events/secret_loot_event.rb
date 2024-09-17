@@ -1,19 +1,35 @@
 class SecretLootEvent
   PATH_ART = "events/_loot_secret"
 
+  attr_reader :entity_type, :path_art
+  attr_reader :name, :description1, :description2, :description3
+
   def initialize(hero)
     @hero = hero
 
-    basic_loot_chanse = rand(1..200)
-    @loot_chanse = basic_loot_chanse + (@hero.camp_skill.name == "Treasure hunter" ? @hero.camp_skill.coeff_lvl : 0)
+    @entity_type = 'events'
+    @path_art = PATH_ART
+
+    @name = 'Secret something'
+    @description1 = 'There might be something...'
+    @description2 = '...unusual here'
+    @description3 = ''
 
     @messages = MainMessage.new
-    @messages.log << "#{basic_loot_chanse} + treasure hunter(#{@hero.camp_skill.coeff_lvl}) = #{@loot_chanse}"
+
+    @basic_loot_chanse = rand(1..200)
+    @loot_chanse = @basic_loot_chanse + (@hero.camp_skill.code == 'treasure_hunter' ? @hero.camp_skill.coeff_lvl : 0)
   end
 
   def start
     @messages.log << "Looking around, you noticed the magician's hiding place, and in it... "
+    if @hero.camp_skill.code == 'treasure_hunter'
+      @messages.log << "Random luck is #{@basic_loot_chanse} + treasure hunter(#{@hero.camp_skill.coeff_lvl}) = #{@loot_chanse}..."
+    else
+      @messages.log << "Random luck is #{@loot_chanse}..."
+    end
     if @loot_chanse >= 180
+      @messages.log << "...more then 180"
       stash_magic_treasure = rand(1..32)
       case stash_magic_treasure
       when (..10); hp_elixir()
@@ -26,6 +42,7 @@ class SecretLootEvent
       when 32; unicorn_elixir()
       end
     else
+      @messages.log << "...lower then 180"
       nothing()
     end
     @messages.main = 'To continue press Enter'

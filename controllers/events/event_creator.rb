@@ -7,8 +7,8 @@ class EventCreator
     # event_data = YAML.safe_load_file("data/events/#{dungeon_name}.yml")
   end
 
-  def create_new_event
-    specific_dungeon_event?() ? specific_dungeon_event_constant() : standart_event_constant()
+  def create_new_event(n=1)
+    specific_dungeon_event?() ? specific_dungeon_event_constant() : standart_event_constant(n)
   end
 
   private
@@ -21,8 +21,8 @@ class EventCreator
     # потом создать логику для уникальных ивентов каждого подземелья
   end
 
-  def standart_event_constant
-    STANDART_EVENT_CONSTANS.sample
+  def standart_event_constant(n)
+    STANDART_EVENT_CONSTANS.sample(n)
   end
 
 end

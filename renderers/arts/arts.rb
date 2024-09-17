@@ -22,6 +22,8 @@ class Art
         "#{entity.entity_type}/#{entity.dungeon_name}/_#{entity.code_name}"
       elsif entity.entity_type == 'ammunition'
         "#{entity.entity_type}/#{entity.ammunition_type}/_#{entity.code}"
+      elsif entity.entity_type == 'events'
+        entity.path_art
       end
     elsif entity.to_s.include?("/")
       "#{entity}"

@@ -133,12 +133,31 @@ class Run
   # event
 
   def event_choose
-    event_constant_1 = EventCreator.new(@leveling, @hero.dungeon_name).create_new_event
-    event = event_constant_1.new(@hero)
-    hero_exit_run = event.start
-    if @hero.hp <= 0 || hero_exit_run == 'exit_run'
-      @exit_to_main = true
-      return
+    event_constants = EventCreator.new(@leveling, @hero.dungeon_name).create_new_event(3)
+    # event_constant = event_constants.sample
+    # event = event_constant.new(@hero)
+    event1, event2, event3 = event_constants.map{|const| const.new(@hero)}
+    n = 50
+    @messages.main = 'Which way will you go?'
+    until n >= 0 && n <= 3
+      @event = nil # для повторного вызова и других раундов
+      MainRenderer.new(
+        :event_choose_screen, event1, event2, event3,
+        entity: @messages, arts: [{ mini: event1 }, { mini: event2 }, { mini: event3 }]
+      ).display
+      n = gets.to_i
+      if n >= 1 && n <= 3
+        @event = [event1, event2, event3][n-1]
+      else
+        @messages.main = 'There is no such way. Which way will you go?'
+      end
+    end
+    if @event
+      hero_exit_run = @event.start
+      if @hero.hp <= 0 || hero_exit_run == 'exit_run'
+        @exit_to_main = true
+        return
+      end
     end
   end
 

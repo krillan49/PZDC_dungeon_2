@@ -1,0 +1,43 @@
+view:
+  - "                             "
+  - "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  - "                             "
+  - "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  - "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  - "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  - "                             "
+  - "                             "
+  - "                             "
+insert_options:
+  1:
+    A:
+      methods:
+        - name
+      modifier: m
+  3:
+    A:
+      methods:
+        - description1
+      modifier: m
+  4:
+    A:
+      methods:
+        - description2
+      modifier: m
+  5:
+    A:
+      methods:
+        - description3
+      modifier: m
+
+
+
+
+
+
+
+
+
+
+
+#

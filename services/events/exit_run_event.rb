@@ -1,23 +1,42 @@
 class ExitRunEvent
   PATH_ART = "events/_exit_run"
 
+  attr_reader :entity_type, :path_art
+  attr_reader :name, :description1, :description2, :description3
+
   def initialize(hero)
     @hero = hero
+
+    @entity_type = 'events'
+    @path_art = PATH_ART
+
+    @name = 'Exit from dugeon'
+    @description1 = 'Looks like an exit...'
+    @description2 = '...but be careful...'
+    @description3 = '...you might fall'
 
     @messages = MainMessage.new
 
     @basic_exit_chanse = rand(1..200)
-    @exit_chanse = @basic_exit_chanse + (@hero.camp_skill.name == "Treasure hunter" ? @hero.camp_skill.coeff_lvl : 0)
+    @exit_chanse = @basic_exit_chanse + (@hero.camp_skill.code == 'treasure_hunter' ? @hero.camp_skill.coeff_lvl : 0)
   end
 
   def start
-    @messages.log << "You see an old staircase leading up, it looks like it's the exit from the dungeon... (#{@basic_exit_chanse} => #{@exit_chanse})"
+    @messages.log << "You see an old staircase leading up, it looks like it's the exit from the dungeon..."
+    if @hero.camp_skill.code == 'treasure_hunter'
+      @messages.log << "Random luck is #{@basic_exit_chanse} + treasure hunter(#{@hero.camp_skill.coeff_lvl}) = #{@exit_chanse}..."
+    else
+      @messages.log << "Random luck is #{@exit_chanse}..."
+    end
     if @exit_chanse > 160
+      @messages.log << "...more then 160"
       can_exit()
       'exit_run'
     elsif @exit_chanse > 70
+      @messages.log << "...more then 70"
       nothing()
     else
+      @messages.log << "...lower then 70"
       fell_down()
     end
   end
