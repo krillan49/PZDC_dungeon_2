@@ -1,4 +1,6 @@
 class FieldLootEvent
+  PATH_ART = "events/_loot_field"
+
   def initialize(hero)
     @hero = hero
 
@@ -51,7 +53,7 @@ class FieldLootEvent
 
   def display_message_screen
     @messages.main = 'To continue press Enter'
-    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ loot_field: :loot_field }]).display
+    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ normal: PATH_ART }]).display
     gets
   end
 

@@ -1,4 +1,6 @@
 class SecretLootEvent
+  PATH_ART = "events/_loot_secret"
+
   def initialize(hero)
     @hero = hero
 
@@ -27,7 +29,7 @@ class SecretLootEvent
       nothing()
     end
     @messages.main = 'To continue press Enter'
-    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ loot_secret: :loot_secret }]).display
+    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ normal: PATH_ART }]).display
     gets
   end
 

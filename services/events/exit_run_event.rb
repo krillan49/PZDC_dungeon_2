@@ -1,4 +1,6 @@
 class ExitRunEvent
+  PATH_ART = "events/_exit_run"
+
   def initialize(hero)
     @hero = hero
 

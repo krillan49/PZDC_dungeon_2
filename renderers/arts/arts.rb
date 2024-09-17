@@ -23,8 +23,24 @@ class Art
       elsif entity.entity_type == 'ammunition'
         "#{entity.entity_type}/#{entity.ammunition_type}/_#{entity.code}"
       end
+    elsif entity.to_s.include?("/")
+      "#{entity}"
     else
       "_#{entity}"
     end
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
