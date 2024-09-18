@@ -75,7 +75,7 @@ class ExitRunEvent
 
   def display_message_screen
     @messages.main = 'To continue press Enter'
-    MainRenderer.new(:messages_screen, entity: @messages).display
+    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ normal: PATH_ART }]).display
     gets
   end
 
