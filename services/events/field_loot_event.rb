@@ -48,8 +48,8 @@ class FieldLootEvent
   end
 
   def potion
-    @hero.hp += [10, @hero.hp_max - @hero.hp].min
-    @messages.log << "Found a potion that restores 10 HP, now you have it #{@hero.hp.round}/#{@hero.hp_max} HP"
+    @hero.hp += [20, @hero.hp_max - @hero.hp].min
+    @messages.log << "Found a potion that restores 20 HP, now you have it #{@hero.hp.round}/#{@hero.hp_max} HP"
     display_message_screen()
   end
 

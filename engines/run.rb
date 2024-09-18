@@ -16,7 +16,8 @@ class Run
       save_and_exit()
       break if @exit_to_main
       camp_actions()
-      if n.even? && event?() # event
+      if n.even? # event
+        # event_test()
         event_choose()
       else # enemy
         enemy_choose()
@@ -53,10 +54,6 @@ class Run
     HeroActions.rest(@hero, @messages)
     @messages.clear_log
     OccultLibraryEnhanceEngine.new(@hero).start
-  end
-
-  def event?
-    true # потом сделать зависимость от удачи
   end
 
   # enemy
@@ -132,22 +129,28 @@ class Run
 
   # event
 
+  def event_test
+    event_constants.sample.new(@hero).start
+  end
+
   def event_choose
-    event_constants = EventCreator.new(@leveling, @hero.dungeon_name).create_new_event(3)
-    # event_constant = event_constants.sample
-    # event = event_constant.new(@hero)
-    event1, event2, event3 = event_constants.map{|const| const.new(@hero)}
-    n = 50
-    @messages.main = 'Which way will you go?'
-    until n >= 0 && n <= 3
+    events_count, message = generate_events_count()
+    return if events_count == 0
+    event_constants = EventCreator.new(@leveling, @hero.dungeon_name).create_new_event(events_count)
+    events = event_constants.map{|const| const.new(@hero)}
+    n = 9000
+    @messages.main = message + 'Which way will you go?'
+    until n >= 0 && n <= events.length
       @event = nil # для повторного вызова и других раундов
       MainRenderer.new(
-        :event_choose_screen, event1, event2, event3,
-        entity: @messages, arts: [{ mini: event1 }, { mini: event2 }, { mini: event3 }]
+        [:event_1_choose_screen, :event_2_choose_screen, :event_3_choose_screen][events_count-1],
+        *events,
+        entity: @messages,
+        arts: events.map{|event| { mini: event } }
       ).display
       n = gets.to_i
-      if n >= 1 && n <= 3
-        @event = [event1, event2, event3][n-1]
+      if n >= 1 && n <= events.length
+        @event = events[n-1]
       else
         @messages.main = 'There is no such way. Which way will you go?'
       end
@@ -159,6 +162,14 @@ class Run
         return
       end
     end
+  end
+
+  def generate_events_count
+    random = rand(1..200)
+    th = @hero.camp_skill.code == 'treasure_hunter' ? @hero.camp_skill.coeff_lvl : 0
+    res = random + th
+    n = res > 150 ? 3 : res > 80 ? 2 : 1
+    [n, "Random is #{random}" + (th == 0 ? '' : " + treasure hunter #{th}") + " = you find #{n} ways. "]
   end
 
   private
