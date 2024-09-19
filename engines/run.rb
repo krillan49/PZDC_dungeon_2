@@ -21,6 +21,7 @@ class Run
         event_choose()
       else # enemy
         enemy_choose()
+        enemy_show()
         battle()
         break if @exit_to_main
         after_battle()
@@ -59,7 +60,6 @@ class Run
   # enemy
 
   def enemy_choose
-    # Выбор противника
     enemy1 = EnemyCreator.new(@leveling, @hero.dungeon_name).create_new_enemy
     enemy2 = EnemyCreator.new(@leveling, @hero.dungeon_name).create_new_enemy
     enemy3 = EnemyCreator.new(@leveling, @hero.dungeon_name).create_new_enemy
@@ -81,17 +81,6 @@ class Run
         @messages.main = 'There is no such way. Which way will you go?'
       end
     end
-
-    # Характеристики противника
-    @attacks_round_messages = AttacksRoundMessage.new
-    @attacks_round_messages.main = 'To continue press Enter'
-    @attacks_round_messages.actions = "++++++++++++ Battle #{@leveling + 1} ++++++++++++"
-    choose = nil
-    until [''].include?(choose)
-      MainRenderer.new(:enemy_start_screen, @enemy, entity: @attacks_round_messages, arts: [{ normal: @enemy }]).display
-      choose = gets.strip.upcase
-      show_weapon_buttons_actions(choose, @enemy)
-    end
   end
 
   def generate_enemy_count(enemy)
@@ -101,6 +90,18 @@ class Run
     res = random + th
     n = res > 120 ? 3 : res > 50 ? 2 : 1
     [n, "Random is #{random}" + (th == 0 ? '' : " + treasure hunter #{th}") + " = you find #{n} ways. Which way will you go?"]
+  end
+
+  def enemy_show
+    @attacks_round_messages = AttacksRoundMessage.new
+    @attacks_round_messages.main = 'To continue press Enter'
+    @attacks_round_messages.actions = "++++++++++++ Battle #{@leveling + 1} ++++++++++++"
+    choose = nil
+    until [''].include?(choose)
+      MainRenderer.new(:enemy_start_screen, @enemy, entity: @attacks_round_messages, arts: [{ normal: @enemy }]).display
+      choose = gets.strip.upcase
+      show_weapon_buttons_actions(choose, @enemy)
+    end
   end
 
   def battle
