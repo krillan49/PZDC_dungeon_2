@@ -17,7 +17,7 @@ class Run
       break if @exit_to_main
       camp_actions()
       if n.even? # event
-        # event_test()
+        # one_event_test()
         event_choose()
       else # enemy
         enemy_choose()
@@ -63,20 +63,25 @@ class Run
     enemy1 = EnemyCreator.new(@leveling, @hero.dungeon_name).create_new_enemy
     enemy2 = EnemyCreator.new(@leveling, @hero.dungeon_name).create_new_enemy
     enemy3 = EnemyCreator.new(@leveling, @hero.dungeon_name).create_new_enemy
-    n = 50
-    @messages.main = 'Which way will you go?'
-    until n >= 0 && n <= 2
+    enemyes_count, message = generate_enemy_count(enemy1)
+    enemyes = [enemy1, enemy2, enemy3][0, enemyes_count]
+    n = 9000
+    @messages.main = message
+    until n >= 1 && n <= enemyes.length
       MainRenderer.new(
-        :enemy_choose_screen, enemy1, enemy2, enemy3,
-        entity: @messages, arts: [{ mini: enemy1 }, { mini: enemy2 }, { mini: enemy3 }]
+        [:enemy_1_choose_screen, :enemy_2_choose_screen, :enemy_3_choose_screen][enemyes_count-1],
+        *enemyes,
+        entity: @messages,
+        arts: enemyes.map{|enemy| { mini: enemy } }
       ).display
-      n = gets.to_i - 1
-      if n >= 0 && n <= 2
-        @enemy = [enemy1, enemy2, enemy3][n]
+      n = gets.to_i
+      if n >= 1 && n <= enemyes.length
+        @enemy = enemyes[n-1]
       else
         @messages.main = 'There is no such way. Which way will you go?'
       end
     end
+
     # Характеристики противника
     @attacks_round_messages = AttacksRoundMessage.new
     @attacks_round_messages.main = 'To continue press Enter'
@@ -87,6 +92,15 @@ class Run
       choose = gets.strip.upcase
       show_weapon_buttons_actions(choose, @enemy)
     end
+  end
+
+  def generate_enemy_count(enemy)
+    return [1, "You've reached the end of the dungeon, this is a boss fight!"] if enemy.code == 'boss'
+    random = rand(1..200)
+    th = @hero.camp_skill.code == 'treasure_hunter' ? @hero.camp_skill.coeff_lvl : 0
+    res = random + th
+    n = res > 120 ? 3 : res > 50 ? 2 : 1
+    [n, "Random is #{random}" + (th == 0 ? '' : " + treasure hunter #{th}") + " = you find #{n} ways. Which way will you go?"]
   end
 
   def battle
@@ -129,9 +143,9 @@ class Run
 
   # event
 
-  def event_test
-    event_constants.sample.new(@hero).start
-  end
+  # def one_event_test
+  #   event_constants.sample.new(@hero).start
+  # end
 
   def event_choose
     events_count, message = generate_events_count()

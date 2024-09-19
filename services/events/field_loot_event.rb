@@ -2,7 +2,7 @@ class FieldLootEvent
   PATH_ART = "events/_loot_field"
 
   attr_reader :entity_type, :path_art
-  attr_reader :name, :description1, :description2, :description3
+  attr_reader :name, :description1, :description2, :description3, :description4, :description5
 
   def initialize(hero)
     @hero = hero
@@ -14,6 +14,8 @@ class FieldLootEvent
     @description1 = 'In this pile of scrub...'
     @description2 = '...you might find some'
     @description3 = ''
+    @description4 = ''
+    @description5 = ''
 
     @messages = MainMessage.new
 
@@ -24,15 +26,15 @@ class FieldLootEvent
   def start
     @messages.log << "Search everything around..."
     if @hero.camp_skill.code == 'treasure_hunter'
-      @messages.log << "Random luck is #{@basic_loot_chanse} + treasure hunter(#{@hero.camp_skill.coeff_lvl}) = #{@loot_chanse}..."
+      @messages.log << "Random luck is #{@basic_loot_chanse} + treasure hunter #{@hero.camp_skill.coeff_lvl} = #{@loot_chanse}..."
     else
       @messages.log << "Random luck is #{@loot_chanse}..."
     end
-    if @loot_chanse > 160
-      @messages.log << "...more then 160"
+    if @loot_chanse > 140
+      @messages.log << "...more then 140"
       potion()
     elsif @loot_chanse > 70
-      @messages.log << "...more then 70"
+      @messages.log << "...lower then 140"
       nothing()
     else
       @messages.log << "...lower then 70"

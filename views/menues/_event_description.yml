@@ -5,8 +5,8 @@ view:
   - "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
   - "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
   - "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-  - "                             "
-  - "                             "
+  - "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  - "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
   - "                             "
 insert_options:
   1:
@@ -28,6 +28,16 @@ insert_options:
     A:
       methods:
         - description3
+      modifier: m
+  6:
+    A:
+      methods:
+        - description4
+      modifier: m
+  7:
+    A:
+      methods:
+        - description5
       modifier: m
 
 

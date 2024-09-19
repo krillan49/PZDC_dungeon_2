@@ -2,7 +2,7 @@ class ExitRunEvent
   PATH_ART = "events/_exit_run"
 
   attr_reader :entity_type, :path_art
-  attr_reader :name, :description1, :description2, :description3
+  attr_reader :name, :description1, :description2, :description3, :description4, :description5
 
   def initialize(hero)
     @hero = hero
@@ -12,8 +12,10 @@ class ExitRunEvent
 
     @name = 'Exit from dugeon'
     @description1 = 'Looks like an exit...'
-    @description2 = '...but be careful...'
-    @description3 = '...you might fall'
+    @description2 = '...you can save life...'
+    @description3 = '...you can save coins...'
+    @description4 = '...but be careful...'
+    @description5 = '...you might fall'
 
     @messages = MainMessage.new
 
@@ -28,12 +30,12 @@ class ExitRunEvent
     else
       @messages.log << "Random luck is #{@exit_chanse}..."
     end
-    if @exit_chanse > 160
-      @messages.log << "...more then 160"
+    if @exit_chanse > 140
+      @messages.log << "...more then 140"
       can_exit()
       'exit_run'
     elsif @exit_chanse > 70
-      @messages.log << "...more then 70"
+      @messages.log << "...lower then 140"
       nothing()
     else
       @messages.log << "...lower then 70"
