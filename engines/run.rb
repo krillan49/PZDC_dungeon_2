@@ -145,7 +145,7 @@ class Run
   # event
 
   # def one_event_test
-  #   event_constants.sample.new(@hero).start
+  #   EventCreator.new(@leveling, @hero.dungeon_name).create_new_event(1).sample.new(@hero).start
   # end
 
   def event_choose
