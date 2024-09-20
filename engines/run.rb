@@ -17,7 +17,6 @@ class Run
       break if @exit_to_main
       camp_actions()
       if n.even? # event
-        # one_event_test()
         event_choose()
       else # enemy
         enemy_choose()
@@ -143,10 +142,6 @@ class Run
   end
 
   # event
-
-  # def one_event_test
-  #   EventCreator.new(@leveling, @hero.dungeon_name).create_new_event(1).sample.new(@hero).start
-  # end
 
   def event_choose
     events_count, message = generate_events_count()

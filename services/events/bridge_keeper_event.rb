@@ -52,14 +52,14 @@ class BridgeKeeperEvent
     display_message_screen()
     answer = gets.strip.downcase
     if (answer.include?('billy') || answer.include?('william')) && answer.include?('herrington')
-      @messages.log[-1] += " Your answer #{answer} is correct"
+      @messages.log[-1] += " Your answer: #{answer} is correct"
       @messages.log << "Сome with me across the bridge #{@hero.name} i'll show you something"
       @messages.main = "Press Enter to cross the bridge"
       display_message_screen()
       gets
       true
     else
-      @messages.log << "Your answer #{answer} is incorrect. You shall not pass!!"
+      @messages.log << "Your answer: #{answer} is incorrect. You shall not pass!!"
       @messages.log << "The bridge keeper uses magic to throw you into the gorge."
       @messages.log << "#{@hero.name} say AAAAAAAAAAAAAAAAAAAAAAAA!!!"
       @hero.hp -= @hero.hp_max * 0.2
@@ -81,18 +81,19 @@ class BridgeKeeperEvent
   end
 
   def reward
+    @messages.clear_log
     @messages.main = "The bridge keeper shows your prize"
     @messages.log << "What you saw blinded you a little, but made you stronger. Accurasy -1. Max damage +1"
     @hero.accuracy_base -= 1
     @hero.max_dmg_base += 1
-    display_message_screen()
+    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ action: PATH_ART }]).display
     gets
   end
 
   private
 
   def display_message_screen
-    MainRenderer.new(:messages_screen, entity: @messages).display #arts: [{ normal: PATH_ART }]
+    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ normal: PATH_ART }]).display
   end
 
 end
