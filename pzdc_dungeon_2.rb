@@ -32,6 +32,7 @@ require_relative "services/events/field_loot_event"
 require_relative "services/events/secret_loot_event"
 require_relative "services/events/exit_run_event"
 require_relative "services/events/boatman_eugene_event"
+require_relative "services/events/bridge_keeper_event"
 
 # controllers -------------------------
 # ammunition
