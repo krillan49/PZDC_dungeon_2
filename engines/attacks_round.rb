@@ -69,8 +69,13 @@ class AttacksRound
   def hero_select_type_of_attack
     success = false # для проверки возможно ли проведение выбранной атаки
     until success
-      @messages.main = "Attack #{@enemy.name}"
-      @messages.actions = 'Hit body [enter 1]     Hit head [enter 2]     Hit legs [enter 3]     Use skill [enter 4]'
+      @messages.main = "Hit body [Enter 1]   Hit head [Enter 2]   Hit legs [Enter 3]   Hit by #{@hero.active_skill.name} [Enter 4]"
+      mi, ma, a = @hero.min_dmg, @hero.max_dmg, @hero.accuracy
+      hmi, hma, ha = (@hero.min_dmg * 1.5).round, (@hero.max_dmg * 1.5).round, (@hero.accuracy * 0.7).round
+      lmi, lma, la = (@hero.min_dmg * 0.7).round, (@hero.max_dmg * 0.7).round, (@hero.accuracy * 1.5).round
+      smi, sma = (@hero.min_dmg * @hero.active_skill.damage_mod).round, (@hero.max_dmg * @hero.active_skill.damage_mod).round
+      sa = (@hero.accuracy * @hero.active_skill.accuracy_mod).round
+      @messages.actions = "Body(dmg #{mi}-#{ma}, acc #{a})  Head(dmg #{hmi}-#{hma}, acc #{ha})  Legs(dmg #{lmi}-#{lma}, acc #{la})  #{@hero.active_skill.name}(dmg #{smi}-#{sma}, acc #{sa}, MP #{@hero.active_skill.mp_cost})"
       MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ normal: @enemy }]).display
       @messages.clear_log
       selected_type = gets.strip.upcase
