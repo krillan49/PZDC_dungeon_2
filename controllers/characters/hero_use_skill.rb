@@ -19,6 +19,12 @@ module HeroUseSkill
     elsif noncombat_choice == "Y"
       messages.log << "Not enough MP"
     end
+    if noncombat_choice == "Y"
+      messages.main = 'To continue press Enter'
+      MainRenderer.new(:messages_screen, entity: messages, arts: [{ camp_fire: :rest }]).display
+      gets
+    end
+    messages.clear_log
   end
 
   def self.bloody_ritual(hero, messages)
@@ -33,5 +39,11 @@ module HeroUseSkill
     elsif noncombat_choice == "Y"
       messages.log << "Not enough HP"
     end
+    if noncombat_choice == "Y"
+      messages.main = 'To continue press Enter'
+      MainRenderer.new(:messages_screen, entity: messages, arts: [{ camp_fire: :rest }]).display
+      gets
+    end
+    messages.clear_log
   end
 end
