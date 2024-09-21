@@ -173,6 +173,7 @@ class AttacksRound
     @hero_hit = @hero_accuracy >= rand(1..100)
     hero_hit_or_miss()
     hero_after_hit_passive_slill_effects()
+    @messages.main = "#{@hero.name} attack #{@enemy.name}"
     @messages.actions = ""
     MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ damaged: @enemy }]).display
   end
