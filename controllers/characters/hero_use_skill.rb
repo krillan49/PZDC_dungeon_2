@@ -4,7 +4,7 @@ module HeroUseSkill
       self.first_aid(hero, messages)
     elsif hero.camp_skill.code == "bloody_ritual" && hero.mp_max - hero.mp > 0
       self.bloody_ritual(hero, messages)
-    else
+    elsif messages.log.length > 0
       messages.main = 'To continue press Enter'
       MainRenderer.new(:messages_screen, entity: messages, arts: [{ camp_fire: :rest }]).display
       gets
