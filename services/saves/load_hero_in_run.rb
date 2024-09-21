@@ -50,9 +50,9 @@ class LoadHeroInRun
         OccultLibraryEnhanceService.new(@hero, ammunition_obj, ammunition_type, recipe).ammunition_enhance
       end
     end
-    # add dungeon_name
+    # add other
     @hero.dungeon_name = @hero_data['dungeon_name']
-    # add leveling
+    @hero.dungeon_part_number = @hero_data['dungeon_part_number']
     @leveling = @hero_data['leveling']
     # add camp_loot
     @hero_data['camp_loot'].each do |loot_type, value|

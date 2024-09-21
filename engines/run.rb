@@ -11,12 +11,12 @@ class Run
   end
 
   def start
-    (1..Float::INFINITY).each do |n|
+    loop do
       hero_update()
       save_and_exit()
       break if @exit_to_main
       camp_actions()
-      if n.even? # event
+      if @hero.dungeon_part_number.even? # event
         event_choose()
       else # enemy
         enemy_choose()
@@ -26,6 +26,7 @@ class Run
         after_battle()
       end
       break if @exit_to_main
+      @hero.dungeon_part_number += 1
     end
   end
 

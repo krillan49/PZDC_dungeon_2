@@ -70,6 +70,7 @@ class SaveHeroInRun
         }
       },
       'dungeon_name' => @hero.dungeon_name,
+      'dungeon_part_number' => @hero.dungeon_part_number,
       'leveling' => @leveling,
       'camp_loot' => {
         'pzdc_monolith_points' => @hero.pzdc_monolith_points,
