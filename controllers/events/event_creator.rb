@@ -1,5 +1,7 @@
 class EventCreator
-  STANDART_EVENT_CONSTANS = [FieldLootEvent, SecretLootEvent, ExitRunEvent, BoatmanEugeneEvent, BridgeKeeperEvent]
+  STANDART_EVENT_CONSTANS = [FieldLootEvent, SecretLootEvent, ExitRunEvent]
+  UNUSUAL_EVENT_CONSTANS = [BoatmanEugeneEvent]
+  RARE_EVENT_CONSTANS = [BridgeKeeperEvent]
   # STANDART_EVENT_CONSTANS = [ExitRunEvent, BoatmanEugeneEvent, BridgeKeeperEvent]
 
   def initialize(leveling, dungeon_name)
@@ -8,21 +10,16 @@ class EventCreator
   end
 
   def create_new_event(n=1)
-    specific_dungeon_event?() ? specific_dungeon_event_constant() : standart_event_constant(n)
+    choose_event_constants().sample(n)
   end
 
   private
 
-  def specific_dungeon_event?
-    false # потом создать логику для уникальных ивентов каждого подземелья
-  end
-
-  def specific_dungeon_event_constant
-    # потом создать логику для уникальных ивентов каждого подземелья
-  end
-
-  def standart_event_constant(n)
-    STANDART_EVENT_CONSTANS.sample(n)
+  def choose_event_constants
+    events_constants = STANDART_EVENT_CONSTANS
+    events_constants += UNUSUAL_EVENT_CONSTANS.sample(1) if rand(5) == 0
+    events_constants += RARE_EVENT_CONSTANS.sample(1) if rand(10) == 0
+    events_constants
   end
 
 end
