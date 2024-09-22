@@ -27,7 +27,7 @@ class HeroUpdator
         ] if strong_stat >= 11
         MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
         distribution = gets.strip.upcase
-        show_weapon_buttons_actions(distribution)
+        AmmunitionShow.show_weapon_buttons_actions(distribution, @hero)
         if distribution == '1'
           @hero.hp_max += 5
           @hero.hp += 5
@@ -75,7 +75,7 @@ class HeroUpdator
         @messages.log += [ show_diced_skill(@hero.send(skills[2]).name, 3) ] if count_of_skill >= 3
         MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
         distribution = gets.strip.upcase
-        show_weapon_buttons_actions(distribution)
+        AmmunitionShow.show_weapon_buttons_actions(distribution, @hero)
         if skiils_indexes.include?(distribution.to_i)
           @hero.send(skills[distribution.to_i-1]).lvl += 1
           @messages.main = ''
@@ -88,17 +88,6 @@ class HeroUpdator
   end
 
   private
-
-  def show_weapon_buttons_actions(distribution)
-    if distribution == 'A' # show all ammunition
-    elsif %w[B C D E F].include?(distribution) # show chosen ammunition
-      ammunition_type = {B: 'weapon', C: 'head_armor', D: 'body_armor', E: 'arms_armor', F: 'shield'}[distribution.to_sym]
-      ammunition_obj = @hero.send(ammunition_type)
-      if ammunition_obj.code != 'without'
-        AmmunitionShow.display(obj: ammunition_obj, type: ammunition_type, arts: [{normal: ammunition_obj}])
-      end
-    end
-  end
 
   def show_diced_skill(skill_name, n)
     aligned_skill_name = skill_name + (' ' * (20 - skill_name.length))

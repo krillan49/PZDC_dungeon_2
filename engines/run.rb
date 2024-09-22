@@ -46,7 +46,7 @@ class Run
         SaveHeroInRun.new(@hero, @leveling).save
         @exit_to_main = true # exit
       end
-      show_weapon_buttons_actions(choose, @hero)
+      AmmunitionShow.show_weapon_buttons_actions(choose, @hero)
     end
   end
 
@@ -100,7 +100,7 @@ class Run
     until [''].include?(choose)
       MainRenderer.new(:enemy_start_screen, @enemy, entity: @attacks_round_messages, arts: [{ normal: @enemy }]).display
       choose = gets.strip.upcase
-      show_weapon_buttons_actions(choose, @enemy)
+      AmmunitionShow.show_weapon_buttons_actions(choose, @enemy)
     end
   end
 
@@ -181,19 +181,6 @@ class Run
     res = random + th
     n = res > 150 ? 3 : res > 80 ? 2 : 1
     [n, "Random is #{random}" + (th == 0 ? '' : " + treasure hunter #{th}") + " = you find #{n} ways. "]
-  end
-
-  private
-
-  def show_weapon_buttons_actions(distribution, character)
-    if distribution == 'A' # show all ammunition
-    elsif %w[B C D E F].include?(distribution) # show chosen ammunition
-      ammunition_type = {B: 'weapon', C: 'head_armor', D: 'body_armor', E: 'arms_armor', F: 'shield'}[distribution.to_sym]
-      ammunition_obj = character.send(ammunition_type)
-      if ammunition_obj.code != 'without'
-        AmmunitionShow.display(obj: ammunition_obj, type: ammunition_type, arts: [{normal: ammunition_obj}])
-      end
-    end
   end
 
 end
