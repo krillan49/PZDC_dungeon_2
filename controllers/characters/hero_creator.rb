@@ -37,23 +37,31 @@ class HeroCreator
 
   def background
     @messages.main = 'Select a background'
+    heroes = YAML.safe_load_file("data/characters/heroes.yml").to_a.sort_by{|code, hh| hh['n']}[1..]
     @messages.log = [
-      "                       Background:      Push:    Bonus:         ",
-      "                       Watchman         (1)      15 hp          ",
-      "                       Thief            (2)      3 accuracy     ",
-      "                       Worker           (3)      15 mp          ",
-      "                       Student          (4)      1 skill point  "
+      'Background:'.ljust(13).rjust(28) + 'HP:'.ljust(12) + 'MP:'.ljust(12) + 'Min dmg:'.ljust(12) + 'Max dmg:'.ljust(12) + 'Accuracy:'.ljust(12) + 'Armor:'.ljust(12) + 'Skill points:',
     ]
+    heroes.each do |code, hh|
+      @messages.log << ' ' * 14 + '-' * 100
+      @messages.log << [
+        "   [Enter #{hh['n'].to_s.rjust(2)}]".ljust(15),
+        hh['name'].ljust(13),
+        hh['hp'].to_s.ljust(12),
+        hh['mp'].to_s.ljust(12),
+        hh['min_dmg'].to_s.ljust(12),
+        hh['max_dmg'].to_s.ljust(12),
+        hh['accurasy'].to_s.ljust(12),
+        hh['armor'].to_s.ljust(12),
+        hh['skill_points']
+      ].join
+    end
     MainRenderer.new(:messages_full_screen, entity: @messages).display
     @messages.clear_log
-    choose_story_pl = gets.strip.upcase
-    case choose_story_pl
-    when '1'; 'watchman'
-    when '2'; 'thief'
-    when '3'; 'worker'
-    when '4'; 'student'
+    choose = gets.to_i
+    if choose > 0 && choose <= heroes.length
+      heroes[choose-1][0]
     else
-      @messages.main = 'You mixed up the letters, you stupid drunk -5 lives -5 stamina -10 accuracy'
+      @messages.main = 'You mixed up the numbers, you stupid drunk -5 HP -5 MP -10 accuracy'
       MainRenderer.new(:messages_full_screen, entity: @messages).display
       gets
       'drunk'

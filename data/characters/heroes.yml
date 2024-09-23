@@ -1,4 +1,5 @@
 drunk:
+  n: 0
   name: Drunk
   hp: 95
   mp: 95
@@ -18,6 +19,7 @@ drunk:
     - without
 
 watchman:
+  n: 1
   name: Watchman
   hp: 115
   mp: 100
@@ -37,6 +39,7 @@ watchman:
     - without
 
 thief:
+  n: 2
   name: Thief
   hp: 100
   mp: 100
@@ -56,6 +59,7 @@ thief:
     - without
 
 worker:
+  n: 3
   name: Worker
   hp: 100
   mp: 115
@@ -75,6 +79,7 @@ worker:
     - without
 
 student:
+  n: 4
   name: Student
   hp: 100
   mp: 100

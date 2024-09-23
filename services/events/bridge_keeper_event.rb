@@ -83,7 +83,7 @@ class BridgeKeeperEvent
   def reward
     @messages.clear_log
     @messages.main = "The bridge keeper shows your prize"
-    @messages.log << "What you saw blinded you a little, but made you stronger. Accurasy -1. Max damage +1"
+    @messages.log << "What you saw blinded you a little, but made you stronger. Accuracy -1. Max damage +1"
     @hero.accuracy_base -= 1
     @hero.max_dmg_base += 1
     MainRenderer.new(:messages_screen, entity: @messages, arts: [{ action: PATH_ART }]).display
