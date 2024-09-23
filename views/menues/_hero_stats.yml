@@ -13,13 +13,13 @@ view:
   - "                                                                          "
   - "   block chance    AAA                   block power     BBB %            "
   - "──────────────────────────────────────────────────────────────────────────"
-  - "                       AMMUNITION     [Enter A]                           "
+  - "                               AMMUNITION                                 "
   - "                                                                          "
-  - "   [Enter B]   weapon    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
-  - "   [Enter C]   head      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
-  - "   [Enter D]   body      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
-  - "   [Enter E]   arms      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
-  - "   [Enter F]   shield    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
+  - "   [Enter A]   weapon    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
+  - "   [Enter B]   head      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
+  - "   [Enter C]   body      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
+  - "   [Enter D]   arms      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
+  - "   [Enter E]   shield    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
   - "                                                                          "
 insert_options:
   1:
@@ -42,7 +42,7 @@ insert_options:
     E:
       methods:
         - coins
-      modifier: s  
+      modifier: s
   3:
     A:
       methods:

@@ -1,9 +1,8 @@
 module AmmunitionShow
 
   def self.show_weapon_buttons_actions(distribution, character)
-    if distribution == 'A' # show all ammunition
-    elsif %w[B C D E F].include?(distribution) # show chosen ammunition
-      ammunition_type = {B: 'weapon', C: 'head_armor', D: 'body_armor', E: 'arms_armor', F: 'shield'}[distribution.to_sym]
+    if %w[A B C D E].include?(distribution)
+      ammunition_type = {A: 'weapon', B: 'head_armor', C: 'body_armor', D: 'arms_armor', E: 'shield'}[distribution.to_sym]
       ammunition_obj = character.send(ammunition_type)
       if ammunition_obj.code != 'without'
         AmmunitionShow.display(obj: ammunition_obj, type: ammunition_type, arts: [{normal: ammunition_obj}])
