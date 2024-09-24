@@ -139,8 +139,8 @@ e5:
 boss:
   code_name: ancient_snail
   name: "Ancient Snail"
-  hp: 500
-  min_dmg: 25
+  hp: 400
+  min_dmg: 20
   max_dmg: 30
   accurasy: 70
   armor: 5

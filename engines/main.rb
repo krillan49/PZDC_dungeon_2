@@ -55,7 +55,10 @@ class Main
   def start_new_run
     new_dungeon_num = 9000
     until [0, 1, 2, 3].include?(new_dungeon_num)
-      MainRenderer.new(:choose_dungeon_screen).display
+      MainRenderer.new(
+        :choose_dungeon_screen,
+        arts: [ { normal: :"dungeons/_bandits" }, { normal: :"dungeons/_undeads" }, { normal: :"dungeons/_swamp" } ]
+      ).display
       new_dungeon_num = gets.to_i
     end
     if [1, 2, 3].include?(new_dungeon_num)

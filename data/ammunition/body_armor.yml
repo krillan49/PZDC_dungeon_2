@@ -25,7 +25,7 @@ gambeson:
 rusty_chain_mail:
   name: "Rusty chain mail"
   armor: 2
-  accuracy: -3
+  accuracy: -5
   price: 45
 
 rusty_cuirass:

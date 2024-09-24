@@ -39,7 +39,13 @@ class Run
     choose = nil
     until ['Y', 'N', ''].include?(choose)
       @messages.main = 'Save this run and exit game? [y/N]'
-      MainRenderer.new(:hero_update_screen, @hero, @hero, entity: @messages).display
+      @messages.log = ["#{@hero.dungeon_name.capitalize}"]
+      MainRenderer.new(
+        :hero_sl_screen,
+        @hero, @hero,
+        entity: @messages,
+        arts: [ { normal: :"dungeons/_#{@hero.dungeon_name}" }]
+      ).display
       choose = gets.strip.upcase
       if choose == 'Y'
         # сохранение персонажа
@@ -51,6 +57,7 @@ class Run
   end
 
   def camp_actions
+    @messages.clear_log
     HeroActions.rest(@hero, @messages)
     HeroUseSkill.camp_skill(@hero, @messages)
     @messages.clear_log
