@@ -8,5 +8,5 @@ HeroUseSkill содержит рендер экранов, которые свя
 
 Вьюхи:
 Картинка Экран выбора имени персонажа - controllers/hero_creator -> :messages_screen
-Картинка персонажа для :hero_update_screen. load_hero_run, engines/run
 экран энчанта сделать более явным и заметным
+экран когда нет сохраненного героя - картинка

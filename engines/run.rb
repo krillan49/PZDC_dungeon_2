@@ -48,6 +48,8 @@ class Run
       ).display
       choose = gets.strip.upcase
       if choose == 'Y'
+        # сохранение статистики забега
+        @hero.statistics.update
         # сохранение персонажа
         SaveHeroInRun.new(@hero, @leveling).save
         @exit_to_main = true # exit
@@ -135,10 +137,12 @@ class Run
       @messages.clear_log
       gets
     end
+    # статистика
+    @hero.statistics.add_enemy_to_data(@hero.dungeon_name, @enemy.code_name) if !@hero_run_from_battle
     # Сбор лута
     loot = LootRound.new(@hero, @enemy, @hero_run_from_battle)
     loot.action
-    if @enemy.code == 'boss'
+    if @enemy.code == 'boss' && !@hero_run_from_battle
       @exit_to_main = true
       @messages.main = 'Boss killed. To continue press Enter'
       MainRenderer.new(:run_end_screen, entity: @messages, arts: [{ end: :run_end_art }]).display

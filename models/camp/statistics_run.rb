@@ -1,6 +1,8 @@
 class StatisticsRun
   PATH = 'saves/statistics_run.yml'
 
+  attr_reader :data
+
   def initialize(new_obj=false)
     create(new_obj)
     @data = YAML.safe_load_file(PATH)
@@ -8,7 +10,14 @@ class StatisticsRun
 
   def add_enemy_to_data(dungeon_code, enemy_code)
     @data[dungeon_code][enemy_code] ? @data[dungeon_code][enemy_code] += 1 : @data[dungeon_code][enemy_code] = 1
-    update()
+  end
+
+  def update
+    File.write(PATH, @data.to_yaml)
+  end
+
+  def delete
+    File.delete(PATH) if RubyVersionFixHelper.file_exists?(PATH)
   end
 
   private
@@ -17,10 +26,6 @@ class StatisticsRun
     if !RubyVersionFixHelper.file_exists?(PATH) || new_obj
       File.write(PATH, new_file_data().to_yaml)
     end
-  end
-
-  def update
-    File.write(PATH, @data.to_yaml)
   end
 
   def new_file_data
