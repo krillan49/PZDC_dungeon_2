@@ -13,6 +13,7 @@ class Main
     Shop.new
     OccultLibrary.new
     Options.new
+    StatisticsTotal.new
     # ход игры
     loop do
       @leveling = 0 # иначе при загрузке выходе и после начале новой игры левелин сохраняется
