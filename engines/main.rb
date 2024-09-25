@@ -41,8 +41,10 @@ class Main
     new_load = gets.strip
     if new_load == '1'
       load_run()
+      @hero.statistics = StatisticsRun.new
     elsif new_load == '2'
       start_new_run()
+      @hero.statistics = StatisticsRun.new(true)
     end
   end
 

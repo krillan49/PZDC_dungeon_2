@@ -20,6 +20,8 @@ class Hero
 
   attr_accessor :dungeon_name, :dungeon_part_number
 
+  attr_accessor :statistics
+
   def initialize(name, background, dungeon_name=nil)
     @name = name
     @background = background
