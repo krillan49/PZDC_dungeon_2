@@ -66,12 +66,11 @@ class BridgeKeeperEvent
       @messages.log << "#{@hero.name} fell and lost #{(@hero.hp_max * 0.2).round} HP. #{@hero.hp.round}/#{@hero.hp_max} HP left"
       if @hero.hp <= 0
         @messages.main = "Press Enter to end the game"
-        @messages.log << "You you died"
-        MainRenderer.new(:messages_screen, entity: @messages, arts: [{ game_over: :game_over }]).display
+        @messages.log << "You died"
+        display_message_screen()
         gets
-        MainRenderer.new(:run_end_screen, entity: @messages, arts: [{ end: :run_end_art }]).display
-        gets
-        DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
+        DeleteHeroInRun.new(@hero, true, @messages).add_camp_loot_and_delete_hero_file
+        return false
       end
       @messages.main = 'To continue press Enter'
       display_message_screen()

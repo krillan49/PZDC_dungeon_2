@@ -47,12 +47,10 @@ class AttacksRound
           MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ attack: @enemy }]).display
           gets
           if @hero.hp <= 0
-            @messages.log << "You are dead - you cowardly dog!"
-            MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ game_over: :game_over }]).display
-            gets
-            MainRenderer.new(:run_end_screen, entity: @messages, arts: [{ end: :run_end_art }]).display
-            gets
-            DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
+            messages = MainMessage.new
+            messages.main = "You are dead - you cowardly dog!"
+            messages.log += @messages.log
+            DeleteHeroInRun.new(@hero, true, messages).add_camp_loot_and_delete_hero_file
           end
         end
       end
@@ -227,13 +225,10 @@ class AttacksRound
   def round_result
     if @hero.hp <= 0
       sleep_with_enemy_animation_speed()
-      @messages.main = "You're dead!"
-      @messages.actions = 'To continue press Enter'
-      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ game_over: :game_over }]).display
-      gets
-      MainRenderer.new(:run_end_screen, entity: @messages, arts: [{ end: :run_end_art }]).display
-      gets
-      DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
+      messages = MainMessage.new
+      messages.main = "You're dead! To continue press Enter"
+      messages.log += @messages.log
+      DeleteHeroInRun.new(@hero, true, messages).add_camp_loot_and_delete_hero_file
     elsif @enemy.hp <= 0
       sleep_with_enemy_animation_speed()
       @messages.main = "#{@enemy.name} dead, victory!"

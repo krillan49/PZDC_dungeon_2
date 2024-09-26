@@ -49,9 +49,7 @@ class ExitRunEvent
     @messages.log << "...#{@hero.name} managed to climb the old stairs, hurray, exit"
     display_message_screen()
     @messages.main = 'You survived. To continue press Enter'
-    MainRenderer.new(:run_end_screen, entity: @messages, arts: [{ end: :run_end_art }]).display
-    gets
-    DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
+    DeleteHeroInRun.new(@hero, false, @messages).add_camp_loot_and_delete_hero_file
   end
 
   def nothing
@@ -67,11 +65,7 @@ class ExitRunEvent
     if @hero.hp <= 0
       @messages.main = "Press Enter to end the game"
       @messages.log << "You you died and the exit was so close"
-      MainRenderer.new(:messages_screen, entity: @messages, arts: [{ game_over: :game_over }]).display
-      gets
-      MainRenderer.new(:run_end_screen, entity: @messages, arts: [{ end: :run_end_art }]).display
-      gets
-      DeleteHeroInRun.new(@hero).add_camp_loot_and_delete_hero_file
+      DeleteHeroInRun.new(@hero, true, @messages).add_camp_loot_and_delete_hero_file
     end
   end
 
