@@ -138,7 +138,7 @@ class Run
       gets
     end
     # статистика
-    @hero.statistics.add_enemy_to_data(@hero.dungeon_name, @enemy.code_name) if !@hero_run_from_battle
+    @hero.statistics.add_enemy_to_data(@enemy.code_name) if !@hero_run_from_battle
     # Сбор лута
     loot = LootRound.new(@hero, @enemy, @hero_run_from_battle)
     loot.action

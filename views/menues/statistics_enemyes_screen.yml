@@ -1,0 +1,150 @@
+view:
+  - "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                         AAAAAAAAAAA dungeon statistics                                               █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                        AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB                                             █"
+  - "█                                                                                                                      █"
+  - "█                                        AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB                                             █"
+  - "█                                                                                                                      █"
+  - "█                                        AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB                                             █"
+  - "█                                                                                                                      █"
+  - "█                                        AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB                                             █"
+  - "█                                                                                                                      █"
+  - "█                                        AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB                                             █"
+  - "█                                                                                                                      █"
+  - "█                                        AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB                                             █"
+  - "█                                                                                                                      █"
+  - "█                                        AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB                                             █"
+  - "█                                                                                                                      █"
+  - "█                                        AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB                                             █"
+  - "█                                                                                                                      █"
+  - "█                                        AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB                                             █"
+  - "█                                                                                                                      █"
+  - "█                                        AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB                                             █"
+  - "█                                                                                                                      █"
+  - "█                                        AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB                                             █"
+  - "█                                                                                                                      █"
+  - "█                                        AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB                                             █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                               TO MAIN MENU   [Enter]                                                 █"
+  - "█                                                                                                                      █"
+  - "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█"
+insert_options:
+  3:
+    A:
+      methods:
+        - name
+      modifier: e
+  6:
+    A:
+      methods:
+        - enemy_name__0
+      modifier: s
+    B:
+      methods:
+        - enemy_count__0
+      modifier: e
+  8:
+    A:
+      methods:
+        - enemy_name__1
+      modifier: s
+    B:
+      methods:
+        - enemy_count__1
+      modifier: e
+  10:
+    A:
+      methods:
+        - enemy_name__2
+      modifier: s
+    B:
+      methods:
+        - enemy_count__2
+      modifier: e
+  12:
+    A:
+      methods:
+        - enemy_name__3
+      modifier: s
+    B:
+      methods:
+        - enemy_count__3
+      modifier: e
+  14:
+    A:
+      methods:
+        - enemy_name__4
+      modifier: s
+    B:
+      methods:
+        - enemy_count__4
+      modifier: e
+  16:
+    A:
+      methods:
+        - enemy_name__5
+      modifier: s
+    B:
+      methods:
+        - enemy_count__5
+      modifier: e
+  18:
+    A:
+      methods:
+        - enemy_name__6
+      modifier: s
+    B:
+      methods:
+        - enemy_count__6
+      modifier: e
+  20:
+    A:
+      methods:
+        - enemy_name__7
+      modifier: s
+    B:
+      methods:
+        - enemy_count__7
+      modifier: e
+  22:
+    A:
+      methods:
+        - enemy_name__8
+      modifier: s
+    B:
+      methods:
+        - enemy_count__8
+      modifier: e
+  24:
+    A:
+      methods:
+        - enemy_name__9
+      modifier: s
+    B:
+      methods:
+        - enemy_count__9
+      modifier: e
+  26:
+    A:
+      methods:
+        - enemy_name__10
+      modifier: s
+    B:
+      methods:
+        - enemy_count__10
+      modifier: e
+  28:
+    A:
+      methods:
+        - enemy_name__11
+      modifier: s
+    B:
+      methods:
+        - enemy_count__11
+      modifier: e

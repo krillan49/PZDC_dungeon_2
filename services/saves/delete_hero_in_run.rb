@@ -42,12 +42,12 @@ class DeleteHeroInRun
   def display_game_over
     MainRenderer.new(:messages_screen, entity: @messages, arts: [{ game_over: :game_over }]).display
     gets
-    MainRenderer.new(:run_end_screen, entity: @messages, arts: [{ end: :run_end_art }]).display
+    MainRenderer.new(:statistics_enemyes_screen, entity: @hero.statistics).display
     gets
   end
 
   def display
-    MainRenderer.new(:run_end_screen, entity: @messages, arts: [{ end: :run_end_art }]).display
+    MainRenderer.new(:statistics_enemyes_screen, entity: @hero.statistics).display
     gets
   end
 end

@@ -41,10 +41,10 @@ class Main
     new_load = gets.strip
     if new_load == '1'
       load_run()
-      @hero.statistics = StatisticsRun.new if @hero
+      @hero.statistics = StatisticsRun.new(@hero.dungeon_name) if @hero
     elsif new_load == '2'
       start_new_run()
-      @hero.statistics = StatisticsRun.new(true) if @hero
+      @hero.statistics = StatisticsRun.new(@hero.dungeon_name, true) if @hero
     end
   end
 
