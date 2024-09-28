@@ -15,6 +15,7 @@ class DeleteHeroInRun
       StatisticsTotal.new.add_from_run(@hero.statistics.data)
     end
     @hero.statistics.delete
+    @hero = nil
     delete_hero_file()
   end
 
