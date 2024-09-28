@@ -5,6 +5,7 @@ class CampEngine
     @pzdc_monolith = PzdcMonolith.new
     @shop = Shop.new
     @occult_library = OccultLibrary.new
+    @statistics = StatisticsTotal.new
   end
 
   def camp
@@ -18,6 +19,8 @@ class CampEngine
         shop()
       elsif choose == 3
         occult_library()
+      elsif choose == 4
+        statistics()
       end
     end
   end
@@ -66,6 +69,20 @@ class CampEngine
         gets
       elsif choose.to_i > 0 && choose.to_i <= 24 && @occult_library.can_sell_this_recipe?(choose.to_i)
         @occult_library.sell(choose.to_i)
+      end
+    end
+  end
+
+  def statistics
+    choose = nil
+    until choose == 0
+      MainRenderer.new(:statistics_choose_screen).display
+      choose = gets.to_i
+      if choose >= 1 && choose <= 3
+        dungeon_code = %w[bandits undeads swamp][choose-1]
+        @statistics.create_subdatas(dungeon_code: dungeon_code)
+        MainRenderer.new(:statistics_enemyes_screen, entity: @statistics).display
+        gets
       end
     end
   end

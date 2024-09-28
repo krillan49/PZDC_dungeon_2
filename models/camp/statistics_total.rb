@@ -20,6 +20,25 @@ class StatisticsTotal
     update()
   end
 
+  # subdatas for show
+  def create_subdatas(params)
+    @dungeon_code = params[:dungeon_code]
+    @data_enemyes = @data[@dungeon_code].to_a if @dungeon_code
+  end
+
+  # show
+  def method_missing(method_name)
+    if method_name.to_s == 'name'
+      @dungeon_code.capitalize.split('_').join(' ')
+    elsif method_name.to_s.include?('enemy_name__')
+      i = method_name.to_s.split('__')[1].to_i
+      i < @data_enemyes.length ? @data_enemyes[i][0].capitalize.split('_').join(' ') : ''
+    elsif method_name.to_s.include?('enemy_count__')
+      i = method_name.to_s.split('__')[1].to_i
+      i < @data_enemyes.length ? @data_enemyes[i][1] : ''
+    end
+  end
+
   private
 
   def create
