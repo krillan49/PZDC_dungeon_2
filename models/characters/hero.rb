@@ -7,7 +7,7 @@ class Hero
   attr_accessor :min_dmg_base, :max_dmg_base
   attr_accessor :accuracy_base
   attr_accessor :armor_base
-  # attr_accessor :block
+  attr_accessor :block_chance_base
   attr_accessor :exp, :lvl
   attr_accessor :exp_lvl
   attr_accessor :stat_points, :skill_points
@@ -46,6 +46,8 @@ class Hero
     @accuracy_base = hero[:accurasy]
 
     @armor_base = hero[:armor]
+
+    @block_chance_base = 0
 
     @exp = 0
     @lvl = 0
@@ -100,7 +102,7 @@ class Hero
   end
 
   def block_chance
-    res_block_chance = @shield.block_chance + @weapon.block_chance
+    res_block_chance = @block_chance_base + @shield.block_chance + @weapon.block_chance
     if @passive_skill.name == "Shield master" && @shield.name != "---without---"
       res_block_chance += @passive_skill.block_chance_bonus
     end

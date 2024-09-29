@@ -28,16 +28,26 @@ class Warehouse
 
   # add ammunition to hero from warehouse
   def take_ammunition_by(hero)
-    hero.weapon = Weapon.new(@warehouse['weapon'])
-    @warehouse['weapon'] = 'without'
-    hero.body_armor = BodyArmor.new(@warehouse['body_armor'])
-    @warehouse['body_armor'] = 'without'
-    hero.head_armor = HeadArmor.new(@warehouse['head_armor'])
-    @warehouse['head_armor'] = 'without'
-    hero.arms_armor = ArmsArmor.new(@warehouse['arms_armor'])
-    @warehouse['arms_armor'] = 'without'
-    hero.shield = Shield.new(@warehouse['shield'])
-    @warehouse['shield'] = 'without'
+    if @warehouse['weapon'] != 'without'
+      hero.weapon = Weapon.new(@warehouse['weapon'])
+      @warehouse['weapon'] = 'without'
+    end
+    if @warehouse['body_armor'] != 'without'
+      hero.body_armor = BodyArmor.new(@warehouse['body_armor'])
+      @warehouse['body_armor'] = 'without'
+    end
+    if @warehouse['head_armor'] != 'without'
+      hero.head_armor = HeadArmor.new(@warehouse['head_armor'])
+      @warehouse['head_armor'] = 'without'
+    end
+    if @warehouse['arms_armor'] != 'without'
+      hero.arms_armor = ArmsArmor.new(@warehouse['arms_armor'])
+      @warehouse['arms_armor'] = 'without'
+    end
+    if @warehouse['shield'] != 'without'
+      hero.shield = Shield.new(@warehouse['shield'])
+      @warehouse['shield'] = 'without'
+    end
     update()
   end
 

@@ -7,6 +7,15 @@ without:
   max_dmg: 0
   price: 0
 
+holey_wicker_buckler:
+  name: "Holey wicker buckler"
+  armor: 0
+  accuracy: 0
+  block_chance: 15
+  min_dmg: 0
+  max_dmg: 0
+  price: 10
+
 braided_buckler:
   name: "Braided buckler"
   armor: 0

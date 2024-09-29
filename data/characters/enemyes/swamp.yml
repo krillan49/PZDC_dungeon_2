@@ -47,6 +47,7 @@ e2:
     - leather_gloves
   shield:
     - without
+    - holey_wicker_buckler
     - braided_buckler
   ingredients:
     - without

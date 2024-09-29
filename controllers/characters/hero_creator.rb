@@ -7,11 +7,13 @@ class HeroCreator
   end
 
   def create_new_hero
-    camp_bonuses
-    active_skill
-    passive_skill
-    camp_skill
-    cheating
+    monolith_bonuses()
+    statistics_bonuses()
+    shop_bonuses()
+    active_skill()
+    passive_skill()
+    camp_skill()
+    cheating()
     @hero
   end
 
@@ -68,8 +70,7 @@ class HeroCreator
     end
   end
 
-  def camp_bonuses # ?? потом разбить на отдельные контроллеры/сервисы
-    # 1. Monolith bonuses:
+  def monolith_bonuses
     pzdc_monolith = YAML.safe_load_file("saves/pzdc_monolith.yml")
     @hero.hp_max += pzdc_monolith['hp']
     @hero.hp += pzdc_monolith['hp']
@@ -85,8 +86,65 @@ class HeroCreator
     @hero.armor_base += pzdc_monolith['armor']
     @hero.regen_hp_base += pzdc_monolith['regen_hp']
     @hero.regen_mp_base += pzdc_monolith['regen_mp']
+  end
 
-    # 2. ammunition from Warehouse:
+  def statistics_bonuses
+    statistics = StatisticsTotal.new.data
+    bandits_data, undeads_data, swamp_data = statistics['bandits'], statistics['undeads'], statistics['swamp']
+    bandits_data.each do |enemy, count|
+      if enemy == 'rabble' && count >= 50
+        @hero.weapon = Weapon.new('stick')
+      elsif enemy == 'rabid_dog' && count >= 50
+        @hero.hp_max += 2
+        @hero.hp += 2
+      elsif enemy == 'poacher' && count >= 50
+        @hero.accuracy_base += 1
+      elsif enemy == 'thug' && count >= 50
+        @hero.hp_max += 5
+        @hero.hp += 5
+      elsif enemy == 'deserter' && count >= 50
+        @hero.stat_points += 1
+      elsif enemy == 'bandit_leader' && count >= 5
+        @hero.skill_points += 1
+      end
+    end
+    undeads_data.each do |enemy, count|
+      if enemy == 'zombie' && count >= 50
+        @hero.arms_armor = ArmsArmor.new('worn_gloves')
+      elsif enemy == 'skeleton' && count >= 50
+        @hero.mp_max += 3
+        @hero.mp += 3
+      elsif enemy == 'ghost' && count >= 50
+        @hero.accuracy_base += 1
+      elsif enemy == 'fat_ghoul' && count >= 50
+        @hero.hp_max += 7
+        @hero.hp += 7
+      elsif enemy == 'skeleton_soldier' && count >= 50
+        @hero.block_chance_base += 3
+      elsif enemy == 'zombie_knight' && count >= 5
+        @hero.regen_mp_base += 1
+      end
+    end
+    swamp_data.each do |enemy, count|
+      if enemy == 'leech' && count >= 50
+        @hero.mp_max += 3
+        @hero.mp += 3
+      elsif enemy == 'goblin' && count >= 50
+        @hero.shield = Shield.new('holey_wicker_buckler')
+      elsif enemy == 'sworm' && count >= 50
+        @hero.hp_max += 3
+        @hero.hp += 3
+      elsif enemy == 'spider' && count >= 50
+        @hero.accuracy_base += 1
+      elsif enemy == 'orc' && count >= 50
+        @hero.max_dmg_base += 1
+      elsif enemy == 'ancient_snail' && count >= 5
+        @hero.armor_base += 1
+      end
+    end
+  end
+
+  def shop_bonuses
     Warehouse.new.take_ammunition_by(@hero)
   end
 

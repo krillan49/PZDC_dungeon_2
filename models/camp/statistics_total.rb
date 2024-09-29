@@ -1,6 +1,8 @@
 class StatisticsTotal
   PATH = 'saves/statistics_total.yml'
 
+  attr_reader :data
+
   def initialize
     create()
     @data = YAML.safe_load_file(PATH)
