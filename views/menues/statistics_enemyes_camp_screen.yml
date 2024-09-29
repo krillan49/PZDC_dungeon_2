@@ -1,0 +1,246 @@
+view:
+  - "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                         AAAAAAAAAAA dungeon statistics                                               █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█                                                                                                                      █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█                                                                                                                      █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█                                                                                                                      █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█                                                                                                                      █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█                                                                                                                      █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█                                                                                                                      █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█                                                                                                                      █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█                                                                                                                      █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█                                                                                                                      █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█                                                                                                                      █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█                                                                                                                      █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                 TO MENU   [Enter]                                                    █"
+  - "█                                                                                                                      █"
+  - "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█"
+insert_options:
+  3:
+    A:
+      methods:
+        - name
+      modifier: e
+  6:
+    A:
+      methods:
+        - enemy_name__0
+      modifier: s
+    B:
+      methods:
+        - enemy_count__0
+      modifier: e
+    C:
+      methods:
+        - enemy_done__0
+      modifier: s
+    D:
+      methods:
+        - enemy_description__0
+      modifier: s
+  8:
+    A:
+      methods:
+        - enemy_name__1
+      modifier: s
+    B:
+      methods:
+        - enemy_count__1
+      modifier: e
+    C:
+      methods:
+        - enemy_done__1
+      modifier: s
+    D:
+      methods:
+        - enemy_description__1
+      modifier: s
+  10:
+    A:
+      methods:
+        - enemy_name__2
+      modifier: s
+    B:
+      methods:
+        - enemy_count__2
+      modifier: e
+    C:
+      methods:
+        - enemy_done__2
+      modifier: s
+    D:
+      methods:
+        - enemy_description__2
+      modifier: s
+  12:
+    A:
+      methods:
+        - enemy_name__3
+      modifier: s
+    B:
+      methods:
+        - enemy_count__3
+      modifier: e
+    C:
+      methods:
+        - enemy_done__3
+      modifier: s
+    D:
+      methods:
+        - enemy_description__3
+      modifier: s
+  14:
+    A:
+      methods:
+        - enemy_name__4
+      modifier: s
+    B:
+      methods:
+        - enemy_count__4
+      modifier: e
+    C:
+      methods:
+        - enemy_done__4
+      modifier: s
+    D:
+      methods:
+        - enemy_description__4
+      modifier: s
+  16:
+    A:
+      methods:
+        - enemy_name__5
+      modifier: s
+    B:
+      methods:
+        - enemy_count__5
+      modifier: e
+    C:
+      methods:
+        - enemy_done__5
+      modifier: s
+    D:
+      methods:
+        - enemy_description__5
+      modifier: s
+  18:
+    A:
+      methods:
+        - enemy_name__6
+      modifier: s
+    B:
+      methods:
+        - enemy_count__6
+      modifier: e
+    C:
+      methods:
+        - enemy_done__6
+      modifier: s
+    D:
+      methods:
+        - enemy_description__6
+      modifier: s
+  20:
+    A:
+      methods:
+        - enemy_name__7
+      modifier: s
+    B:
+      methods:
+        - enemy_count__7
+      modifier: e
+    C:
+      methods:
+        - enemy_done__7
+      modifier: s
+    D:
+      methods:
+        - enemy_description__7
+      modifier: s
+  22:
+    A:
+      methods:
+        - enemy_name__8
+      modifier: s
+    B:
+      methods:
+        - enemy_count__8
+      modifier: e
+    C:
+      methods:
+        - enemy_done__8
+      modifier: s
+    D:
+      methods:
+        - enemy_description__8
+      modifier: s
+  24:
+    A:
+      methods:
+        - enemy_name__9
+      modifier: s
+    B:
+      methods:
+        - enemy_count__9
+      modifier: e
+    C:
+      methods:
+        - enemy_done__9
+      modifier: s
+    D:
+      methods:
+        - enemy_description__9
+      modifier: s
+  26:
+    A:
+      methods:
+        - enemy_name__10
+      modifier: s
+    B:
+      methods:
+        - enemy_count__10
+      modifier: e
+    C:
+      methods:
+        - enemy_done__10
+      modifier: s
+    D:
+      methods:
+        - enemy_description__10
+      modifier: s
+  28:
+    A:
+      methods:
+        - enemy_name__11
+      modifier: s
+    B:
+      methods:
+        - enemy_count__11
+      modifier: e
+    C:
+      methods:
+        - enemy_done__11
+      modifier: s
+    D:
+      methods:
+        - enemy_description__11
+      modifier: s

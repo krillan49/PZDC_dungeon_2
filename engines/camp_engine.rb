@@ -81,7 +81,7 @@ class CampEngine
       if choose >= 1 && choose <= 3
         dungeon_code = %w[bandits undeads swamp][choose-1]
         @statistics.create_subdatas(dungeon_code: dungeon_code)
-        MainRenderer.new(:statistics_enemyes_screen, entity: @statistics).display
+        MainRenderer.new(:statistics_enemyes_camp_screen, entity: @statistics).display
         gets
       end
     end

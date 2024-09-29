@@ -1,5 +1,27 @@
 class StatisticsTotal
   PATH = 'saves/statistics_total.yml'
+  # show:
+  BOSES = %w[bandit_leader zombie_knight ancient_snail]
+  DESCRIPTIONS = {
+    'rabble' => 'Kill 50 and get permanent weapon "Stick"',
+    'rabid_dog' => 'Kill 50 and get +2 HP',
+    'poacher' => 'Kill 50 and get +1 accuracy',
+    'thug' => 'Kill 50 and get +5 HP',
+    'deserter' => 'Kill 50 and get +1 stat point',
+    'bandit_leader' => 'Kill 50 and get +1 skill point',
+    'zombie' => 'Kill 50 and get permanent "Worn gloves"',
+    'skeleton' => 'Kill 50 and get +3 MP',
+    'ghost' => 'Kill 50 and get +1 accuracy',
+    'fat_ghoul' => 'Kill 50 and get +7 HP',
+    'skeleton_soldier' => 'Kill 50 and get +3 block chance',
+    'zombie_knight' => 'Kill 50 and get +1 MP-regen',
+    'leech' => 'Kill 50 and get +3 MP',
+    'goblin' => 'Kill 50 and get permanent "Holey wicker buckler"',
+    'sworm' => 'Kill 50 and get +3 HP',
+    'spider' => 'Kill 50 and get +1 accuracy',
+    'orc' => 'Kill 50 and get +1 max damage',
+    'ancient_snail' => 'Kill 50 and get +1 armor'
+  }
 
   attr_reader :data
 
@@ -30,14 +52,17 @@ class StatisticsTotal
 
   # show
   def method_missing(method_name)
-    if method_name.to_s == 'name'
-      @dungeon_code.capitalize.split('_').join(' ')
-    elsif method_name.to_s.include?('enemy_name__')
-      i = method_name.to_s.split('__')[1].to_i
-      i < @data_enemyes.length ? @data_enemyes[i][0].capitalize.split('_').join(' ') : ''
+    return @dungeon_code.capitalize.split('_').join(' ') if method_name.to_s == 'name'
+    i = method_name.to_s.split('__')[1].to_i if method_name.to_s.include?('__')
+    return '' if i >= @data_enemyes.length
+    if method_name.to_s.include?('enemy_name__')
+      @data_enemyes[i][0].capitalize.split('_').join(' ')
     elsif method_name.to_s.include?('enemy_count__')
-      i = method_name.to_s.split('__')[1].to_i
-      i < @data_enemyes.length ? @data_enemyes[i][1] : ''
+      @data_enemyes[i][1]
+    elsif method_name.to_s.include?('enemy_done__')
+      @data_enemyes[i][1] >= 50 || (BOSES.include?(@data_enemyes[i][0]) && @data_enemyes[i][1] >= 5) ? 'DONE' : ''
+    elsif method_name.to_s.include?('enemy_description__')
+      DESCRIPTIONS[@data_enemyes[i][0]]
     end
   end
 
