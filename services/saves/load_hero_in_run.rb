@@ -8,16 +8,14 @@ class LoadHeroInRun
     if RubyVersionFixHelper.file_exists?("#{PATH}#{HERO_FILE}") # File::exists?("#{PATH}#{HERO_FILE}")
       @hero_data = YAML.safe_load_file("#{PATH}#{HERO_FILE}")
     end
-    @messages = LoadHeroMessage.new
   end
 
   def load
     if @hero_data
       choose_hero()
     else
-      @messages.main = 'No hero saved. Press Enter to continue'
-      @messages.heroes = []
-      display_with_confirm_and_change_screen()
+      MainRenderer.new(:load_no_hero_screen).display
+      gets
     end
   end
 
@@ -59,11 +57,6 @@ class LoadHeroInRun
       @hero.send "#{loot_type}=", value
     end
     @hero.ingredients = @hero_data['ingredients']
-  end
-
-  def display_with_confirm_and_change_screen
-    MainRenderer.new(:load_hero_screen, entity: @messages).display
-    gets
   end
 
 end

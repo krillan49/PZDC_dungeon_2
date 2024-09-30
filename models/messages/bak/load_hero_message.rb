@@ -1,4 +1,4 @@
-class LoadHeroMessage
+class LoadHeroMessage # dont used aniwere, only in bak services
   attr_accessor :main, :heroes
 
   def initialize
