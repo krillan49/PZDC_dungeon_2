@@ -37,14 +37,17 @@ class Main
   end
 
   def load_or_start_new_run
-    MainRenderer.new(:load_new_run_screen, arts: [ { dungeon_cave: :dungeon_enter } ] ).display
-    new_load = gets.strip
-    if new_load == '1'
-      load_run()
-      @hero.statistics = StatisticsRun.new(@hero.dungeon_name) if @hero
-    elsif new_load == '2'
-      start_new_run()
-      @hero.statistics = StatisticsRun.new(@hero.dungeon_name, true) if @hero
+    choose = nil
+    until choose == 0
+      MainRenderer.new(:load_new_run_screen, arts: [ { dungeon_cave: :dungeon_enter } ] ).display
+      choose = gets.to_i
+      if choose == 1
+        load_run()
+        @hero.statistics = StatisticsRun.new(@hero.dungeon_name) if @hero
+      elsif choose == 2
+        start_new_run()
+        @hero.statistics = StatisticsRun.new(@hero.dungeon_name, true) if @hero
+      end
     end
   end
 
