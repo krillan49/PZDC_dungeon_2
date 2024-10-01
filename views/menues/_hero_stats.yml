@@ -2,31 +2,31 @@ view:
   - "                                                                          "
   - " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA    lvl BBB    exp CCCC/DDDD    coins EEEE "
   - "──────────────────────────────────────────────────────────────────────────"
-  - "   hp AAA/BBB              hp regen CCC               hp recovery DDD     "
-  - "   mp AAA/BBB              mp regen CCC               mp recovery DDD     "
+  - "   HP AAA/BBB              HP-regen CCC               HP-recovery DDD     "
+  - "   MP AAA/BBB              MP-regen CCC               MP-recovery DDD     "
   - "                                                                          "
-  - "   damage   AAA-BBB                      basic CCC-DDD                    "
+  - "   Damage     AAA-BBB (  basic CCC-DDD)     Penetration  EEE              "
   - "                                                                          "
-  - "   accuracy   AAA                        basic   BBB                      "
+  - "   Accuracy     AAA   (  basic   BBB  )                                   "
   - "                                                                          "
-  - "   armor      AAA                        basic   BBB                      "
+  - "   Armor        AAA   (  basic   BBB  )                                   "
   - "                                                                          "
-  - "   block chance    AAA                   block power     BBB %            "
+  - "   Block chance AAA                         Block power  BBB %            "
   - "──────────────────────────────────────────────────────────────────────────"
   - "                               AMMUNITION                                 "
   - "                                                                          "
-  - "   [Enter A]   weapon    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
-  - "   [Enter B]   head      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
-  - "   [Enter C]   body      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
-  - "   [Enter D]   arms      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
-  - "   [Enter E]   shield    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
+  - "   [Enter A]   Weapon    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
+  - "   [Enter B]   Head      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
+  - "   [Enter C]   Body      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
+  - "   [Enter D]   Arms      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
+  - "   [Enter E]   Shield    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
   - "                                                                          "
 insert_options:
   1:
     A:
       methods:
         - name
-      modifier: s
+      modifier: e
     B:
       methods:
         - lvl
@@ -97,6 +97,10 @@ insert_options:
     D:
       methods:
         - max_dmg_base
+      modifier: s
+    E:
+      methods:
+        - armor_penetration
       modifier: s
   8:
     A:

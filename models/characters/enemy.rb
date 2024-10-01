@@ -6,6 +6,7 @@ class Enemy
   attr_accessor :min_dmg_base, :max_dmg_base
   attr_accessor :accuracy_base
   attr_accessor :armor_base
+  attr_accessor :armor_penetration_base
   attr_reader :exp_gived, :coins_gived, :ingredients
 
   attr_reader :weapon, :body_armor, :head_armor, :arms_armor, :shield
@@ -31,6 +32,7 @@ class Enemy
     @max_dmg_base  = enemy[:max_dmg]
     @accuracy_base = enemy[:accurasy]
     @armor_base    = enemy[:armor]
+    @armor_penetration_base = 0
     @exp_gived     = enemy[:exp_gived]
     @coins_gived   = rand(0..enemy[:coins_gived])
     @ingredients   = enemy[:ingredients].sample
@@ -86,6 +88,11 @@ class Enemy
   def block_power_in_percents
     100 - (100 / block_power_coeff()).to_i
   end
+
+  def armor_penetration
+    @armor_penetration_base + @weapon.armor_penetration
+  end
+  
 end
 
 

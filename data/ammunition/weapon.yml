@@ -4,23 +4,26 @@ without:
   max_dmg: 0
   accuracy: 0
   block_chance: 0
+  armor_penetration: 0
   price: 0
 
 stick:
   name: "Stick"
   min_dmg: 1
-  max_dmg: 4
+  max_dmg: 3
   accuracy: 0
   block_chance: 2
+  armor_penetration: 0
   price: 1
 
 rusty_hatchet:
   name: "Rusty hatchet"
   min_dmg: 1
   max_dmg: 6
-  accuracy: -2
+  accuracy: -3
   block_chance: 0
-  price: 2
+  armor_penetration: 1
+  price: 5
 
 knife:
   name: "Knife"
@@ -28,15 +31,17 @@ knife:
   max_dmg: 5
   accuracy: 0
   block_chance: 0
-  price: 3
+  armor_penetration: 0
+  price: 5
 
 club:
   name: "Club"
-  min_dmg: 3
-  max_dmg: 4
+  min_dmg: 2
+  max_dmg: 3
   accuracy: 0
   block_chance: 0
-  price: 3
+  armor_penetration: 2
+  price: 10
 
 rusty_sword:
   name: "Rusty sword"
@@ -44,6 +49,7 @@ rusty_sword:
   max_dmg: 7
   accuracy: -3
   block_chance: 3
+  armor_penetration: 0
   price: 15
 
 dagger:
@@ -52,6 +58,7 @@ dagger:
   max_dmg: 6
   accuracy: 3
   block_chance: 2
+  armor_penetration: 0
   price: 35
 
 rusty_falchion:
@@ -60,7 +67,8 @@ rusty_falchion:
   max_dmg: 8
   accuracy: -3
   block_chance: 2
-  price: 20
+  armor_penetration: 1
+  price: 30
 
 sword:
   name: "Sword"
@@ -68,30 +76,34 @@ sword:
   max_dmg: 7
   accuracy: 3
   block_chance: 5
+  armor_penetration: 0
   price: 50
 
 rusty_pernach:
   name: "Rusty pernach"
-  min_dmg: 5
-  max_dmg: 7
-  accuracy: -3
+  min_dmg: 4
+  max_dmg: 5
+  accuracy: -7
   block_chance: 0
-  price: 25
+  armor_penetration: 3
+  price: 40
 
 hatchet:
   name: "Hatchet"
   min_dmg: 5
   max_dmg: 8
-  accuracy: 0
+  accuracy: -3
   block_chance: 0
+  armor_penetration: 1
   price: 40
 
 rusty_axe:
   name: "Rusty axe"
   min_dmg: 5
   max_dmg: 9
-  accuracy: -3
+  accuracy: -7
   block_chance: 0
+  armor_penetration: 1
   price: 40
 
 falchion:
@@ -100,46 +112,52 @@ falchion:
   max_dmg: 10
   accuracy: 0
   block_chance: 3
+  armor_penetration: 1
   price: 70
 
 pernach:
   name: "Pernach"
-  min_dmg: 7
-  max_dmg: 8
-  accuracy: 0
+  min_dmg: 5
+  max_dmg: 6
+  accuracy: -5
   block_chance: 0
+  armor_penetration: 3
   price: 80
 
 axe:
   name: "Axe"
   min_dmg: 6
-  max_dmg: 10
-  accuracy: 0
+  max_dmg: 9
+  accuracy: -5
   block_chance: 0
+  armor_penetration: 1
   price: 80
 
 flail:
   name: "Flail"
   min_dmg: 0
   max_dmg: 20
-  accuracy: -5
+  accuracy: -10
   block_chance: 0
+  armor_penetration: 3
   price: 100
 
 mace:
   name: Mace
   min_dmg: 8
   max_dmg: 12
-  accuracy: 0
+  accuracy: -7
   block_chance: 0
+  armor_penetration: 3
   price: 150
 
 rusty_longsword:
   name: "Rusty longsword"
   min_dmg: 6
   max_dmg: 17
-  accuracy: -2
+  accuracy: -5
   block_chance: 5
+  armor_penetration: 1
   price: 200
 
 
@@ -151,6 +169,7 @@ bambuga:
   max_dmg: 30
   accuracy: 10
   block_chance: 0
+  armor_penetration: 5
   price: 9000
 
 

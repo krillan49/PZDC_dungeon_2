@@ -8,6 +8,7 @@ class Hero
   attr_accessor :accuracy_base
   attr_accessor :armor_base
   attr_accessor :block_chance_base
+  attr_accessor :armor_penetration_base
   attr_accessor :exp, :lvl
   attr_accessor :exp_lvl
   attr_accessor :stat_points, :skill_points
@@ -48,6 +49,8 @@ class Hero
     @armor_base = hero[:armor]
 
     @block_chance_base = 0
+
+    @armor_penetration_base = 0
 
     @exp = 0
     @lvl = 0
@@ -113,6 +116,10 @@ class Hero
   end
   def block_power_in_percents
     100 - (100 / block_power_coeff()).to_i
+  end
+
+  def armor_penetration
+    @armor_penetration_base + @weapon.armor_penetration
   end
 
   def next_lvl_exp

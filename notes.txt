@@ -12,3 +12,5 @@ HeroUseSkill содержит рендер экранов, которые свя
 экран энчанта сделать более явным и заметным  -> во всесь экран
 картинка когда выпадает алкаш                 -> во весь экран
 картинку победы в данже для DeleteHeroInRun#display
+_enemy_stats_battle.yml и _enemy_stats_battle.yml - одно и тоже
+_enemy_statrt_stats.yml верхняя часть полностью совпадает с _enemy_stats_battle.yml

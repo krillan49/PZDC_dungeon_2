@@ -109,7 +109,7 @@ class AttacksRound
       @hero.mp -= @hero.active_skill.mp_cost
       true
     else
-      @messages.log << "Not enough mp to #{@hero.active_skill.name}"
+      @messages.log << "Not enough MP to #{@hero.active_skill.name}"
       false
     end
   end
@@ -151,7 +151,7 @@ class AttacksRound
     @hero_damage /= @enemy.block_power_coeff if @enemy_block_successful
   end
   def hero_damage_reduced_by_enemy_armor
-    @hero_damage -= @enemy.armor
+    @hero_damage -= (@enemy.armor > @hero.armor_penetration ? @enemy.armor - @hero.armor_penetration : 0)
     @hero_damage = 0 if @hero_damage < 0
   end
   #
@@ -163,7 +163,7 @@ class AttacksRound
     @enemy_damage /= @hero.block_power_coeff if @hero_block_successful
   end
   def enemy_damage_reduced_by_hero_armor
-    @enemy_damage -= @hero.armor
+    @enemy_damage -= (@hero.armor > @enemy.armor_penetration ? @hero.armor - @enemy.armor_penetration : 0)
     @enemy_damage = 0 if @enemy_damage < 0
   end
 

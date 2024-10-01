@@ -1,14 +1,14 @@
 view:
   - "                             "
   - " AAAAAAAAAAAAAAAAAAAAAAAAAAA "
-  - "   hp AAA/BBB    regen CCC   "
-  - "   mp AAA/BBB    regen CCC   "
-  - "   damage AAA-BBB            "
-  - "   accuracy AAA              "
-  - "   armor AAA                 "
-  - "   block chance AAA          "
-  - "   block power AAA %         "
-  - "                             "
+  - "   HP AAA/BBB    regen CCC   "
+  - "   MP AAA/BBB    regen CCC   "
+  - "   Damage AAA-BBB            "
+  - "   Penetration AAA           "
+  - "   Accuracy AAA              "
+  - "   Armor AAA                 "
+  - "   Block chance AAA          "
+  - "   Block power AAA %         "
   - "                             "
 insert_options:
   1:
@@ -56,19 +56,24 @@ insert_options:
   5:
     A:
       methods:
+        - armor_penetration
+      modifier: s
+  6:
+    A:
+      methods:
         - accuracy
       modifier: m
-  6:
+  7:
     A:
       methods:
         - armor
       modifier: s
-  7:
+  8:
     A:
       methods:
         - block_chance
       modifier: m
-  8:
+  9:
     A:
       methods:
         - block_power_in_percents
