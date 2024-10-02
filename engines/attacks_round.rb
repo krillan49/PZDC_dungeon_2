@@ -171,6 +171,7 @@ class AttacksRound
     @hero_hit = @hero_accuracy >= rand(1..100)
     hero_hit_or_miss()
     hero_after_hit_passive_slill_effects()
+    hero_after_hit_active_slill_effects() if @hero_attack_type == @hero.active_skill.name
     @messages.main = "#{@hero.name} attack #{@enemy.name}"
     @messages.actions = ""
     MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ damaged: @enemy }]).display
@@ -195,7 +196,16 @@ class AttacksRound
     when "Dazed"
       if @hero_hit && @hero_damage * @hero.passive_skill.accuracy_reduce_coef > (@enemy.hp + @hero_damage) / 2 # прибавляется дамаг который отнялся выше для подсчета эффекта ошеломления
         @enemy_accuracy *= 0.1 * rand(1..9)
-        @messages.log[-1] += " and dazed the enemy, reducing his accuracy to #{(@enemy.accuracy * 0.1 * rand(1..9)).round}"
+        @messages.log[-1] += " and dazed, reducing accuracy to #{(@enemy.accuracy * 0.1 * rand(1..9)).round}"
+      end
+    end
+  end
+  def hero_after_hit_active_slill_effects
+    case @hero.active_skill.code
+    when 'traumatic_strike'
+      if @hero_hit && @hero_damage > 0
+        @enemy_damage *= @hero.active_skill.effect_coef
+        @messages.log[-1] += " injured, enemy damage reduced by #{@hero.active_skill.effect}%"
       end
     end
   end

@@ -72,6 +72,7 @@ require_relative "models/ammunition/weapon"
 # skills
 require_relative "models/skills/precise_strike"
 require_relative "models/skills/strong_strike"
+require_relative "models/skills/traumatic_strike"
 require_relative "models/skills/berserk"
 require_relative "models/skills/concentration"
 require_relative "models/skills/dazed"

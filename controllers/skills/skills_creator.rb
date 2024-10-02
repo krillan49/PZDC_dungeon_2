@@ -3,6 +3,7 @@ module SkillsCreator
     case skill_name
     when 'precise_strike'; PreciseStrike.new
     when 'strong_strike'; StrongStrike.new
+    when 'traumatic_strike'; TraumaticStrike.new
     when 'berserk'; Berserk.new(hero)
     when 'concentration'; Concentration.new(hero)
     when 'dazed'; Dazed.new
