@@ -5,6 +5,7 @@ drunk:
   mp: 95
   min_dmg: 5
   max_dmg: 5
+  armor_penetration: 0
   accurasy: 70
   armor: 0
   skill_points: 0
@@ -25,6 +26,7 @@ watchman:
   mp: 100
   min_dmg: 5
   max_dmg: 5
+  armor_penetration: 0
   accurasy: 80
   armor: 0
   skill_points: 0
@@ -45,6 +47,7 @@ thief:
   mp: 100
   min_dmg: 5
   max_dmg: 5
+  armor_penetration: 0
   accurasy: 83
   armor: 0
   skill_points: 0
@@ -65,6 +68,7 @@ worker:
   mp: 115
   min_dmg: 5
   max_dmg: 5
+  armor_penetration: 0
   accurasy: 80
   armor: 0
   skill_points: 0
@@ -85,6 +89,7 @@ student:
   mp: 100
   min_dmg: 5
   max_dmg: 5
+  armor_penetration: 0
   accurasy: 80
   armor: 0
   skill_points: 1

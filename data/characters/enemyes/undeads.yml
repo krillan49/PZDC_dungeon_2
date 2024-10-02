@@ -4,6 +4,7 @@ e1:
   hp: 120
   min_dmg: 4
   max_dmg: 10
+  armor_penetration: 0
   accurasy: 30
   armor: 0
   regen_hp_base: 0
@@ -30,6 +31,7 @@ e2:
   hp: 60
   min_dmg: 2
   max_dmg: 2
+  armor_penetration: 0
   accurasy: 80
   armor: 1
   regen_hp_base: 0
@@ -56,6 +58,7 @@ e3:
   hp: 30
   min_dmg: 5
   max_dmg: 15
+  armor_penetration: 5
   accurasy: 150
   armor: 8
   regen_hp_base: 1
@@ -81,6 +84,7 @@ e4:
   hp: 150
   min_dmg: 8
   max_dmg: 12
+  armor_penetration: 1
   accurasy: 70
   armor: 0
   regen_hp_base: 2
@@ -107,6 +111,7 @@ e5:
   hp: 90
   min_dmg: 2
   max_dmg: 2
+  armor_penetration: 0
   accurasy: 95
   armor: 1
   regen_hp_base: 0
@@ -140,6 +145,7 @@ boss:
   hp: 300
   min_dmg: 5
   max_dmg: 15
+  armor_penetration: 1
   accurasy: 65
   armor: 0
   regen_hp_base: 3

@@ -26,7 +26,7 @@ insert_options:
     A:
       methods:
         - name
-      modifier: e
+      modifier: m
     B:
       methods:
         - lvl

@@ -30,9 +30,9 @@ class Enemy
     @regen_mp_base = 0
     @min_dmg_base  = enemy[:min_dmg]
     @max_dmg_base  = enemy[:max_dmg]
+    @armor_penetration_base = enemy[:armor_penetration]
     @accuracy_base = enemy[:accurasy]
     @armor_base    = enemy[:armor]
-    @armor_penetration_base = 0
     @exp_gived     = enemy[:exp_gived]
     @coins_gived   = rand(0..enemy[:coins_gived])
     @ingredients   = enemy[:ingredients].sample

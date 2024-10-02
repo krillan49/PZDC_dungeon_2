@@ -43,14 +43,13 @@ class Hero
 
     @min_dmg_base = hero[:min_dmg]
     @max_dmg_base = hero[:max_dmg]
+    @armor_penetration_base = hero[:armor_penetration]
 
     @accuracy_base = hero[:accurasy]
 
     @armor_base = hero[:armor]
 
     @block_chance_base = 0
-
-    @armor_penetration_base = 0
 
     @exp = 0
     @lvl = 0

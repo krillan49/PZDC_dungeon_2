@@ -4,6 +4,7 @@ e1:
   hp: 100
   min_dmg: 7
   max_dmg: 9
+  armor_penetration: 0
   accurasy: 60
   armor: 0
   regen_hp_base: 0
@@ -29,6 +30,7 @@ e2:
   hp: 75
   min_dmg: 4
   max_dmg: 4
+  armor_penetration: 0
   accurasy: 90
   armor: 0
   regen_hp_base: 0
@@ -59,6 +61,7 @@ e3:
   hp: 120
   min_dmg: 6
   max_dmg: 15
+  armor_penetration: 0
   accurasy: 70
   armor: 0
   regen_hp_base: 2
@@ -84,6 +87,7 @@ e4:
   hp: 140
   min_dmg: 10
   max_dmg: 14
+  armor_penetration: 1
   accurasy: 90
   armor: 0
   regen_hp_base: 0
@@ -109,6 +113,7 @@ e5:
   hp: 160
   min_dmg: 7
   max_dmg: 7
+  armor_penetration: 0
   accurasy: 85
   armor: 0
   regen_hp_base: 1
@@ -142,7 +147,8 @@ boss:
   name: "Ancient Snail"
   hp: 400
   min_dmg: 20
-  max_dmg: 30
+  max_dmg: 25
+  armor_penetration: 2
   accurasy: 70
   armor: 5
   regen_hp_base: 5
