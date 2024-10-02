@@ -51,7 +51,7 @@ arts:
       - 110
 partials:
   -
-    partial_name: _enemy_stats_battle
+    partial_name: _character_stats_mini
     y:
       - 19
       - 29
@@ -59,7 +59,7 @@ partials:
       - 14
       - 42
   -
-    partial_name: _enemy_stats_battle
+    partial_name: _character_stats_mini
     y:
       - 19
       - 29

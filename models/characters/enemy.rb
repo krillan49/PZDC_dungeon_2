@@ -92,7 +92,7 @@ class Enemy
   def armor_penetration
     @armor_penetration_base + @weapon.armor_penetration
   end
-  
+
 end
 
 
