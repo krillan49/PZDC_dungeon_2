@@ -4,6 +4,7 @@ class AttacksRound
     @hero_damage = rand(hero.min_dmg..hero.max_dmg)
     @hero_accuracy = @hero.accuracy
     @hero_block_successful = @hero.block_chance >= rand(1..100)
+    @active_skill_message = ''
 
     @enemy = enemy
     @enemy_damage = rand(enemy.min_dmg..enemy.max_dmg)
@@ -205,7 +206,7 @@ class AttacksRound
     when 'traumatic_strike'
       if @hero_hit && @hero_damage > 0
         @enemy_damage *= @hero.active_skill.effect_coef
-        @messages.log[-1] += " injured, enemy damage reduced by #{@hero.active_skill.effect}%"
+        @active_skill_message = "#{@enemy.name} injured, damage reduced by #{@hero.active_skill.effect}%. "
       end
     end
   end
@@ -224,9 +225,10 @@ class AttacksRound
   def enemy_hit_or_miss
     enemy_hit = @enemy_accuracy >= rand(1..100)
     if enemy_hit
-      block_message = @hero_block_successful ? "You have blocked #{@hero.block_power_in_percents}% damage. " : ''
       @hero.hp -= @enemy_damage
-      @messages.log << block_message + "#{@enemy.name} dealt #{@enemy_damage.round} damage #{@enemy_attack_type}"
+      block_message = @hero_block_successful ? "You have blocked #{@hero.block_power_in_percents}% damage. " : ''
+      main_message = "#{@enemy.name} dealt #{@enemy_damage.round} damage #{@enemy_attack_type}"
+      @messages.log << @active_skill_message + block_message + main_message
     else
       @messages.log << "#{@enemy.name} missed #{@enemy_attack_type}"
     end
