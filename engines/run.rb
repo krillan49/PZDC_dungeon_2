@@ -1,7 +1,6 @@
 class Run
-  def initialize(hero, leveling)
+  def initialize(hero)
     @hero = hero
-    @leveling = leveling
 
     @enemy = nil
     @hero_run_from_battle = false
@@ -48,10 +47,8 @@ class Run
       ).display
       choose = gets.strip.upcase
       if choose == 'Y'
-        # сохранение статистики забега
-        @hero.statistics.update
-        # сохранение персонажа
-        SaveHeroInRun.new(@hero, @leveling).save
+        @hero.statistics.update # сохранение статистики забега
+        SaveHeroInRun.new(@hero).save # сохранение персонажа
         @exit_to_main = true # exit
       end
       AmmunitionShow.show_weapon_buttons_actions(choose, @hero)
@@ -69,9 +66,9 @@ class Run
   # enemy
 
   def enemy_choose
-    enemy1 = EnemyCreator.new(@leveling, @hero.dungeon_name).create_new_enemy
-    enemy2 = EnemyCreator.new(@leveling, @hero.dungeon_name).create_new_enemy
-    enemy3 = EnemyCreator.new(@leveling, @hero.dungeon_name).create_new_enemy
+    enemy1 = EnemyCreator.new(@hero.leveling, @hero.dungeon_name).create_new_enemy
+    enemy2 = EnemyCreator.new(@hero.leveling, @hero.dungeon_name).create_new_enemy
+    enemy3 = EnemyCreator.new(@hero.leveling, @hero.dungeon_name).create_new_enemy
     enemyes_count, message = generate_enemy_count(enemy1)
     enemyes = [enemy1, enemy2, enemy3][0, enemyes_count]
     n = 9000
@@ -104,7 +101,7 @@ class Run
   def enemy_show
     @attacks_round_messages = AttacksRoundMessage.new
     @attacks_round_messages.main = 'To continue press Enter'
-    @attacks_round_messages.actions = "++++++++++++ Battle #{@leveling + 1} ++++++++++++"
+    @attacks_round_messages.actions = "++++++++++++ Battle #{@hero.leveling + 1} ++++++++++++"
     choose = nil
     until [''].include?(choose)
       MainRenderer.new(:enemy_start_screen, @enemy, entity: @attacks_round_messages, arts: [{ normal: @enemy }]).display
@@ -148,7 +145,7 @@ class Run
       DeleteHeroInRun.new(@hero, false, @messages).add_camp_loot_and_delete_hero_file
       return
     end
-    @leveling += 1
+    @hero.leveling += 1
   end
 
   # event
@@ -156,7 +153,7 @@ class Run
   def event_choose
     events_count, message = generate_events_count()
     return if events_count == 0
-    event_constants = EventCreator.new(@leveling, @hero.dungeon_name).create_new_event(events_count)
+    event_constants = EventCreator.new(@hero.leveling, @hero.dungeon_name).create_new_event(events_count)
     events = event_constants.map{|const| const.new(@hero)}
     n = 9000
     @messages.main = message + 'Which way will you go?'

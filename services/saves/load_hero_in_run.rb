@@ -2,7 +2,7 @@ class LoadHeroInRun
   PATH = 'saves/'
   HERO_FILE = 'hero_in_run.yml'
 
-  attr_reader :hero, :leveling
+  attr_reader :hero
 
   def initialize
     if RubyVersionFixHelper.file_exists?("#{PATH}#{HERO_FILE}") # File::exists?("#{PATH}#{HERO_FILE}")
@@ -51,7 +51,7 @@ class LoadHeroInRun
     # add other
     @hero.dungeon_name = @hero_data['dungeon_name']
     @hero.dungeon_part_number = @hero_data['dungeon_part_number']
-    @leveling = @hero_data['leveling']
+    @hero.leveling = @hero_data['leveling']
     # add camp_loot
     @hero_data['camp_loot'].each do |loot_type, value|
       @hero.send "#{loot_type}=", value

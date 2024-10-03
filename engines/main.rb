@@ -1,7 +1,6 @@
 class Main
   def initialize
     @hero = nil
-    @leveling = 0
     @messages = MainMessage.new
   end
 
@@ -15,7 +14,6 @@ class Main
     StatisticsTotal.new
     # ход игры
     loop do
-      @leveling = 0 # иначе при загрузке выходе и после начале новой игры левелин сохраняется
       MainRenderer.new(:start_game_screen).display
       choose = gets.strip
       if choose == '0'
@@ -34,17 +32,17 @@ class Main
   def load_or_start_new_run
     choose = nil
     until choose == 0
-      @hero = nil # чтобы после выхода из load_run() не оставался загруженный герой
+      @hero = nil   # чтобы после выхода из load_run() не оставался загруженный герой
       MainRenderer.new(:load_new_run_screen, arts: [ { dungeon_cave: :dungeon_enter } ] ).display
       choose = gets.to_i
       if choose == 1
         load_run()
         @hero.statistics = StatisticsRun.new(@hero.dungeon_name) if @hero
-        Run.new(@hero, @leveling).start if @hero
+        Run.new(@hero).start if @hero
       elsif choose == 2
         start_new_run()
         @hero.statistics = StatisticsRun.new(@hero.dungeon_name, true) if @hero
-        Run.new(@hero, @leveling).start if @hero
+        Run.new(@hero).start if @hero
       end
     end
   end
@@ -53,7 +51,6 @@ class Main
     load_hero = LoadHeroInRun.new
     load_hero.load
     @hero = load_hero.hero
-    @leveling = load_hero.leveling if @hero # условие чтобы не возвращало nil и не было ошибки
   end
 
   def start_new_run

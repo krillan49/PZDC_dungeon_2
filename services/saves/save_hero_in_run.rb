@@ -2,9 +2,8 @@ class SaveHeroInRun
   PATH = 'saves/'
   HERO_FILE = 'hero_in_run.yml'
 
-  def initialize(hero, leveling)
+  def initialize(hero)
     @hero = hero
-    @leveling = leveling
   end
 
   def save
@@ -71,7 +70,7 @@ class SaveHeroInRun
       },
       'dungeon_name' => @hero.dungeon_name,
       'dungeon_part_number' => @hero.dungeon_part_number,
-      'leveling' => @leveling,
+      'leveling' => @hero.leveling,
       'camp_loot' => {
         'pzdc_monolith_points' => @hero.pzdc_monolith_points,
         'coins' => @hero.coins

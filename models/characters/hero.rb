@@ -19,7 +19,7 @@ class Hero
 
   attr_accessor :pzdc_monolith_points, :coins, :ingredients
 
-  attr_accessor :dungeon_name, :dungeon_part_number
+  attr_accessor :dungeon_name, :dungeon_part_number, :leveling
 
   attr_accessor :statistics
 
@@ -61,6 +61,8 @@ class Hero
     @pzdc_monolith_points = 0
     @coins = 0
     @ingredients = {}
+
+    @leveling = 0
 
     @weapon = Weapon.new(hero[:weapon])
     @body_armor = BodyArmor.new(hero[:body_armor].sample)
