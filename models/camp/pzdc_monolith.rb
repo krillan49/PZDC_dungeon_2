@@ -10,7 +10,7 @@ class PzdcMonolith
     'armor' => 40,
     'regen_hp' => 70,
     'regen_mp' => 60,
-    'armor_penetration' => 50
+    'armor_penetration' => 30
   }
   PRICE_MULTIPLER = {
     'hp' => 1.04,
@@ -22,7 +22,7 @@ class PzdcMonolith
     'armor' => 1.7,
     'regen_hp' => 2,
     'regen_mp' => 2,
-    'armor_penetration' => 1.7
+    'armor_penetration' => 1.4
   }
 
   def initialize
