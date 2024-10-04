@@ -4,31 +4,31 @@ view:
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█      Ingredients needed:   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
+  - "█                                                                                                                      █"
   - "█      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
-  - "█      Weapon effect:        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█      Head armor effect:    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█      Body armor effect:    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█      Arms armor effect:    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█      Shield effect:        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
+  - "█     -----------------------------------------------------------------------------------------------------------      █"
+  - "█                         |                                                                                            █"
+  - "█      Weapon effect      |  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
+  - "█                         |                                                                                            █"
+  - "█     -----------------------------------------------------------------------------------------------------------      █"
+  - "█                         |                                                                                            █"
+  - "█      Head armor effect  |  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
+  - "█                         |                                                                                            █"
+  - "█     -----------------------------------------------------------------------------------------------------------      █"
+  - "█                         |                                                                                            █"
+  - "█      Body armor effect  |  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
+  - "█                         |                                                                                            █"
+  - "█     -----------------------------------------------------------------------------------------------------------      █"
+  - "█                         |                                                                                            █"
+  - "█      Arms armor effect  |  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
+  - "█                         |                                                                                            █"
+  - "█     -----------------------------------------------------------------------------------------------------------      █"
+  - "█                         |                                                                                            █"
+  - "█      Shield effect      |  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
+  - "█                         |                                                                                            █"
+  - "█     -----------------------------------------------------------------------------------------------------------      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                   BACK   [Enter 0]                                                   █"
@@ -45,36 +45,36 @@ insert_options:
       methods:
         - recipe
       modifier: s
-  5:
+  6:
     A:
       methods:
         - ingredients
       modifier: s
-  8:
-    A:
-      methods:
-        - weapon
-      modifier: s
   11:
     A:
       methods:
+        - weapon
+      modifier: m
+  15:
+    A:
+      methods:
         - head_armor
-      modifier: s
-  14:
+      modifier: m
+  19:
     A:
       methods:
         - body_armor
-      modifier: s
-  17:
+      modifier: m
+  23:
     A:
       methods:
         - arms_armor
-      modifier: s
-  20:
+      modifier: m
+  27:
     A:
       methods:
         - shield
-      modifier: s
+      modifier: m
 
 
 

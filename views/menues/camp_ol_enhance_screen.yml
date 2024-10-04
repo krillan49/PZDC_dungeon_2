@@ -4,7 +4,9 @@ view:
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█      Ingredients needed:   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
+  - "█                                                                                                                      █"
   - "█      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA       █"
+  - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█      ---------------------------------------------------------------------------------------------------------       █"
   - "█      WEAPON                     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA                  Show: [Enter A]       █"
@@ -29,8 +31,6 @@ view:
   - "█      ---------------------------------------------------------------------------------------------------------       █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
   - "█                                                   BACK   [Enter 0]                                                   █"
   - "█                                                                                                                      █"
   - "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█"
@@ -45,57 +45,57 @@ insert_options:
       methods:
         - recipe
       modifier: s
-  5:
+  6:
     A:
       methods:
         - ingredients
       modifier: s
-  8:
+  10:
     A:
       methods:
         - hero__weapon__name
       modifier: m
-  9:
+  11:
     A:
       methods:
         - weapon
       modifier: s
-  12:
+  14:
     A:
       methods:
         - hero__head_armor__name
       modifier: m
-  13:
+  15:
     A:
       methods:
         - head_armor
       modifier: s
-  16:
+  18:
     A:
       methods:
         - hero__body_armor__name
       modifier: m
-  17:
+  19:
     A:
       methods:
         - body_armor
       modifier: s
-  20:
+  22:
     A:
       methods:
         - hero__arms_armor__name
       modifier: m
-  21:
+  23:
     A:
       methods:
         - arms_armor
       modifier: s
-  24:
+  26:
     A:
       methods:
         - hero__shield__name
       modifier: m
-  25:
+  27:
     A:
       methods:
         - shield
