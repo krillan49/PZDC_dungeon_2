@@ -3,27 +3,27 @@ view:
   - "█                                          PZDC MONOLITH has AAAAA points                                              █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
-  - "█      STAT              HAS NOW       PRICE         ENTER                                                             █"
-  - "█                                                                                                                      █"
-  - "█      1 HP              AAAAA         BBBBB         1                                                                 █"
-  - "█      1 MP              AAAAA         BBBBB         2                                                                 █"
-  - "█      1 accuracy        AAAAA         BBBBB         3                                                                 █"
-  - "█      1 damage          AAAAA         BBBBB         4                                                                 █"
-  - "█      1 stat point      AAAAA         BBBBB         5                                                                 █"
-  - "█      1 skill point     AAAAA         BBBBB         6                                                                 █"
-  - "█      1 armor           AAAAA         BBBBB         7                                                                 █"
-  - "█      1 regen-HP        AAAAA         BBBBB         8                                                                 █"
-  - "█      1 regen-MP        AAAAA         BBBBB         9                                                                 █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
+  - "█      STAT                   HAS NOW      PRICE         BUY                                                           █"
+  - "█     ───────────────────────────────────────────────────────────                                                      █"
+  - "█      +1 HP                   AAAAA       BBBBB      [Enter  1]                                                       █"
+  - "█     -----------------------------------------------------------                                                      █"
+  - "█      +1 MP                   AAAAA       BBBBB      [Enter  2]                                                       █"
+  - "█     -----------------------------------------------------------                                                      █"
+  - "█      +1 Accuracy             AAAAA       BBBBB      [Enter  3]                                                       █"
+  - "█     -----------------------------------------------------------                                                      █"
+  - "█      +1 Damage               AAAAA       BBBBB      [Enter  4]                                                       █"
+  - "█     -----------------------------------------------------------                                                      █"
+  - "█      +1 Stat point           AAAAA       BBBBB      [Enter  5]                                                       █"
+  - "█     -----------------------------------------------------------                                                      █"
+  - "█      +1 Skill point          AAAAA       BBBBB      [Enter  6]                                                       █"
+  - "█     -----------------------------------------------------------                                                      █"
+  - "█      +1 Armor                AAAAA       BBBBB      [Enter  7]                                                       █"
+  - "█     -----------------------------------------------------------                                                      █"
+  - "█      +1 Regen-HP             AAAAA       BBBBB      [Enter  8]                                                       █"
+  - "█     -----------------------------------------------------------                                                      █"
+  - "█      +1 Regen-MP             AAAAA       BBBBB      [Enter  9]                                                       █"
+  - "█     -----------------------------------------------------------                                                      █"
+  - "█      +1 Armor penetration    AAAAA       BBBBB      [Enter 10]                                                       █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
@@ -57,7 +57,7 @@ insert_options:
       methods:
         - hp__p
       modifier: s
-  7:
+  8:
     A:
       methods:
         - mp
@@ -66,7 +66,7 @@ insert_options:
       methods:
         - mp__p
       modifier: s
-  8:
+  10:
     A:
       methods:
         - accuracy
@@ -75,7 +75,7 @@ insert_options:
       methods:
         - accuracy__p
       modifier: s
-  9:
+  12:
     A:
       methods:
         - damage
@@ -84,7 +84,7 @@ insert_options:
       methods:
         - damage__p
       modifier: s
-  10:
+  14:
     A:
       methods:
         - stat_points
@@ -93,7 +93,7 @@ insert_options:
       methods:
         - stat_points__p
       modifier: s
-  11:
+  16:
     A:
       methods:
         - skill_points
@@ -102,7 +102,7 @@ insert_options:
       methods:
         - skill_points__p
       modifier: s
-  12:
+  18:
     A:
       methods:
         - armor
@@ -111,7 +111,7 @@ insert_options:
       methods:
         - armor__p
       modifier: s
-  13:
+  20:
     A:
       methods:
         - regen_hp
@@ -120,7 +120,7 @@ insert_options:
       methods:
         - regen_hp__p
       modifier: s
-  14:
+  22:
     A:
       methods:
         - regen_mp
@@ -129,7 +129,15 @@ insert_options:
       methods:
         - regen_mp__p
       modifier: s
-
+  24:
+    A:
+      methods:
+        - armor_penetration
+      modifier: s
+    B:
+      methods:
+        - armor_penetration__p
+      modifier: s
 
 
 

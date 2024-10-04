@@ -84,6 +84,7 @@ class HeroCreator
     @hero.stat_points += pzdc_monolith['stat_points']
     @hero.skill_points += pzdc_monolith['skill_points']
     @hero.armor_base += pzdc_monolith['armor']
+    @hero.armor_penetration_base += pzdc_monolith['armor_penetration']
     @hero.regen_hp_base += pzdc_monolith['regen_hp']
     @hero.regen_mp_base += pzdc_monolith['regen_mp']
   end

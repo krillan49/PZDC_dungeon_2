@@ -30,8 +30,8 @@ class CampEngine
     until choose == 0
       MainRenderer.new(:camp_monolith_screen, entity: @pzdc_monolith, arts: [{ camp: :pzdc_monolith }]).display
       choose = gets.to_i
-      if choose > 0 && choose < 10
-        characteristic = %w[hp mp accuracy damage stat_points skill_points armor regen_hp regen_mp][choose-1]
+      if choose > 0 && choose < 11
+        characteristic = %w[hp mp accuracy damage stat_points skill_points armor regen_hp regen_mp armor_penetration][choose-1]
         @pzdc_monolith.take_points_to(characteristic)
       end
     end

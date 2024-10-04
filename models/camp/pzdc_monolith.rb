@@ -7,20 +7,22 @@ class PzdcMonolith
     'damage' => 10,
     'stat_points' => 7,
     'skill_points' => 15,
-    'armor' => 30,
+    'armor' => 40,
     'regen_hp' => 70,
-    'regen_mp' => 40
+    'regen_mp' => 60,
+    'armor_penetration' => 50
   }
   PRICE_MULTIPLER = {
-    'hp' => 1.03,
-    'mp' => 1.03,
-    'accuracy' => 1.3,
-    'damage' => 1.3,
-    'stat_points' => 1.2,
+    'hp' => 1.04,
+    'mp' => 1.04,
+    'accuracy' => 1.4,
+    'damage' => 1.4,
+    'stat_points' => 1.3,
     'skill_points' => 1.3,
-    'armor' => 1.5,
+    'armor' => 1.7,
     'regen_hp' => 2,
-    'regen_mp' => 1.7
+    'regen_mp' => 2,
+    'armor_penetration' => 1.7
   }
 
   def initialize
@@ -78,7 +80,8 @@ class PzdcMonolith
       'skill_points' => 0,
       'armor' => 0,
       'regen_hp' => 0,
-      'regen_mp' => 0
+      'regen_mp' => 0,
+      'armor_penetration' => 0
     }
   end
 end

@@ -29,6 +29,7 @@ class SaveHeroInRun
         'min_dmg_base' => @hero.min_dmg_base, 'max_dmg_base' => @hero.max_dmg_base,
         'accuracy_base' => @hero.accuracy_base,
         'armor_base' => @hero.armor_base,
+        'armor_penetration_base' => @hero.armor_penetration_base,
         'exp' => @hero.exp, 'lvl' => @hero.lvl,
         'stat_points' => @hero.stat_points, 'skill_points' => @hero.skill_points
       },
