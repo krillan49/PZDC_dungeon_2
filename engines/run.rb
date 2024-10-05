@@ -30,8 +30,8 @@ class Run
   end
 
   def hero_update
-    HeroUpdator.new(@hero).spend_stat_points # распределение очков характеристик
-    HeroUpdator.new(@hero).spend_skill_points # распределение очков навыков  (тут вызывается старое меню, потом доделать)
+    HeroUpdator.new(@hero).spend_stat_points
+    HeroUpdator.new(@hero).spend_skill_points
   end
 
   def save_and_exit

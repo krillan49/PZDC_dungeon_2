@@ -6,10 +6,10 @@ class OccultLibraryEnhanceEngine
   end
 
   def start
-    @messages.main = 'Continue: [Enter 0]            Echace ammunition: [Enter 1]'
+    @messages.main = ''
     choose = nil
     until ['0', ''].include?(choose)
-      MainRenderer.new(:messages_screen, entity: @messages, arts: [{ camp_fire: :rest }]).display
+      MainRenderer.new(:rest_menu_screen, entity: @messages, arts: [{ camp_fire_big: :rest }]).display
       choose = gets.strip.upcase
       if choose == '1'
         @ebr = OccultLibraryAtRun.new(@hero) unless @ebr
@@ -61,8 +61,6 @@ class OccultLibraryEnhanceEngine
     ammunition_type = {'A'=>'weapon','B'=>'head_armor','C'=>'body_armor','D'=>'arms_armor','E'=>'shield'}[char]
     ammunition_obj = @hero.send(ammunition_type)
     AmmunitionShow.display(type: ammunition_type, obj: ammunition_obj, arts: [{normal: ammunition_obj}])
-    # MainRenderer.new(:"ammunition_#{ammunition_type}_screen", entity: @hero.send(ammunition_type)).display
-    # gets
   end
 
   def enhance_ammunition(n)
