@@ -13,7 +13,7 @@ leather_helmet:
 rusty_quilted_helmet:
   name: "Rusty quilted helmet"
   armor: 1
-  accuracy: -5
+  accuracy: -3
   price: 5
 
 quilted_helmet:
@@ -27,6 +27,12 @@ rusty_mail_helmet:
   armor: 2
   accuracy: -5
   price: 40
+
+sallet:
+  name: Sallet
+  armor: 3
+  accuracy: 0
+  price: 150
 
 rusty_topfhelm:
   name: "Rusty topfhelm"

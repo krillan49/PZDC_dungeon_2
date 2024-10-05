@@ -103,7 +103,6 @@ e4:
   ingredients:
     - without
     - dead_flesh
-    - ghoul_heart
 
 e5:
   code_name: skeleton_soldier
