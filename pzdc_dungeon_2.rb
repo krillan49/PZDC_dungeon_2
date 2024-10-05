@@ -10,7 +10,7 @@ require_relative "engines/options_engine"
 require_relative "engines/run"
 require_relative "engines/attacks_round"
 require_relative "engines/loot_round"
-require_relative "engines/occult_library_enhance_engine"
+require_relative "engines/camp_fire_engine"
 
 # renderers ---------------------------
 require_relative "renderers/main_renderer"

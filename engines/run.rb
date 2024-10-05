@@ -56,11 +56,7 @@ class Run
   end
 
   def camp_actions
-    @messages.clear_log
-    HeroActions.rest(@hero, @messages)
-    HeroUseSkill.camp_skill(@hero, @messages)
-    @messages.clear_log
-    OccultLibraryEnhanceEngine.new(@hero).start
+    CampFireEngine.new(@hero).start
   end
 
   # enemy

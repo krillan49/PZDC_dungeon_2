@@ -1,4 +1,4 @@
-class OccultLibraryEnhanceEngine
+class CampFireEngine
   def initialize(hero)
     @hero = hero
 
@@ -6,7 +6,7 @@ class OccultLibraryEnhanceEngine
   end
 
   def start
-    @messages.main = ''
+    HeroActions.rest(@hero, @messages)
     choose = nil
     until ['0', ''].include?(choose)
       MainRenderer.new(:rest_menu_screen, entity: @messages, arts: [{ camp_fire_big: :rest }]).display
@@ -14,6 +14,9 @@ class OccultLibraryEnhanceEngine
       if choose == '1'
         @ebr = OccultLibraryAtRun.new(@hero) unless @ebr
         recipes_list()
+      elsif choose == '2'
+        HeroUseSkill.camp_skill(@hero, @messages)
+        @messages.log.shift if @messages.log.length > 3
       end
     end
   end

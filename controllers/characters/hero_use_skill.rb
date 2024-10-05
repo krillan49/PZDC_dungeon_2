@@ -28,14 +28,13 @@ module HeroUseSkill
       MainRenderer.new(:messages_screen, entity: messages, arts: [{ camp_fire: :rest }]).display
       gets
     end
-    messages.clear_log
   end
 
   def self.bloody_ritual(hero, messages)
     messages.main = "You have #{hero.hp.round}/#{hero.hp_max} HP and #{hero.mp.round}/#{hero.mp_max} MP. Use #{hero.camp_skill.name}, to restore #{hero.camp_skill.restore_effect.round} MP for 10 HP? (Y/N)"
     MainRenderer.new(:messages_screen, entity: messages, arts: [{ camp_fire: :rest }]).display
     noncombat_choice = gets.strip.upcase
-    if hero.hp >= hero.camp_skill.hp_cost && noncombat_choice == "Y"
+    if hero.hp > hero.camp_skill.hp_cost && noncombat_choice == "Y"
       effect_message = hero.camp_skill.restore_effect.round
       hero.mp += hero.camp_skill.restore_effect
       hero.hp -= hero.camp_skill.hp_cost
@@ -48,6 +47,5 @@ module HeroUseSkill
       MainRenderer.new(:messages_screen, entity: messages, arts: [{ camp_fire: :rest }]).display
       gets
     end
-    messages.clear_log
   end
 end
