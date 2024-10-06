@@ -50,6 +50,8 @@ require_relative "controllers/characters/enemy_actions"
 require_relative "controllers/characters/hero_use_skill"
 # events
 require_relative "controllers/events/event_creator"
+# actions
+require_relative "controllers/actions/occult_library_enhance_controller"
 
 # models ------------------------------
 # options

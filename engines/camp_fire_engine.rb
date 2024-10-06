@@ -1,7 +1,6 @@
 class CampFireEngine
   def initialize(hero)
     @hero = hero
-
     @messages = MainMessage.new
   end
 
@@ -12,65 +11,11 @@ class CampFireEngine
       MainRenderer.new(:rest_menu_screen, entity: @messages, arts: [{ camp_fire_big: :rest }]).display
       choose = gets.strip.upcase
       if choose == '1'
-        @ebr = OccultLibraryAtRun.new(@hero) unless @ebr
-        recipes_list()
+        OccultLibraryEnhanceController.new(@hero).recipes_list
       elsif choose == '2'
         HeroUseSkill.camp_skill(@hero, @messages)
         @messages.log.shift if @messages.log.length > 3
       end
-    end
-  end
-
-  private
-
-  def recipes_list
-    choose = nil
-    buttons = 'A'..'X'
-    until ['0', ''].include?(choose)
-      MainRenderer.new(:enhance_by_recipe_screen, entity: @ebr).display
-      choose = gets.strip.upcase
-      show_recipe(choose.ord - 64 - 1) if buttons.include?(choose)
-    end
-  end
-
-  def show_recipe(i)
-    if @ebr.accessible_recipes.size > i && @ebr.has_ingredients?(i)
-      recipe_data = @ebr.accessible_recipes[i]
-      @recipe = OccultLibraryRecipe.new(recipe_data, @hero)
-      show_or_enhance_ammunition()
-    elsif @ebr.accessible_recipes.size > i
-      recipe_data = @ebr.accessible_recipes[i]
-      @recipe = OccultLibraryRecipe.new(recipe_data, @hero)
-      MainRenderer.new(:camp_ol_recipe_screen, entity: @recipe).display
-      gets
-    end
-  end
-
-  def show_or_enhance_ammunition
-    choose = nil
-    show_buttons, enhance_buttons = 'A'..'E', '1'..'5'
-    until ['0', ''].include?(choose)
-      MainRenderer.new(:camp_ol_enhance_screen, entity: @recipe).display
-      choose = gets.strip.upcase
-      if show_buttons.include?(choose)
-        show_ammunition(choose)
-      elsif enhance_buttons.include?(choose)
-        enhance_ammunition(choose.to_i-1)
-      end
-    end
-  end
-
-  def show_ammunition(char)
-    ammunition_type = {'A'=>'weapon','B'=>'head_armor','C'=>'body_armor','D'=>'arms_armor','E'=>'shield'}[char]
-    ammunition_obj = @hero.send(ammunition_type)
-    AmmunitionShow.display(type: ammunition_type, obj: ammunition_obj, arts: [{normal: ammunition_obj}])
-  end
-
-  def enhance_ammunition(n)
-    ammunition_type = %w[weapon head_armor body_armor arms_armor shield][n]
-    ammunition_obj = @hero.send(ammunition_type)
-    if ammunition_obj.code != 'without' && @recipe.hero_has_ingredients?
-      OccultLibraryEnhanceService.new(@hero, ammunition_obj, ammunition_type, @recipe).enhance
     end
   end
 
