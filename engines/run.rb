@@ -11,10 +11,8 @@ class Run
 
   def start
     loop do
-      hero_update()
-      save_and_exit()
+      camp_fire_actions()
       break if @exit_to_main
-      camp_actions()
       if @hero.dungeon_part_number.even? # event
         event_choose()
       else # enemy
@@ -26,37 +24,36 @@ class Run
       end
       break if @exit_to_main
       @hero.dungeon_part_number += 1
+      @messages.clear_log
+      HeroActions.rest(@hero, @messages) # отдых до сейва и лоада, чтобы не повторялся при перезагрузке
     end
   end
 
-  def hero_update
-    HeroUpdator.new(@hero).spend_stat_points
-    HeroUpdator.new(@hero).spend_skill_points
-  end
+  # def save_and_exit_old
+    # choose = nil
+    # until ['Y', 'N', ''].include?(choose)
+    #   @messages.main = 'Save this run and exit game? [y/N]'
+    #   @messages.log = ["#{@hero.dungeon_name.capitalize}"]
+    #   MainRenderer.new(
+    #     :hero_sl_screen,
+    #     @hero, @hero,
+    #     entity: @messages,
+    #     arts: [ { normal: :"dungeons/_#{@hero.dungeon_name}" }]
+    #   ).display
+    #   choose = gets.strip.upcase
+    #   if choose == 'Y'
+    #     @hero.statistics.update # сохранение статистики забега
+    #     SaveHeroInRun.new(@hero).save # сохранение персонажа
+    #     @exit_to_main = true # exit
+    #   end
+    #   AmmunitionShow.show_weapon_buttons_actions(choose, @hero)
+    # end
+  # end
 
-  def save_and_exit
-    choose = nil
-    until ['Y', 'N', ''].include?(choose)
-      @messages.main = 'Save this run and exit game? [y/N]'
-      @messages.log = ["#{@hero.dungeon_name.capitalize}"]
-      MainRenderer.new(
-        :hero_sl_screen,
-        @hero, @hero,
-        entity: @messages,
-        arts: [ { normal: :"dungeons/_#{@hero.dungeon_name}" }]
-      ).display
-      choose = gets.strip.upcase
-      if choose == 'Y'
-        @hero.statistics.update # сохранение статистики забега
-        SaveHeroInRun.new(@hero).save # сохранение персонажа
-        @exit_to_main = true # exit
-      end
-      AmmunitionShow.show_weapon_buttons_actions(choose, @hero)
-    end
-  end
-
-  def camp_actions
-    CampFireEngine.new(@hero).start
+  def camp_fire_actions
+    cfe = CampFireEngine.new(@hero, @messages)
+    cfe.start
+    @exit_to_main = cfe.exit_to_main
   end
 
   # enemy

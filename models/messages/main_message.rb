@@ -1,8 +1,11 @@
 class MainMessage
-  attr_accessor :main, :log
+  attr_accessor :main, :additional_1, :additional_2, :additional_3, :log
 
   def initialize
     @main = ''
+    @additional_1 = ''
+    @additional_2 = ''
+    @additional_3 = ''
     @log = []
   end
 

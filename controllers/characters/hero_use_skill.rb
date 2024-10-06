@@ -4,8 +4,9 @@ module HeroUseSkill
       self.first_aid(hero, messages)
     elsif hero.camp_skill.code == "bloody_ritual" && hero.mp_max - hero.mp > 0
       self.bloody_ritual(hero, messages)
-    elsif messages.log.length > 0
-      messages.main = 'To continue press Enter'
+    else
+      messages.main = 'BACK TO CAMP FIRE OPTIONS  [Enter 0]'
+      messages.log << "You dont need use #{hero.camp_skill.name}. Your HP #{hero.hp}/#{hero.hp_max}, your MP #{hero.mp}/#{hero.mp_max}"
       MainRenderer.new(:messages_screen, entity: messages, arts: [{ camp_fire: :rest }]).display
       gets
     end
@@ -24,7 +25,7 @@ module HeroUseSkill
       messages.log << "Not enough MP"
     end
     if noncombat_choice == "Y"
-      messages.main = 'To continue press Enter'
+      messages.main = 'BACK TO CAMP FIRE OPTIONS  [Enter 0]'
       MainRenderer.new(:messages_screen, entity: messages, arts: [{ camp_fire: :rest }]).display
       gets
     end
@@ -43,7 +44,7 @@ module HeroUseSkill
       messages.log << "Not enough HP"
     end
     if noncombat_choice == "Y"
-      messages.main = 'To continue press Enter'
+      messages.main = 'BACK TO CAMP FIRE OPTIONS  [Enter 0]'
       MainRenderer.new(:messages_screen, entity: messages, arts: [{ camp_fire: :rest }]).display
       gets
     end

@@ -5,24 +5,24 @@ view:
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
-  - "█                                                                                  CAMP FIRE OPTIONS                   █"
+  - "█                                                                                                                      █"
+  - "█                                                                                       CAMP FIRE ACTIONS              █"
+  - "█                                                                                                                      █"
+  - "█                                                                                 Show hero info      [Enter 1]        █"
+  - "█                                                                                                                      █"
+  - "█                                                                            AAA  Spend stat points   [Enter 2]        █"
+  - "█                                                                                                                      █"
+  - "█                                                                            AAA  Spend skill points  [Enter 3]        █"
+  - "█                                                                                                                      █"
+  - "█                                                                                 Use camp skill      [Enter 4]        █"
+  - "█                                                                                                                      █"
+  - "█                                                                                 Enhace ammunition   [Enter 5]        █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
+  - "█                                                                                 Save & exit game    [Enter 6]        █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                              Echace ammunition [Enter 1]             █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                              Use camp skill    [Enter 2]             █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                              Let's move on     [Enter 0]             █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
+  - "█                                                                                 Let's move on       [Enter 0]        █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
@@ -43,6 +43,21 @@ arts:
       - 5
       - 74
 insert_options:
+  11:
+    A:
+      methods:
+        - additional_1
+      modifier: e
+  13:
+    A:
+      methods:
+        - additional_2
+      modifier: e
+  # 15:
+  #   A:
+  #     methods:
+  #       - additional_3
+  #     modifier: e
   30:
     A:
       methods:
