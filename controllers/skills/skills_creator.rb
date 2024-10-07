@@ -1,6 +1,7 @@
 module SkillsCreator
   def self.create(skill_name, hero=nil)
     case skill_name
+    when 'ascetic_strike'; AsceticStrike.new(hero)
     when 'precise_strike'; PreciseStrike.new
     when 'strong_strike'; StrongStrike.new
     when 'traumatic_strike'; TraumaticStrike.new

@@ -72,6 +72,7 @@ require_relative "models/ammunition/head_armor"
 require_relative "models/ammunition/shield"
 require_relative "models/ammunition/weapon"
 # skills
+require_relative "models/skills/ascetic_strike"
 require_relative "models/skills/precise_strike"
 require_relative "models/skills/strong_strike"
 require_relative "models/skills/traumatic_strike"

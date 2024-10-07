@@ -12,6 +12,7 @@ class Run
   def start
     loop do
       camp_fire_actions()
+      @messages.clear_log
       break if @exit_to_main
       if @hero.dungeon_part_number.even? # event
         event_choose()
