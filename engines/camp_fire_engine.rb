@@ -56,11 +56,30 @@ class CampFireEngine
     end
   end
 
+  def are_you_sure_you_want_to_spend_stats?
+    messages = MainMessage.new
+    choose = nil
+    until ['1', '0', ''].include?(choose)
+      messages.main = 'SPEND ALL STATS [Enter 1]              BACK TO CAMP FIRE OPTIONS  [Enter 0]'
+      messages.log = ["#{@hero.dungeon_name.capitalize}"]
+      MainRenderer.new(
+        :hero_sl_screen,
+        @hero, @hero,
+        entity: messages,
+        arts: [ { normal: :"dungeons/_#{@hero.dungeon_name}" }]
+      ).display
+      choose = gets.strip.upcase
+      AmmunitionShow.show_weapon_buttons_actions(choose, @hero)
+    end
+    choose == '1' ? true : false
+  end
+
   def spend_stat_points
     if @hero.stat_points == 0
       @messages.log.shift if @messages.log.length > 2
       @messages.log << 'You dont have stat points'
     else
+      return unless are_you_sure_you_want_to_spend_stats?()
       HeroUpdator.new(@hero).spend_stat_points
       show_hero_stats_and_ammunition()
     end
@@ -71,6 +90,7 @@ class CampFireEngine
       @messages.log.shift if @messages.log.length > 2
       @messages.log << 'You dont have skill points'
     else
+      return unless are_you_sure_you_want_to_spend_stats?()
       HeroUpdator.new(@hero).spend_skill_points
       show_hero_stats_and_ammunition()
     end
