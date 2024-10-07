@@ -29,27 +29,6 @@ class Run
     end
   end
 
-  # def save_and_exit_old
-    # choose = nil
-    # until ['Y', 'N', ''].include?(choose)
-    #   @messages.main = 'Save this run and exit game? [y/N]'
-    #   @messages.log = ["#{@hero.dungeon_name.capitalize}"]
-    #   MainRenderer.new(
-    #     :hero_sl_screen,
-    #     @hero, @hero,
-    #     entity: @messages,
-    #     arts: [ { normal: :"dungeons/_#{@hero.dungeon_name}" }]
-    #   ).display
-    #   choose = gets.strip.upcase
-    #   if choose == 'Y'
-    #     @hero.statistics.update # сохранение статистики забега
-    #     SaveHeroInRun.new(@hero).save # сохранение персонажа
-    #     @exit_to_main = true # exit
-    #   end
-    #   AmmunitionShow.show_weapon_buttons_actions(choose, @hero)
-    # end
-  # end
-
   def camp_fire_actions
     cfe = CampFireEngine.new(@hero, @messages)
     cfe.start

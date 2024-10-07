@@ -50,7 +50,21 @@ class Main
   def load_run
     load_hero = LoadHeroInRun.new
     load_hero.load
-    @hero = load_hero.hero
+    hero = load_hero.hero
+    choose = nil
+    until ['Y', 'N', ''].include?(choose)
+      @messages.main = 'Load game [Enter Y]            Back to menu [Enter N]'
+      @messages.log = ["#{hero.dungeon_name.capitalize}"]
+      MainRenderer.new(
+        :hero_sl_screen,
+        hero, hero,
+        entity: @messages,
+        arts: [ { normal: :"dungeons/_#{hero.dungeon_name}" }]
+      ).display
+      choose = gets.strip.upcase
+      AmmunitionShow.show_weapon_buttons_actions(choose, hero)
+    end
+    @hero = hero if choose == 'Y'
   end
 
   def start_new_run
