@@ -62,6 +62,7 @@ class CampFireEngine
       @messages.log << 'You dont have stat points'
     else
       HeroUpdator.new(@hero).spend_stat_points
+      show_hero_stats_and_ammunition()
     end
   end
 
@@ -71,6 +72,7 @@ class CampFireEngine
       @messages.log << 'You dont have skill points'
     else
       HeroUpdator.new(@hero).spend_skill_points
+      show_hero_stats_and_ammunition()
     end
   end
 
