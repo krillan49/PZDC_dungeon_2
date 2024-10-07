@@ -2,16 +2,16 @@ view:
   - "                                                                          "
   - " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA    lvl BBB    exp CCCC/DDDD    coins EEEE "
   - "──────────────────────────────────────────────────────────────────────────"
+  - "   Stat points  AAA                         Skill points BBB              "
+  - "                                                                          "
   - "   HP AAA/BBB              HP-regen CCC               HP-recovery DDD     "
   - "   MP AAA/BBB              MP-regen CCC               MP-recovery DDD     "
   - "                                                                          "
   - "   Damage     AAA-BBB (  basic CCC-DDD)     Penetration  EEE              "
-  - "                                                                          "
   - "   Accuracy     AAA   (  basic   BBB  )                                   "
-  - "                                                                          "
   - "   Armor        AAA   (  basic   BBB  )                                   "
-  - "                                                                          "
   - "   Block chance AAA                         Block power  BBB %            "
+  - "                                                                          "
   - "──────────────────────────────────────────────────────────────────────────"
   - "                               AMMUNITION                                 "
   - "                                                                          "
@@ -46,6 +46,15 @@ insert_options:
   3:
     A:
       methods:
+        - stat_points
+      modifier: e
+    B:
+      methods:
+        - skill_points
+      modifier: e
+  5:
+    A:
+      methods:
         - hp
         - round
       modifier: e
@@ -62,7 +71,7 @@ insert_options:
         - recovery_hp
         - round
       modifier: m
-  4:
+  6:
     A:
       methods:
         - mp
@@ -81,7 +90,7 @@ insert_options:
         - recovery_mp
         - round
       modifier: m
-  6:
+  8:
     A:
       methods:
         - min_dmg
@@ -101,8 +110,8 @@ insert_options:
     E:
       methods:
         - armor_penetration
-      modifier: s
-  8:
+      modifier: e
+  9:
     A:
       methods:
         - accuracy
@@ -120,15 +129,15 @@ insert_options:
       methods:
         - armor_base
       modifier: e
-  12:
+  11:
     A:
       methods:
         - block_chance
-      modifier: m
+      modifier: e
     B:
       methods:
         - block_power_in_percents
-      modifier: m
+      modifier: e
   16:
     A:
       methods:

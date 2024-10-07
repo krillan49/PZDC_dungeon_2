@@ -95,6 +95,4 @@ class CampFireEngine
     @exit_to_main = true          # exit
   end
 
-
-
 end
