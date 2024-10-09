@@ -81,6 +81,12 @@ class Hero
     @max_dmg_base + @weapon.max_dmg + @shield.max_dmg
   end
 
+  def add_dmg_base(n=1)
+    n.times do
+      @min_dmg_base < @max_dmg_base && rand(0..1) == 0 ? @min_dmg_base += 1 : @max_dmg_base += 1
+    end
+  end
+
   def recovery_hp
     @hp_max * 0.1
   end
