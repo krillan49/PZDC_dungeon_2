@@ -43,7 +43,7 @@ class HeroUpdator
           @messages.main = ''
           break
         elsif distribution == '4' && strong_stat >= 11
-          @hero.min_dmg_base < @hero.max_dmg_base && rand(0..1) == 0 ? @hero.min_dmg_base += 1 : @hero.max_dmg_base += 1
+          @hero.add_dmg_base
           @messages.main = ''
           break
         else

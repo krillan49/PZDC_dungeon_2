@@ -78,7 +78,7 @@ class HeroCreator
     @hero.mp += pzdc_monolith['mp']
     @hero.accuracy_base += pzdc_monolith['accuracy']
     while pzdc_monolith['damage'] > 0
-      @hero.min_dmg_base < @hero.max_dmg_base && rand(0..1) == 0 ? @hero.min_dmg_base += 1 : @hero.max_dmg_base += 1
+      @hero.add_dmg_base
       pzdc_monolith['damage'] -= 1
     end
     @hero.stat_points += pzdc_monolith['stat_points']
