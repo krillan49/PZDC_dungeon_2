@@ -34,7 +34,8 @@ require_relative "services/events/exit_run_event"
 require_relative "services/events/boatman_eugene_event"
 require_relative "services/events/bridge_keeper_event"
 require_relative "services/events/gambler_event"
-require_relative "services/events/altar_of_blood"
+require_relative "services/events/altar_of_blood_event"
+require_relative "services/events/warriors_grave_event"
 
 # controllers -------------------------
 # ammunition

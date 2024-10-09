@@ -12,7 +12,7 @@ leather_jacket:
 
 rusty_gambeson:
   name: "Rusty gambeson"
-  armor: 2
+  armor: 1
   accuracy: -5
   price: 20
 

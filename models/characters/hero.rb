@@ -71,7 +71,7 @@ class Hero
     @shield = Shield.new(hero[:shield].sample)
   end
 
-  # Геттеры - Методы зависимых характеристик:
+  # Getters dependent characteristics
 
   def min_dmg
     @min_dmg_base + @weapon.min_dmg + @shield.min_dmg
@@ -79,12 +79,6 @@ class Hero
 
   def max_dmg
     @max_dmg_base + @weapon.max_dmg + @shield.max_dmg
-  end
-
-  def add_dmg_base(n=1)
-    n.times do
-      @min_dmg_base < @max_dmg_base && rand(0..1) == 0 ? @min_dmg_base += 1 : @max_dmg_base += 1
-    end
   end
 
   def recovery_hp
@@ -132,6 +126,28 @@ class Hero
   def next_lvl_exp
     @exp_lvl[@lvl + 1]
   end
+
+  # Setters dependent characteristics
+
+  def add_dmg_base(n=1)
+    n.times do
+      @min_dmg_base < @max_dmg_base && rand(0..1) == 0 ? @min_dmg_base += 1 : @max_dmg_base += 1
+    end
+  end
+
+  def add_hp_not_higher_than_max(n=0)
+    @hp += [n, @hp_max - @hp].min
+  end
+
+  def add_mp_not_higher_than_max(n=0)
+    @mp += [n, @mp_max - @mp].min
+  end
+
+  def reduce_mp_not_less_than_zero(n=0)
+    @mp -= n
+    @mp = @mp < 0 ? 0 : @mp
+  end
+
 end
 
 
