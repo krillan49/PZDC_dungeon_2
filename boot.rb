@@ -10,16 +10,3 @@ end
 
 
 Main.new.start_game
-
-
-
-
-
-
-
-
-
-
-
-
-#
