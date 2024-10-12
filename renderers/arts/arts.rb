@@ -9,11 +9,15 @@ class Art
 
   def initialize(art_name, entity)
     path = "views/arts/#{sub_path(entity)}.yml"
-    @view = RubyVersionFixHelper.file_exists?(path) ? file(path, art_name) : ALT
+    @view = file(path, art_name)
   end
 
   def file(path, art_name)
-    YAML.safe_load_file(path, symbolize_names: true)[art_name]
+    if RubyVersionFixHelper.file_exists?(path)
+      YAML.safe_load_file(path, symbolize_names: true)[art_name] || ALT
+    else
+      ALT
+    end
   end
 
   def sub_path(entity)
