@@ -2,7 +2,7 @@ require 'yaml'
 
 config = ["helpers", "engines", "renderers", "services", "controllers", "models"]
 
-config_ignore = ['_test_', '/bak/']
+config_ignore = ['test__', '/bak/']
 
 config.each do |path|
   Dir.glob("#{path}/**/*.rb").each do |file|

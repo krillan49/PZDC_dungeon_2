@@ -1,2 +1,2 @@
 saves/**/*.yml
-renderers/_test_main_renderer.rb
+renderers/test__main_renderer.rb

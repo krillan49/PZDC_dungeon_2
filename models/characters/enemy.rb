@@ -93,6 +93,12 @@ class Enemy
     @armor_penetration_base + @weapon.armor_penetration
   end
 
+  # Setters dependent characteristics
+
+  def add_hp_not_higher_than_max(n=0)
+    @hp += [n, @hp_max - @hp].min
+  end
+
 end
 
 
