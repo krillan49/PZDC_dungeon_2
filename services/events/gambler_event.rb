@@ -22,9 +22,11 @@ class GamblerEvent
 
   def start
     play = @hero.coins > 0 ? 'Play [Enter 1]' : 'You cant play without coins'
-    @messages.main = "You see a little man juggling dice.    #{play}    Сatch and rob [Enter 2]    Leave [Enter 0]"
+    @messages.main = "#{play}    Сatch and rob [Enter 2]    Leave [Enter 0]"
+    @messages.log << "You see a little man juggling dice"
     display_message_screen()
     choose = gets.strip
+    @messages.clear_log
     if choose == '1' && @hero.coins > 0
       play()
     elsif choose == '2'
@@ -64,6 +66,7 @@ class GamblerEvent
 
   def play
     choose = nil
+    art = nil
     @messages.clear_log
     until choose == '0'
       if @hero.coins == 0
@@ -73,7 +76,7 @@ class GamblerEvent
         @messages.main = "Your coins: #{@hero.coins}   Roll the dice [Enter 1]    Сatch and rob [Enter 2]    Leave [Enter 0]"
         @messages.log << "Lets play?!"
       end
-      display_message_screen()
+      display_message_screen(art)
       @messages.clear_log
       choose = gets.strip
       if choose == '1' && @hero.coins > 0
@@ -82,12 +85,15 @@ class GamblerEvent
         @messages.log << "Your result is #{y1} + #{y2} = #{y1+y2}, the little one's result is #{e1} + #{e2} = #{e1+e2}"
         if y1+y2 > e1+e2
           @hero.coins += 1
+          art = :win
           @messages.log << "You won 1 coin"
         elsif y1+y2 < e1+e2
           @hero.coins -= 1
           @messages.log << "You lose 1 coin"
+          art = :loose
         else
           @messages.log << "Draw"
+          art = :draw
         end
         if e2 == 7
           @messages.log << "7 on the dice? The little bastard is cheating!!!"
@@ -99,8 +105,8 @@ class GamblerEvent
     end
   end
 
-  def display_message_screen
-    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ normal: PATH_ART }]).display
+  def display_message_screen(art=:normal)
+    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ art => PATH_ART }]).display
   end
 
 end
