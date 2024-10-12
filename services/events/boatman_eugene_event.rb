@@ -24,8 +24,19 @@ class BoatmanEugeneEvent
   end
 
   def start
+    @messages.main = 'Agree to teach Eugene [Enter 1]            Go away [Enter 0]'
     @messages.log << "You are greeted by the boatman Evgeny. \"I'll take you the short way\" - he offers"
     @messages.log << "\"You are such a skilled and strong warrior, help me become like that too\" - Evgeniy asks you"
+    display_message_screen()
+    choose = gets.strip
+    if choose == '1'
+      teach()
+    end
+  end
+
+  def teach
+    @messages.clear_log
+    @messages.main = 'To continue press Enter'
     @messages.log << "You offer to teach Evgeniy the art of war while you are sailing"
     @messages.log << "But Eugene doesn't even try to learn, he just counts cockroaches"
     @messages.log << "Test for attentiveness, random #{@random_chanse} #{@success ? '<' : '>='} your accuracy #{@hero.accuracy}"
@@ -39,14 +50,13 @@ class BoatmanEugeneEvent
     end
     @messages.log << "You sailed to the same place. \"What's wrong with you?\" - you asked. \"Who are you and who am I\" - Evgeniy answered"
     display_message_screen()
+    gets
   end
 
   private
 
   def display_message_screen
-    @messages.main = 'To continue press Enter'
     MainRenderer.new(:messages_screen, entity: @messages).display
-    gets
   end
 
 end
