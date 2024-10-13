@@ -10,6 +10,8 @@ class MainRenderer
 
     @arts = options[:arts]
     @view_arts_options = hh[:arts]
+
+    @screen_replacement_type = Options.new.get_screen_replacement_type
   end
 
   def display
@@ -28,7 +30,7 @@ class MainRenderer
   end
 
   def show_screen
-    puts "\e[H\e[2J"
+    print @screen_replacement_type
     puts @view
   end
 

@@ -1,7 +1,7 @@
 view:
   - "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█"
   - "█                                                                                                                      █"
-  - "█                                                    ANIMATION SPEED                                                   █"
+  - "█                                                SCREEN REPLACEMENT TYPE                                               █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
@@ -12,15 +12,15 @@ view:
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
-  - "█                                             FASTEST   0.1 SEC   AAAAAAAAA                                            █"
   - "█                                                                                                                      █"
-  - "█                                             FAST      0.4 SEC   AAAAAAAAA                                            █"
   - "█                                                                                                                      █"
-  - "█                                             NORMAL    0.7 SEC   AAAAAAAAA                                            █"
+  - "█                          CLEAR PREVIOUS SCREEN         ESCAPE CODE: x1bc          AAAAAAAAA                          █"
   - "█                                                                                                                      █"
-  - "█                                             SLOW      1.0 SEC   AAAAAAAAA                                            █"
+  - "█                          CLEAR/PUSH PREVIOUS SCREEN    ESCAPE CODE: e[H + e[2J    AAAAAAAAA                          █"
   - "█                                                                                                                      █"
-  - "█                                             SLOWEST   1.5 SEC   AAAAAAAAA                                            █"
+  - "█                          PUSH PREVIOUS SCREEN          ESCAPE CODE: e[2J          AAAAAAAAA                          █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
@@ -35,30 +35,20 @@ view:
   - "█                                                                                                                      █"
   - "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█"
 insert_options:
-  13:
-    A:
-      methods:
-        - enemy_actions_animation_speed__0
-      modifier: s
   15:
     A:
       methods:
-        - enemy_actions_animation_speed__1
+        - screen_replacement_type__0
       modifier: s
   17:
     A:
       methods:
-        - enemy_actions_animation_speed__2
+        - screen_replacement_type__1
       modifier: s
   19:
     A:
       methods:
-        - enemy_actions_animation_speed__3
-      modifier: s
-  21:
-    A:
-      methods:
-        - enemy_actions_animation_speed__4
+        - screen_replacement_type__2
       modifier: s
 
 
