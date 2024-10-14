@@ -135,6 +135,12 @@ class Hero
     end
   end
 
+  def reduce_dmg_base(n=1)
+    n.times do
+      @min_dmg_base < @max_dmg_base && rand(0..1) == 0 ? @max_dmg_base -= 1 : @min_dmg_base -= 1
+    end
+  end
+
   def add_hp_not_higher_than_max(n=0)
     @hp += [n, @hp_max - @hp].min
   end

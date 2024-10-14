@@ -36,6 +36,7 @@ require_relative "services/events/bridge_keeper_event"
 require_relative "services/events/gambler_event"
 require_relative "services/events/altar_of_blood_event"
 require_relative "services/events/warriors_grave_event"
+require_relative "services/events/black_mage_event"
 
 # controllers -------------------------
 # ammunition

@@ -1,0 +1,24 @@
+black_mage:
+  code_name: black_mage
+  name: "Black mage"
+  hp: 70
+  min_dmg: 10
+  max_dmg: 10
+  armor_penetration: 20
+  accurasy: 100
+  armor: 5
+  regen_hp_base: 0
+  exp_gived: 6
+  coins_gived: 10
+  weapon:
+    - without
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shield:
+    - without
+  ingredients:
+    - without
