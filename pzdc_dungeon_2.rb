@@ -37,6 +37,7 @@ require_relative "services/events/gambler_event"
 require_relative "services/events/altar_of_blood_event"
 require_relative "services/events/warriors_grave_event"
 require_relative "services/events/black_mage_event"
+require_relative "services/events/pig_with_saucepan_event"
 
 # controllers -------------------------
 # ammunition
