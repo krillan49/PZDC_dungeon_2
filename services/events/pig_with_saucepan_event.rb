@@ -1,4 +1,6 @@
 class PigWithSaucepanEvent
+  include AmmunitionConcern
+
   PATH_ART = "events/_pig_with_saucepan"
 
   attr_reader :entity_type, :path_art
@@ -18,6 +20,7 @@ class PigWithSaucepanEvent
     @description5 = ''
 
     @messages = MainMessage.new
+    @sallet = HeadArmor.new('sallet')
   end
 
   def start
@@ -56,7 +59,7 @@ class PigWithSaucepanEvent
       choose = gets.strip
       if choose == '1'
         @hero.coins -= price
-        equip()
+        head_armor_loot(@sallet, "Sallet is yours, you want to equip it?")
       elsif choose == '2'
         rob()
       end
@@ -85,17 +88,7 @@ class PigWithSaucepanEvent
     @messages.main = "Press Enter to #{mes}"
     display_message_screen()
     gets
-    equip() if mes == 'view Sallet'
-  end
-
-  def equip
-    sallet = HeadArmor.new('sallet')
-    @messages.main = "Sallet is yours, you want to equip it?"
-    MainRenderer.new(
-      :loot_enemy_head_armor, @hero.head_armor, sallet, entity: @messages,
-      arts: [{normal: @hero.head_armor}, {normal: sallet}]
-    ).display
-    @hero.head_armor = sallet if gets.strip.upcase == 'Y'
+    head_armor_loot(@sallet, "Sallet is yours, you want to equip it?") if mes == 'view Sallet'
   end
 
   def display_message_screen(art=:normal)

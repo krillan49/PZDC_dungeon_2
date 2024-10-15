@@ -1,5 +1,5 @@
 class BlackMageEvent
-  include Battle
+  include BattleConcern
 
   PATH_ART = "events/_black_mage"
 

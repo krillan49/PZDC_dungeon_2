@@ -1,4 +1,4 @@
-module Battle
+module BattleConcern
 
   # In your class you need variabels:
   # @messages   for example with MainMessage.new
