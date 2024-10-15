@@ -28,6 +28,7 @@ require_relative "services/loot/enemy_loot"
 # actions
 require_relative "services/actions/occult_library_enhance_service"
 # events
+require_relative "services/events/concerns/battle"
 require_relative "services/events/field_loot_event"
 require_relative "services/events/secret_loot_event"
 require_relative "services/events/exit_run_event"
