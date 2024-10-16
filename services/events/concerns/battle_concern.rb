@@ -5,6 +5,12 @@ module BattleConcern
   # @hero       with charater object
   # @enemy      with enemy object
 
+  def battle(message='Event enemy')
+    enemy_show(message)
+    course_of_battle()
+    after_battle()
+  end
+
   def enemy_show(message='Event enemy')
     @messages.clear_log
     @messages.main = message
@@ -21,7 +27,7 @@ module BattleConcern
     end
   end
 
-  def battle
+  def course_of_battle
     @hero_run_from_battle = false
     # lap = 1 # номер хода
     while @enemy.hp > 0 && @hero_run_from_battle == false

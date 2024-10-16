@@ -97,9 +97,7 @@ class BlackMageEvent
   end
 
   def attack_mage
-    enemy_show("Attack mage")
-    battle()
-    after_battle()
+    battle("Attack mage")
   end
 
   def display_message_screen
