@@ -1,5 +1,6 @@
 class BridgeKeeperEvent
   include DisplayScreenConcern
+  include GameEndConcern
 
   PATH_ART = "events/_briedge_keeper"
 
@@ -66,17 +67,17 @@ class BridgeKeeperEvent
       @messages.log << "#{@hero.name} say AAAAAAAAAAAAAAAAAAAAAAAA!!!"
       @hero.hp -= @hero.hp_max * 0.2
       @messages.log << "#{@hero.name} fell and lost #{(@hero.hp_max * 0.2).round} HP. #{@hero.hp.round}/#{@hero.hp_max} HP left"
-      if @hero.hp <= 0
+      if hero_died?()
         @messages.main = "Press Enter to end the game"
         @messages.log << "You died"
         display_message_screen()
         gets
-        DeleteHeroInRun.new(@hero, true, @messages).add_camp_loot_and_delete_hero_file
-        return false
+        end_game_and_hero_died()
+      else
+        @messages.main = 'To continue press Enter'
+        display_message_screen()
+        gets
       end
-      @messages.main = 'To continue press Enter'
-      display_message_screen()
-      gets
       false
     end
   end

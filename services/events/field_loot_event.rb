@@ -1,5 +1,6 @@
 class FieldLootEvent
   include DisplayScreenConcern
+  include GameEndConcern
 
   PATH_ART = "events/_loot_field"
 
@@ -62,14 +63,11 @@ class FieldLootEvent
 
   def rat
     @hero.hp -= 5
+    @messages.main = 'You died from a rat bite. A miserable death. To continue press Enter'
     @messages.log << "While you were rummaging around the corners, you were bitten by a rat (-5 HP), now you have #{@hero.hp.round}/#{@hero.hp_max} HP"
     display_message_screen()
     gets
-    if @hero.hp <= 0
-      @messages.main = "Press Enter to end the game"
-      @messages.log << "You died from a rat bite. A miserable death"
-      DeleteHeroInRun.new(@hero, true, @messages).add_camp_loot_and_delete_hero_file
-    end
+    end_game_and_hero_died() if hero_died?()
   end
 
 end

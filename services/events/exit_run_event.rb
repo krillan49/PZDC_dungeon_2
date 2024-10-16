@@ -1,5 +1,6 @@
 class ExitRunEvent
   include DisplayScreenConcern
+  include GameEndConcern
 
   PATH_ART = "events/_exit_run"
 
@@ -49,11 +50,11 @@ class ExitRunEvent
   private
 
   def can_exit
+    @messages.main = 'You survived. To continue press Enter'
     @messages.log << "...#{@hero.name} managed to climb the old stairs, hurray, exit"
     display_message_screen()
     gets
-    @messages.main = 'You survived. To continue press Enter'
-    DeleteHeroInRun.new(@hero, false, @messages).add_camp_loot_and_delete_hero_file
+    end_game_and_hero_alive()
   end
 
   def nothing
@@ -64,15 +65,12 @@ class ExitRunEvent
 
   def fell_down
     @hero.hp -= @hero.hp_max * 0.1
+    @messages.main = 'You died and the exit was so close. To continue press Enter'
     @messages.log << "...#{@hero.name} climbed the old ladder, the exit was already close, but the ladder broke..."
     @messages.log << "...#{@hero.name} fell and lost #{(@hero.hp_max * 0.1).round} HP. #{@hero.hp.round}/#{@hero.hp_max} HP left"
     display_message_screen()
     gets
-    if @hero.hp <= 0
-      @messages.main = "Press Enter to end the game"
-      @messages.log << "You you died and the exit was so close"
-      DeleteHeroInRun.new(@hero, true, @messages).add_camp_loot_and_delete_hero_file
-    end
+    end_game_and_hero_died() if hero_died?()
   end
 
 end
