@@ -1,4 +1,6 @@
 class BridgeKeeperEvent
+  include DisplayScreenConcern
+
   PATH_ART = "events/_briedge_keeper"
 
   attr_reader :entity_type, :path_art
@@ -85,14 +87,8 @@ class BridgeKeeperEvent
     @messages.log << "What you saw blinded you a little, but made you harder. Accuracy -1. Armor penetration +1"
     @hero.accuracy_base -= 1
     @hero.armor_penetration_base += 1
-    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ action: PATH_ART }]).display
+    display_message_screen(:action)
     gets
-  end
-
-  private
-
-  def display_message_screen
-    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ normal: PATH_ART }]).display
   end
 
 end

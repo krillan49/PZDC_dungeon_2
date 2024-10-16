@@ -1,4 +1,7 @@
 class WariorsGraveEvent
+  include DisplayScreenConcern
+  include AmmunitionConcern
+
   PATH_ART = "events/_wariors_grave"
 
   attr_reader :entity_type, :path_art
@@ -44,14 +47,9 @@ class WariorsGraveEvent
   def dig_grave
     random_weapon_code = %w[rusty_hatchet rusty_hatchet rusty_hatchet rusty_sword rusty_sword rusty_falchion].sample
     loot_weapon = Weapon.new(random_weapon_code)
-    @messages.main = "You dug up a grave and #{loot_weapon.name} there, should we take it or bury it back?"
-    MainRenderer.new(
-      :loot_enemy_weapon, @hero.weapon, loot_weapon, entity: @messages,
-      arts: [{normal: @hero.weapon}, {normal: loot_weapon}]
-    ).display
-    choose = gets.strip.upcase
-    if choose == 'Y'
-      @hero.weapon = loot_weapon
+    message = "You dug up a grave and #{loot_weapon.name} there, should we take it or bury it back?"
+    change = weapon_loot(loot_weapon, message)
+    if change
       mp = rand(20..100)
       @hero.reduce_mp_not_less_than_zero(mp)
       @messages.log << "The warrior's spirit is furious, he took #{mp} MP from you"
@@ -63,10 +61,6 @@ class WariorsGraveEvent
     @messages.main = "Leave [Enter 0]"
     display_message_screen()
     gets
-  end
-
-  def display_message_screen
-    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ normal: PATH_ART }]).display
   end
 
 end

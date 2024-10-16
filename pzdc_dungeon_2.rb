@@ -31,6 +31,7 @@ require_relative "services/actions/occult_library_enhance_service"
 # concerns
 require_relative "services/events/concerns/battle_concern"
 require_relative "services/events/concerns/ammunition_concern"
+require_relative "services/events/concerns/display_screen_concern"
 # events
 require_relative "services/events/field_loot_event"
 require_relative "services/events/secret_loot_event"

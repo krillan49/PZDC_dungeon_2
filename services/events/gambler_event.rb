@@ -1,4 +1,6 @@
 class GamblerEvent
+  include DisplayScreenConcern
+
   PATH_ART = "events/_gambler"
 
   attr_reader :entity_type, :path_art
@@ -103,10 +105,6 @@ class GamblerEvent
         choose = '0'
       end
     end
-  end
-
-  def display_message_screen(art=:normal)
-    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ art => PATH_ART }]).display
   end
 
 end

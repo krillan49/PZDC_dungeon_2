@@ -1,4 +1,5 @@
 class PigWithSaucepanEvent
+  include DisplayScreenConcern
   include AmmunitionConcern
 
   PATH_ART = "events/_pig_with_saucepan"
@@ -89,10 +90,6 @@ class PigWithSaucepanEvent
     display_message_screen()
     gets
     head_armor_loot(@sallet, "Sallet is yours, you want to equip it?") if mes == 'view Sallet'
-  end
-
-  def display_message_screen(art=:normal)
-    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ art => PATH_ART }]).display
   end
 
 end

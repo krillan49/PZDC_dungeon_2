@@ -1,4 +1,6 @@
 class BoatmanEugeneEvent
+  include DisplayScreenConcern
+
   PATH_ART = "events/_boatman_eugene"
 
   attr_reader :entity_type, :path_art
@@ -51,12 +53,6 @@ class BoatmanEugeneEvent
     @messages.log << "You sailed to the same place. \"What's wrong with you?\" - you asked. \"Who are you and who am I\" - Evgeniy answered"
     display_message_screen()
     gets
-  end
-
-  private
-
-  def display_message_screen
-    MainRenderer.new(:messages_screen, entity: @messages).display
   end
 
 end

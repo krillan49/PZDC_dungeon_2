@@ -1,4 +1,6 @@
 class SecretLootEvent
+  include DisplayScreenConcern
+
   PATH_ART = "events/_loot_secret"
 
   attr_reader :entity_type, :path_art
@@ -48,7 +50,7 @@ class SecretLootEvent
       nothing()
     end
     @messages.main = 'To continue press Enter'
-    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ normal: PATH_ART }]).display
+    display_message_screen()
     gets
   end
 
@@ -113,6 +115,7 @@ class SecretLootEvent
     @hero.regen_mp_base += bonus_mp_regen
     @messages.log << "Now you have #{@hero.regen_mp_base} mp regeneration"
   end
+
 end
 
 

@@ -1,4 +1,5 @@
 class BlackMageEvent
+  include DisplayScreenConcern
   include BattleConcern
 
   PATH_ART = "events/_black_mage"
@@ -89,7 +90,7 @@ class BlackMageEvent
     else
       @messages.log << "...and you lose nothing"
     end
-    display_message_screen()
+    display_message_screen(:action)
     choose = gets.strip
     if choose == '1'
       attack_mage()
@@ -98,10 +99,6 @@ class BlackMageEvent
 
   def attack_mage
     battle("Attack mage")
-  end
-
-  def display_message_screen
-    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ normal: PATH_ART }]).display
   end
 
 end

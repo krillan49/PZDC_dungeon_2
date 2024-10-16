@@ -1,4 +1,6 @@
 class AltarOfBloodEvent
+  include DisplayScreenConcern
+
   PATH_ART = "events/_altar_of_blood"
 
   attr_reader :entity_type, :path_art
@@ -87,10 +89,6 @@ class AltarOfBloodEvent
     @messages.log << "Bloody god for your blood gives you: #{gift}"
     display_message_screen()
     gets
-  end
-
-  def display_message_screen
-    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ normal: PATH_ART }]).display
   end
 
 end
