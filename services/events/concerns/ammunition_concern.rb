@@ -4,43 +4,20 @@ module AmmunitionConcern
   # @messages   for example with MainMessage.new
   # @hero       with charater object
 
-  def weapon_loot(weapon_obj, message='Change weapon?')
-    @messages.main = message
-    display_loot_screen(:weapon, @hero.weapon, weapon_obj)
+  def ammunition_loot(params)
+    @messages.main = params[:message] ? params[:message] : "Change #{ammunition_code.split('_').join(' ')}?"
+    if params[:ammunition_obj]
+      ammunition_obj = params[:ammunition_obj]
+      ammunition_type = ammunition_obj.ammunition_type
+      ammunition_code = ammunition_obj.code
+    else
+      ammunition_type = params[:ammunition_type]
+      ammunition_code = params[:ammunition_code]
+      ammunition_obj = AmmunitionCreator.create(ammunition_type, ammunition_code)
+    end
+    display_loot_screen(ammunition_type.to_sym, @hero.send(ammunition_type), ammunition_obj)
     choose = gets.strip.upcase
-    @hero.weapon = weapon_obj if choose == 'Y'
-    choose == 'Y' ? true : false
-  end
-
-  def body_armor_loot(body_armor_obj, message='Change body armor?')
-    @messages.main = message
-    display_loot_screen(:body_armor, @hero.body_armor, body_armor_obj)
-    choose = gets.strip.upcase
-    @hero.body_armor = body_armor_obj if choose == 'Y'
-    choose == 'Y' ? true : false
-  end
-
-  def head_armor_loot(head_armor_obj, message='Change head armor?')
-    @messages.main = message
-    display_loot_screen(:head_armor, @hero.head_armor, head_armor_obj)
-    choose = gets.strip.upcase
-    @hero.head_armor = head_armor_obj if choose == 'Y'
-    choose == 'Y' ? true : false
-  end
-
-  def arms_armor_loot(arms_armor_obj, message='Change arms armor?')
-    @messages.main = message
-    display_loot_screen(:arms_armor, @hero.arms_armor, arms_armor_obj)
-    choose = gets.strip.upcase
-    @hero.arms_armor = arms_armor_obj if choose == 'Y'
-    choose == 'Y' ? true : false
-  end
-
-  def shield_loot(shield_obj, message='Change shield?')
-    @messages.main = message
-    display_loot_screen(:shield, @hero.shield, shield_obj)
-    choose = gets.strip.upcase
-    @hero.shield = shield_obj if choose == 'Y'
+    @hero.send("#{ammunition_type}=", ammunition_obj) if choose == 'Y'
     choose == 'Y' ? true : false
   end
 

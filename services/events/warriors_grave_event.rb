@@ -45,10 +45,10 @@ class WariorsGraveEvent
   end
 
   def dig_grave
-    random_weapon_code = %w[rusty_hatchet rusty_hatchet rusty_hatchet rusty_sword rusty_sword rusty_falchion].sample
-    loot_weapon = Weapon.new(random_weapon_code)
-    message = "You dug up a grave and #{loot_weapon.name} there, should we take it or bury it back?"
-    change = weapon_loot(loot_weapon, message)
+    random_weapon_code = (['rusty_hatchet']*4 + ['rusty_sword']*2 + ['rusty_falchion']).sample
+    weapon_name = random_weapon_code.split('_').join(' ').capitalize
+    message = "You dug up a grave and #{weapon_name} there, should we take it or bury it back?"
+    change = ammunition_loot(ammunition_type: 'weapon', ammunition_code: random_weapon_code, message: message)
     if change
       mp = rand(20..100)
       @hero.reduce_mp_not_less_than_zero(mp)

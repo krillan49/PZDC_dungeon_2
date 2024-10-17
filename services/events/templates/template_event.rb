@@ -28,11 +28,11 @@ class YourEventNameEvent # change name to ...Event
 
     # 2. mandatory variables whose values ​​can be changed:
 
-    @name = 'Your event name'                   # your event name will be inserted into views
-    @description1 = 'Bridge keeper...'          # a short description of your event, there is no auto-line wrapping functionality, so make it short on several of these variables, you can leave them blank
-    @description2 = '...will ask questions...'
-    @description3 = '...answer correctly...'
-    @description4 = '...and otherwise'
+    @name = 'Your event name'          # your event name will be inserted into views
+    @description1 = 'some message'     # short description of your event, there is no auto-line wrapping functionality, so maximum string length is 29 characters, you can leave them blank
+    @description2 = 'some message'
+    @description3 = 'some message'
+    @description4 = ''
     @description5 = ''
 
     @messages = MainMessage.new # object for standard messages, it is recommended to use it. Below will be described the methods for messages of this class.
@@ -56,6 +56,23 @@ class YourEventNameEvent # change name to ...Event
     # 2. methods from DisplayScreenConcern:
     display_message_screen(:art_name) # method displays the screen on which the view 'views/menues/messages_screen.yml' is rendered. Inserts messages that were created using the methods of the message object and the image. Split screens with 'gets' methods to provide choice or 'slip' if you want to do dynamic animations
     # :art_name - an optional parameter that specifies the name of the image that will be inserted into the view from the file at the path specified in the variable PATH_ART. if you do not pass the parameter, the 'normal' picture will be displayed
+
+    # 3. methods from AmmunitionConcern:
+    # Each method takes a gear item that matches the name, displays a screen asking the player to change the current gear item of that type to a new one, and once selected, either changes the gear item for the current character or keeps the old one. Returns true if the player agreed otherwise false
+    # First you need to create the corresponding equipment object:
+
+    # weapon_obj = Weapon.new('rusty_sword')
+    # body_armor_obj = BodyArmor.new()
+    # head_armor_obj = HeadArmor.new()
+    # arms_armor_obj = ArmsArmor.new()
+    # shield_obj = Shield.new()
+    # weapon_loot(weapon_obj, 'Change weapon?')
+    # body_armor_loot(body_armor_obj, 'Change body armor?')
+    # head_armor_loot(head_armor_obj, 'Change head armor?')
+    # arms_armor_loot(arms_armor_obj, 'Change arms armor?')
+    # shield_loot(shield_obj, 'Change shield?')
+    
+    #
 
     # your code here
   end

@@ -60,7 +60,7 @@ class PigWithSaucepanEvent
       choose = gets.strip
       if choose == '1'
         @hero.coins -= price
-        head_armor_loot(@sallet, "Sallet is yours, you want to equip it?")
+        take_sallet()
       elsif choose == '2'
         rob()
       end
@@ -89,7 +89,11 @@ class PigWithSaucepanEvent
     @messages.main = "Press Enter to #{mes}"
     display_message_screen()
     gets
-    head_armor_loot(@sallet, "Sallet is yours, you want to equip it?") if mes == 'view Sallet'
+    take_sallet() if mes == 'view Sallet'
+  end
+
+  def take_sallet
+    ammunition_loot(ammunition_obj: @sallet, message: "Sallet is yours, you want to equip it?")
   end
 
 end
