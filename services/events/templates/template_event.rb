@@ -48,31 +48,45 @@ class YourEventNameEvent # change name to ...Event
 
     # Below is the code for the example, you can delete it:
 
+
     # 1. methods for messages object:
+    # -------------------------------------
     @messages.main = 'String'  # main - method inserts string at the top of the screen. Maximum string length is 116 characters
     @messages.log << 'String'  # log  - method inserts strings with messages into the bottom of the screen, since this is an array you can apply the corresponding methods to it. Maximum length of each string is 116 characters
     @messages.clear_log        # clear_log - additional method to clear the message log-array
 
+
     # 2. methods from DisplayScreenConcern:
+    # -------------------------------------
     display_message_screen(:art_name) # method displays the screen on which the view 'views/menues/messages_screen.yml' is rendered. Inserts messages that were created using the methods of the message object and the image. Split screens with 'gets' methods to provide choice or 'slip' if you want to do dynamic animations
     # :art_name - an optional parameter that specifies the name of the image that will be inserted into the view from the file at the path specified in the variable PATH_ART. if you do not pass the parameter, the 'normal' picture will be displayed
 
-    # 3. methods from AmmunitionConcern:
-    # Each method takes a gear item that matches the name, displays a screen asking the player to change the current gear item of that type to a new one, and once selected, either changes the gear item for the current character or keeps the old one. Returns true if the player agreed otherwise false
-    # First you need to create the corresponding equipment object:
+    # An example of using the method can be seen in any of the existing events.
 
-    # weapon_obj = Weapon.new('rusty_sword')
-    # body_armor_obj = BodyArmor.new()
-    # head_armor_obj = HeadArmor.new()
-    # arms_armor_obj = ArmsArmor.new()
-    # shield_obj = Shield.new()
-    # weapon_loot(weapon_obj, 'Change weapon?')
-    # body_armor_loot(body_armor_obj, 'Change body armor?')
-    # head_armor_loot(head_armor_obj, 'Change head armor?')
-    # arms_armor_loot(arms_armor_obj, 'Change arms armor?')
-    # shield_loot(shield_obj, 'Change shield?')
-    
-    #
+
+    # 3. methods from AmmunitionConcern:
+    # -------------------------------------
+    # The method takes a piece of equipment, displays a screen asking the player to exchange their current equipment of that type for the offered one, and after choosing, either replaces the equipment or keeps the old one. Returns true if the player agreed otherwise false
+
+    # a. Can accept the item type and code name of the item we want to offer to the player.
+    # item types: 'weapon', 'body_armor', 'head_armor', 'arms_armor', 'shield'
+    # You can see the code and characteristics of any item of ammunition in /data/ammunition/
+    ammunition_loot(ammunition_type: 'weapon', ammunition_code: 'knife', message: 'some message')
+
+    # b. Can accept an item object that you need to create first (This will be more convenient if, for example, you want to display some of its characteristics in a message by accessing the methods of the ammunition model.):
+    sallet = AmmunitionCreator.create('head_armor', 'sallet') # We create an item of ammunition in the same way using item type and code name
+    sallet = HeadArmor.new('sallet') # or we can create it using a separate class (model) of ammunition using only code name
+    ammunition_loot(ammunition_obj: sallet, message: 'some message') # pass the object to the method
+    # message: 'some message' - This message parameter is optional as it has a default value for each element type.
+
+    # с. You can also not use this method if you do not want to give the player a choice and want to forcefully change the item of ammunition. In this case, simply assign the new item of ammunition via the character model method
+    @hero.head_armor = AmmunitionCreator.create('head_armor', 'sallet')
+    @hero.weapon = Weapon.new('knife')
+
+    # You can see examples of the application of this method in the events: pig_with_saucepan_event, warriors_grave_event
+
+
+
 
     # your code here
   end
