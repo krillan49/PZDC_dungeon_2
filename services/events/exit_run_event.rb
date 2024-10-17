@@ -27,8 +27,16 @@ class ExitRunEvent
   end
 
   def start
-    @messages.main = 'To continue press Enter'
+    @messages.main = 'Climb the stairs [Enter 1]                Leave [Enter 0]'
     @messages.log << "You see an old staircase leading up, it looks like it's the exit from the dungeon..."
+    display_message_screen()
+    choose = gets.strip
+    climb() if choose == '1'
+  end
+
+  private
+
+  def climb
     if @hero.camp_skill.code == 'treasure_hunter'
       @messages.log << "Random luck is #{@basic_exit_chanse} + treasure hunter(#{@hero.camp_skill.coeff_lvl}) = #{@exit_chanse}..."
     else
@@ -47,8 +55,6 @@ class ExitRunEvent
     end
   end
 
-  private
-
   def can_exit
     @messages.main = 'You survived. To continue press Enter'
     @messages.log << "...#{@hero.name} managed to climb the old stairs, hurray, exit"
@@ -58,6 +64,7 @@ class ExitRunEvent
   end
 
   def nothing
+    @messages.main = 'To continue press Enter'
     @messages.log << "...unfortunately it is impossible to reach the stairs"
     display_message_screen()
     gets
