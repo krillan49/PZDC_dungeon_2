@@ -61,6 +61,8 @@ class YourEventNameEvent # change name to ...Event
     display_message_screen(:art_name) # method displays the screen on which the view 'views/menues/messages_screen.yml' is rendered. Inserts messages that were created using the methods of the message object and the image. Split screens with 'gets' methods to provide choice or 'slip' if you want to do dynamic animations
     # :art_name - an optional parameter that specifies the name of the image that will be inserted into the view from the file at the path specified in the variable PATH_ART. if you do not pass the parameter, the 'normal' picture will be displayed
 
+    # You can add your text images for your event to the directory views/arts/events/_your_event_name.yml. How the images are made, see the files in this directory
+
     # An example of using the method can be seen in any of the existing events.
 
 
@@ -72,18 +74,31 @@ class YourEventNameEvent # change name to ...Event
     # item types: 'weapon', 'body_armor', 'head_armor', 'arms_armor', 'shield'
     # You can see the code and characteristics of any item of ammunition in /data/ammunition/
     ammunition_loot(ammunition_type: 'weapon', ammunition_code: 'knife', message: 'some message')
+    # message: 'some message' - This message parameter is optional as it has a default value for each element type.
 
     # b. Can accept an item object that you need to create first (This will be more convenient if, for example, you want to display some of its characteristics in a message by accessing the methods of the ammunition model.):
     sallet = AmmunitionCreator.create('head_armor', 'sallet') # We create an item of ammunition in the same way using item type and code name
     sallet = HeadArmor.new('sallet') # or we can create it using a separate class (model) of ammunition using only code name
     ammunition_loot(ammunition_obj: sallet, message: 'some message') # pass the object to the method
-    # message: 'some message' - This message parameter is optional as it has a default value for each element type.
 
     # с. You can also not use this method if you do not want to give the player a choice and want to forcefully change the item of ammunition. In this case, simply assign the new item of ammunition via the character model method
     @hero.head_armor = AmmunitionCreator.create('head_armor', 'sallet')
     @hero.weapon = Weapon.new('knife')
 
     # You can see examples of the application of this method in the events: pig_with_saucepan_event, warriors_grave_event
+
+
+    # 4. methods from BattleConcern:
+    # -------------------------------------
+
+    # battle - method that fully implements a fight with an opponent and its results, all that is needed additionally is a variable @enemy with an opponent object:
+    @enemy = Enemy.new('black_mage', 'events') # here the 1st argument is the enemy's code name, and the second is always a string 'events'.
+    # To create your new unique enemy you need to come up with and add its characteristics to the file /data/characters/enemyes/events.yml, similar to those already existing there. But then you will have to draw the images for it yourself.
+    # You can also take ready-made opponents existing in the game from the files bandits.yml, swamp.yml, undeads.yml in the same directory /data/characters/enemyes/ add their data to events.yml, just change the first line of data to the code name line (for example you want to add "Rabid dog" enemy, then when copying - the 1st line 'e2:' in the bandit file for the event file will change to 'rabid_dog:'). You also need to completely copy the file with the images of this enemy from views/arts/enemyes/bandits/_rabid_dog.yml to views/arts/enemyes/events/_rabid_dog.yml. This way you can adjust the characteristics and images as you need to make the one you need based on this enemy.
+    # Or you can just use pre-made enemies by adding their dungeon code and their codename as arguments, like Enemy.new('bandits', 'e2')
+    battle('some message')
+
+    # You can see example of the application of this method in the event: black_mage_event
 
 
 

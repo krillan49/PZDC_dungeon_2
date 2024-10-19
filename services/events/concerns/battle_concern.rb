@@ -16,31 +16,30 @@ module BattleConcern
     @messages.main = message
     MainRenderer.new(:enemy_1_choose_screen, @enemy, entity: @messages, arts: [{ mini: @enemy }]).display
     gets
-    @attacks_round_messages = AttacksRoundMessage.new
-    @attacks_round_messages.main = 'To continue press Enter'
-    @attacks_round_messages.actions = "++++++++++++ Event Battle ++++++++++++"
+    @battle_messages = AttacksRoundMessage.new
+    @battle_messages.main = 'To continue press Enter'
+    @battle_messages.actions = "++++++++++++ Event Battle ++++++++++++"
     choose = nil
     until [''].include?(choose)
-      MainRenderer.new(:enemy_start_screen, @enemy, entity: @attacks_round_messages, arts: [{ normal: @enemy }]).display
+      MainRenderer.new(:enemy_start_screen, @enemy, entity: @battle_messages, arts: [{ normal: @enemy }]).display
       choose = gets.strip.upcase
       AmmunitionShow.show_weapon_buttons_actions(choose, @enemy)
     end
   end
 
   def course_of_battle
+    @battle_messages = AttacksRoundMessage.new unless @battle_messages
     @hero_run_from_battle = false
-    # lap = 1 # номер хода
     while @enemy.hp > 0 && @hero_run_from_battle == false
-      round = AttacksRound.new(@hero, @enemy, @attacks_round_messages)
+      round = AttacksRound.new(@hero, @enemy, @battle_messages)
       round.action
       @hero_run_from_battle = round.hero_run?
       break if round.hero_dead?
-      # lap += 1
     end
   end
 
   def after_battle
-    # Получение опыта и очков
+    # Gaining experience and points
     if !@hero_run_from_battle
       HeroActions.add_exp_and_hero_level_up(@hero, @enemy.exp_gived, @messages)
       @messages.main = 'To continue press Enter'
@@ -48,9 +47,9 @@ module BattleConcern
       @messages.clear_log
       gets
     end
-    # статистика
+    # statistics are not implemented for events yet:
     # @hero.statistics.add_enemy_to_data(@enemy.code_name) if !@hero_run_from_battle
-    # Сбор лута
+    # Loot and other awards:
     LootRound.new(@hero, @enemy, @hero_run_from_battle).action
   end
 
