@@ -1,4 +1,4 @@
-# 1. Create file your_evetn_name_event.rb in the directory services/events/
+# 1. Create file your_event_name_event.rb in the directory services/events/
 # 2. Copy and modify this class to create your event
 
 # The concept of this project does not involve the use of third-party gems, but it is possible to require built-in standard libraries
@@ -12,7 +12,9 @@ class YourEventNameEvent # change name to ...Event
   # include GameEndConcern      # Uncomment if the character dies or leaves the dungeon
 
   PATH_ART = "events/_your_event_name"  # change the path to the event images if there are any
-  # this is a relative path, full path: '/views/arts/events/_your_event_name.yml' - Add your file there if you have ready-made text images, the default image directory inside the file must have the name 'normal'. The 'mini' image will be displayed on the event selection screen, so don't make it big. You can also add images with any names to display by specifying their name inside your code. Please look at other files in this directory to add images correctly.
+  # this is a relative path, full path: '/views/arts/events/_your_event_name.yml' - Add your file there if you have ready-made text images, the default image directory inside the file must have the name 'normal:'. The 'mini:' image will be displayed on the event selection screen, so don't make it big. You can also add images with any names to display by specifying their name inside your code. Please look at other files in this directory to add images correctly.
+  # You can also use existing images in the game if necessary, but it is advisable to adjust them so that they look unique.
+  # You can also not add images at all, in which case the user will see a placeholder instead.
 
   # mandatory attributes are used by other classes
   attr_reader :entity_type, :path_art
@@ -36,7 +38,6 @@ class YourEventNameEvent # change name to ...Event
     @description5 = ''
 
     @messages = MainMessage.new # object for standard messages, it is recommended to use it. Below will be described the methods for messages of this class.
-    # You can also create your own message class, but then you will have to figure out how renderer classes and insertions into views work)
 
 
     # 3. your own variables without restrictions:
@@ -95,11 +96,54 @@ class YourEventNameEvent # change name to ...Event
     @enemy = Enemy.new('black_mage', 'events') # here the 1st argument is the enemy's code name, and the second is always a string 'events'.
     # To create your new unique enemy you need to come up with and add its characteristics to the file /data/characters/enemyes/events.yml, similar to those already existing there. But then you will have to draw the images for it yourself.
     # You can also take ready-made opponents existing in the game from the files bandits.yml, swamp.yml, undeads.yml in the same directory /data/characters/enemyes/ add their data to events.yml, just change the first line of data to the code name line (for example you want to add "Rabid dog" enemy, then when copying - the 1st line 'e2:' in the bandit file for the event file will change to 'rabid_dog:'). You also need to completely copy the file with the images of this enemy from views/arts/enemyes/bandits/_rabid_dog.yml to views/arts/enemyes/events/_rabid_dog.yml. This way you can adjust the characteristics and images as you need to make the one you need based on this enemy.
-    # Or you can just use pre-made enemies by adding their dungeon code and their codename as arguments, like Enemy.new('bandits', 'e2')
+    # Or you can just use pre-made enemies by adding their dungeon code and their codename as arguments, like:
+    @enemy = Enemy.new('bandits', 'e2')
+    # when we have a variable @enemy with a created enemy, we can call battle method and it will use the variable
     battle('some message')
+
+    # Also, if you do not need all the components of the battle, you can use individual methods that make it up:
+    enemy_short_info_show('some message') # method shows a screen with brief information about the enemy and a picture 'mini:' from the file of this enemy
+    enemy_full_info_show() # method shows a screen with full information about the enemy and his ammunition and also a picture 'normal:' from the file of this enemy
+    course_of_battle() # method launches all the functionality for fighting the enemy and all the screens displaying the progress of the fight
+    after_battle() # method launches all the functionality for calculating the cost, levels, skill points and characteristic points, collecting loot and other rewards for the enemy. And also displays all the screens associated with this.
 
     # You can see example of the application of this method in the event: black_mage_event
 
+
+    # 5. methods from GameEndConcern:
+    # -------------------------------------
+
+    # methods from this сoncern can are needed to finish the game, it is worth adding them to those parts of the code after which its execution of the code of your event associated with the use of the character variable stops
+
+    # You don't have to use these methods if the character died in battle, because the combat methods will do everything themselves.
+
+    hero_died?() # returns true if the character's hitpoints are equal to or less than zero, otherwise returns false
+    end_game_and_hero_died() # updates metaprogression files based on character data and the fact that the character died, then deletes the character file. Displays all necessary end-of-game screens.
+    end_game_and_hero_alive() # updates metaprogression files based on character data and the fact that the character alive, then deletes the character file. Displays all necessary end-of-game screens. Useful for events where the character can leave the underdweller and save some of the rewards they received.
+
+    # You can see examples of the application of this methods in the events: brige_keeper_event, exit_run_event, field_loot_event
+
+
+    # 6. methods from Hero model:
+    # -------------------------------------
+
+    # You can also influence the character's characteristics directly through the model instance methods.
+
+    @hero.add_dmg_base(5) # increases the maximum or minimum (random) damage of the hero by the value passed in the parameter
+    @hero.reduce_dmg_base(3) # reduces the maximum or minimum (random) damage of the hero by the value passed in the parameter
+    @hero.add_hp_not_higher_than_max(20) # restores the hero's hit points equal to the value passed in the parameter, the number of hit points will not exceed the maximum
+    @hero.hp -= 50 # hitpoints can be reduced directly, as 0 or a negative value will result in death. When reducing hitpoints, remember to apply the methods from GameEndConcern
+    @hero.add_mp_not_higher_than_max(10) # restores the hero's mana points equal to the value passed in the parameter, the number of mana points will not exceed the maximum
+    @hero.reduce_mp_not_less_than_zero(40) # reduces the amount of mana points by the value passed in the parameter, the amount of mana points will not become less than 0
+    @hero.coins += 5 # you can also add coins directly to the hero
+    @hero.reduce_coins_not_less_than_zero(3) # reduces the amount of coins by the value passed in the parameter, the amount of coins will not become less than 0
+    @hero.exp += 3 # add experience, not recommended to decrease
+    @hero.stat_points += 1 # add stat point, not recommended to decrease
+    @hero.skill_points += 1 # add skill point, not recommended to decrease
+
+    # You can also view other modifiable characteristics in the hero model file '/models/characters/hero.rb', but for those for which there are no special methods, it is not recommended to reduce the values ​​below 0
+
+    # Also, the hero and enemy models have many getters so that you can pass some characteristics through messages or use them for conditions and other operations.
 
 
 

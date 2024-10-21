@@ -154,6 +154,11 @@ class Hero
     @mp = @mp < 0 ? 0 : @mp
   end
 
+  def reduce_coins_not_less_than_zero(n=0)
+    @coins -= n
+    @coins = @coins < 0 ? 0 : @coins
+  end
+
 end
 
 
