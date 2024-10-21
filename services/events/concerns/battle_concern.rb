@@ -6,16 +6,20 @@ module BattleConcern
   # @enemy      with enemy object
 
   def battle(message='Event enemy')
-    enemy_show(message)
+    enemy_short_info_show(message)
+    enemy_full_info_show()
     course_of_battle()
     after_battle()
   end
 
-  def enemy_show(message='Event enemy')
+  def enemy_short_info_show(message='Event enemy')
     @messages.clear_log
     @messages.main = message
     MainRenderer.new(:enemy_1_choose_screen, @enemy, entity: @messages, arts: [{ mini: @enemy }]).display
     gets
+  end
+
+  def enemy_full_info_show
     @battle_messages = AttacksRoundMessage.new
     @battle_messages.main = 'To continue press Enter'
     @battle_messages.actions = "++++++++++++ Event Battle ++++++++++++"
