@@ -57,6 +57,7 @@ class LoadHeroInRun
       @hero.send "#{loot_type}=", value
     end
     @hero.ingredients = @hero_data['ingredients']
+    @hero.events_data = @hero_data['events_data']
   end
 
 end

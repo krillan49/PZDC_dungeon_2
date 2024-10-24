@@ -76,7 +76,8 @@ class SaveHeroInRun
         'pzdc_monolith_points' => @hero.pzdc_monolith_points,
         'coins' => @hero.coins
       },
-      'ingredients' => @hero.ingredients
+      'ingredients' => @hero.ingredients,
+      'events_data' => @hero.events_data
     }
   end
 

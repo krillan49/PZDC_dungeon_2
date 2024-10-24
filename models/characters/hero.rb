@@ -21,7 +21,7 @@ class Hero
 
   attr_accessor :dungeon_name, :dungeon_part_number, :leveling
 
-  attr_accessor :statistics
+  attr_accessor :statistics, :events_data
 
   def initialize(name, background, dungeon_name=nil)
     @name = name
@@ -61,6 +61,8 @@ class Hero
     @pzdc_monolith_points = 0
     @coins = 0
     @ingredients = {}
+
+    @events_data = {}
 
     @leveling = 0
 

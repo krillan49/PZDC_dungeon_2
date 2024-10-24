@@ -35,15 +35,6 @@ class WariorsGraveEvent
 
   private
 
-  def clean_grave
-    @messages.main = "Leave [Enter 0]"
-    @messages.log << "After cleaning the grave you felt better, the warrior's spirit restored you 5 HP and 5 MP"
-    @hero.add_hp_not_higher_than_max(5)
-    @hero.add_mp_not_higher_than_max(5)
-    display_message_screen()
-    gets
-  end
-
   def dig_grave
     random_weapon_code = (['rusty_hatchet']*4 + ['rusty_sword']*2 + ['rusty_falchion']).sample
     weapon_name = random_weapon_code.split('_').join(' ').capitalize
@@ -63,4 +54,42 @@ class WariorsGraveEvent
     gets
   end
 
+  def clean_grave
+    @hero.add_hp_not_higher_than_max(5)
+    @hero.add_mp_not_higher_than_max(5)
+    enemy = 'goblin'
+    @messages.main = "Take quest [Enter 1]                 Leave [Enter 0]"
+    @messages.log << "After cleaning the grave you felt better, the warrior's spirit restored you 5 HP and 5 MP"
+    @messages.log << "\"I see that you are also a warrior and could continue my work and cleanse these lands\""
+    @messages.log << "\"If you kill 5 #{enemy}s and go to any warrior's grave, you will receive a reward\""
+    display_message_screen()
+    choose = gets.strip
+    if choose == '1'
+      @hero.events_data['wariors_grave'] = {
+        'taken' => 1,
+        'enemy' => enemy,
+        'count' => 0
+      }
+      @messages.clear_log
+      @messages.main = "Leave [Enter 0]"
+      @messages.log << "\"I immediately realized that you are one of us, let's cleanse these lands\""
+      display_message_screen()
+      gets
+    end
+  end
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
