@@ -51,6 +51,7 @@ class Main
     load_hero = LoadHeroInRun.new
     load_hero.load
     hero = load_hero.hero
+    return if hero == nil
     choose = nil
     until ['Y', 'N', ''].include?(choose)
       @messages.main = 'Load game [Enter Y]            Back to menu [Enter N]'

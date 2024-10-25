@@ -15,7 +15,7 @@
 Ошибки:
 Не срабатыает перк когда маны ровно для него. (при регенерации маны ??)
 HeroUseSkill содержит рендер экранов, которые связаны с хиро экшен, вынести мб в run engine ???
-main.rb:57:in `load_run': undefined method `dungeon_name' for nil:NilClass (NoMethodError)  Когда загружаем и нет сэйва
+
 Bandit leader                   7      DONE      Kill 50 and get +1 skill point  не правильно написано нужно 5
 Zombie knight                   2                Kill 50 and get +1 MP-regen
 Ancient snail                   1                Kill 50 and get +1 armor
