@@ -11,13 +11,8 @@ class YourEventNameEvent # change name to ...Event
   # include BattleConcern       # Uncomment if you want the character to engage in battle with the enemy
   # include GameEndConcern      # Uncomment if the character dies or leaves the dungeon
 
-  PATH_ART = "events/_your_event_name"  # change the path to the event images if there are any
-  # this is a relative path, full path: '/views/arts/events/_your_event_name.yml' - Add your file there if you have ready-made text images, the default image directory inside the file must have the name 'normal:'. The 'mini:' image will be displayed on the event selection screen, so don't make it big. You can also add images with any names to display by specifying their name inside your code. Please look at other files in this directory to add images correctly.
-  # You can also use existing images in the game if necessary, but it is advisable to adjust them so that they look unique.
-  # You can also not add images at all, in which case the user will see a placeholder instead.
-
   # mandatory attributes are used by other classes
-  attr_reader :entity_type, :path_art
+  attr_reader :entity_type, :code_name, :path_art
   attr_reader :name, :description1, :description2, :description3, :description4, :description5
 
   def initialize(hero)
@@ -26,7 +21,12 @@ class YourEventNameEvent # change name to ...Event
     @hero = hero              # current character object
 
     @entity_type = 'events'
-    @path_art = PATH_ART
+    @code_name = 'your_event_name'
+
+    @path_art = "events/_your_event_name"  # change the path to the event images if there are any
+    # this is a relative path, full path: '/views/arts/events/_your_event_name.yml' - Add your file there if you have ready-made text images, the default image directory inside the file must have the name 'normal:'. The 'mini:' image will be displayed on the event selection screen, so don't make it big. You can also add images with any names to display by specifying their name inside your code. Please look at other files in this directory to add images correctly.
+    # You can also use existing images in the game if necessary, but it is advisable to adjust them so that they look unique.
+    # You can also not add images at all, in which case the user will see a placeholder instead.
 
     # 2. mandatory variables whose values ​​can be changed:
 
@@ -60,7 +60,7 @@ class YourEventNameEvent # change name to ...Event
     # 2. methods from DisplayScreenConcern:
     # -------------------------------------
     display_message_screen(:art_name) # method displays the screen on which the view 'views/menues/messages_screen.yml' is rendered. Inserts messages that were created using the methods of the message object and the image. Split screens with 'gets' methods to provide choice or 'slip' if you want to do dynamic animations
-    # :art_name - an optional parameter that specifies the name of the image that will be inserted into the view from the file at the path specified in the variable PATH_ART. if you do not pass the parameter, the 'normal' picture will be displayed
+    # :art_name - an optional parameter that specifies the name of the image that will be inserted into the view from the file at the path specified in the variable @path_art. if you do not pass the parameter, the 'normal' picture will be displayed
 
     # You can add your text images for your event to the directory views/arts/events/_your_event_name.yml. How the images are made, see the files in this directory
 

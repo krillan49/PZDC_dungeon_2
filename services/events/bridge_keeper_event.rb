@@ -2,16 +2,15 @@ class BridgeKeeperEvent
   include DisplayScreenConcern
   include GameEndConcern
 
-  PATH_ART = "events/_briedge_keeper"
-
-  attr_reader :entity_type, :path_art
+  attr_reader :entity_type, :code_name, :path_art
   attr_reader :name, :description1, :description2, :description3, :description4, :description5
 
   def initialize(hero)
     @hero = hero
 
     @entity_type = 'events'
-    @path_art = PATH_ART
+    @code_name = 'briedge_keeper'
+    @path_art = "events/_briedge_keeper"
 
     @name = 'Bridge of death'
     @description1 = 'Bridge keeper...'

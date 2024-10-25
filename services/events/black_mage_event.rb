@@ -2,16 +2,15 @@ class BlackMageEvent
   include DisplayScreenConcern
   include BattleConcern
 
-  PATH_ART = "events/_black_mage"
-
-  attr_reader :entity_type, :path_art
+  attr_reader :entity_type, :code_name, :path_art
   attr_reader :name, :description1, :description2, :description3, :description4, :description5
 
   def initialize(hero)
     @hero = hero
 
     @entity_type = 'events'
-    @path_art = PATH_ART
+    @code_name = 'black_mage'
+    @path_art = "events/_black_mage"
 
     @name = 'Black mage'
     @description1 = 'Casts spells...'

@@ -1,16 +1,15 @@
 class BoatmanEugeneEvent
   include DisplayScreenConcern
 
-  PATH_ART = "events/_boatman_eugene"
-
-  attr_reader :entity_type, :path_art
+  attr_reader :entity_type, :code_name, :path_art
   attr_reader :name, :description1, :description2, :description3, :description4, :description5
 
   def initialize(hero)
     @hero = hero
 
     @entity_type = 'events'
-    @path_art = PATH_ART
+    @code_name = 'boatman_eugene'
+    @path_art = "events/_boatman_eugene"
 
     @name = 'Who are you and who am i...'
     @description1 = 'Boatman will take you...'

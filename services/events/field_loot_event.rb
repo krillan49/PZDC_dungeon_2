@@ -2,16 +2,15 @@ class FieldLootEvent
   include DisplayScreenConcern
   include GameEndConcern
 
-  PATH_ART = "events/_loot_field"
-
-  attr_reader :entity_type, :path_art
+  attr_reader :entity_type, :code_name, :path_art
   attr_reader :name, :description1, :description2, :description3, :description4, :description5
 
   def initialize(hero)
     @hero = hero
 
     @entity_type = 'events'
-    @path_art = PATH_ART
+    @code_name = 'loot_field'
+    @path_art = "events/_loot_field"
 
     @name = 'Some scrub'
     @description1 = 'In this pile of scrub...'

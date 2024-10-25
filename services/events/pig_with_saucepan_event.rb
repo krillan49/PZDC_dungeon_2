@@ -2,16 +2,15 @@ class PigWithSaucepanEvent
   include DisplayScreenConcern
   include AmmunitionConcern
 
-  PATH_ART = "events/_pig_with_saucepan"
-
-  attr_reader :entity_type, :path_art
+  attr_reader :entity_type, :code_name, :path_art
   attr_reader :name, :description1, :description2, :description3, :description4, :description5
 
   def initialize(hero)
     @hero = hero
 
     @entity_type = 'events'
-    @path_art = PATH_ART
+    @code_name = 'pig_with_saucepan'
+    @path_art = "events/_pig_with_saucepan"
 
     @name = 'Pig with saucepan'
     @description1 = 'Pigman is eating something...'
