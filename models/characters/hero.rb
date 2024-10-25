@@ -88,7 +88,7 @@ class Hero
   end
 
   def recovery_mp
-    @mp_max * 0.1
+    (@mp_max * 0.1).round # чтобы не было нецелых чисел маны разных при отображении и реальных
   end
 
   def regen_hp
