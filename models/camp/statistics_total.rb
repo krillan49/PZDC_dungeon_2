@@ -8,19 +8,19 @@ class StatisticsTotal
     'poacher' => 'Kill 50 and get +1 accuracy',
     'thug' => 'Kill 50 and get +5 HP',
     'deserter' => 'Kill 50 and get +1 stat point',
-    'bandit_leader' => 'Kill 50 and get +1 skill point',
+    'bandit_leader' => 'Kill 5 and get +1 skill point',
     'zombie' => 'Kill 50 and get permanent "Worn gloves"',
     'skeleton' => 'Kill 50 and get +3 MP',
     'ghost' => 'Kill 50 and get +1 accuracy',
     'fat_ghoul' => 'Kill 50 and get +7 HP',
     'skeleton_soldier' => 'Kill 50 and get +3 block chance',
-    'zombie_knight' => 'Kill 50 and get +1 MP-regen',
+    'zombie_knight' => 'Kill 5 and get +1 MP-regen',
     'leech' => 'Kill 50 and get +3 MP',
     'goblin' => 'Kill 50 and get permanent "Holey wicker buckler"',
     'sworm' => 'Kill 50 and get +3 HP',
     'spider' => 'Kill 50 and get +1 accuracy',
     'orc' => 'Kill 50 and get +1 max damage',
-    'ancient_snail' => 'Kill 50 and get +1 armor'
+    'ancient_snail' => 'Kill 5 and get +1 armor'
   }
 
   attr_reader :data
