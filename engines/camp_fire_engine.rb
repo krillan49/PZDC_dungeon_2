@@ -31,6 +31,8 @@ class CampFireEngine
       elsif choose == '5'
         enchance_ammunition()
       elsif choose == '6'
+        show_quests()
+      elsif choose == '7'
         save_and_exit()
         choose = '' # чтобы сразу выйти в run
       end
@@ -109,6 +111,27 @@ class CampFireEngine
 
   def enchance_ammunition
     OccultLibraryEnhanceController.new(@hero).recipes_list
+  end
+
+  def show_quests
+    quests_messages = MainMessage.new
+    quests_messages.main = 'BACK TO CAMP FIRE OPTIONS  [Enter 0]'
+    quests_info = @hero.events_data.map.with_index(1) do |(k, v), n|
+      ["#{n}. #{k.capitalize.split('_').join(' ')}:", v['description'], ''] if v['taken'] == 1
+    end.compact.flatten
+    if quests_info.length > 0
+      quests_info.unshift('                                             List of unfinished quests', '')
+    else
+      quests_info.push(
+        '', '', '', '', '', '', '', '', '', '', '', '',
+        '                                              ========================',
+        '                                                No unfinished quests',
+        '                                              ========================'
+      )
+    end
+    quests_messages.log = quests_info
+    MainRenderer.new(:messages_full_screen, entity: quests_messages).display
+    gets
   end
 
   def save_and_exit
