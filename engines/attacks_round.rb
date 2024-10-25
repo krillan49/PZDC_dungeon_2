@@ -32,20 +32,20 @@ class AttacksRound
     if @hero.hp < (@hero.hp_max * 0.15) && @hero.hp > 0 && @enemy.hp > 0
       @messages.main = 'You are on the threshold of death'
       @messages.actions = 'Try to escape? (y/N)'
-      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ normal: @enemy }]).display
+      display_battle_screen_with_art(:normal)
       run_select = gets.strip.upcase
       if run_select == 'Y'
         if rand(0..2) >= 10
           @messages.actions = 'Managed to escape'
           @messages.log << "The coward ran away"
-          MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ attack: @enemy }]).display
+          display_battle_screen_with_art(:attack)
           return true
         else
           @hero.hp -= @enemy_damage
           @messages.main = 'Failed to escape'
           @messages.actions = 'To continue press Enter'
           @messages.log << "#{@enemy.name} dealt #{@enemy_damage.round} damage"
-          MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ attack: @enemy }]).display
+          display_battle_screen_with_art(:attack)
           gets
           if @hero.hp <= 0
             messages = MainMessage.new
@@ -75,7 +75,7 @@ class AttacksRound
       smi, sma = (@hero.min_dmg * @hero.active_skill.damage_mod).round, (@hero.max_dmg * @hero.active_skill.damage_mod).round
       sa = (@hero.accuracy * @hero.active_skill.accuracy_mod).round
       @messages.actions = "Body(dmg #{mi}-#{ma}, acc #{a})  Head(dmg #{hmi}-#{hma}, acc #{ha})  Legs(dmg #{lmi}-#{lma}, acc #{la})  #{@hero.active_skill.name}(dmg #{smi}-#{sma}, acc #{sa}, MP #{@hero.active_skill.mp_cost})"
-      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ normal: @enemy }]).display
+      display_battle_screen_with_art(:normal)
       @messages.clear_log
       selected_type = gets.strip.upcase
       success = case selected_type
@@ -175,7 +175,7 @@ class AttacksRound
     hero_after_hit_active_slill_effects() if @hero_attack_type == @hero.active_skill.name
     @messages.main = "#{@hero.name} attack #{@enemy.name}"
     @messages.actions = ""
-    MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ damaged: @enemy }]).display
+    display_battle_screen_with_art(:damaged)
   end
   def hero_hit_or_miss
     if @hero_hit
@@ -215,12 +215,12 @@ class AttacksRound
     sleep_with_enemy_animation_speed()
     @messages.main = "#{@enemy.name}'s move"
     @messages.actions = "#{@enemy.name} chooses the method of attack"
-    MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ normal: @enemy }]).display
+    display_battle_screen_with_art(:normal)
     enemy_hit_or_miss()
     sleep_with_enemy_animation_speed()
     @messages.main = "#{@enemy.name} attacks"
     @messages.actions = ""
-    MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ attack: @enemy }]).display
+    display_battle_screen_with_art(:attack)
   end
   def enemy_hit_or_miss
     enemy_hit = @enemy_accuracy >= rand(1..100)
@@ -245,7 +245,7 @@ class AttacksRound
       sleep_with_enemy_animation_speed()
       @messages.main = "#{@enemy.name} dead, victory!"
       @messages.actions = 'To continue press Enter'
-      MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ dead: @enemy }]).display
+      display_battle_screen_with_art(:dead)
       gets
     else
       sleep_with_enemy_animation_speed()
@@ -256,6 +256,10 @@ class AttacksRound
 
   def sleep_with_enemy_animation_speed
     sleep(@enemy_animation_speed)
+  end
+
+  def display_battle_screen_with_art(art)
+    MainRenderer.new(:battle_screen, @hero, @enemy, entity: @messages, arts: [{ art => @enemy }]).display
   end
 
 end
