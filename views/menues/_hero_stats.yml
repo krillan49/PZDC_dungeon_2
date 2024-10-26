@@ -1,7 +1,7 @@
 view:
   - "                                                                          "
   - " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA    lvl BBB    exp CCCC/DDDD    coins EEEE "
-  - "──────────────────────────────────────────────────────────────────────────"
+  - "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   - "   Stat points  AAA                         Skill points BBB              "
   - "                                                                          "
   - "   HP AAA/BBB              HP-regen CCC               HP-recovery DDD     "
@@ -12,7 +12,7 @@ view:
   - "   Armor        AAA   (  basic   BBB  )                                   "
   - "   Block chance AAA                         Block power  BBB %            "
   - "                                                                          "
-  - "──────────────────────────────────────────────────────────────────────────"
+  - "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   - "                               AMMUNITION                                 "
   - "                                                                          "
   - "   [Enter A]   Weapon    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "

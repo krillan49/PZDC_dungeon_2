@@ -130,7 +130,7 @@ class CampFireEngine
       )
     end
     quests_messages.log = quests_info
-    MainRenderer.new(:messages_full_screen, entity: quests_messages).display
+    MainRenderer.new(:messages_full_reverse_screen, entity: quests_messages).display
     gets
   end
 

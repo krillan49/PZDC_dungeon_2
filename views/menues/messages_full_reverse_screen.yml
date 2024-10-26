@@ -1,7 +1,5 @@
 view:
   - "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█"
-  - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
-  - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
   - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
@@ -31,157 +29,159 @@ view:
   - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
   - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
   - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
+  - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
+  - "█                                                                                                                      █"
   - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
   - "█                                                                                                                      █"
   - "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█"
 insert_options:
-  1:
+  32:
     A:
       methods:
         - main
       modifier: m
   # log
-  4:
+  2:
     A:
       methods:
         - log_0
       modifier: s
-  5:
+  3:
     A:
       methods:
         - log_1
       modifier: s
-  6:
+  4:
     A:
       methods:
         - log_2
       modifier: s
-  7:
+  5:
     A:
       methods:
         - log_3
       modifier: s
-  8:
+  6:
     A:
       methods:
         - log_4
       modifier: s
-  9:
+  7:
     A:
       methods:
         - log_5
       modifier: s
-  10:
+  8:
     A:
       methods:
         - log_6
       modifier: s
-  11:
+  9:
     A:
       methods:
         - log_7
       modifier: s
-  12:
+  10:
     A:
       methods:
         - log_8
       modifier: s
-  13:
+  11:
     A:
       methods:
         - log_9
       modifier: s
-  14:
+  12:
     A:
       methods:
         - log_10
       modifier: s
-  15:
+  13:
     A:
       methods:
         - log_11
       modifier: s
-  16:
+  14:
     A:
       methods:
         - log_12
       modifier: s
-  17:
+  15:
     A:
       methods:
         - log_13
       modifier: s
-  18:
+  16:
     A:
       methods:
         - log_14
       modifier: s
-  19:
+  17:
     A:
       methods:
         - log_15
       modifier: s
-  20:
+  18:
     A:
       methods:
         - log_16
       modifier: s
-  21:
+  19:
     A:
       methods:
         - log_17
       modifier: s
-  22:
+  20:
     A:
       methods:
         - log_18
       modifier: s
-  23:
+  21:
     A:
       methods:
         - log_19
       modifier: s
-  24:
+  22:
     A:
       methods:
         - log_20
       modifier: s
-  25:
+  23:
     A:
       methods:
         - log_21
       modifier: s
-  26:
+  24:
     A:
       methods:
         - log_22
       modifier: s
-  27:
+  25:
     A:
       methods:
         - log_23
       modifier: s
-  28:
+  26:
     A:
       methods:
         - log_24
       modifier: s
-  29:
+  27:
     A:
       methods:
         - log_25
       modifier: s
-  30:
+  28:
     A:
       methods:
         - log_26
       modifier: s
-  31:
+  29:
     A:
       methods:
         - log_27
       modifier: s
-  32:
+  30:
     A:
       methods:
         - log_28
