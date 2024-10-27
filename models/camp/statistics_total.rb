@@ -3,24 +3,24 @@ class StatisticsTotal
   # show:
   BOSES = %w[bandit_leader zombie_knight ancient_snail]
   DESCRIPTIONS = {
-    'rabble' => 'Kill 50 and get permanent weapon "Stick"',
-    'rabid_dog' => 'Kill 50 and get +2 HP',
-    'poacher' => 'Kill 50 and get +1 accuracy',
-    'thug' => 'Kill 50 and get +5 HP',
-    'deserter' => 'Kill 50 and get +1 stat point',
-    'bandit_leader' => 'Kill 5 and get +1 skill point',
-    'zombie' => 'Kill 50 and get permanent "Worn gloves"',
-    'skeleton' => 'Kill 50 and get +3 MP',
-    'ghost' => 'Kill 50 and get +1 accuracy',
-    'fat_ghoul' => 'Kill 50 and get +7 HP',
-    'skeleton_soldier' => 'Kill 50 and get +3 block chance',
-    'zombie_knight' => 'Kill 5 and get +1 MP-regen',
-    'leech' => 'Kill 50 and get +3 MP',
-    'goblin' => 'Kill 50 and get permanent "Holey wicker buckler"',
-    'sworm' => 'Kill 50 and get +3 HP',
-    'spider' => 'Kill 50 and get +1 accuracy',
-    'orc' => 'Kill 50 and get +1 max damage',
-    'ancient_snail' => 'Kill 5 and get +1 armor'
+    'rabble' => {'kill' => 50, 'get' => 'Permanent weapon "Stick"'},
+    'rabid_dog' => {'kill' => 50, 'get' => '+2 HP'},
+    'poacher' => {'kill' => 50, 'get' => '+1 accuracy'},
+    'thug' => {'kill' => 50, 'get' => '+5 HP'},
+    'deserter' => {'kill' => 50, 'get' => '+1 stat point'},
+    'bandit_leader' => {'kill' => 5, 'get' => '+1 skill point'},
+    'zombie' => {'kill' => 50, 'get' => 'Permanent "Worn gloves"'},
+    'skeleton' => {'kill' => 50, 'get' => '+3 MP'},
+    'ghost' => {'kill' => 50, 'get' => '+1 accuracy'},
+    'fat_ghoul' => {'kill' => 50, 'get' => '+7 HP'},
+    'skeleton_soldier' => {'kill' => 50, 'get' => '+3 block chance'},
+    'zombie_knight' => {'kill' => 5, 'get' => '+1 MP-regen'},
+    'leech' => {'kill' => 50, 'get' => '+3 MP'},
+    'goblin' => {'kill' => 50, 'get' => 'Permanent "Holey wicker buckler"'},
+    'sworm' => {'kill' => 50, 'get' => '+3 HP'},
+    'spider' => {'kill' => 50, 'get' => '+1 accuracy'},
+    'orc' => {'kill' => 50, 'get' => '+1 max damage'},
+    'ancient_snail' => {'kill' => 5, 'get' => '+1 armor'}
   }
 
   attr_reader :data
@@ -61,8 +61,10 @@ class StatisticsTotal
       @data_enemyes[i][1]
     elsif method_name.to_s.include?('enemy_done__')
       @data_enemyes[i][1] >= 50 || (BOSES.include?(@data_enemyes[i][0]) && @data_enemyes[i][1] >= 5) ? 'DONE' : ''
-    elsif method_name.to_s.include?('enemy_description__')
-      DESCRIPTIONS[@data_enemyes[i][0]]
+    elsif method_name.to_s.include?('enemy_kill__')
+      DESCRIPTIONS[@data_enemyes[i][0]]['kill']
+    elsif method_name.to_s.include?('enemy_get__')
+      DESCRIPTIONS[@data_enemyes[i][0]]['get']
     end
   end
 

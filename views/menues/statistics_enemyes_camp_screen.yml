@@ -5,30 +5,30 @@ view:
   - "█                                         AAAAAAAAAAA dungeon statistics                                               █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
-  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█       ENEMY                      KILLED               NEED         REWARD                                            █"
+  - "█       -------------------------------------------------------------------------------------------------------        █"
   - "█                                                                                                                      █"
-  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC   DDDDDD         EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE        █"
   - "█                                                                                                                      █"
-  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC   DDDDDD         EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE        █"
   - "█                                                                                                                      █"
-  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC   DDDDDD         EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE        █"
   - "█                                                                                                                      █"
-  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC   DDDDDD         EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE        █"
   - "█                                                                                                                      █"
-  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC   DDDDDD         EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE        █"
   - "█                                                                                                                      █"
-  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC   DDDDDD         EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE        █"
   - "█                                                                                                                      █"
-  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC   DDDDDD         EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE        █"
   - "█                                                                                                                      █"
-  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC   DDDDDD         EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE        █"
   - "█                                                                                                                      █"
-  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC   DDDDDD         EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE        █"
   - "█                                                                                                                      █"
-  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC   DDDDDD         EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE        █"
   - "█                                                                                                                      █"
-  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC      DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD       █"
-  - "█                                                                                                                      █"
+  - "█       AAAAAAAAAAAAAAAAAAAAAAAA   BBBBBB      CCCC   DDDDDD         EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE        █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                 TO MENU   [Enter]                                                    █"
@@ -40,7 +40,7 @@ insert_options:
       methods:
         - name
       modifier: e
-  6:
+  9:
     A:
       methods:
         - enemy_name__0
@@ -55,9 +55,13 @@ insert_options:
       modifier: s
     D:
       methods:
-        - enemy_description__0
+        - enemy_kill__0
+      modifier: e
+    E:
+      methods:
+        - enemy_get__0
       modifier: s
-  8:
+  11:
     A:
       methods:
         - enemy_name__1
@@ -72,9 +76,13 @@ insert_options:
       modifier: s
     D:
       methods:
-        - enemy_description__1
+        - enemy_kill__1
+      modifier: e
+    E:
+      methods:
+        - enemy_get__1
       modifier: s
-  10:
+  13:
     A:
       methods:
         - enemy_name__2
@@ -89,9 +97,13 @@ insert_options:
       modifier: s
     D:
       methods:
-        - enemy_description__2
+        - enemy_kill__2
+      modifier: e
+    E:
+      methods:
+        - enemy_get__2
       modifier: s
-  12:
+  15:
     A:
       methods:
         - enemy_name__3
@@ -106,9 +118,13 @@ insert_options:
       modifier: s
     D:
       methods:
-        - enemy_description__3
+        - enemy_kill__3
+      modifier: e
+    E:
+      methods:
+        - enemy_get__3
       modifier: s
-  14:
+  17:
     A:
       methods:
         - enemy_name__4
@@ -123,9 +139,13 @@ insert_options:
       modifier: s
     D:
       methods:
-        - enemy_description__4
+        - enemy_kill__4
+      modifier: e
+    E:
+      methods:
+        - enemy_get__4
       modifier: s
-  16:
+  19:
     A:
       methods:
         - enemy_name__5
@@ -140,9 +160,13 @@ insert_options:
       modifier: s
     D:
       methods:
-        - enemy_description__5
+        - enemy_kill__5
+      modifier: e
+    E:
+      methods:
+        - enemy_get__5
       modifier: s
-  18:
+  21:
     A:
       methods:
         - enemy_name__6
@@ -157,9 +181,13 @@ insert_options:
       modifier: s
     D:
       methods:
-        - enemy_description__6
+        - enemy_kill__6
+      modifier: e
+    E:
+      methods:
+        - enemy_get__6
       modifier: s
-  20:
+  23:
     A:
       methods:
         - enemy_name__7
@@ -174,9 +202,13 @@ insert_options:
       modifier: s
     D:
       methods:
-        - enemy_description__7
+        - enemy_kill__7
+      modifier: e
+    E:
+      methods:
+        - enemy_get__7
       modifier: s
-  22:
+  25:
     A:
       methods:
         - enemy_name__8
@@ -191,9 +223,13 @@ insert_options:
       modifier: s
     D:
       methods:
-        - enemy_description__8
+        - enemy_kill__8
+      modifier: e
+    E:
+      methods:
+        - enemy_get__8
       modifier: s
-  24:
+  27:
     A:
       methods:
         - enemy_name__9
@@ -208,9 +244,13 @@ insert_options:
       modifier: s
     D:
       methods:
-        - enemy_description__9
+        - enemy_kill__9
+      modifier: e
+    E:
+      methods:
+        - enemy_get__9
       modifier: s
-  26:
+  29:
     A:
       methods:
         - enemy_name__10
@@ -225,22 +265,9 @@ insert_options:
       modifier: s
     D:
       methods:
-        - enemy_description__10
-      modifier: s
-  28:
-    A:
-      methods:
-        - enemy_name__11
-      modifier: s
-    B:
-      methods:
-        - enemy_count__11
+        - enemy_kill__10
       modifier: e
-    C:
+    E:
       methods:
-        - enemy_done__11
-      modifier: s
-    D:
-      methods:
-        - enemy_description__11
+        - enemy_get__10
       modifier: s
