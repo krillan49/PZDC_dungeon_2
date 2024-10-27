@@ -20,11 +20,11 @@ class TreasureHunter
   end
 
   def description
-    "Treasure hunt bonus is #{coeff_lvl()}"
+    "Positively affects many random actions in the game. Bonus is #{coeff_lvl()}"
   end
 
   def description_short
-    "Treasure hunt bonus is #{coeff_lvl()}"
+    "Positively affects many random actions in the game"
   end
 end
 

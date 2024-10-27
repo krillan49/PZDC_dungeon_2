@@ -27,6 +27,6 @@ class Berserk
   end
 
   def description_short
-    "The less HP the more damage"
+    "The less HP are left - the more damage you done"
   end
 end

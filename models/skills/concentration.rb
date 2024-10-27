@@ -31,7 +31,7 @@ class Concentration
   end
 
   def description_short
-    "If max MP is more than 100 random additional damage is dealt"
+    "The more max MP, if more than 100 - more random additional damage is dealt"
   end
 end
 

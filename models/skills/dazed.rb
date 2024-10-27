@@ -28,7 +28,7 @@ class Dazed
   end
 
   def description_short
-    "If damage is greater #{accuracy_reduce_percent().round}% remaining enemy HP then he loses 10-90% accuracy"
+    "If damage is greater some % remaining enemy HP then he loses 10-90% accuracy"
   end
 end
 

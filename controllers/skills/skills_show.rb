@@ -18,7 +18,7 @@ class SkillsShow
     separator = 0 if @skills.length > 14
     skills_list = @skills.map.with_index(1) do |skill_code, i|
       skill = SkillsCreator.create(skill_code, hero)
-      aligned_skill_name = skill.name + (' ' * (25 - skill.name.length))
+      aligned_skill_name = skill.name + (' ' * (20 - skill.name.length))
       ["   [Enter #{i}]   #{aligned_skill_name} #{skill.description_short}"] + [''] * separator
     end.flatten
     skills_list = [''] * ((29 - skills_list.length) / 4) + skills_list if offset

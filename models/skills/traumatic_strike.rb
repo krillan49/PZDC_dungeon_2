@@ -37,11 +37,11 @@ class TraumaticStrike
   end
 
   def description
-    "Reduces enemy damage by #{effect()}%"
+    "Attack reduces enemy damage by #{effect()}%"
   end
 
   def description_short
-    "Reduces enemy damage by %. Cost #{MP_COST}"
+    "Cost #{MP_COST}. Attack reduces enemy damage by some %"
   end
 end
 

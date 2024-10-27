@@ -33,7 +33,7 @@ class PreciseStrike
   end
 
   def description_short
-    "More precisely in #{accuracy_mod().round(1)}, stronger in #{damage_mod().round(1)}. Cost #{MP_COST}"
+    "Cost #{MP_COST}. Attack much more accurately and a little stronger"
   end
 end
 

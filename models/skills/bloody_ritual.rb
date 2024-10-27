@@ -34,6 +34,6 @@ class BloodyRitual
   end
 
   def description_short
-    "Restores MP, the more MP lost, the greater the effect. Cost #{@hp_cost} HP"
+    "Cost #{@hp_cost} HP. Restores MP, the more MP lost, the greater the effect"
   end
 end

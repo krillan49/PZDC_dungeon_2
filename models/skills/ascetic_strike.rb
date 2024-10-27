@@ -35,7 +35,7 @@ class AsceticStrike
   end
 
   def description_short
-    "The more free stat points - the more damage and accuracy. Cost #{MP_COST}"
+    "Cost #{MP_COST}. The more free stat points - the more damage and accuracy"
   end
 end
 

@@ -32,7 +32,7 @@ class StrongStrike
   end
 
   def description_short
-    "Damage is stronger in #{damage_mod().round(1)}. Cost #{MP_COST}"
+    "Cost #{MP_COST}. Attack much stronger"
   end
 end
 

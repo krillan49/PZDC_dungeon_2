@@ -24,7 +24,7 @@ class ShieldMaster
   end
 
   def description_short
-    "Shield block chance increased by #{block_chance_bonus()}%"
+    "Shield block chance increased by some %"
   end
 end
 
