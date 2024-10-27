@@ -14,12 +14,15 @@ class SkillsShow
     @skills = SKILLS_BY_TYPES[skill_type]
   end
 
-  def show_in_hero_creator(hero)
-    @skills.map.with_index(1) do |skill_code, i|
+  def show_in_hero_creator(hero, separator=0, offset=false)
+    separator = 0 if @skills.length > 14
+    skills_list = @skills.map.with_index(1) do |skill_code, i|
       skill = SkillsCreator.create(skill_code, hero)
       aligned_skill_name = skill.name + (' ' * (25 - skill.name.length))
-      "   [Enter #{i}]   #{aligned_skill_name} #{skill.description_short}"
-    end
+      ["   [Enter #{i}]   #{aligned_skill_name} #{skill.description_short}"] + [''] * separator
+    end.flatten
+    skills_list = [''] * ((29 - skills_list.length) / 4) + skills_list if offset
+    skills_list
   end
 
   def SkillsShow.indexes_of_type(skill_type)

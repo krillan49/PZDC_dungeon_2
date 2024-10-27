@@ -174,7 +174,7 @@ class HeroCreator
   private
 
   def select_skill(skill_type)
-    @messages.log = SkillsShow.new(skill_type).show_in_hero_creator(@hero)
+    @messages.log = SkillsShow.new(skill_type).show_in_hero_creator(@hero, 2, true)
     MainRenderer.new(:messages_full_screen, entity: @messages).display
     choiсe = gets.strip.upcase
     indexes = SkillsShow.indexes_of_type(skill_type)
