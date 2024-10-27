@@ -1,5 +1,5 @@
 without:
-  name: "---without---"
+  name: "---"
   min_dmg: 0
   max_dmg: 0
   accuracy: 0

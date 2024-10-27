@@ -109,7 +109,7 @@ class Hero
 
   def block_chance
     res_block_chance = @block_chance_base + @shield.block_chance + @weapon.block_chance
-    if @passive_skill.name == "Shield master" && @shield.name != "---without---"
+    if @passive_skill.name == "Shield master" && @shield.code != "without"
       res_block_chance += @passive_skill.block_chance_bonus
     end
     res_block_chance
