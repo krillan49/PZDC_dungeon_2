@@ -115,7 +115,7 @@ class Run
     if @enemy.code == 'boss' && !@hero_run_from_battle
       @exit_to_main = true
       @messages.main = 'Boss killed. To continue press Enter'
-      DeleteHeroInRun.new(@hero, false, @messages).add_camp_loot_and_delete_hero_file
+      DeleteHeroInRun.new(@hero, :dungeon_completed, @messages).add_camp_loot_and_delete_hero_file
       return
     end
     @hero.leveling += 1

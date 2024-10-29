@@ -51,7 +51,7 @@ class AttacksRound
             messages = MainMessage.new
             messages.main = "You are dead - you cowardly dog!"
             messages.log += @messages.log
-            DeleteHeroInRun.new(@hero, true, messages).add_camp_loot_and_delete_hero_file
+            DeleteHeroInRun.new(@hero, :game_over, messages).add_camp_loot_and_delete_hero_file
           end
         end
       end
@@ -240,7 +240,7 @@ class AttacksRound
       messages = MainMessage.new
       messages.main = "You're dead! To continue press Enter"
       messages.log += @messages.log
-      DeleteHeroInRun.new(@hero, true, messages).add_camp_loot_and_delete_hero_file
+      DeleteHeroInRun.new(@hero, :game_over, messages).add_camp_loot_and_delete_hero_file
     elsif @enemy.hp <= 0
       sleep_with_enemy_animation_speed()
       @messages.main = "#{@enemy.name} dead, victory!"

@@ -11,11 +11,11 @@ module GameEndConcern
   end
 
   def end_game_and_hero_died()
-    DeleteHeroInRun.new(@hero, true, @messages).add_camp_loot_and_delete_hero_file
+    DeleteHeroInRun.new(@hero, :game_over, @messages).add_camp_loot_and_delete_hero_file
   end
 
   def end_game_and_hero_alive()
-    DeleteHeroInRun.new(@hero, false, @messages).add_camp_loot_and_delete_hero_file
+    DeleteHeroInRun.new(@hero, :exit, @messages).add_camp_loot_and_delete_hero_file
   end
 
 end
