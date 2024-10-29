@@ -63,7 +63,17 @@ class HeroCreator
     if choose > 0 && choose <= heroes.length
       heroes[choose-1][0]
     else
-      @messages.main = 'You mixed up the numbers, you stupid drunk -5 HP -5 MP -10 accuracy'
+      @messages.main = 'You mixed up the numbers, you STUPID DRUNK!!! Press Enter to continue'
+      offset = 44
+      @messages.log = [
+        *(['']*8),
+        ' '*offset + ' DRUNK background stats is:',
+        ' '*offset + '----------------------------', '',
+        ' '*offset + ' HP                      85', '',
+        ' '*offset + ' MP                      85', '',
+        ' '*offset + ' DMG                    4-4', '',
+        ' '*offset + ' Accurasy                70'
+      ]
       MainRenderer.new(:messages_full_screen, entity: @messages).display
       gets
       'drunk'

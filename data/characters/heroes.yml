@@ -1,10 +1,10 @@
 drunk:
   n: 0
   name: Drunk
-  hp: 95
-  mp: 95
-  min_dmg: 5
-  max_dmg: 5
+  hp: 85
+  mp: 85
+  min_dmg: 4
+  max_dmg: 4
   armor_penetration: 0
   accurasy: 70
   armor: 0
