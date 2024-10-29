@@ -17,16 +17,35 @@ class Main
       MainRenderer.new(:start_game_screen).display
       choose = gets.strip
       if choose == '0'
-        puts "\e[H\e[2J"
-        exit
-      elsif choose == '2' # Лагерь
-        CampEngine.new.camp
+        exit_game()
+      elsif choose == '2'
+        camp()
       elsif choose == '3'
-        OptionsEngine.new.main
-      else # Забег
+        options()
+      elsif choose == '4'
+        credits()
+      else
         load_or_start_new_run()
       end
     end
+  end
+
+  def exit_game
+    puts "\e[H\e[2J"
+    exit
+  end
+
+  def camp
+    CampEngine.new.camp
+  end
+
+  def options
+    OptionsEngine.new.main
+  end
+
+  def credits
+    MainRenderer.new(:credits_screen).display
+    gets
   end
 
   def load_or_start_new_run
