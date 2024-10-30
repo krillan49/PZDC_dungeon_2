@@ -1,4 +1,4 @@
-class WariorsGraveEvent
+class WarriorsGraveEvent
   include DisplayScreenConcern
   include AmmunitionConcern
 
@@ -10,7 +10,7 @@ class WariorsGraveEvent
 
     @entity_type = 'events'
     @code_name = 'wariors_grave'
-    @path_art = "events/_wariors_grave"
+    @path_art = "events/_warriors_grave"
 
     @name = "Warior's Grave"
     @description1 = 'Old grave...'
@@ -48,7 +48,7 @@ class WariorsGraveEvent
       @messages.log << "\"Keep up the good work you still have to kill #{count} #{enemy_name}s\""
     end
     @messages.main = "Leave [Enter 0]"
-    display_message_screen()
+    display_message_screen(:clean)
     gets
   end
 
@@ -89,7 +89,7 @@ class WariorsGraveEvent
       @messages.log << "The warrior spirit is not happy, he took #{mp} MP from you"
     end
     @messages.main = "Leave [Enter 0]"
-    display_message_screen()
+    display_message_screen(:diged)
     gets
   end
 
@@ -104,7 +104,7 @@ class WariorsGraveEvent
     @messages.log << "After cleaning the grave you felt better, the warrior's spirit restored you 5 HP and 5 MP"
     @messages.log << "\"I see that you are also a warrior and could continue my work and cleanse these lands\""
     @messages.log << "\"If you kill #{count} #{enemy_name}s and go to any warrior's grave, you will receive a reward\""
-    display_message_screen()
+    display_message_screen(:clean)
     choose = gets.strip
     take_quest(enemy, count, level, enemy_name) if choose == '1'
   end
@@ -131,7 +131,7 @@ class WariorsGraveEvent
     @messages.clear_log
     @messages.main = "Leave [Enter 0]"
     @messages.log << "\"I immediately realized that you are one of us, let's cleanse these lands\""
-    display_message_screen()
+    display_message_screen(:clean)
     gets
   end
 

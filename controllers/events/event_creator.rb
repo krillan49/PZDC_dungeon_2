@@ -1,12 +1,12 @@
 class EventCreator
   STANDART_EVENT_CONSTANS = [
-    FieldLootEvent, SecretLootEvent, ExitRunEvent, GamblerEvent, AltarOfBloodEvent, WariorsGraveEvent,
+    FieldLootEvent, SecretLootEvent, ExitRunEvent, GamblerEvent, AltarOfBloodEvent, WarriorsGraveEvent,
     BlackMageEvent
   ]
   UNUSUAL_EVENT_CONSTANS = [BoatmanEugeneEvent, PigWithSaucepanEvent]
   RARE_EVENT_CONSTANS = [BridgeKeeperEvent]
 
-  # STANDART_EVENT_CONSTANS = [WariorsGraveEvent]*3
+  # STANDART_EVENT_CONSTANS = [WarriorsGraveEvent]*3
 
   def initialize(leveling, dungeon_name)
     @dungeon_name = dungeon_name
