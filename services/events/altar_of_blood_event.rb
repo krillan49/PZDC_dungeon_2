@@ -51,10 +51,14 @@ class AltarOfBloodEvent
     end
     choose = nil
     until arr.include?(choose)
-      display_message_screen()
+      display_message_screen(:adept)
       choose = gets.strip
     end
-    result(choose) if choose != '0'
+    if choose != '0'
+      result(choose)
+      display_message_screen(:adept_sacrifice)
+      gets
+    end
   end
 
   def common_sacrifice
@@ -64,8 +68,12 @@ class AltarOfBloodEvent
     @messages.log << "Spill blood (-30 HP) and receive gifts"
     display_message_screen()
     choose = gets.strip
-    random = %w[1 1 2 2 3].sample
-    result(random) if choose != '0'
+    if choose == '1'
+      random = %w[1 1 2 2 3].sample
+      result(random)
+      display_message_screen(:common_sacrifice)
+      gets
+    end
   end
 
   def result(choose)
@@ -86,8 +94,6 @@ class AltarOfBloodEvent
       @hero.add_dmg_base
     end
     @messages.log << "Bloody god for your blood gives you: #{gift}"
-    display_message_screen()
-    gets
   end
 
 end
