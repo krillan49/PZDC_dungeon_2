@@ -46,22 +46,26 @@ class GamblerEvent
       @hero.coins += coins
       @messages.log << "#{catch_chanse} >= 140. You caught the little one"
       @messages.log << "He had #{coins} coins in his pocket. What was yours became mine!!!"
+      art = :rob_success
     elsif catch_chanse < 100 && @hero.weapon.code != 'without'
       old_weapon_name = @hero.weapon.name
       @hero.weapon = Weapon.new('without')
       @messages.log << "#{catch_chanse} < 100. You didn't catch the little one"
       @messages.log << "The little guy not only ran away, but also stole #{old_weapon_name}"
       @messages.log << "What a disgrace and now there is nothing to kill myself with"
+      art = :rob_fail
     elsif catch_chanse < 120 && @hero.coins > 0
       coins = rand(1..@hero.coins)
       @hero.coins -= coins
       @messages.log << "#{catch_chanse} < 120. You didn't catch the little one"
       @messages.log << "The little guy not only ran away, but also stole #{coins} coins"
+      art = :rob_fail
     else
       @messages.log << "#{catch_chanse} < 140. You didn't catch the little one"
+      art = :rob_fail
     end
     @messages.main = "Press Enter to leave"
-    display_message_screen()
+    display_message_screen(art)
     gets
   end
 
@@ -77,7 +81,7 @@ class GamblerEvent
         @messages.main = "Your coins: #{@hero.coins}   Roll the dice [Enter 1]    Сatch and rob [Enter 2]    Leave [Enter 0]"
         @messages.log << "Lets play?!"
       end
-      display_message_screen(art)
+      art ? display_message_screen(art) : display_message_screen()
       @messages.clear_log
       choose = gets.strip
       if choose == '1' && @hero.coins > 0
