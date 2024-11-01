@@ -50,7 +50,7 @@ class BoatmanEugeneEvent
       @messages.log << "But you didn't notice it right away and kept trying to teach him. You lost 40 MP"
     end
     @messages.log << "You sailed to the same place. \"What's wrong with you?\" - you asked. \"Who are you and who am I\" - Evgeniy answered"
-    display_message_screen()
+    display_message_screen(:studyng)
     gets
   end
 
