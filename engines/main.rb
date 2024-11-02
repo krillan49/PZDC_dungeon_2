@@ -49,10 +49,12 @@ class Main
   end
 
   def load_or_start_new_run
+    boss = boss?()
+    @messages.main = boss ? '+ PZDC BOSS     [Enter 3] +' : ''
     choose = nil
     until choose == 0
       @hero = nil   # чтобы после выхода из load_run() не оставался загруженный герой
-      MainRenderer.new(:load_new_run_screen, arts: [ { dungeon_cave: :dungeon_enter } ] ).display
+      MainRenderer.new(:load_new_run_screen, entity: @messages, arts: [ { dungeon_cave: :dungeon_enter } ] ).display
       choose = gets.to_i
       if choose == 1
         load_run()
@@ -62,8 +64,15 @@ class Main
         start_new_run()
         @hero.statistics = StatisticsRun.new(@hero.dungeon_name, true) if @hero
         Run.new(@hero).start if @hero
+      elsif choose == 3 && boss
+        start_boss_run()
       end
     end
+  end
+
+  def boss?
+    sd = StatisticsTotal.new.data
+    sd['bandits']['bandit_leader'] > 0 && sd['undeads']['zombie_knight'] > 0 && sd['swamp']['ancient_snail'] > 0
   end
 
   def load_run
@@ -101,6 +110,11 @@ class Main
       # Создание нового персонажа
       @hero = HeroCreator.new(dungeon_name).create_new_hero
     end
+  end
+
+  def start_boss_run
+    p '============ BOSS =============='
+    gets
   end
 
 end

@@ -24,11 +24,11 @@ view:
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
   - "█                                               LOAD DUNGEON  [Enter 1]                                                █"
   - "█                                                                                                                      █"
   - "█                                               NEW DUNGEON   [Enter 2]                                                █"
+  - "█                                                                                                                      █"
+  - "█                                             AAAAAAAAAAAAAAAAAAAAAAAAAAA                                              █"
   - "█                                                                                                                      █"
   - "█                                               BACK          [Enter 0]                                                █"
   - "█                                                                                                                      █"
@@ -42,6 +42,12 @@ arts:
     x:
       - 3
       - 118
+insert_options:
+  29:
+    A:
+      methods:
+        - main
+      modifier: m
 
 
 
