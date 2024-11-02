@@ -220,7 +220,8 @@ class AttacksRound
     sleep_with_enemy_animation_speed()
     @messages.main = "#{@enemy.name} attacks"
     @messages.actions = ""
-    display_battle_screen_with_art(:attack)
+    art = @enemy_attack_type == "to the head" ? :attack_head : @enemy_attack_type == "in the legs" ? :attack_legs : :attack
+    display_battle_screen_with_art(art)
   end
   def enemy_hit_or_miss
     enemy_hit = @enemy_accuracy >= rand(1..100)
