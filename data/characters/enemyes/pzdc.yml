@@ -1,0 +1,74 @@
+e1:
+  code_name: stage_1_mimic
+  name: "PZDC Mimic"
+  hp: 100
+  min_dmg: 5
+  max_dmg: 5
+  armor_penetration: 0
+  accurasy: 80
+  armor: 0
+  regen_hp_base: 0
+  exp_gived: 10
+  coins_gived: 0
+  weapon:
+    - without
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shield:
+    - without
+  ingredients:
+    - without
+
+e2:
+  code_name: stage_2_thing
+  name: "PZDC Thing"
+  hp: 100
+  min_dmg: 5
+  max_dmg: 5
+  armor_penetration: 0
+  accurasy: 80
+  armor: 0
+  regen_hp_base: 0
+  exp_gived: 10
+  coins_gived: 0
+  weapon:
+    - without
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shield:
+    - without
+  ingredients:
+    - without
+
+e3:
+  code_name: stage_3_dog
+  name: "PZDC Dog"
+  hp: 100
+  min_dmg: 5
+  max_dmg: 5
+  armor_penetration: 0
+  accurasy: 80
+  armor: 0
+  regen_hp_base: 0
+  exp_gived: 10
+  coins_gived: 0
+  weapon:
+    - without
+  body_armor:
+    - without
+  head_armor:
+    - without
+  arms_armor:
+    - without
+  shield:
+    - without
+  ingredients:
+    - without
