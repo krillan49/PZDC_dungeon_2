@@ -10,7 +10,7 @@ class RunBoss
   end
 
   def start
-    monolith_gifts()
+    monolith_gifts() if @hero.exp == 0
     camp_fire_actions()
     loop do
       @messages.clear_log
