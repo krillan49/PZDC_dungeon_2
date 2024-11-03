@@ -103,6 +103,11 @@ class StatisticsTotal
         'spider' => 0,
         'orc' => 0,
         'ancient_snail' => 0
+      },
+      'pzdc' => {
+        'stage_1_mimic' => 0,
+        'stage_2_thing' => 0,
+        'stage_3_dog' => 0
       }
     }
   end

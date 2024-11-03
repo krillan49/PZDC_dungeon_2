@@ -116,7 +116,7 @@ class AttacksRound
   end
   #
   def enemy_select_type_of_attack
-    selected_type = rand(1..10)
+    selected_type = rand(1..4)
     case selected_type
     when 1; enemy_head_attack_type()
     when 2; enemy_legs_attack_type()

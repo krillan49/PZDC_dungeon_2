@@ -58,18 +58,18 @@ class Main
       choose = gets.to_i
       if choose == 1
         load_run()
-        @hero.statistics = StatisticsRun.new(@hero.dungeon_name) if @hero
-        Run.new(@hero).start if @hero
+        if @hero
+          @hero.statistics = StatisticsRun.new(@hero.dungeon_name)
+          @hero.dungeon_name == 'pzdc' ? RunBoss.new(@hero).start : Run.new(@hero).start
+        end
       elsif choose == 2
         start_new_run()
         @hero.statistics = StatisticsRun.new(@hero.dungeon_name, true) if @hero
         Run.new(@hero).start if @hero
       elsif choose == 3 && boss
         start_boss_run()
-
-        @hero = nil
-        p '============ BOSS =============='
-        gets
+        @hero.statistics = StatisticsRun.new(@hero.dungeon_name, true) if @hero
+        RunBoss.new(@hero).start if @hero
       end
     end
   end
