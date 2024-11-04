@@ -28,16 +28,22 @@ module HeroActions
   def self.add_exp_and_hero_level_up(hero, added_exp, messages) # получения нового опыта, уровня, очков характеристик и наыков
     hero.exp += added_exp
     messages.log << "You have gained #{added_exp} exp, now you have #{hero.exp} exp"
+    sum_new_levels = 0
     hero.exp_lvl.each.with_index do |exp_val, i|
       if hero.exp >= exp_val && hero.lvl < i
         new_levels = i - hero.lvl
         hero.stat_points += new_levels
         hero.skill_points += new_levels
         hero.lvl += new_levels
-        messages.log << "You have gained a new level, now your level is #{hero.lvl}"
-        messages.log << "You have gained #{new_levels} stat points and #{new_levels} skill points"
-        messages.log << "You have #{hero.stat_points} stat points and #{hero.skill_points} skill points"
+        sum_new_levels += new_levels
       end
     end
+    if sum_new_levels > 0
+      s = sum_new_levels > 1 ? 's' : ''
+      messages.log << "You have gained #{sum_new_levels} new level#{s}, now your level is #{hero.lvl}"
+      messages.log << "You have gained #{sum_new_levels} stat point#{s} and #{sum_new_levels} skill point#{s}"
+      messages.log << "Now you have #{hero.stat_points} stat point#{s} and #{hero.skill_points} skill point#{s}"
+    end
   end
+
 end
