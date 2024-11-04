@@ -45,7 +45,14 @@ class RunBoss
   end
 
   def enemy_mutation
+    @messages.main = 'Press Enter to continue'
     %i[normal mutation1 mutation2 mutation_final].each do |art|
+      @messages.log << case art
+      when :normal; @hero.leveling == 1 ? 'He died?' : 'Well, did he die this time?'
+      when :mutation1; @hero.leveling == 1 ? "It's moving..." : 'Comes back to life again?'
+      when :mutation2; @hero.leveling == 1 ? "What is this?" : 'This is disgusting'
+      when :mutation_final; 'Vile creature!'
+      end
       MainRenderer.new(
         :messages_screen,
         entity: @messages,
@@ -53,6 +60,7 @@ class RunBoss
       ).display
       gets
     end
+    @messages.clear_log
   end
 
   def enemy_choose
