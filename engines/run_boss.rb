@@ -1,11 +1,8 @@
 class RunBoss
   def initialize(hero)
     @hero = hero
-
     @enemy = nil
-    @hero_run_from_battle = false
     @messages = MainMessage.new
-
     @exit_to_main = false
   end
 
@@ -78,36 +75,25 @@ class RunBoss
   end
 
   def battle
-    @hero_run_from_battle = false
-    # lap = 1 # номер хода
-    while @enemy.hp > 0 && @hero_run_from_battle == false
+    while @enemy.hp > 0
       round = AttacksRound.new(@hero, @enemy, @attacks_round_messages)
       round.action
-      @hero_run_from_battle = round.hero_run?
       if round.hero_dead?
         @exit_to_main = true
         break
       end
-      # lap += 1
     end
   end
 
   def after_battle
-    if !@hero_run_from_battle
-      # статистика
-      @hero.statistics.add_enemy_to_data(@enemy.code_name)
-      # Сбор лута
-      EnemyLoot.new(@hero, @enemy, @messages).looting
-    end
+    @hero.statistics.add_enemy_to_data(@enemy.code_name) # статистика
+    EnemyLoot.new(@hero, @enemy, @messages).looting # Сбор лута
   end
 
   def boss_defeat
-    if !@hero_run_from_battle
-      @exit_to_main = true
-      @messages.main = 'Boss killed. To continue press Enter'
-      DeleteHeroInRun.new(@hero, :dungeon_completed, @messages).add_camp_loot_and_delete_hero_file
-      return
-    end
+    @exit_to_main = true
+    @messages.main = 'Boss killed. To continue press Enter'
+    DeleteHeroInRun.new(@hero, :dungeon_completed, @messages).add_camp_loot_and_delete_hero_file
   end
 
 end
