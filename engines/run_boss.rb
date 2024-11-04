@@ -28,8 +28,9 @@ class RunBoss
   def monolith_gifts
     exp = 150
     @messages.main = 'To continue press Enter'
-    @messages.log << "PZDC Monolith gives you #{exp} exp"
-    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ camp: :pzdc_monolith }]).display
+    @messages.log << "The creature that sits inside is very strong"
+    @messages.log << "That's why PZDC Monolith gives you #{exp} exp"
+    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ give: :pzdc_monolith }]).display
     @messages.clear_log
     gets
     HeroActions.add_exp_and_hero_level_up(@hero, exp, @messages)
