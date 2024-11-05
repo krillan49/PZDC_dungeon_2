@@ -51,3 +51,15 @@ rusty_scutum:
   min_dmg: 0
   max_dmg: 0
   price: 150
+
+
+# Unic
+
+living_shield:
+  name: "Living shield"
+  armor: 1
+  accuracy: 5
+  block_chance: 35
+  min_dmg: 1
+  max_dmg: 5
+  price: 300

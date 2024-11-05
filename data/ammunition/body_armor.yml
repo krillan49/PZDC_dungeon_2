@@ -39,3 +39,12 @@ chain_mail:
   armor: 3
   accuracy: -3
   price: 150
+
+
+# Unic
+
+living_jacket:
+  name: "Living jacket"
+  armor: 2
+  accuracy: 5
+  price: 150

@@ -45,3 +45,12 @@ barbute:
   armor: 4
   accuracy: -5
   price: 200
+
+
+# Unic
+
+living_hood:
+  name: "Living hood"
+  armor: 2
+  accuracy: 5
+  price: 200

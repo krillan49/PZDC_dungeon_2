@@ -161,6 +161,18 @@ rusty_longsword:
   price: 200
 
 
+# Unic
+
+living_whip:
+  name: "Living whip"
+  min_dmg: 1
+  max_dmg: 25
+  accuracy: 5
+  block_chance: 0
+  armor_penetration: 0
+  price: 300
+
+
 # Secret:
 
 bambuga:
