@@ -1,8 +1,38 @@
 view:
+  # - "   AAAAAAAAAAAAAAAAAAAAAAAAAA"
+  # - "                             "
+  # - "   HP AAA/BBB    HP-regen CCC"
+  # - "   MP AAA/BBB    MP-regen CCC"
+  # - "   Damage AAA-BBB            "
+  # - "   Penetration AAA           "
+  # - "   Accuracy AAA              "
+  # - "   Armor AAA                 "
+  # - "   Block chance AAA          "
+  # - "   Block power AAA %         "
+  # - "                             "
+  # - "                             "
+  # - "                             "
+  # - "           Ammunition        "
+  # - "                             "
+  # - "   Name                 Enter"
+  # - "                             "
+  # - "   AAAAAAAAAAAAAAAAAAAAA [A] "
+  # - "                             "
+  # - "   AAAAAAAAAAAAAAAAAAAAA [B] "
+  # - "                             "
+  # - "   AAAAAAAAAAAAAAAAAAAAA [C] "
+  # - "                             "
+  # - "   AAAAAAAAAAAAAAAAAAAAA [D] "
+  # - "                             "
+  # - "   AAAAAAAAAAAAAAAAAAAAA [E] "
+  # - "                             "
+  # - "                             "
+  # - "                             "
+
+  - "   AAAAAAAAAAAAAAAAAAAAAAAAAA"
   - "                             "
-  - " AAAAAAAAAAAAAAAAAAAAAAAAAAA "
-  - "   HP AAA/BBB    regen CCC   "
-  - "   MP AAA/BBB    regen CCC   "
+  - "   HP AAA/BBB    HP-regen CCC"
+  - "   MP AAA/BBB    MP-regen CCC"
   - "   Damage AAA-BBB            "
   - "   Penetration AAA           "
   - "   Accuracy AAA              "
@@ -11,25 +41,25 @@ view:
   - "   Block power AAA %         "
   - "                             "
   - "                             "
-  - "          AMMUNITION         "
   - "                             "
-  - "   AAAAAAAAAAAAAAAAAAAAAAAAA "
-  - "   [Enter A]                 "
+  - "           Ammunition        "
   - "                             "
-  - "   AAAAAAAAAAAAAAAAAAAAAAAAA "
-  - "   [Enter B]                 "
+  - "   Enter                Name "
   - "                             "
-  - "   AAAAAAAAAAAAAAAAAAAAAAAAA "
-  - "   [Enter C]                 "
+  - "   [A] AAAAAAAAAAAAAAAAAAAAA "
   - "                             "
-  - "   AAAAAAAAAAAAAAAAAAAAAAAAA "
-  - "   [Enter D]                 "
+  - "   [B] AAAAAAAAAAAAAAAAAAAAA "
   - "                             "
-  - "   AAAAAAAAAAAAAAAAAAAAAAAAA "
-  - "   [Enter E]                 "
+  - "   [C] AAAAAAAAAAAAAAAAAAAAA "
+  - "                             "
+  - "   [D] AAAAAAAAAAAAAAAAAAAAA "
+  - "                             "
+  - "   [E] AAAAAAAAAAAAAAAAAAAAA "
+  - "                             "
+  - "                             "
   - "                             "
 insert_options:
-  1:
+  0:
     A:
       methods:
         - name
@@ -97,36 +127,36 @@ insert_options:
         - block_power_in_percents
       modifier: m
 # AMMUNITION
-  14:
+  17:
     A:
       methods:
         - weapon
         - name
-      modifier: s
-  17:
+      modifier: e
+  19:
     A:
       methods:
         - head_armor
         - name
-      modifier: s
-  20:
+      modifier: e
+  21:
     A:
       methods:
         - body_armor
         - name
-      modifier: s
+      modifier: e
   23:
     A:
       methods:
         - arms_armor
         - name
-      modifier: s
-  26:
+      modifier: e
+  25:
     A:
       methods:
         - shield
         - name
-      modifier: s
+      modifier: e
 
 
 

@@ -74,7 +74,7 @@ class RunBoss
   def enemy_show
     @attacks_round_messages = AttacksRoundMessage.new
     @attacks_round_messages.main = 'To continue press Enter'
-    @attacks_round_messages.actions = "++++++++++++ Stage #{@hero.leveling+1} ++++++++++++"
+    @attacks_round_messages.actions = "Stage #{@hero.leveling+1}"
     choose = nil
     until [''].include?(choose)
       MainRenderer.new(:enemy_start_screen, @enemy, entity: @attacks_round_messages, arts: [{ normal: @enemy }]).display

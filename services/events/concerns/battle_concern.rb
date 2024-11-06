@@ -22,7 +22,7 @@ module BattleConcern
   def enemy_full_info_show
     @battle_messages = AttacksRoundMessage.new
     @battle_messages.main = 'To continue press Enter'
-    @battle_messages.actions = "++++++++++++ Event Battle ++++++++++++"
+    @battle_messages.actions = "Event Battle"
     choose = nil
     until [''].include?(choose)
       MainRenderer.new(:enemy_start_screen, @enemy, entity: @battle_messages, arts: [{ normal: @enemy }]).display
