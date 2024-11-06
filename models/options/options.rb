@@ -51,7 +51,7 @@ class Options
   def new_file_data
     {
       'enemy_actions_animation_speed' => 0.7,
-      'screen_replacement_type' => '\x1bc'
+      'screen_replacement_type' => "\x1bc"
     }
   end
 end
