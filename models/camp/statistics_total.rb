@@ -3,24 +3,31 @@ class StatisticsTotal
   # show:
   BOSES = %w[bandit_leader zombie_knight ancient_snail]
   DESCRIPTIONS = {
+    # bandits
     'rabble' => {'kill' => 50, 'get' => 'Permanent weapon "Stick"'},
     'rabid_dog' => {'kill' => 50, 'get' => '+2 HP'},
     'poacher' => {'kill' => 50, 'get' => '+1 accuracy'},
     'thug' => {'kill' => 50, 'get' => '+5 HP'},
     'deserter' => {'kill' => 50, 'get' => '+1 stat point'},
     'bandit_leader' => {'kill' => 5, 'get' => '+1 skill point'},
+    # undead
     'zombie' => {'kill' => 50, 'get' => 'Permanent "Worn gloves"'},
     'skeleton' => {'kill' => 50, 'get' => '+3 MP'},
     'ghost' => {'kill' => 50, 'get' => '+1 accuracy'},
     'fat_ghoul' => {'kill' => 50, 'get' => '+7 HP'},
     'skeleton_soldier' => {'kill' => 50, 'get' => '+3 block chance'},
     'zombie_knight' => {'kill' => 5, 'get' => '+1 MP-regen'},
+    # swamp
     'leech' => {'kill' => 50, 'get' => '+3 MP'},
     'goblin' => {'kill' => 50, 'get' => 'Permanent "Holey wicker buckler"'},
     'sworm' => {'kill' => 50, 'get' => '+3 HP'},
     'spider' => {'kill' => 50, 'get' => '+1 accuracy'},
     'orc' => {'kill' => 50, 'get' => '+1 max damage'},
-    'ancient_snail' => {'kill' => 5, 'get' => '+1 armor'}
+    'ancient_snail' => {'kill' => 5, 'get' => '+1 armor'},
+    # pzdc
+    'stage_1_mimic' => {'kill' => 0, 'get' => '---'},
+    'stage_2_thing' => {'kill' => 0, 'get' => '---'},
+    'stage_3_dog' => {'kill' => 0, 'get' => '---'}
   }
 
   attr_reader :data

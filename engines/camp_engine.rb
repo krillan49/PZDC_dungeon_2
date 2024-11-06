@@ -11,7 +11,7 @@ class CampEngine
   def camp
     choose = nil
     until choose == 0
-      MainRenderer.new(:camp_screen, entity: @messages).display
+      MainRenderer.new(:camp_screen).display
       choose = gets.to_i
       if choose == 1
         pzdc_monolith()
@@ -75,16 +75,30 @@ class CampEngine
 
   def statistics
     choose = nil
+    if boss?()
+      dungeon_nums = (1..4)
+      @messages.main = 'PZDC BOSS       [Enter 4]'
+    else
+      dungeon_nums = (1..3)
+      @messages.main = ''
+    end
     until choose == 0
-      MainRenderer.new(:statistics_choose_screen).display
+      MainRenderer.new(:statistics_choose_screen, entity: @messages).display
       choose = gets.to_i
-      if choose >= 1 && choose <= 3
-        dungeon_code = %w[bandits undeads swamp][choose-1]
+      if dungeon_nums.include?(choose)
+        dungeon_code = %w[bandits undeads swamp pzdc][choose-1]
         @statistics.create_subdatas(dungeon_code: dungeon_code)
         MainRenderer.new(:statistics_enemyes_camp_screen, entity: @statistics).display
         gets
       end
     end
+  end
+
+  private
+
+  def boss?
+    sd = @statistics.data
+    sd['bandits']['bandit_leader'] > 0 && sd['undeads']['zombie_knight'] > 0 && sd['swamp']['ancient_snail'] > 0
   end
 
 end
