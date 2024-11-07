@@ -1,12 +1,12 @@
 view:
-  - " BBBBBBBBBBBBBBBBBBBBBBBBB (combat skill)         AAA lvl                                                   CCCCCCCCC "
-  - " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA "
-  - "──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────"
-  - " BBBBBBBBBBBBBBBBBBBBBBBBB (combat skill)         AAA lvl                                                   CCCCCCCCC "
-  - " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA "
-  - "──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────"
-  - " BBBBBBBBBBBBBBBBBBBBBBBBB (camp skill)           AAA lvl                                                   CCCCCCCCC "
-  - " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA "
+  - "   BBBBBBBBBBBBBBBBBBBBBBBBB(combat skill)                            AAA lvl                             CCCCCCCCC   "
+  - "   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA   "
+  - "  ------------------------------------------------------------------------------------------------------------------  "
+  - "   BBBBBBBBBBBBBBBBBBBBBBBBB(combat skill)                            AAA lvl                             CCCCCCCCC   "
+  - "   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA   "
+  - "  ------------------------------------------------------------------------------------------------------------------  "
+  - "   BBBBBBBBBBBBBBBBBBBBBBBBB(camp   skill)                            AAA lvl                             CCCCCCCCC   "
+  - "   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA   "
 insert_options:
   0:
     A:

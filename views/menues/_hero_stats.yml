@@ -1,32 +1,32 @@
 view:
+  - "   AAAAAAAAAAAAAAAAAAAAAAAAAAA  lvl BBB     exp CCC/DDD       coins EEE   "
+  - "  ----------------------------------------------------------------------  "
+  - "   Stat points  AAA                                    Skill points BBB   "
   - "                                                                          "
-  - " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA    lvl BBB    exp CCCC/DDDD    coins EEEE "
-  - "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-  - "   Stat points  AAA                         Skill points BBB              "
+  - "                     ------------ STATS ------------                      "
   - "                                                                          "
-  - "   HP AAA/BBB              HP-regen CCC               HP-recovery DDD     "
-  - "   MP AAA/BBB              MP-regen CCC               MP-recovery DDD     "
+  - "   HP AAA/BBB                HP-regen CCC               HP-recovery DDD   "
+  - "   MP AAA/BBB                MP-regen CCC               MP-recovery DDD   "
   - "                                                                          "
-  - "   Damage     AAA-BBB (  basic CCC-DDD)     Penetration  EEE              "
-  - "   Accuracy     AAA   (  basic   BBB  )                                   "
-  - "   Armor        AAA   (  basic   BBB  )                                   "
-  - "   Block chance AAA                         Block power  BBB %            "
+  - "   Damage     AAA-BBB / basic CCC-DDD                  Penetration  EEE   "
+  - "   Accuracy      AAA  / basic   BBB                                       "
+  - "   Armor         AAA  / basic   BBB                                       "
+  - "   Block chance  AAA                                 Block power  BBB %   "
   - "                                                                          "
-  - "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-  - "                               AMMUNITION                                 "
+  - "                     ---------- AMMUNITION ----------                     "
   - "                                                                          "
-  - "   [Enter A]   Weapon    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
-  - "   [Enter B]   Head      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
-  - "   [Enter C]   Body      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
-  - "   [Enter D]   Arms      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
-  - "   [Enter E]   Shield    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
+  - "   [Enter A]   Weapon    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA   "
+  - "   [Enter B]   Head      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA   "
+  - "   [Enter C]   Body      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA   "
+  - "   [Enter D]   Arms      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA   "
+  - "   [Enter E]   Shield    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA   "
   - "                                                                          "
 insert_options:
-  1:
+  0:
     A:
       methods:
         - name
-      modifier: m
+      modifier: s
     B:
       methods:
         - lvl
@@ -42,8 +42,8 @@ insert_options:
     E:
       methods:
         - coins
-      modifier: s
-  3:
+      modifier: e
+  2:
     A:
       methods:
         - stat_points
@@ -52,7 +52,7 @@ insert_options:
       methods:
         - skill_points
       modifier: e
-  5:
+  6:
     A:
       methods:
         - hp
@@ -71,7 +71,7 @@ insert_options:
         - recovery_hp
         - round
       modifier: m
-  6:
+  7:
     A:
       methods:
         - mp
@@ -90,7 +90,7 @@ insert_options:
         - recovery_mp
         - round
       modifier: m
-  8:
+  9:
     A:
       methods:
         - min_dmg
@@ -111,7 +111,7 @@ insert_options:
       methods:
         - armor_penetration
       modifier: e
-  9:
+  10:
     A:
       methods:
         - accuracy
@@ -120,7 +120,7 @@ insert_options:
       methods:
         - accuracy_base
       modifier: m
-  10:
+  11:
     A:
       methods:
         - armor
@@ -129,7 +129,7 @@ insert_options:
       methods:
         - armor_base
       modifier: e
-  11:
+  12:
     A:
       methods:
         - block_chance
@@ -138,6 +138,7 @@ insert_options:
       methods:
         - block_power_in_percents
       modifier: e
+# AMMUNITION
   16:
     A:
       methods:
