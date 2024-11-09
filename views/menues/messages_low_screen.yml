@@ -1,36 +1,77 @@
 view:
   - "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█"
-  - "█                                                                                                                      █"
-  - "█                                                    C R E D I T S                                                     █"
-  - "█                                                   ===============                                                    █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                     GAME DESIGN                                                      █"
-  - "█                                                   ---------------                                                    █"
-  - "█                                                      krillan49                                                       █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                     PROGRAMMING                                                      █"
-  - "█                                                   ---------------                                                    █"
-  - "█                                                 krillan49, AndriiKot                                                 █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                     ART DESIGN                                                       █"
-  - "█                                                   ---------------                                                    █"
-  - "█                                                 BBkrabbe, krillan49                                                  █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                     QA TESTING                                                       █"
-  - "█                                                   ---------------                                                    █"
-  - "█                                                 krillan49, BBkrabbe                                                  █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
-  - "█                                                    FEEDBACK DATA                                                     █"
-  - "█                                                   ---------------                                                    █"
-  - "█                        Public project repository: https://github.com/krillan49/PZDC_dungeon_2                        █"
+  - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
-  - "█                                               BACK TO MENU   [Enter 0]                                               █"
   - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█                                                                                                                      █"
+  - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
+  - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
+  - "█ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA █"
   - "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█"
+arts:
+  -
+    y:
+      - 6
+      - 26
+    x:
+      - 3
+      - 115
+insert_options:
+  1:
+    A:
+      methods:
+        - main
+      modifier: m
+  31:
+    A:
+      methods:
+        - log_0
+      modifier: m
+  32:
+    A:
+      methods:
+        - log_1
+      modifier: m
+  33:
+    A:
+      methods:
+        - log_2
+      modifier: m
+
+
+
+
+
+
+
+
+
+
+
+#

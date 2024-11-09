@@ -102,7 +102,7 @@ class RunBoss
   def boss_defeat
     @exit_to_main = true
     @messages.main = 'Boss killed. To continue press Enter'
-    DeleteHeroInRun.new(@hero, :dungeon_completed, @messages).add_camp_loot_and_delete_hero_file
+    DeleteHeroInRun.new(@hero, :game_completed, @messages).add_camp_loot_and_delete_hero_file
   end
 
 end

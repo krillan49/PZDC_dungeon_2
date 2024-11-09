@@ -9,7 +9,13 @@ class DeleteHeroInRun
   end
 
   def add_camp_loot_and_delete_hero_file
-    %i[game_over dungeon_completed].include?(@game_status) ? display_with_status() : display()
+    if @game_status == :game_completed
+      display_game_completed()
+    elsif %i[game_over dungeon_completed game_completed].include?(@game_status)
+      display_with_status()
+    else
+      display_statistics()
+    end
     if @hero.name != 'Cheater'
       add_camp_loot()
       StatisticsTotal.new.add_from_run(@hero.statistics.data)
@@ -40,14 +46,21 @@ class DeleteHeroInRun
 
   private
 
-  def display_with_status
-    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ @game_status => :game_over }]).display
+  def display_game_completed
+    MainRenderer.new(:messages_low_screen, entity: @messages, arts: [{ @game_status => :game_over }]).display
     gets
-    MainRenderer.new(:statistics_enemyes_screen, entity: @hero.statistics).display
+    display_statistics()
+    MainRenderer.new(:credits_screen).display
     gets
   end
 
-  def display
+  def display_with_status
+    MainRenderer.new(:messages_screen, entity: @messages, arts: [{ @game_status => :game_over }]).display
+    gets
+    display_statistics()
+  end
+
+  def display_statistics
     MainRenderer.new(:statistics_enemyes_screen, entity: @hero.statistics).display
     gets
   end
