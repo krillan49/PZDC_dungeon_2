@@ -24,7 +24,7 @@ class HeroCreator
     while !name
       @messages.main = 'Enter character name' if @messages.main == ''
       @messages.log << 'The character name must contain at least 1 letter and be no more than 20 characters'
-      MainRenderer.new(:messages_screen, entity: @messages).display
+      MainRenderer.new(:messages_screen, entity: @messages, arts: [{ scroll: :choose_name }]).display
       input_name = gets.strip
       if !input_name.match?(/[a-zA-Zа-яА-Я]/)
         @messages.main = "#{input_name} is an incorrect name. The name must contain at least one letter"
