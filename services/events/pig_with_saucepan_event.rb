@@ -50,12 +50,12 @@ class PigWithSaucepanEvent
     if @hero.coins < price
       @messages.main = "Your coins: #{@hero.coins}    Сatch and rob [Enter 1]       Leave [Enter 0]"
       @messages.log << "You have no #{price} coins, and cant buy Sallet"
-      display_message_screen()
+      display_message_screen(:buy)
       choose = gets.strip
       rob() if choose == '1'
     else
       @messages.main = "Your coins: #{@hero.coins}   Buy for #{price} coins [Enter 1]   Сatch and rob [Enter 2]   Leave [Enter 0]"
-      display_message_screen()
+      display_message_screen(:buy)
       choose = gets.strip
       if choose == '1'
         @hero.coins -= price
@@ -75,18 +75,21 @@ class PigWithSaucepanEvent
       @messages.log << "#{catch_chanse} >= 170. You caught the pigman"
       @messages.log << "Now Sallet is yours, and the pigman can be used for meat"
       mes = 'view Sallet'
+      art = :catch
     elsif catch_chanse < 130 && @hero.coins > 0
       coins = rand(1..@hero.coins)
       @hero.coins -= coins
       @messages.log << "#{catch_chanse} < 130. You didn't catch the pigman"
-      @messages.log << "The pigman not only ran away, but also stole #{coins} coins"
+      @messages.log << "The pigman not only run away, but also stole #{coins} coins"
       mes = 'leave'
+      art = :run
     else
       @messages.log << "#{catch_chanse} < 170. You didn't catch the pigman"
       mes = 'leave'
+      art = :run
     end
     @messages.main = "Press Enter to #{mes}"
-    display_message_screen()
+    display_message_screen(art)
     gets
     take_sallet() if mes == 'view Sallet'
   end
