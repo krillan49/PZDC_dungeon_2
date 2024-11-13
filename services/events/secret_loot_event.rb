@@ -31,8 +31,8 @@ class SecretLootEvent
     else
       @messages.log << "Random luck is #{@loot_chanse}..."
     end
-    if @loot_chanse >= 180
-      @messages.log << "...more then 180"
+    if @loot_chanse >= 150
+      @messages.log << "...more then 150"
       stash_magic_treasure = rand(1..32)
       case stash_magic_treasure
       when (..10); hp_elixir()
@@ -45,7 +45,7 @@ class SecretLootEvent
       when 32; unicorn_elixir()
       end
     else
-      @messages.log << "...lower then 180"
+      @messages.log << "...lower then 150"
       nothing()
     end
     @messages.main = 'To continue press Enter'

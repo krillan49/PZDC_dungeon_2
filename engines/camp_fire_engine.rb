@@ -106,7 +106,7 @@ class CampFireEngine
       @messages.log << 'You dont have active camp skill'
     end
     @messages.log += messages_skill.log
-    @messages.log.shift if @messages.log.length > 3
+    @messages.log.shift while @messages.log.length > 3
   end
 
   def enchance_ammunition
