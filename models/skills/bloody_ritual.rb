@@ -2,6 +2,7 @@ class BloodyRitual
   BASIC_MOD = 1
   LVL_MOD = 0.1
   HERO_MP_MOD = 0.2
+  MIN_EFFECT = 10
 
   attr_accessor :lvl
   attr_reader :code, :name
@@ -22,7 +23,7 @@ class BloodyRitual
   end
 
   def restore_effect
-    (@hero.mp_max - @hero.mp) * HERO_MP_MOD * coeff_lvl()
+    [[@hero.mp_max - @hero.mp, MIN_EFFECT].min, (@hero.mp_max - @hero.mp) * HERO_MP_MOD * coeff_lvl()].max
   end
 
   def show_cost
@@ -30,10 +31,10 @@ class BloodyRitual
   end
 
   def description
-    "Restores #{restore_effect().round} MP, the more MP lost, the greater the effect(#{(HERO_MP_MOD * coeff_lvl() * 100).round}%)"
+    "Restores #{restore_effect().round} MP, the more MP lost, the greater the effect(#{(HERO_MP_MOD * coeff_lvl() * 100).round}%). Restores minimum #{MIN_EFFECT} MP"
   end
 
   def description_short
-    "Cost #{@hp_cost} HP. Restores MP, the more MP lost, the greater the effect"
+    "Cost #{@hp_cost} HP. Restores MP, the more MP lost, the greater the effect. Restores minimum #{MIN_EFFECT} MP"
   end
 end

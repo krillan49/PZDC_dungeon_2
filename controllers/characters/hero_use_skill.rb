@@ -15,17 +15,21 @@ module HeroUseSkill
   def self.first_aid(hero, messages)
     noncombat_choice = nil
     until ['', '0', 'N'].include?(noncombat_choice)
-      if hero.mp >= hero.camp_skill.mp_cost
+      if hero.mp >= hero.camp_skill.mp_cost && hero.hp_max > hero.hp
         messages.main = "USE \"#{hero.camp_skill.name.upcase}\"  [Enter Y]        BACK TO CAMP FIRE OPTIONS  [Enter N]"
         messages.log << "Use #{hero.camp_skill.name}, to restore #{hero.camp_skill.restore_effect.round} HP for 10 MP?"
       else
         messages.main = 'BACK TO CAMP FIRE OPTIONS  [Enter 0]'
-        messages.log << "Not enough MP for next use of \"#{hero.camp_skill.name}\""
+        if hero.hp_max > hero.hp
+          messages.log << "Not enough MP for next use of \"#{hero.camp_skill.name}\""
+        else
+          messages.log << "You dont need use #{hero.camp_skill.name}"
+        end
       end
       self.display(hero, messages)
       noncombat_choice = gets.strip.upcase
       messages.log.pop
-      if hero.mp >= hero.camp_skill.mp_cost && noncombat_choice == "Y"
+      if noncombat_choice == "Y" && hero.mp >= hero.camp_skill.mp_cost && hero.hp_max > hero.hp
         effect_message = hero.camp_skill.restore_effect.round
         hero.hp += hero.camp_skill.restore_effect
         hero.mp -= hero.camp_skill.mp_cost
@@ -38,17 +42,21 @@ module HeroUseSkill
   def self.bloody_ritual(hero, messages)
     noncombat_choice = nil
     until ['', '0', 'N'].include?(noncombat_choice)
-      if hero.hp > hero.camp_skill.hp_cost
+      if hero.hp > hero.camp_skill.hp_cost && hero.mp_max > hero.mp
         messages.main = "USE \"#{hero.camp_skill.name.upcase}\"  [Enter Y]        BACK TO CAMP FIRE OPTIONS  [Enter N]"
         messages.log << "Use #{hero.camp_skill.name}, to restore #{hero.camp_skill.restore_effect.round} MP for 10 HP?"
       else
         messages.main = 'BACK TO CAMP FIRE OPTIONS  [Enter 0]'
-        messages.log << "Not enough HP for next use of \"#{hero.camp_skill.name}\""
+        if hero.mp_max > hero.mp
+          messages.log << "Not enough HP for next use of \"#{hero.camp_skill.name}\""
+        else
+          messages.log << "You dont need use #{hero.camp_skill.name}"
+        end
       end
       self.display(hero, messages)
       noncombat_choice = gets.strip.upcase
       messages.log.pop
-      if hero.hp > hero.camp_skill.hp_cost && noncombat_choice == "Y"
+      if noncombat_choice == "Y" && hero.hp > hero.camp_skill.hp_cost && hero.mp_max > hero.mp
         effect_message = hero.camp_skill.restore_effect.round
         hero.mp += hero.camp_skill.restore_effect
         hero.hp -= hero.camp_skill.hp_cost
