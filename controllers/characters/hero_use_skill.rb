@@ -6,8 +6,8 @@ module HeroUseSkill
       self.bloody_ritual(hero, messages)
     else
       messages.main = 'BACK TO CAMP FIRE OPTIONS  [Enter 0]'
-      messages.log << "You dont need use #{hero.camp_skill.name}. Your HP #{hero.hp}/#{hero.hp_max}, your MP #{hero.mp}/#{hero.mp_max}"
-      MainRenderer.new(:messages_screen, entity: messages, arts: [{ camp_fire: :rest }]).display
+      messages.log << "You dont need use #{hero.camp_skill.name}"
+      self.display(hero, messages)
       gets
     end
   end
@@ -17,12 +17,12 @@ module HeroUseSkill
     until ['', '0', 'N'].include?(noncombat_choice)
       if hero.mp >= hero.camp_skill.mp_cost
         messages.main = "USE \"#{hero.camp_skill.name.upcase}\"  [Enter Y]        BACK TO CAMP FIRE OPTIONS  [Enter N]"
-        messages.log << "You have #{hero.hp.round}/#{hero.hp_max} HP and #{hero.mp.round}/#{hero.mp_max} MP. Use #{hero.camp_skill.name}, to restore #{hero.camp_skill.restore_effect.round} HP for 10 MP?"
+        messages.log << "Use #{hero.camp_skill.name}, to restore #{hero.camp_skill.restore_effect.round} HP for 10 MP?"
       else
         messages.main = 'BACK TO CAMP FIRE OPTIONS  [Enter 0]'
         messages.log << "Not enough MP for next use of \"#{hero.camp_skill.name}\""
       end
-      MainRenderer.new(:messages_screen, entity: messages, arts: [{ camp_fire: :rest }]).display
+      self.display(hero, messages)
       noncombat_choice = gets.strip.upcase
       messages.log.pop
       if hero.mp >= hero.camp_skill.mp_cost && noncombat_choice == "Y"
@@ -40,12 +40,12 @@ module HeroUseSkill
     until ['', '0', 'N'].include?(noncombat_choice)
       if hero.hp > hero.camp_skill.hp_cost
         messages.main = "USE \"#{hero.camp_skill.name.upcase}\"  [Enter Y]        BACK TO CAMP FIRE OPTIONS  [Enter N]"
-        messages.log << "You have #{hero.hp.round}/#{hero.hp_max} HP and #{hero.mp.round}/#{hero.mp_max} MP. Use #{hero.camp_skill.name}, to restore #{hero.camp_skill.restore_effect.round} MP for 10 HP?"
+        messages.log << "Use #{hero.camp_skill.name}, to restore #{hero.camp_skill.restore_effect.round} MP for 10 HP?"
       else
         messages.main = 'BACK TO CAMP FIRE OPTIONS  [Enter 0]'
         messages.log << "Not enough HP for next use of \"#{hero.camp_skill.name}\""
       end
-      MainRenderer.new(:messages_screen, entity: messages, arts: [{ camp_fire: :rest }]).display
+      self.display(hero, messages)
       noncombat_choice = gets.strip.upcase
       messages.log.pop
       if hero.hp > hero.camp_skill.hp_cost && noncombat_choice == "Y"
@@ -56,6 +56,10 @@ module HeroUseSkill
       end
       messages.log.shift while messages.log.length > 5
     end
+  end
+
+  def self.display(hero, messages)
+    MainRenderer.new(:camp_skill_screen, hero, entity: messages, arts: [{ camp_fire: :rest }]).display
   end
 
 end
