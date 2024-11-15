@@ -35,7 +35,7 @@ class SecretLootEvent
       @messages.log << "...more then 150"
       stash_magic_treasure = rand(1..32)
       case stash_magic_treasure
-      when (..10); hp_elixir()
+      when (0..10); hp_elixir()
       when (11..20); mp_elixir()
       when (21..25); accuracy_elixir()
       when (26..27); book_of_knowledge()

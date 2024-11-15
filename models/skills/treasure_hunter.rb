@@ -1,6 +1,6 @@
 class TreasureHunter
-  BASIC_MOD = 50
-  LVL_MOD = 5
+  BASIC_MOD = 30
+  LVL_MOD = 10
 
   attr_accessor :lvl
   attr_reader :code, :name

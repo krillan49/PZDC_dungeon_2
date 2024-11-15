@@ -56,7 +56,7 @@ class WarriorsGraveEvent
     @hero.events_data['wariors_grave']['taken'] = 0
     message = "\"You did a great job #{event_enemy_count} #{enemy_name}s is killed, here is your reward\""
     random_weapon_code = if @hero.events_data['wariors_grave']['level'] == 1
-      (['sword']*4 + ['hatchet'] + ['falchion']).sample
+      (['sword']*4 + ['hatchet']).sample
     else
       ['falchion', 'pernach', 'axe', 'flail'].sample
     end
@@ -75,7 +75,7 @@ class WarriorsGraveEvent
   end
 
   def dig_grave
-    random_weapon_code = (['rusty_hatchet']*4 + ['rusty_sword']*2 + ['rusty_falchion']).sample
+    random_weapon_code = (['rusty_hatchet']*6 + ['rusty_sword']*3 + ['rusty_falchion']).sample
     weapon_name = random_weapon_code.split('_').join(' ').capitalize
     message = "You dug up a grave and #{weapon_name} there, should we take it or bury it back?"
     change = ammunition_loot(ammunition_type: 'weapon', ammunition_code: random_weapon_code, message: message)

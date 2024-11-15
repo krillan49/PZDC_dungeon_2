@@ -7,16 +7,24 @@ class EnemyLoot
   end
 
   def looting
-    weapon_loot() if rand(0..1) == 1 && @enemy.weapon.code != "without"
-    body_armor_loot() if rand(0..1) == 1 && @enemy.body_armor.code != "without"
-    head_armor_loot() if rand(0..1) == 1 && @enemy.head_armor.code != "without"
-    arms_armor_loot() if rand(0..1) == 1 && @enemy.arms_armor.code != "without"
-    shield_loot() if rand(0..1) == 1 && @enemy.shield.code != "without"
+    weapon_loot() if loot_drop?() && @enemy.weapon.code != "without"
+    body_armor_loot() if loot_drop?() && @enemy.body_armor.code != "without"
+    head_armor_loot() if loot_drop?() && @enemy.head_armor.code != "without"
+    arms_armor_loot() if loot_drop?() && @enemy.arms_armor.code != "without"
+    shield_loot() if loot_drop?() && @enemy.shield.code != "without"
     coins_loot() if @enemy.coins_gived > 0
     ingredients_loot() if @enemy.ingredients != "without" #&& rand(0..1) == 1
   end
 
   private
+
+  def loot_drop?
+    if @hero.camp_skill.code == 'treasure_hunter'
+      rand(0..1) == 1 || rand(0..150) < @hero.camp_skill.coeff_lvl
+    else
+      rand(0..1) == 1
+    end
+  end
 
   def weapon_loot
     @messages.main = "After searching the #{@enemy.name}'s body you found #{@enemy.weapon.name}"

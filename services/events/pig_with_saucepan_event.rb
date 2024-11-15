@@ -42,7 +42,7 @@ class PigWithSaucepanEvent
     @messages.log << "Acorn? Do you think pigmen are idiots? You can eat from this saucepan and then shit in it"
     price = 15
     if @hero.camp_skill.code == 'treasure_hunter'
-      discount = @hero.camp_skill.coeff_lvl * 0.5
+      discount = [@hero.camp_skill.coeff_lvl * 0.5, 90].min
       price = (price * (100 - discount) * 0.01).round
       @messages.log << "Treasure Hunter skill check #{@hero.camp_skill.coeff_lvl} => you get a #{discount.round}% discount"
     end
