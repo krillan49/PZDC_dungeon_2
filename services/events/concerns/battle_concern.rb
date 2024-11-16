@@ -9,7 +9,7 @@ module BattleConcern
     enemy_short_info_show(message)
     enemy_full_info_show()
     course_of_battle()
-    after_battle()
+    after_battle() if @hero.hp > 0 
   end
 
   def enemy_short_info_show(message='Event enemy')
