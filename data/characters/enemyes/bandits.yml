@@ -1,9 +1,9 @@
 e1:
   code_name: rabble
   name: Rabble
-  hp: 80
-  min_dmg: 1
-  max_dmg: 5
+  hp: 70
+  min_dmg: 2
+  max_dmg: 3
   armor_penetration: 0
   accurasy: 60
   armor: 0
