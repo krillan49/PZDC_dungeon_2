@@ -30,20 +30,24 @@ class AttacksRound
 
   def hero_run?
     if @hero.hp < (@hero.hp_max * 0.15) && @hero.hp > 0 && @enemy.hp > 0
+      @messages.clear_log
       @messages.main = 'You are on the threshold of death'
       @messages.actions = 'Try to escape? (y/N)'
       display_battle_screen_with_art(:normal)
       run_select = gets.strip.upcase
       if run_select == 'Y'
-        if rand(0..2) >= 10
-          @messages.actions = 'Managed to escape'
+        run_chance = rand(0..40) + rand(0..40) + rand(0..40) + rand(0..40)
+        @messages.actions = 'To continue press Enter'
+        @messages.log << "Random run chance = #{run_chance}, #{@enemy.name}'s accuracy = #{@enemy.accuracy}"
+        if run_chance > @enemy.accuracy
+          @messages.main = 'Managed to escape'
           @messages.log << "The coward ran away"
           display_battle_screen_with_art(:attack)
+          gets
           return true
         else
           @hero.hp -= @enemy_damage
           @messages.main = 'Failed to escape'
-          @messages.actions = 'To continue press Enter'
           @messages.log << "#{@enemy.name} dealt #{@enemy_damage.round} damage"
           display_battle_screen_with_art(:attack)
           gets
