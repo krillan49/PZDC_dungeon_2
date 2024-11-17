@@ -35,7 +35,7 @@ class FirstAid
   end
 
   def description_short
-    "Cost #{@mp_cost} MP. Restores HP, the more HP lost, the greater the effect. Restores minimum #{MIN_EFFECT} HP"
+    "Cost #{@mp_cost} MP. Restores HP, the more HP lost, the greater the effect"
   end
 end
 

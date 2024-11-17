@@ -31,7 +31,7 @@ class AltarOfBloodEvent
   private
 
   def no_blood
-    @messages.main = "You have only #{@hero.hp} HP. Press Enter to exit"
+    @messages.main = "You have only #{@hero.hp.round} HP. Press Enter to exit"
     @messages.log << "The altar doesn't speak to you, maybe you don't have enough blood"
     display_message_screen()
     gets

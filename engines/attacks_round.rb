@@ -193,15 +193,16 @@ class AttacksRound
   def hero_after_hit_passive_slill_effects
     case @hero.passive_skill.name
     when "Concentration"
-      damage_bonus = @hero.passive_skill.damage_bonus # чтобы далее был одинаковый
+      damage_bonus = @hero.passive_skill.damage_bonus
       if @hero_hit && damage_bonus > 0
         @enemy.hp -= damage_bonus
         @messages.log[-1] += ", additional damage from concentration #{damage_bonus.round(1)}"
       end
     when "Dazed"
-      if @hero_hit && @hero_damage * @hero.passive_skill.accuracy_reduce_coef > (@enemy.hp + @hero_damage) / 2 # прибавляется дамаг который отнялся выше для подсчета эффекта ошеломления
-        @enemy_accuracy *= 0.1 * rand(1..9)
-        @messages.log[-1] += " and dazed, reducing accuracy to #{(@enemy.accuracy * 0.1 * rand(1..9)).round}"
+      if @hero_hit && @hero_damage * @hero.passive_skill.hp_part_coef > @enemy.hp / 2
+        accuracy_reduce_coef = @hero.passive_skill.accuracy_reduce_coef
+        @enemy_accuracy *= accuracy_reduce_coef
+        @messages.log[-1] += " and dazed, reducing accuracy to #{(@enemy.accuracy * accuracy_reduce_coef).round}"
       end
     end
   end
