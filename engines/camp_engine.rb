@@ -38,6 +38,7 @@ class CampEngine
   end
 
   def shop
+    @shop.fill
     choose = nil
     buttons = %w[A B C D E F G H I J K L M N O V W X Y Z]
     until ['0', ''].include?(choose)

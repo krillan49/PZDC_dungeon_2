@@ -2,11 +2,30 @@ class Shop
   PATH = 'saves/shop.yml'
   SELL_CHANCE = 3
   MAX_CAPACITY = 3
+  ITEMS_FOR_FILL = {
+    'weapon' => %w[stick knife club],
+    'body_armor' => %w[leather_jacket rusty_gambeson],
+    'head_armor' => %w[rusty_quilted_helmet leather_helmet],
+    'arms_armor' => %w[worn_gloves leather_gloves],
+    'shield' => %w[holey_wicker_buckler braided_buckler wooden_buckler]
+  }
 
   def initialize
     create()
     @shop = YAML.safe_load_file(PATH)
     @warehouse = Warehouse.new
+  end
+
+  def fill
+    %w[weapon body_armor head_armor arms_armor shield].each do |ammunition_type|
+      without_count = @shop['ammunition'][ammunition_type].count('without')
+      n = without_count == 3 ? 2 : without_count == 2 ? 1 : 0
+      n.times do
+        i = @shop['ammunition'][ammunition_type].index('without')
+        @shop['ammunition'][ammunition_type][i] = ITEMS_FOR_FILL[ammunition_type].sample
+      end
+    end
+    update()
   end
 
   def add_ammunition_from(hero)

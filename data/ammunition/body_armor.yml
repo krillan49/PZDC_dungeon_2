@@ -14,7 +14,7 @@ rusty_gambeson:
   name: "Rusty gambeson"
   armor: 1
   accuracy: -5
-  price: 20
+  price: 5
 
 gambeson:
   name: "Gambeson"
