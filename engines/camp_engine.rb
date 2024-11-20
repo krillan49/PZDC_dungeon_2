@@ -1,11 +1,6 @@
 class CampEngine
   def initialize
     @messages = MainMessage.new
-
-    @pzdc_monolith = PzdcMonolith.new
-    @shop = Shop.new
-    @occult_library = OccultLibrary.new
-    @statistics = StatisticsTotal.new
   end
 
   def camp
@@ -13,6 +8,7 @@ class CampEngine
     until choose == 0
       MainRenderer.new(:camp_screen).display
       choose = gets.to_i
+      update_data() if (1..4).include?(choose)
       if choose == 1
         pzdc_monolith()
       elsif choose == 2
@@ -96,6 +92,13 @@ class CampEngine
   end
 
   private
+
+  def update_data
+    @pzdc_monolith = PzdcMonolith.new
+    @shop = Shop.new
+    @occult_library = OccultLibrary.new
+    @statistics = StatisticsTotal.new
+  end
 
   def boss?
     sd = @statistics.data
