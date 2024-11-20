@@ -8,7 +8,6 @@ class CampEngine
     until choose == 0
       MainRenderer.new(:camp_screen).display
       choose = gets.to_i
-      update_data() if (1..4).include?(choose)
       if choose == 1
         pzdc_monolith()
       elsif choose == 2
@@ -22,6 +21,7 @@ class CampEngine
   end
 
   def pzdc_monolith
+    @pzdc_monolith = PzdcMonolith.new
     choose = nil
     until choose == 0
       MainRenderer.new(:camp_monolith_screen, entity: @pzdc_monolith, arts: [{ camp: :pzdc_monolith }]).display
@@ -34,6 +34,7 @@ class CampEngine
   end
 
   def shop
+    @shop = Shop.new
     @shop.fill
     choose = nil
     buttons = %w[A B C D E F G H I J K L M N O V W X Y Z]
@@ -54,6 +55,7 @@ class CampEngine
   end
 
   def occult_library
+    @occult_library = OccultLibrary.new
     choose = nil
     buttons = 'A'..'X'
     until ['0', ''].include?(choose)
@@ -71,6 +73,7 @@ class CampEngine
   end
 
   def statistics
+    @statistics = StatisticsTotal.new
     choose = nil
     if boss?()
       dungeon_nums = (1..4)
@@ -92,13 +95,6 @@ class CampEngine
   end
 
   private
-
-  def update_data
-    @pzdc_monolith = PzdcMonolith.new
-    @shop = Shop.new
-    @occult_library = OccultLibrary.new
-    @statistics = StatisticsTotal.new
-  end
 
   def boss?
     sd = @statistics.data
