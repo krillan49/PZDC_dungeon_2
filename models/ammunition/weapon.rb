@@ -33,13 +33,11 @@ class Weapon
   end
 
   def min_dmg
-    res_min_dmg = @basic_min_dmg + @enhance_min_dmg
-    res_min_dmg >= 0 ? res_min_dmg : 0
+    not_less_than_zero(@basic_min_dmg + @enhance_min_dmg)
   end
 
   def max_dmg
-    res_max_dmg = @basic_max_dmg + @enhance_max_dmg
-    res_max_dmg >= 0 ? res_max_dmg : 0
+    not_less_than_zero(@basic_max_dmg + @enhance_max_dmg)
   end
 
   def accuracy
@@ -51,7 +49,13 @@ class Weapon
   end
 
   def armor_penetration
-    @basic_armor_penetration + @enhance_armor_penetration
+    not_less_than_zero(@basic_armor_penetration + @enhance_armor_penetration)
+  end
+
+  private
+
+  def not_less_than_zero(n)
+    [n, 0].max
   end
 
 end

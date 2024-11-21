@@ -27,10 +27,17 @@ class HeadArmor
   end
 
   def armor
-    @basic_armor + @enhance_armor
+    not_less_than_zero(@basic_armor + @enhance_armor)
   end
 
   def accuracy
     @basic_accuracy + @enhance_accuracy
   end
+
+  private
+
+  def not_less_than_zero(n)
+    [n, 0].max
+  end
+
 end
