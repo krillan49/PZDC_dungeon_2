@@ -78,6 +78,7 @@ require_relative "models/camp/occult_library_recipe"
 require_relative "models/camp/statistics_total"
 require_relative "models/camp/statistics_run"
 # ammunition --------------------
+require_relative "models/ammunition/ammunition"
 require_relative "models/ammunition/arms_armor"
 require_relative "models/ammunition/body_armor"
 require_relative "models/ammunition/head_armor"
