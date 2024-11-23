@@ -41,6 +41,7 @@ e2:
     - dagger
   body_armor:
     - without
+    - leather_jacket
   head_armor:
     - without
   arms_armor:
@@ -136,6 +137,7 @@ e5:
     - without
     - worn_gloves
     - leather_gloves
+    - rusty_mail_gloves
   shield:
     - without
   ingredients:

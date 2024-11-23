@@ -103,9 +103,9 @@ tongue_with_growths:
     head_armor:
       accuracy: 1
     body_armor:
-      accuracy: 1
+      accuracy: 2
     arms_armor:
-      accuracy: 1
+      accuracy: 3
     shield:
       block_chance: 5
 
@@ -114,23 +114,26 @@ live_hook:
   name: "Live hook"
   price: 30
   recipe:
-    leech_tongue: 1
     skin: 1
-    chelicerae: 1
+    chelicerae: 2
   effect:
     weapon:
       accuracy: -5
       min_dmg: -3
       max_dmg: 6
     head_armor:
-      accuracy: -1
+      accuracy: -8
+      armor: 1
     body_armor:
-      accuracy: -1
-    arms_armor:
-      accuracy: -1
-    shield:
-      block_chance: -5
       accuracy: -5
+      armor: 1
+    arms_armor:
+      accuracy: -10
+      armor: 1
+    shield:
+      block_chance: -8
+      accuracy: -8
+      armor: 1
       max_dmg: 3
 
 
