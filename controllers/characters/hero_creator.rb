@@ -103,51 +103,51 @@ class HeroCreator
     statistics = StatisticsTotal.new.data
     bandits_data, undeads_data, swamp_data = statistics['bandits'], statistics['undeads'], statistics['swamp']
     bandits_data.each do |enemy, count|
-      if enemy == 'rabble' && count >= 50
+      if enemy == 'rabble' && count >= 30
         @hero.weapon = Weapon.new('stick')
-      elsif enemy == 'rabid_dog' && count >= 50
+      elsif enemy == 'rabid_dog' && count >= 30
         @hero.hp_max += 2
         @hero.hp += 2
-      elsif enemy == 'poacher' && count >= 50
+      elsif enemy == 'poacher' && count >= 30
         @hero.accuracy_base += 1
-      elsif enemy == 'thug' && count >= 50
+      elsif enemy == 'thug' && count >= 30
         @hero.hp_max += 5
         @hero.hp += 5
-      elsif enemy == 'deserter' && count >= 50
+      elsif enemy == 'deserter' && count >= 30
         @hero.stat_points += 1
       elsif enemy == 'bandit_leader' && count >= 5
         @hero.skill_points += 1
       end
     end
     undeads_data.each do |enemy, count|
-      if enemy == 'zombie' && count >= 50
+      if enemy == 'zombie' && count >= 30
         @hero.arms_armor = ArmsArmor.new('worn_gloves')
-      elsif enemy == 'skeleton' && count >= 50
+      elsif enemy == 'skeleton' && count >= 30
         @hero.mp_max += 3
         @hero.mp += 3
-      elsif enemy == 'ghost' && count >= 50
+      elsif enemy == 'ghost' && count >= 30
         @hero.accuracy_base += 1
-      elsif enemy == 'fat_ghoul' && count >= 50
+      elsif enemy == 'fat_ghoul' && count >= 30
         @hero.hp_max += 7
         @hero.hp += 7
-      elsif enemy == 'skeleton_soldier' && count >= 50
+      elsif enemy == 'skeleton_soldier' && count >= 30
         @hero.block_chance_base += 3
       elsif enemy == 'zombie_knight' && count >= 5
         @hero.regen_mp_base += 1
       end
     end
     swamp_data.each do |enemy, count|
-      if enemy == 'leech' && count >= 50
+      if enemy == 'leech' && count >= 30
         @hero.mp_max += 3
         @hero.mp += 3
-      elsif enemy == 'goblin' && count >= 50
+      elsif enemy == 'goblin' && count >= 30
         @hero.shield = Shield.new('holey_wicker_buckler')
-      elsif enemy == 'sworm' && count >= 50
+      elsif enemy == 'sworm' && count >= 30
         @hero.hp_max += 3
         @hero.hp += 3
-      elsif enemy == 'spider' && count >= 50
+      elsif enemy == 'spider' && count >= 30
         @hero.accuracy_base += 1
-      elsif enemy == 'orc' && count >= 50
+      elsif enemy == 'orc' && count >= 30
         @hero.max_dmg_base += 1
       elsif enemy == 'ancient_snail' && count >= 5
         @hero.armor_base += 1
