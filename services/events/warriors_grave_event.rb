@@ -75,10 +75,30 @@ class WarriorsGraveEvent
   end
 
   def dig_grave
-    random_weapon_code = (['rusty_hatchet']*6 + ['rusty_sword']*3 + ['rusty_falchion']).sample
-    weapon_name = random_weapon_code.split('_').join(' ').capitalize
-    message = "You dug up a grave and #{weapon_name} there, should we take it or bury it back?"
-    change = ammunition_loot(ammunition_type: 'weapon', ammunition_code: random_weapon_code, message: message)
+    base_loot_chance = rand(0..200)
+    loot_chance = base_loot_chance + (@hero.camp_skill.code == 'treasure_hunter' ? @hero.camp_skill.coeff_lvl : 0)
+    if loot_chance > 220
+      random_weapon_code = 'rusty_falchion'
+      message = dig_chance_message(220, random_weapon_code, base_loot_chance, loot_chance)
+    elsif loot_chance > 150
+      random_weapon_code = 'rusty_sword'
+      message = dig_chance_message(150, random_weapon_code, base_loot_chance, loot_chance)
+    elsif loot_chance > 80
+      random_weapon_code = 'rusty_hatchet'
+      message = dig_chance_message(80, random_weapon_code, base_loot_chance, loot_chance)
+    else
+      random_weapon_code = 'without'
+      if @hero.camp_skill.code == 'treasure_hunter'
+        @messages.log << "Random luck is #{base_loot_chance} + treasure hunter #{@hero.camp_skill.coeff_lvl} = #{loot_chance} <= 80. You dug up a grave and nothing there"
+      else
+        @messages.log << "Random luck is #{loot_chance} <= 80. You dug up a grave and nothing there"
+      end
+    end
+    if random_weapon_code == 'without'
+      change = true
+    else
+      change = ammunition_loot(ammunition_type: 'weapon', ammunition_code: random_weapon_code, message: message)
+    end
     if change
       mp = rand(20..100)
       @hero.reduce_mp_not_less_than_zero(mp)
@@ -91,6 +111,15 @@ class WarriorsGraveEvent
     @messages.main = "Leave [Enter 0]"
     display_message_screen(:diged)
     gets
+  end
+
+  def dig_chance_message(n, random_weapon_code, base_loot_chance, loot_chance)
+    weapon_name = random_weapon_code.split('_').join(' ').capitalize
+    if @hero.camp_skill.code == 'treasure_hunter'
+      "Random luck is #{base_loot_chance} + treasure hunter #{@hero.camp_skill.coeff_lvl} = #{loot_chance} > #{n}. You dug up #{weapon_name}, take it or bury it back?"
+    else
+      "Random luck is #{loot_chance} > #{n}. You dug up a grave and #{weapon_name} there, take it or bury it back?"
+    end
   end
 
   def clean_grave
