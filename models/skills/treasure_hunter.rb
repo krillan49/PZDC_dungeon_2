@@ -1,5 +1,5 @@
 class TreasureHunter
-  BASIC_MOD = 30
+  BASIC_MOD = 50
   LVL_MOD = 10
 
   attr_accessor :lvl
