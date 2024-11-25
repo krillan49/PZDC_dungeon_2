@@ -3,7 +3,7 @@ class TraumaticStrike
   ACCURACY_MOD = 1
   EFFECT_BASIC_MOD = 20
   EFFECT_LVL_MOD = 3
-  MP_COST = 7
+  MP_COST = 6
 
   attr_accessor :lvl
   attr_reader :code, :name
