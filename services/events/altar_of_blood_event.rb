@@ -21,17 +21,18 @@ class AltarOfBloodEvent
     @messages = MainMessage.new
 
     @adept = hero.camp_skill.code == 'bloody_ritual'
+    @hp_taken = @adept && @hero.camp_skill.lvl > 5 ? 10 : @adept ? 20 : 30
   end
 
   def start
-    return no_blood() if @hero.hp < 31
+    return no_blood() if @hero.hp <= @hp_taken
     @adept ? adept_sacrifice() : common_sacrifice()
   end
 
   private
 
   def no_blood
-    @messages.main = "You have only #{@hero.hp.round} HP. Press Enter to exit"
+    @messages.main = "You have only #{@hero.hp.round} HP, but need #{@hp_taken} HP. Press Enter to exit"
     @messages.log << "The altar doesn't speak to you, maybe you don't have enough blood"
     display_message_screen()
     gets
@@ -43,11 +44,11 @@ class AltarOfBloodEvent
     arr = %w[0 1 2 3]
     if @hero.camp_skill.lvl > 5
       @messages.main = "+5 max-HP [Enter 1]    +5 max-MP [Enter 2]    +1 Accuracy [Enter 3]    +1 Damage [Enter 4]    Exit [Enter 0]"
-      @messages.log << "I see you are my prophet. Shed blood (-30 HP) and receive great gifts"
+      @messages.log << "I see you are my prophet. Shed blood (-#{@hp_taken} HP) and receive great gifts"
       arr << '4'
     else
       @messages.main = "+5 max-HP [Enter 1]     +5 max-MP [Enter 2]     +1 Accuracy [Enter 3]     Exit [Enter 0]"
-      @messages.log << "I see you are my disciple. Spill blood (-30 HP) and receive gifts"
+      @messages.log << "I see you are my disciple. Spill blood (-#{@hp_taken} HP) and receive gifts"
     end
     choose = nil
     until arr.include?(choose)
@@ -65,7 +66,7 @@ class AltarOfBloodEvent
     @messages.main = "Random Gift [Enter 1]                   Exit [Enter 0]"
     @messages.log << "This is the altar of bloody god"
     @messages.log << "An inscription in blood appeared on the altar:"
-    @messages.log << "Spill blood (-30 HP) and receive gifts"
+    @messages.log << "Spill blood (-#{@hp_taken} HP) and receive gifts"
     display_message_screen()
     choose = gets.strip
     if choose == '1'
@@ -79,7 +80,7 @@ class AltarOfBloodEvent
   def result(choose)
     @messages.clear_log
     @messages.main = "Press Enter to exit"
-    @hero.hp -= 30
+    @hero.hp -= @hp_taken
     if choose == '1'
       gift = '5 max-HP'
       @hero.hp_max += 5
