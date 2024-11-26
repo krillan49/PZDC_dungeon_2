@@ -21,15 +21,23 @@ class BlackMageEvent
 
     @messages = MainMessage.new
     @enemy = Enemy.new('black_mage', 'events')
+
+    @adept = hero.camp_skill.code == 'bloody_ritual'
+    @price = @adept && @hero.camp_skill.lvl > 5 ? 0 : @adept ? 1 : 2
+    @b, @bp = @adept ? [4, 3] : [5, 1]
   end
 
   def start
     @messages.main = "You have #{@hero.coins} coins.    Buy spell [Enter 1]    Attack mage [Enter 2]    Leave [Enter 0]"
-    @messages.log << "Black mage offers to cast an experimental spell on you for 2 coins"
+    if @adept
+      @messages.log << "Hello brother, I see you also hear our Bloody God"
+      @messages.log << "I give my brothers a discount and reduce the risks of negative effects"
+    end
+    @messages.log << "Black mage offers to cast an experimental spell on you for #{@price} coins"
     display_message_screen()
     choose = gets.strip
     if choose == '1'
-      @hero.coins >= 2 ? buy_spell() : cant_buy_spell()
+      @hero.coins >= @price ? buy_spell() : cant_buy_spell()
     elsif choose == '2'
       attack_mage()
     end
@@ -40,7 +48,7 @@ class BlackMageEvent
   def cant_buy_spell
     @messages.clear_log
     @messages.main = "You have #{@hero.coins} coins.      Attack mage [Enter 1]      Leave [Enter 0]"
-    @messages.log << "Not enough coins to buy a spell"
+    @messages.log << "Not enough coins to buy a spell for #{@price}"
     display_message_screen()
     choose = gets.strip
     if choose == '1'
@@ -50,11 +58,14 @@ class BlackMageEvent
 
   def buy_spell
     @messages.clear_log
-    @hero.coins -= 2
+    @hero.coins -= @price
     @messages.main = "You have #{@hero.coins} coins.      Attack mage [Enter 1]      Leave [Enter 0]"
     @messages.log << "Black magician pronounces the magic words: 'Klaatu Verata Nikto'"
-    bonus_give, bonus_take, bonus_give_power, bonus_take_power = rand(5), rand(5), rand(1..5), rand(1..5)
-    bonus_take = rand(5) if bonus_give == bonus_take
+    bonus_give, bonus_take, bonus_give_power, bonus_take_power = rand(1..@b), rand(1..@b), rand(@bp..5), rand(1..5)
+    bonus_take = rand(1..@b) while bonus_give + 1 == bonus_take
+    if @adept && bonus_give_power < bonus_take_power
+      bonus_give_power = bonus_take_power
+    end
     if bonus_give == 1
       @hero.hp_max += bonus_give_power
       @hero.hp += bonus_give_power
@@ -73,21 +84,21 @@ class BlackMageEvent
       @messages.log << "You got nothing"
     end
     if bonus_take == 1
+      @messages.log << "...and you lose nothing"
+    elsif bonus_take == 2
       @hero.hp_max -= bonus_take_power
       @hero.hp = @hero.hp_max if @hero.hp > @hero.hp_max
       @messages.log << "...but you lose #{bonus_take_power} Max HP, now you have #{@hero.hp.round}/#{@hero.hp_max} HP"
-    elsif bonus_take == 2
+    elsif bonus_take == 3
       @hero.mp_max -= bonus_take_power
       @hero.mp = @hero.mp_max if @hero.mp > @hero.mp_max
       @messages.log << "...but you lose #{bonus_take_power} Max MP, now you have #{@hero.mp.round}/#{@hero.mp_max} MP"
-    elsif bonus_take == 3
+    elsif bonus_take == 4
       @hero.accuracy_base -= 1
       @messages.log << "...but you lose 1 accuracy, now you have #{@hero.accuracy} accuracy"
-    elsif bonus_take == 4
+    else
       @hero.reduce_dmg_base
       @messages.log << "...but you lose 1 damage, now you have #{@hero.min_dmg}-#{@hero.max_dmg} damage"
-    else
-      @messages.log << "...and you lose nothing"
     end
     display_message_screen(:action)
     choose = gets.strip
