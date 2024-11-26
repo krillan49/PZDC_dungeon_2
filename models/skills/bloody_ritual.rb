@@ -1,7 +1,7 @@
 class BloodyRitual
   BASIC_MOD = 1
   LVL_MOD = 0.1
-  HERO_MP_MOD = 0.2
+  HERO_MP_MOD = 0.3
   MIN_EFFECT = 10
 
   attr_accessor :lvl
@@ -23,7 +23,10 @@ class BloodyRitual
   end
 
   def restore_effect
-    [[@hero.mp_max - @hero.mp, MIN_EFFECT].min, (@hero.mp_max - @hero.mp) * HERO_MP_MOD * coeff_lvl()].max
+    mp_dif = @hero.mp_max - @hero.mp
+    min_effect = [mp_dif, MIN_EFFECT].min
+    normal_effect = mp_dif * HERO_MP_MOD * coeff_lvl()
+    [ [ min_effect, normal_effect ].max, mp_dif ].min
   end
 
   def show_cost
