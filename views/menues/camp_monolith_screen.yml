@@ -24,8 +24,8 @@ view:
   - "█      +1 Regen-MP             AAAAA       BBBBB      [Enter  9]                                                       █"
   - "█     -----------------------------------------------------------                                                      █"
   - "█      +1 Armor penetration    AAAAA       BBBBB      [Enter 10]                                                       █"
-  - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
+  - "█     -----------------------------------------------------------                                                      █"
+  - "█      +1 Block chance         AAAAA       BBBBB      [Enter 11]                                                       █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
   - "█                                                                                                                      █"
@@ -137,6 +137,15 @@ insert_options:
     B:
       methods:
         - armor_penetration__p
+      modifier: s
+  26:
+    A:
+      methods:
+        - block_chance
+      modifier: s
+    B:
+      methods:
+        - block_chance__p
       modifier: s
 
 

@@ -10,7 +10,8 @@ class PzdcMonolith
     'armor' => 40,
     'regen_hp' => 70,
     'regen_mp' => 60,
-    'armor_penetration' => 30
+    'armor_penetration' => 30,
+    'block_chance' => 5
   }
   PRICE_MULTIPLER = {
     'hp' => 1.04,
@@ -22,8 +23,10 @@ class PzdcMonolith
     'armor' => 1.7,
     'regen_hp' => 2,
     'regen_mp' => 2,
-    'armor_penetration' => 1.4
+    'armor_penetration' => 1.4,
+    'block_chance' => 1.5
   }
+  STATS_LIST = %w[hp mp accuracy damage stat_points skill_points armor regen_hp regen_mp armor_penetration block_chance]
 
   def initialize
     create()
@@ -35,7 +38,9 @@ class PzdcMonolith
     update()
   end
 
-  def take_points_to(characteristic)
+  def take_points_to(i)
+    characteristic = STATS_LIST[i]
+    return unless characteristic
     price = real_price_with_multiplier(characteristic)
     if @monolith['points'] >= price
       @monolith['points'] -= price
@@ -81,7 +86,8 @@ class PzdcMonolith
       'armor' => 0,
       'regen_hp' => 0,
       'regen_mp' => 0,
-      'armor_penetration' => 0
+      'armor_penetration' => 0,
+      'block_chance' => 0
     }
   end
 end

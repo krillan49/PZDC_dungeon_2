@@ -11,7 +11,7 @@ view:
   - "   Damage     AAA-BBB / basic CCC-DDD                  Penetration  EEE   "
   - "   Accuracy      AAA  / basic   BBB                                       "
   - "   Armor         AAA  / basic   BBB                                       "
-  - "   Block chance  AAA                                 Block power  BBB %   "
+  - "   Block chance  AAA  / basic   BBB                  Block power  CCC %   "
   - "                                                                          "
   - "                     ---------- AMMUNITION ----------                     "
   - "                                                                          "
@@ -135,6 +135,10 @@ insert_options:
         - block_chance
       modifier: e
     B:
+      methods:
+        - block_chance_base
+      modifier: e
+    C:
       methods:
         - block_power_in_percents
       modifier: e
