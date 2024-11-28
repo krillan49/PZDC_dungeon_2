@@ -1,7 +1,7 @@
 class TraumaticStrike
   DAMAGE_MOD = 1
   ACCURACY_MOD = 1
-  EFFECT_BASIC_MOD = 20
+  EFFECT_BASIC_MOD = 30
   EFFECT_LVL_MOD = 3
   MP_COST = 6
 
@@ -29,7 +29,7 @@ class TraumaticStrike
   end
 
   def effect_coef
-    (100 - effect()) / 100.0
+    [(100 - effect()) / 100.0, 0].max
   end
 
   def show_cost
