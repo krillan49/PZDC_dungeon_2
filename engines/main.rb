@@ -87,7 +87,7 @@ class Main
     choose = nil
     until ['Y', 'N', ''].include?(choose)
       @messages.main = 'Load game [Enter Y]            Back to menu [Enter N]'
-      @messages.log = ["#{hero.dungeon_name.capitalize}"]
+      @messages.log = ["#{hero.dungeon_name.capitalize}", hero.leveling + 1]
       MainRenderer.new(
         :hero_sl_screen,
         hero, hero,

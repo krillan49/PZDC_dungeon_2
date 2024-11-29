@@ -46,7 +46,7 @@ class CampFireEngine
     choose = nil
     until ['0', ''].include?(choose)
       messages2.main = 'BACK TO CAMP FIRE OPTIONS  [Enter 0]'
-      messages2.log = ["#{@hero.dungeon_name.capitalize}"]
+      messages2.log = ["#{@hero.dungeon_name.capitalize}", @hero.leveling + 1]
       MainRenderer.new(
         :hero_sl_screen,
         @hero, @hero,
@@ -63,7 +63,7 @@ class CampFireEngine
     choose = nil
     until ['1', '0', ''].include?(choose)
       messages.main = "SPEND ALL #{name} POINTS [Enter 1]              BACK TO CAMP FIRE OPTIONS  [Enter 0]"
-      messages.log = ["#{@hero.dungeon_name.capitalize}"]
+      messages.log = ["#{@hero.dungeon_name.capitalize}", @hero.leveling + 1]
       MainRenderer.new(
         :hero_sl_screen,
         @hero, @hero,
