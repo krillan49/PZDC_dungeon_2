@@ -44,6 +44,7 @@ e2:
     - leather_jacket
   head_armor:
     - without
+    - leather_helmet
   arms_armor:
     - without
     - worn_gloves
@@ -61,7 +62,7 @@ e3:
   name: Snake-worm
   hp: 120
   min_dmg: 6
-  max_dmg: 15
+  max_dmg: 14
   armor_penetration: 0
   accurasy: 70
   armor: 0
@@ -85,9 +86,9 @@ e3:
 e4:
   code_name: spider
   name: Spider
-  hp: 140
+  hp: 130
   min_dmg: 10
-  max_dmg: 14
+  max_dmg: 13
   armor_penetration: 1
   accurasy: 90
   armor: 0
@@ -111,7 +112,7 @@ e4:
 e5:
   code_name: orc
   name: Orc
-  hp: 160
+  hp: 150
   min_dmg: 7
   max_dmg: 7
   armor_penetration: 0
@@ -133,9 +134,9 @@ e5:
   head_armor:
     - without
     - leather_helmet
+    - rusty_mail_helmet
   arms_armor:
     - without
-    - worn_gloves
     - leather_gloves
     - rusty_mail_gloves
   shield:

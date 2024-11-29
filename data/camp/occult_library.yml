@@ -30,7 +30,7 @@ windings_with_ears:
     head_armor:
       accuracy: 1
     body_armor:
-      accuracy: 1
+      accuracy: 2
     arms_armor:
       accuracy: 1
     shield:
@@ -115,7 +115,7 @@ live_hook:
   price: 30
   recipe:
     skin: 1
-    chelicerae: 2
+    chelicerae: 1
   effect:
     weapon:
       accuracy: -5
