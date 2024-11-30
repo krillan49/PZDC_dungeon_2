@@ -28,17 +28,19 @@ rusty_chain_mail:
   accuracy: -5
   price: 45
 
-rusty_cuirass:
-  name: "Rusty cuirass"
-  armor: 3
-  accuracy: -8
-  price: 100
-
 chain_mail:
   name: Chain mail
   armor: 3
   accuracy: -3
+  price: 100
+
+rusty_cuirass:
+  name: "Rusty cuirass"
+  armor: 4
+  accuracy: -8
   price: 150
+
+
 
 
 # Unic
