@@ -26,7 +26,7 @@ class BloodyRitual
     mp_dif = @hero.mp_max - @hero.mp
     min_effect = [mp_dif, MIN_EFFECT].min
     normal_effect = mp_dif * HERO_MP_MOD * coeff_lvl()
-    [ [ min_effect, normal_effect ].max, mp_dif ].min
+    [ [ min_effect, normal_effect ].max, mp_dif ].min.round # round for views display write MP value
   end
 
   def show_cost
