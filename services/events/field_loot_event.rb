@@ -33,11 +33,11 @@ class FieldLootEvent
     else
       @messages.log << "Random luck is #{@loot_chanse}..."
     end
-    if @loot_chanse > 140
-      @messages.log << "...more then 140"
+    if @loot_chanse > 130
+      @messages.log << "...more then 130"
       potion()
     elsif @loot_chanse > 70
-      @messages.log << "...lower then 140"
+      @messages.log << "...lower then 130"
       nothing()
     else
       @messages.log << "...lower then 70"

@@ -20,6 +20,7 @@ class SecretLootEvent
 
     @messages = MainMessage.new
 
+    @success_chance = 130
     @basic_loot_chanse = rand(1..200)
     @loot_chanse = @basic_loot_chanse + (@hero.camp_skill.code == 'treasure_hunter' ? @hero.camp_skill.coeff_lvl : 0)
   end
@@ -31,8 +32,8 @@ class SecretLootEvent
     else
       @messages.log << "Random luck is #{@loot_chanse}..."
     end
-    if @loot_chanse >= 150
-      @messages.log << "...more then 150"
+    if @loot_chanse >= @success_chance
+      @messages.log << "...more then #{@success_chance}"
       stash_magic_treasure = rand(1..32)
       case stash_magic_treasure
       when (0..10); hp_elixir()
@@ -45,7 +46,7 @@ class SecretLootEvent
       when 32; unicorn_elixir()
       end
     else
-      @messages.log << "...lower then 150"
+      @messages.log << "...lower then #{@success_chance}"
       nothing()
     end
     @messages.main = 'To continue press Enter'
