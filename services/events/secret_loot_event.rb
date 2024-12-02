@@ -62,18 +62,18 @@ class SecretLootEvent
 
   def hp_elixir
     bonus_hp = rand(1..3)
-    @messages.log << "Elixir of Health. Your hp #{@hero.hp.round}/#{@hero.hp_max} increase by #{bonus_hp}"
+    @messages.log << "Elixir of Health. Your HP #{@hero.hp.round}/#{@hero.hp_max} increase by #{bonus_hp}"
     @hero.hp_max += bonus_hp
     @hero.hp += bonus_hp
-    @messages.log << "Now you have #{@hero.hp.round}/#{@hero.hp_max} hp"
+    @messages.log << "Now you have #{@hero.hp.round}/#{@hero.hp_max} HP"
   end
 
   def mp_elixir
     bonus_mp = rand(1..3)
-    @messages.log << "Elixir of Endurance. Your mp #{@hero.mp.round}/#{@hero.mp_max} increase by #{bonus_mp}"
+    @messages.log << "Elixir of Endurance. Your MP #{@hero.mp.round}/#{@hero.mp_max} increase by #{bonus_mp}"
     @hero.mp_max += bonus_mp
     @hero.mp += bonus_mp
-    @messages.log << "Now you have #{@hero.mp.round}/#{@hero.mp_max} mp"
+    @messages.log << "Now you have #{@hero.mp.round}/#{@hero.mp_max} MP"
   end
 
   def accuracy_elixir
@@ -106,14 +106,14 @@ class SecretLootEvent
     bonus_hp_regen = 1
     @messages.log << "Elixir of the Troll. HP regeneration #{@hero.regen_hp_base} increase by #{bonus_hp_regen}"
     @hero.regen_hp_base += bonus_hp_regen
-    @messages.log << "Now you have #{@hero.regen_hp_base} hp regeneration"
+    @messages.log << "Now you have #{@hero.regen_hp_base} HP regeneration"
   end
 
   def unicorn_elixir
     bonus_mp_regen = 1
     @messages.log << "Unicorn Elixir. MP regeneration #{@hero.regen_mp_base} increase by #{bonus_mp_regen}"
     @hero.regen_mp_base += bonus_mp_regen
-    @messages.log << "Now you have #{@hero.regen_mp_base} mp regeneration"
+    @messages.log << "Now you have #{@hero.regen_mp_base} MP regeneration"
   end
 
 end

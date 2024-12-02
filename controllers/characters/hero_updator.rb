@@ -16,8 +16,8 @@ class HeroUpdator
         @messages.log = [
           "The dice showed: #{strong_stat} (#{dice1} + #{dice2})",
           '',
-          '+5 hp                     [1]',
-          '+5 mp                     [2]'
+          '+5 HP                     [1]',
+          '+5 MP                     [2]'
         ]
         @messages.log += [
           '+1 accuracy               [3]'

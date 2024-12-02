@@ -2,25 +2,25 @@ module HeroActions
   def self.rest(hero, messages) # отдых между боями(Восстановления жизней и маны)
     if hero.hp < hero.hp_max
       hero.hp += [hero.recovery_hp, hero.hp_max - hero.hp].min
-      messages.log << "After resting, you restore #{hero.recovery_hp.round} hp, now you have #{hero.hp.round}/#{hero.hp_max} hp"
+      messages.log << "After resting, you restore #{hero.recovery_hp.round} HP, now you have #{hero.hp.round}/#{hero.hp_max} HP"
     end
     if hero.mp < hero.mp_max
       hero.mp += [hero.recovery_mp, hero.mp_max - hero.mp].min
-      messages.log << "After resting, you restore #{hero.recovery_mp.round} mp, now you have #{hero.mp.round}/#{hero.mp_max} mp"
+      messages.log << "After resting, you restore #{hero.recovery_mp.round} MP, now you have #{hero.mp.round}/#{hero.mp_max} MP"
     end
   end
 
   def self.regeneration_hp_mp(hero, messages) # регенерация в бою
     if hero.regen_hp > 0 && hero.hp_max > hero.hp
       hero.hp += [hero.regen_hp, hero.hp_max - hero.hp].min
-      messages.log << "You regenerating #{hero.regen_hp} hp"
+      messages.log << "You regenerating #{hero.regen_hp} HP"
     end
     if hero.regen_mp > 0 && hero.mp_max > hero.mp
       hero.mp += [hero.regen_mp, hero.mp_max - hero.mp].min
       if messages.log[-1].include?('regenerating')
-        messages.log[-1] += ". You regenerating #{hero.regen_mp} mp"
+        messages.log[-1] += ". You regenerating #{hero.regen_mp} MP"
       else
-        messages.log << "You regenerating #{hero.regen_mp} mp"
+        messages.log << "You regenerating #{hero.regen_mp} MP"
       end
     end
   end
