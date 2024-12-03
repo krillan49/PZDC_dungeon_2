@@ -3,7 +3,7 @@ class AsceticStrike
   ACCURACY_BASIC_MOD = 1
   DAMAGE_LVL_MOD = 0.01
   ACCURACY_LVL_MOD = 0.01
-  MP_COST = 1
+  MP_COST = 2
 
   attr_accessor :lvl
   attr_reader :code, :name
