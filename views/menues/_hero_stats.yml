@@ -1,5 +1,5 @@
 view:
-  - "   AAAAAAAAAAAAAAAAAAAAAAAAAAA  lvl BBB     exp CCC/DDD       coins EEE   "
+  - "   AAAAAAAAAAAAAAAAAAAA   lvl BBB   exp CCC/DDD    PZDC EEE   coins FFF   "
   - "  ----------------------------------------------------------------------  "
   - "   Stat points  AAA                                    Skill points BBB   "
   - "                                                                          "
@@ -40,6 +40,10 @@ insert_options:
         - next_lvl_exp
       modifier: s
     E:
+      methods:
+        - pzdc_monolith_points
+      modifier: e
+    F:
       methods:
         - coins
       modifier: e
