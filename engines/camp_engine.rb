@@ -26,7 +26,7 @@ class CampEngine
     until choose == 0
       MainRenderer.new(:camp_monolith_screen, entity: @pzdc_monolith, arts: [{ camp: :pzdc_monolith }]).display
       choose = gets.to_i
-      @pzdc_monolith.take_points_to(choose-1)
+      @pzdc_monolith.take_points_to(choose-1) if choose > 0
     end
   end
 
