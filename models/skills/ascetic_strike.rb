@@ -1,8 +1,8 @@
 class AsceticStrike
   DAMAGE_BASIC_MOD = 1
   ACCURACY_BASIC_MOD = 1
-  DAMAGE_LVL_MOD = 0.01
-  ACCURACY_LVL_MOD = 0.01
+  DAMAGE_LVL_MOD = 0.007
+  ACCURACY_LVL_MOD = 0.007
   MP_COST = 2
 
   attr_accessor :lvl
@@ -31,7 +31,7 @@ class AsceticStrike
   end
 
   def description
-    "Free stat points #{@hero.stat_points} precisely in #{accuracy_mod().round(1)}, damage more in #{damage_mod().round(1)}"
+    "Free stat points #{@hero.stat_points} precisely in #{accuracy_mod().round(2)}, damage more in #{damage_mod().round(2)}"
   end
 
   def description_short
