@@ -1,5 +1,5 @@
 class StrongStrike
-  DAMAGE_BASIC_MOD = 1.6
+  DAMAGE_BASIC_MOD = 1.5
   DAMAGE_LVL_MOD = 0.15
   ACCURACY_MOD = 1
   MP_COST = 12
@@ -27,8 +27,12 @@ class StrongStrike
     "#{MP_COST} MP"
   end
 
+  def show_damage
+    ((damage_mod() - 1) * 100).round
+  end
+
   def description
-    "Damage is stronger in #{damage_mod().round(1)}"
+    "Additional damage +#{show_damage()}%"
   end
 
   def description_short

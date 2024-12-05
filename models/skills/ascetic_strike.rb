@@ -30,8 +30,16 @@ class AsceticStrike
     "#{MP_COST} MP"
   end
 
+  def show_accuracy
+    ((accuracy_mod() - 1) * 100).round
+  end
+
+  def show_damage
+    ((damage_mod() - 1) * 100).round
+  end
+
   def description
-    "Free stat points #{@hero.stat_points} precisely in #{accuracy_mod().round(2)}, damage more in #{damage_mod().round(2)}"
+    "Free stat points #{@hero.stat_points}. Additional damage +#{show_damage()}%. Additional accuracy +#{show_accuracy()}%"
   end
 
   def description_short

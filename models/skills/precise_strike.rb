@@ -28,8 +28,16 @@ class PreciseStrike
     "#{MP_COST} MP"
   end
 
+  def show_accuracy
+    ((accuracy_mod() - 1) * 100).round
+  end
+
+  def show_damage
+    ((damage_mod() - 1) * 100).round
+  end
+
   def description
-    "More precisely in #{accuracy_mod().round(1)}, stronger in #{damage_mod().round(1)}"
+    "Additional damage +#{show_damage()}%. Additional accuracy +#{show_accuracy()}%"
   end
 
   def description_short

@@ -22,8 +22,16 @@ class Berserk
     'passive'
   end
 
+  def show_damage
+    ((damage_coef() - 1) * 100).round
+  end
+
+  def show_hp_part
+    (@hero.hp.to_f/@hero.hp_max * 100).round
+  end
+
   def description
-    "The less HP are left(#{@hero.hp.round}) from the maximum(#{@hero.hp_max}), the more damage X(#{damage_coef().round(2)})"
+    "The less HP - the more damage. HP is #{show_hp_part()}% from the maximum. Additional damage +#{show_damage()}%"
   end
 
   def description_short

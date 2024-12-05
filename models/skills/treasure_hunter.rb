@@ -20,7 +20,7 @@ class TreasureHunter
   end
 
   def description
-    "Positively affects many random actions in the game. Bonus is #{coeff_lvl()}"
+    "Positively affects many random actions in the game. Luck bonus is #{coeff_lvl()}"
   end
 
   def description_short
