@@ -32,9 +32,14 @@ view:
   - "█                                                                                                                      █"
   - "█                                                EXIT GAME  [Enter 0]                                                  █"
   - "█                                                                                                                      █"
-  - "█                                                                                                                      █"
+  - "█                                                              AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  █"
   - "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█"
-
+insert_options:
+  33:
+    A:
+      methods:
+        - main
+      modifier: e
 
 
 

@@ -1,5 +1,8 @@
 require 'yaml'
 
+# version =============================
+require_relative "version"
+
 # helpers =============================
 require_relative "helpers/ruby_version_fix_helper"
 

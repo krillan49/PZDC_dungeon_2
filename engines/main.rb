@@ -14,7 +14,8 @@ class Main
     StatisticsTotal.new
     # ход игры
     loop do
-      MainRenderer.new(:start_game_screen).display
+      @messages.main = PzdcDungeon2.v_version
+      MainRenderer.new(:start_game_screen, entity: @messages).display
       choose = gets.strip
       if choose == '0'
         exit_game()
