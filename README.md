@@ -1,4 +1,4 @@
-![PZDC_dungeon_2_title](assets/title.png)
+![PZDC_dungeon_2_title](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/title.png)
 
 ## What is it?
 
@@ -22,7 +22,15 @@ Recommended terminal dimensions: width - 120+, height - 36+
 ruby pzdc_dungeon_2.rb
 ```
 
-![load_or_new_run](assets/run.png)
+## Options
+
+In Options menu you can set up:
+
+* Animation speed (screen change) during the battle
+* Escape code with which the screen is changed: x1bc - set by default, more convenient for the game; e[He[2J - will be more convenient for contributors to be able to see previous screens
+
+
+![load_or_new_dungeon](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/new_dungeon.png)
 
 
 ## How to play
@@ -43,7 +51,7 @@ It's okay if the character dies, as there is meta-leveling in "PZDC dungeon 2", 
 If you want an easy game, then create a character named "BAMBUGA", then you will get a strong weapon for this torture, but you will not get meta points.
 
 
-![choose_undead](assets/choose_undeadl.png)
+![select_dungeon](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/select_dungeon.png)
 
 
 ## Campfire menu
@@ -59,6 +67,9 @@ Campfire menu appears at the very beginning of a dungeon and between each fight 
 * Save & exit game - You can save game and exit from dungeon to continue it at another time. But there is only 1 save slot and if you start a new dungeon and save it, the data of the previous unfinished dungeon will be deleted.
 
 
+![campfire_menu](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/campfire.png)
+
+
 ## CAMP and meta-leveling
 
 In the camp menu, you can distribute meta-leveling points that you received for completing a dungeon or killing enemies:
@@ -69,7 +80,7 @@ In the camp menu, you can distribute meta-leveling points that you received for 
 * Statistics - Here you can see how many enemies of each type you have killed in dungeons throughout the game, as well as how many enemies you still need to kill to get permanent bonuses for each of them.
 
 
-![shop](assets/shop.png)
+![camp_menu](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/camp_menu.png)
 
 
 ## Characteristics and effects:
@@ -85,6 +96,9 @@ In the camp menu, you can distribute meta-leveling points that you received for 
 * Recovery - restores HP or MP during rest between battles
 * Experience points - given for killing an enemy
 * Stat points and skill points - given at the start and when leveling up
+
+
+![hero_menu](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/hero_menu.png)
 
 
 ## Combat active skills:
@@ -116,6 +130,9 @@ Non-combat skills are used in the campfire menu. They can be either active or pa
 * "Treasure Hunter" (passive) - positively affects many probabilities in the game, such as: chance to get loot, more options for choosing opponents and random events, more chance of positive outcomes in many random events, and so on.
 
 
+![choose_undead](assets/choose_undeadl.png)
+
+
 ## It may be added in new versions:
 
 * More content: dungeons, buildings, characters, enemies, equipment, skills
@@ -130,5 +147,3 @@ Non-combat skills are used in the campfire menu. They can be either active or pa
 ![battle_skeleton](assets/battle_skeleton.png)
 ![battle_bandit_1](assets/battle_bandit_1.png)
 ![boss_bandit](assets/boss_bandit.png)
-
-![test_pic](https://github.com/krillan49/stud_verstka_conspects/blob/main/CSS_examples/img/kon.jpg)
