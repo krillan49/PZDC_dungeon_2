@@ -30,7 +30,7 @@ In Options menu you can set up:
 * Escape code with which the screen is changed: x1bc - set by default, more convenient for the game; e[He[2J - will be more convenient for contributors to be able to see previous screens
 
 
-![load_or_new_dungeon](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/new_dungeon.png)
+![PZDC_Software_logo](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/PZDC_Software_logo.png)
 
 
 ## How to play
@@ -143,7 +143,6 @@ Non-combat skills are used in the campfire menu. They can be either active or pa
 
 ## SCREENS
 
-![battle_fat_ghoul](assets/battle_fat_ghoul.png)
 ![battle_skeleton](assets/battle_skeleton.png)
 ![battle_bandit_1](assets/battle_bandit_1.png)
 ![boss_bandit](assets/boss_bandit.png)
