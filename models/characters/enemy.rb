@@ -44,7 +44,7 @@ class Enemy
     @shield = Shield.new(enemy[:shield].sample)
   end
 
-  # Геттеры - Методы зависимых характеристик:
+  # Getters - to complex characteristics:
 
   def min_dmg
     @min_dmg_base + @weapon.min_dmg + @shield.min_dmg

@@ -5,14 +5,14 @@ class Main
   end
 
   def start_game
-    # Создание начальных yml
+    # Creating starrt yml files
     Warehouse.new
     PzdcMonolith.new
     Shop.new
     OccultLibrary.new
     Options.new
     StatisticsTotal.new
-    # ход игры
+    # game start
     loop do
       @messages.main = PzdcDungeon2.v_version
       MainRenderer.new(:start_game_screen, entity: @messages).display
@@ -52,7 +52,7 @@ class Main
   def load_or_start_new_run
     choose = nil
     until choose == 0
-      @hero = nil   # чтобы после выхода из load_run() не оставался загруженный герой
+      @hero = nil   # to delete hero object with exit from load_run() method
       boss = boss?()
       @messages.main = boss ? '+ PZDC BOSS     [Enter 3] +' : ''
       MainRenderer.new(:load_new_run_screen, entity: @messages, arts: [ { dungeon_cave: :dungeon_enter } ] ).display
@@ -112,7 +112,7 @@ class Main
     end
     if [1, 2, 3].include?(new_dungeon_num)
       dungeon_name = %w[bandits undeads swamp][new_dungeon_num-1]
-      # Создание нового персонажа
+      # Creating new hero object
       @hero = HeroCreator.new(dungeon_name).create_new_hero
     end
   end
@@ -123,7 +123,7 @@ class Main
       MainRenderer.new( :choose_pzdc_boss_screen, arts: [ { big: :"dungeons/_pzdc" } ] ).display
       new_boss_num = gets.to_i
     end
-    # Создание нового персонажа
+    # Creating new hero object
     @hero = HeroCreator.new('pzdc').create_new_hero if new_boss_num == 1
   end
 

@@ -4,7 +4,7 @@ class MainRenderer
     hh = YAML.safe_load_file("views/menues/#{menu_name}.yml", symbolize_names: true)
     @view = hh[:view]
     @partials = hh[:partials]
-    @insert_options = hh[:insert_options] # опции для полей основного меню
+    @insert_options = hh[:insert_options] # options for main menu fields
     @characters = characters
     @entity = options[:entity]
 
@@ -21,9 +21,9 @@ class MainRenderer
 
   def render_screen
     if @partials || @arts || @entity
-      partials() if @partials # отрисовываем паршалы в @view
-      arts() if @arts # отрисовываем картинки в @view
-      @view = Menu.new(@menu_name, @entity, view: @view).render.view # заполняем поля материнского экрана
+      partials() if @partials # draw partials in @view
+      arts() if @arts # draw pictures in @view
+      @view = Menu.new(@menu_name, @entity, view: @view).render.view # add values to fields of the mother screen
     else
       @view = Menu.new(@menu_name, @characters[0]).render.view
     end

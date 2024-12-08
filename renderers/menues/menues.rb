@@ -3,7 +3,7 @@ class Menu
 
   def initialize(menu_name, entity, **params)
     hh = YAML.safe_load_file("views/menues/#{menu_name}.yml", symbolize_names: true)
-    @view = params[:view] ? params[:view] : hh[:view] # для составного или простого меню
+    @view = params[:view] ? params[:view] : hh[:view] # for a composite or simple menu
     @insert_options = hh[:insert_options]
     @entity = entity
   end

@@ -1,5 +1,5 @@
 module HeroActions
-  def self.rest(hero, messages) # отдых между боями(Восстановления жизней и маны)
+  def self.rest(hero, messages) # rest betwen battles and events(recovery HP and MP)
     if hero.hp < hero.hp_max
       hero.hp += [hero.recovery_hp, hero.hp_max - hero.hp].min
       messages.log << "After resting, you restore #{hero.recovery_hp.round} HP, now you have #{hero.hp.round}/#{hero.hp_max} HP"
@@ -10,7 +10,7 @@ module HeroActions
     end
   end
 
-  def self.regeneration_hp_mp(hero, messages) # регенерация в бою
+  def self.regeneration_hp_mp(hero, messages) # regeneration in battle
     if hero.regen_hp > 0 && hero.hp_max > hero.hp
       hero.hp += [hero.regen_hp, hero.hp_max - hero.hp].min
       messages.log << "You regenerating #{hero.regen_hp} HP"
@@ -25,7 +25,7 @@ module HeroActions
     end
   end
 
-  def self.add_exp_and_hero_level_up(hero, added_exp, messages) # получения нового опыта, уровня, очков характеристик и наыков
+  def self.add_exp_and_hero_level_up(hero, added_exp, messages) # add new exp, lvl, skill and stat points
     hero.exp += added_exp
     messages.log << "You have gained #{added_exp} exp, now you have #{hero.exp} exp"
     sum_new_levels = 0

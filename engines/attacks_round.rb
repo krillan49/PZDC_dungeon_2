@@ -70,7 +70,7 @@ class AttacksRound
   private
 
   def hero_select_type_of_attack
-    success = false # для проверки возможно ли проведение выбранной атаки
+    success = false # for check that selected attack can be done or not
     until success
       @messages.main = "Hit body [Enter 1]   Hit head [Enter 2]   Hit legs [Enter 3]   Hit by #{@hero.active_skill.name} [Enter 4]"
       mi, ma, a = @hero.min_dmg, @hero.max_dmg, @hero.accuracy

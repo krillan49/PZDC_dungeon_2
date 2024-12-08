@@ -1,5 +1,5 @@
 module EnemyActions
-  def self.regeneration_hp_mp(enemy, messages) # регенерация в бою
+  def self.regeneration_hp_mp(enemy, messages) # regeneration in battle
     if enemy.regen_hp > 0 && enemy.hp_max > enemy.hp
       enemy.hp += [enemy.regen_hp, enemy.hp_max - enemy.hp].min
       messages.log << "#{enemy.name} regenerating #{enemy.regen_hp} HP"

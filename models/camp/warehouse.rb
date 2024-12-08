@@ -51,7 +51,7 @@ class Warehouse
     update()
   end
 
-  # Тогда это наверно не надо или варик на будущее вместо take_ammunition_by(hero)
+  # maybe this method dont need more ? or may be used in the future instead take_ammunition_by(hero) method
   def take_ammunition_from_warehouse(ammunition_type)
     ammunition_code = @warehouse[ammunition_type]
     @warehouse[ammunition_type] = 'without'

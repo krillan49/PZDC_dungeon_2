@@ -95,8 +95,8 @@ class RunBoss
   end
 
   def after_battle
-    @hero.statistics.add_enemy_to_data(@enemy.code_name) # статистика
-    EnemyLoot.new(@hero, @enemy, @messages).looting # Сбор лута
+    @hero.statistics.add_enemy_to_data(@enemy.code_name)
+    EnemyLoot.new(@hero, @enemy, @messages).looting
   end
 
   def boss_defeat

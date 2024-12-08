@@ -9,7 +9,7 @@ class CampFireEngine
 
   def messages(rest_messages)
     messages = MainMessage.new
-    messages.log += rest_messages.log # сообщения отдыха с пршлого раунда
+    messages.log += rest_messages.log # messages about rest from last-before round
     messages
   end
 
@@ -34,7 +34,7 @@ class CampFireEngine
         show_quests()
       elsif choose == '7'
         save_and_exit()
-        choose = '' # чтобы сразу выйти в run
+        choose = '' # to exit into run.rb
       end
     end
   end
@@ -135,8 +135,8 @@ class CampFireEngine
   end
 
   def save_and_exit
-    @hero.statistics.update       # сохранение статистики забега
-    SaveHeroInRun.new(@hero).save # сохранение персонажа
+    @hero.statistics.update       # save statistics
+    SaveHeroInRun.new(@hero).save # save hero
     @exit_to_main = true          # exit
   end
 

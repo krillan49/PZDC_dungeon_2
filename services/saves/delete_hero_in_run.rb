@@ -26,10 +26,10 @@ class DeleteHeroInRun
   end
 
   def add_camp_loot
-    # сохранение/передача очков монолита от героя в монолит
+    # saving/transferring monolith points from hero to monolith
     PzdcMonolith.new.add_points(@hero.pzdc_monolith_points)
     @hero.pzdc_monolith_points = 0
-    # добавление вещей и монет в магазин
+    # adding items and coins to the shop
     if @hero.hp > 0
       shop = Shop.new
       shop.add_ammunition_from(@hero)

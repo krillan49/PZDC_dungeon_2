@@ -26,7 +26,7 @@ class Run
       break if @exit_to_main
       @hero.dungeon_part_number += 1
       @messages.clear_log
-      HeroActions.rest(@hero, @messages) # отдых до сейва и лоада, чтобы не повторялся при перезагрузке
+      HeroActions.rest(@hero, @messages) # rest before save and load, to not repeat it with reaload
     end
   end
 
@@ -85,7 +85,7 @@ class Run
 
   def battle
     @hero_run_from_battle = false
-    # lap = 1 # номер хода
+    # lap = 1 # battle round number
     while @enemy.hp > 0 && @hero_run_from_battle == false
       round = AttacksRound.new(@hero, @enemy, @attacks_round_messages)
       round.action
@@ -99,7 +99,7 @@ class Run
   end
 
   def after_battle
-    # Получение опыта и очков
+    # taking exp and skill and stat points
     if !@hero_run_from_battle
       HeroActions.add_exp_and_hero_level_up(@hero, @enemy.exp_gived, @messages)
       @messages.main = 'To continue press Enter'
@@ -107,9 +107,9 @@ class Run
       @messages.clear_log
       gets
     end
-    # статистика
+    # statistics
     @hero.statistics.add_enemy_to_data(@enemy.code_name) if !@hero_run_from_battle
-    # Сбор лута
+    # taking loot
     loot = LootRound.new(@hero, @enemy, @hero_run_from_battle)
     loot.action
     if @enemy.code == 'boss' && !@hero_run_from_battle
@@ -131,7 +131,7 @@ class Run
     n = 9000
     @messages.main = message + 'Which way will you go?'
     until n >= 0 && n <= events.length
-      @event = nil # для повторного вызова и других раундов
+      @event = nil # for next re-call and other rounds
       MainRenderer.new(
         [:event_1_choose_screen, :event_2_choose_screen, :event_3_choose_screen][events_count-1],
         *events,
