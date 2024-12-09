@@ -22,7 +22,7 @@ class EventCreator
   def choose_event_constants
     events_constants = STANDART_EVENT_CONSTANS
     events_constants += UNUSUAL_EVENT_CONSTANS.sample(1) if rand(5) == 0
-    events_constants += RARE_EVENT_CONSTANS.sample(1) if rand(20) == 0
+    events_constants += RARE_EVENT_CONSTANS.sample(1) if rand(30) == 0
     events_constants
   end
 
