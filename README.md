@@ -4,12 +4,6 @@
 
 "PZDC dungeon 2" is a terminal based roguelike game
 
-## Installation
-
-```shell
-git clone https://github.com/krillan49/Pzdc_dungeon2.git
-```
-
 ## Requirements
 
 The only requirement for "PZDC dungeon 2" is Ruby 3+
@@ -30,7 +24,7 @@ In Options menu you can set up:
 * Escape code with which the screen is changed: x1bc - set by default, more convenient for the game; e[He[2J - will be more convenient for contributors to be able to see previous screens
 
 
-![PZDC_Software_logo](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/PZDC_Software_logo.png)
+![snake_worm_attacks_min](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/snake_worm_attacks_min.png)
 
 
 ## How to play
@@ -51,7 +45,7 @@ It's okay if the character dies, as there is meta-leveling in "PZDC dungeon 2", 
 If you want an easy game, then create a character named "BAMBUGA", then you will get a strong weapon for this torture, but you will not get meta points.
 
 
-![select_dungeon](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/select_dungeon.png)
+![rabid_dog_attacks_min](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/rabid_dog_attacks_min.png)
 
 
 ## Campfire menu
@@ -98,7 +92,7 @@ In the camp menu, you can distribute meta-leveling points that you received for 
 * Stat points and skill points - given at the start and when leveling up
 
 
-![hero_menu](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/hero_menu.png)
+![hero_menu](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/hero_menu_3.png)
 
 
 ## Combat active skills:
@@ -130,7 +124,7 @@ Non-combat skills are used in the campfire menu. They can be either active or pa
 * "Treasure Hunter" (passive) - positively affects many probabilities in the game, such as: chance to get loot, more options for choosing opponents and random events, more chance of positive outcomes in many random events, and so on.
 
 
-![choose_undead](assets/choose_undeadl.png)
+![coins_add_min](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/coins_add_min.png)
 
 
 ## It may be added in new versions:
