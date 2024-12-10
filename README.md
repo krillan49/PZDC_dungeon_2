@@ -1,4 +1,4 @@
-![PZDC_dungeon_2_title](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/title.png)
+![PZDC_dungeon_2_title](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/title_2.png)
 
 ## What is it?
 
@@ -137,6 +137,38 @@ Non-combat skills are used in the campfire menu. They can be either active or pa
 
 ## SCREENS
 
-![battle_skeleton](assets/battle_skeleton.png)
-![battle_bandit_1](assets/battle_bandit_1.png)
-![boss_bandit](assets/boss_bandit.png)
+<details>
+  <summary>Bandits</summary>
+  ![rabid_dog](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/rabid_dog.png)
+  ![poacher](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/poacher.png)
+  ![poacher_damaged](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/poacher_damaged.png)
+  ![poacher_attacks](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/poacher_attacks.png)
+  ![bandit_leader](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/bandit_leader.png)
+</details>
+<details>
+  <summary>Undeads</summary>
+  ![undead_choose](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/undead_choose_2.png)
+  ![fat_gull](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/fat_gull.png)
+  ![fat_gull_attacks](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/fat_gull_attacks.png)
+  ![skeleton_attacks](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/skeleton_attacks.png)
+  ![skeleton_soldier](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/skeleton_soldier.png)
+  ![ghost](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/ghost.png)
+</details>
+<details>
+  <summary>Swamp</summary>
+  ![swamp_choose](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/swamb_choose.png)
+  ![snake_worm](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/snake_worm.png)
+  ![ancient_snail](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/ancient_snail.png)
+  ![ancient_snail_attacks](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/ancient_snail_attacks.png)
+</details>
+<details>
+  <summary>Ammunition</summary>
+  ![body_armor_choose_1](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/body_armor_choose_1.png)
+  ![head_armor_choose_1](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/head_armor_choose_1.png)
+  ![shield_choose_1](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/shield_choose_1.png)
+  ![axe](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/axe.png)
+  ![weapon_choose_1](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/weapon_choose_1.png)
+  ![weapon_choose_2](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/weapon_choose_2.png)
+  ![living_whip](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/living_whip.png)
+  ![rusty_mail_gloves](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/rusty_mail_gloves.png)
+</details>
