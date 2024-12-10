@@ -15,11 +15,11 @@ class Dazed
   end
 
   def accuracy_reduce_minimum
-    ACC_MIN_REDUCE + ACC_MIN_REDUCE_LVL_MOD * @lvl
+    [ACC_MIN_REDUCE + ACC_MIN_REDUCE_LVL_MOD * @lvl, ACC_MAX_REDUCE].min
   end
 
   def accuracy_reduce_coef
-    0.01 * rand(accuracy_reduce_minimum()..ACC_MAX_REDUCE)
+    0.01 * (100 - rand(accuracy_reduce_minimum()..ACC_MAX_REDUCE))
   end
 
   def hp_part_coef
