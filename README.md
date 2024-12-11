@@ -10,14 +10,14 @@ The main objective is to complete all 3 available dungeons, defeating the boss o
 
 The player is not tied to one character, each new dungeon is an almost independent episode with a separate leveling of a separate character and regardless of victory or death halfway through, the next game will start anew, with a new character. But between the almost isolated passage of dungeons, there is a meta-leveling of the camp for points earned in dungeons, which strengthens each new character, acting as a continuous progression in the game. This approach allows for improved gameplay variety, allowing for different builds to be used throughout the game through a combination of backgrounds, skills, and equipment.
 
-The game currently has:
-* 3 dungeons
-* 4 buildings in the camp that perform meta-leveling
-* 9 types of starting characters
-* 11 skills
-* 10 types of random events/quests
-* 22 unique enemies
-* 40+ types of equipment with the ability to modify it
+__The game currently has:__
+* __3 dungeons__
+* __4 buildings in the camp that perform meta-leveling__
+* __9 types of starting characters__
+* __11 skills__
+* __10 types of random events/quests__
+* __22 unique enemies__
+* __40+ types of equipment with the ability to modify it__
 
 
 ![snake_worm_attacks_min](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/snake_worm_attacks_min.png)
@@ -25,7 +25,7 @@ The game currently has:
 
 ## Requirements
 
-The only requirement for "PZDC dungeon 2" is `Ruby 3+`
+The only requirement for _PZDC dungeon 2_ is `Ruby 3+`
 
 Recommended terminal dimensions: width `120+`, height `36+`
 
@@ -52,7 +52,7 @@ Start new dungeon: `DUNGEON` -> `NEW DUNGEON`
 
 Select a dungeon, create a new character, choose a class and skills, kill enemies, complete quests, level up - to pass the dungeon.
 
-It's okay if the character dies, as there is meta-leveling in "PZDC dungeon 2", in the `CAMP` menu you can distribute meta-leveling points so that the new character has more opportunities for a new attempt to complete the dungeon.
+It's okay if the character dies, as there is meta-leveling in _PZDC dungeon 2_, in the `CAMP` menu you can distribute meta-leveling points so that the new character has more opportunities for a new attempt to complete the dungeon.
 
 * Different dungeons vary in difficulty
 * The battles are step-by-step, you can choose from several types of attacks
