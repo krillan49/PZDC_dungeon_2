@@ -32,7 +32,7 @@ class Main
   end
 
   def exit_game
-    puts "\e[H\e[2J"
+    print Options.new.get_screen_replacement_type
     exit
   end
 
