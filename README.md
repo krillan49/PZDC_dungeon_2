@@ -20,7 +20,7 @@ __The game currently has:__
 * __40+ types of equipment with the ability to modify it__
 
 
-![snake_worm_attacks_min](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/snake_worm_attacks_min.png)
+<iframe src="https://www.youtube.com/watch?v=3x4cA5XCh9I" frameborder="0" allowfullscreen></iframe>
 
 
 ## Requirements
@@ -43,7 +43,7 @@ In Options menu you can set up:
 * Escape code with which the screen is changed: `\x1bc` - set by default, more convenient for the game; `\e[H\e[2J` - will be more convenient for contributors to be able to see previous screens
 
 
-![rabid_dog_attacks_min](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/rabid_dog_attacks_min.png)
+![snake_worm_attacks_min](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/snake_worm_attacks_min.png)
 
 
 ## How to play
@@ -64,7 +64,8 @@ It's okay if the character dies, as there is meta-leveling in _PZDC dungeon 2_, 
 If you want an easy game, then create a character named `BAMBUGA`, then you will get a strong weapon for this torture, but you will not get meta points.
 
 
-![new_dungeon](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/new_dungeon.png)
+![rabid_dog_attacks_min](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/rabid_dog_attacks_min.png)
+<!-- ![new_dungeon](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/new_dungeon.png) -->
 
 
 ## Campfire menu
