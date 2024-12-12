@@ -20,8 +20,10 @@ __The game currently has:__
 * __40+ types of equipment with the ability to modify it__
 
 
+## Gameplay demo
+
 <a href="https://www.youtube.com/watch?v=3x4cA5XCh9I">
-  <img src="https://img.youtube.com/vi/3x4cA5XCh9I/0.jpg" alt="Demo" style="max-width:100%;">
+  <img src="https://img.youtube.com/vi/3x4cA5XCh9I/0.jpg" alt="Demo" width="100%" border="10px">
 </a>
 
 
