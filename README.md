@@ -69,7 +69,6 @@ If you want an easy game, then create a character named `BAMBUGA`, then you will
 
 
 ![rabid_dog_attacks_min](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/rabid_dog_attacks_min.png)
-<!-- ![new_dungeon](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/new_dungeon.png) -->
 
 
 ## Campfire menu
@@ -109,7 +108,7 @@ In the camp menu, you can distribute meta-leveling points that you received for 
 * __Accuracy__ - chance to hit in %, some types of attacks are more accurate than others
 * __Armor__ - simply subtracted from the damage inflicted
 * __Armor penetration__ - shows how many units of armor your attacks ignore
-* __Block Chance__ - the probability in % to block some damage, the blocked damage depends on the current HP
+* __Block chance__ - the probability in % to block some damage, the blocked damage depends on the current HP
 * __Regeneration__ - restores HP or MP for each turn in battle
 * __Recovery__ - restores HP or MP during rest between battles
 * __Experience points__ - given for killing an enemy
@@ -124,8 +123,8 @@ In the camp menu, you can distribute meta-leveling points that you received for 
 Combat active skills can be used during battle, they consume some MP for each use.
 
 * __Ascetic strike__ - significantly increases both damage and accuracy, costs a small amount of MP, but requires unspent attribute points in reserve and the more of them, the stronger the effect
-* __Precise Strike__ - greatly increases accuracy and a little damage
-* __Strong Strike__ - greatly increases damage
+* __Precise strike__ - greatly increases accuracy and a little damage
+* __Strong strike__ - greatly increases damage
 * __Traumatic strike__ - temporarily injures the enemy, causing them to deal reduced damage to you on their next attack
 
 
@@ -136,7 +135,7 @@ Combat passive skills are used permanently in combat and do not require MP expen
 * __Berserk__ - the less HP are left from the maximum, the more damage
 * __Concentration__ - deals additional magic damage when attacking, which ignores armor and is not blocked. Damage depends on the maximum amount of MP, MP must be at least greater than 100.
 * __Dazed__ - with a certain ratio of one-time damage inflicted to the enemy's remaining HP, you can reduce the accuracy of his next blow
-* __Shield Master__ - increases the chance block with a shield (but amount of damage blocked by the shield does not depend on the skill, but only on the character's current HP)
+* __Shield master__ - increases the chance block with a shield (but amount of damage blocked by the shield does not depend on the skill, but only on the character's current HP)
 
 
 ## Non-combat skills:
@@ -144,8 +143,8 @@ Combat passive skills are used permanently in combat and do not require MP expen
 Non-combat skills are used in the campfire menu. They can be either active or passive.
 
 * __Bloody ritual__ (_active_) - restores part of MP, restores more the greater the difference between the maximum MP and the remaining one. Spends some HP to activate. Additionally has a positive effect on random events related to sacrifices and black magic
-* __First Aid__ (_active_) - restores part of HP, the more the greater the difference between the maximum HP and the remaining. Spends MP to activate
-* __Treasure Hunter__ (_passive_) - positively affects many probabilities in the game, such as: chance to get loot, more options for choosing opponents and random events, more chance of positive outcomes in many random events, and so on.
+* __First aid__ (_active_) - restores part of HP, the more the greater the difference between the maximum HP and the remaining. Spends MP to activate
+* __Treasure hunter__ (_passive_) - positively affects many probabilities in the game, such as: chance to get loot, more options for choosing opponents and random events, more chance of positive outcomes in many random events, and so on.
 
 
 ![coins_add_min](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/coins_add_min.png)
@@ -167,6 +166,7 @@ Non-combat skills are used in the campfire menu. They can be either active or pa
 <details>
   <summary>Bandits</summary>
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/rabid_dog.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/bandits_choose.png" />
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/poacher.png" />
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/poacher_damaged.png" />
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/poacher_attacks.png" />
@@ -198,4 +198,14 @@ Non-combat skills are used in the campfire menu. They can be either active or pa
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/weapon_choose_2.png" />
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/living_whip.png" />
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/rusty_mail_gloves.png" />
+</details>
+<details>
+  <summary>Events</summary>
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/event_choose_1.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/event_choose_4.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/altar_of_blood_2.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/field_loot.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/gambler.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/pig_with_saucepan.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/warriors_grave_2.png" />
 </details>
