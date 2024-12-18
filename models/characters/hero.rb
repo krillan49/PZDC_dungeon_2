@@ -19,15 +19,18 @@ class Hero
 
   attr_accessor :pzdc_monolith_points, :coins, :ingredients
 
-  attr_accessor :dungeon_name, :dungeon_part_number, :leveling
+  attr_accessor :dungeon_name, :dungeon_part_number, :leveling, :game_status
 
   attr_accessor :statistics, :events_data
 
   def initialize(name, background, dungeon_name=nil)
     @name = name
     @background = background
+
     @dungeon_name = dungeon_name
     @dungeon_part_number = 1
+    @leveling = 0
+    @game_status = 'normal'
 
     hero = YAML.safe_load_file('data/characters/heroes.yml', symbolize_names: true)[background.to_sym]
 
@@ -63,8 +66,6 @@ class Hero
     @ingredients = {}
 
     @events_data = {}
-
-    @leveling = 0
 
     @weapon = Weapon.new(hero[:weapon])
     @body_armor = BodyArmor.new(hero[:body_armor].sample)

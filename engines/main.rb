@@ -72,6 +72,10 @@ class Main
         @hero.statistics = StatisticsRun.new(@hero.dungeon_name, true) if @hero
         RunBoss.new(@hero).start if @hero
       end
+      if @hero&.game_status == 'deleted'
+        @hero = nil
+        break
+      end
     end
   end
 

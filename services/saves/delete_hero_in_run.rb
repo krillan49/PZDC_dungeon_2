@@ -21,7 +21,7 @@ class DeleteHeroInRun
       StatisticsTotal.new.add_from_run(@hero.statistics.data)
     end
     @hero.statistics.delete
-    @hero = nil
+    @hero.game_status = 'deleted'
     delete_hero_file()
   end
 
