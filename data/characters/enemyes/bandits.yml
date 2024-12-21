@@ -99,6 +99,7 @@ e4:
     - club
   body_armor:
     - without
+    - rusty_gambeson
     - leather_jacket
   head_armor:
     - without
