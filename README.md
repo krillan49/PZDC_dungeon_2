@@ -20,6 +20,56 @@ __The game currently has:__
 * __40+ types of equipment with the ability to modify it__
 
 
+## SCREENS (open to view)
+
+<details>
+  <summary>Bandits</summary>
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/rabid_dog.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/bandits_choose.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/poacher.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/poacher_damaged.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/poacher_attacks.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/bandit_leader.png" />
+</details>
+<details>
+  <summary>Undeads</summary>
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/undead_choose_2.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/fat_gull.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/fat_gull_attacks.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/skeleton_attacks.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/skeleton_soldier.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/ghost.png" />
+</details>
+<details>
+  <summary>Swamp</summary>
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/swamb_choose.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/snake_worm.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/ancient_snail.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/ancient_snail_attacks.png" />
+</details>
+<details>
+  <summary>Ammunition</summary>
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/body_armor_choose_1.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/head_armor_choose_1.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/shield_choose_1.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/axe.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/weapon_choose_1.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/weapon_choose_2.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/living_whip.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/rusty_mail_gloves.png" />
+</details>
+<details>
+  <summary>Events</summary>
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/event_choose_1.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/event_choose_4.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/altar_of_blood_2.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/field_loot.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/gambler.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/pig_with_saucepan.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/warriors_grave_2.png" />
+</details>
+
+
 ## Gameplay demo on YouTube
 
 <a href="https://www.youtube.com/watch?v=3x4cA5XCh9I" target="_blank">
@@ -150,62 +200,12 @@ Non-combat skills are used in the campfire menu. They can be either active or pa
 ![coins_add_min](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/main/coins_add_min.png)
 
 
-## It may be added in new versions:
+## Planned to be added in future versions:
 
 * More content: dungeons, buildings, characters, enemies, equipment, skills
-* In those places of the dungeon where your previous hero died, an enemy zombie hero with the same characteristics and weapons will appear.
-* If a large number of enemies of one type are killed, then it will be possible to play with this type of enemy as a new character class.
+* Additional status effects such as poison, bleeding, stun and others
+* Skills for enemies
+* In those places of the dungeon where your previous hero died, an enemy zombie hero with the same characteristics and weapons will appear
+* If a large number of enemies of one type are killed, then it will be possible to play with this type of enemy as a new character class
 * Translations
-
-
-![warriors_grave_min](https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/warriors_grave_min.png)
-
-
-## SCREENS (open to view)
-
-<details>
-  <summary>Bandits</summary>
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/rabid_dog.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/bandits_choose.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/poacher.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/poacher_damaged.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/poacher_attacks.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/bandit_leader.png" />
-</details>
-<details>
-  <summary>Undeads</summary>
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/undead_choose_2.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/fat_gull.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/fat_gull_attacks.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/skeleton_attacks.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/skeleton_soldier.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/ghost.png" />
-</details>
-<details>
-  <summary>Swamp</summary>
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/swamb_choose.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/snake_worm.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/ancient_snail.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/ancient_snail_attacks.png" />
-</details>
-<details>
-  <summary>Ammunition</summary>
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/body_armor_choose_1.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/head_armor_choose_1.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/shield_choose_1.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/axe.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/weapon_choose_1.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/weapon_choose_2.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/living_whip.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/rusty_mail_gloves.png" />
-</details>
-<details>
-  <summary>Events</summary>
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/event_choose_1.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/event_choose_4.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/altar_of_blood_2.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/field_loot.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/gambler.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/pig_with_saucepan.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/warriors_grave_2.png" />
-</details>
+* Convenient functionality and documentation for contributors
