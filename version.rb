@@ -1,5 +1,5 @@
 module PzdcDungeon2
-  VERSION = '1.0'
+  VERSION = '0.9'
 
   def self.v_version
     "v #{VERSION}"
