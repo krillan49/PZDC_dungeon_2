@@ -24,28 +24,30 @@ __The game currently has:__
 
 <details>
   <summary>Bandits</summary>
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/gif/deserter.gif" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/gif/rabble.gif" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/a_choose/3_1.png" />
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/rabid_dog.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/bandits_choose.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/poacher.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/poacher_damaged.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/poacher_attacks.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/bandit_leader.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/poacher/normal.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/bandits/thug/attack_head.png" />
 </details>
 <details>
   <summary>Undeads</summary>
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/gif/zombie.gif" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/gif/skeleton.gif" />
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/undead_choose_2.png" />
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/fat_gull.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/fat_gull_attacks.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/skeleton_attacks.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/skeleton_soldier.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/ghost.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/ghost/attack_head.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/undeads/skeleton_soldier/attack.png" />
 </details>
 <details>
   <summary>Swamp</summary>
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/swamb_choose.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/snake_worm.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/ancient_snail.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/ancient_snail_attacks.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/gif/orc.gif" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/gif/spider.gif" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/a_choose/3_1.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/goblin/attack_legs.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/sworm/attack.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/enemyes/swamp/ancient_snail/attack.png" />
 </details>
 <details>
   <summary>Ammunition</summary>
@@ -55,6 +57,7 @@ __The game currently has:__
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/axe.png" />
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/weapon_choose_1.png" />
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/weapon_choose_2.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/weapon_choose_3.png" />
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/living_whip.png" />
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/ammunition/rusty_mail_gloves.png" />
 </details>
@@ -64,7 +67,7 @@ __The game currently has:__
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/event_choose_4.png" />
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/altar_of_blood_2.png" />
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/field_loot.png" />
-  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/gambler.png" />
+  <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/black_mage_1.png" />
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/pig_with_saucepan.png" />
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/events/warriors_grave_2.png" />
 </details>
