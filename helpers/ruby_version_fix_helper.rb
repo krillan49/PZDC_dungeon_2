@@ -3,7 +3,7 @@ module RubyVersionFixHelper
     begin
       File::exists?(path)
     rescue NoMethodError => e
-      if e.message.include?("undefined method `exists?' for File:Class")
+      if e.message.include?("exists?")
         File.exist?(path)
       else
         raise
