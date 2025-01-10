@@ -84,7 +84,11 @@ __The game currently has:__
 
 The only requirement for _PZDC dungeon 2_ is `Ruby 3+`
 
-Recommended terminal dimensions: width `120+`, height `36+`
+Recommended terminal dimensions: width `120+`, height `36+`. If there are problems with rendering graphics, simply increase the size of the terminal window
+
+Cross-platform: it should work reasonably well across Linux, Mac, and Windows.
+
+Stand-alone: No external dependencies, other than the Ruby core and standard libraries.
 
 ## Run
 
