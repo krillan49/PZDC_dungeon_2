@@ -75,7 +75,7 @@ __The game currently has:__
 
 ## Gameplay demo (YouTube)
 
-<a href="https://www.youtube.com/watch?v=No_YUGd7Ieg" target="_blank">
+<a href="https://www.youtube.com/watch?v=JW6u-3xfPGo" target="_blank">
   <img src="https://github.com/krillan49/PZDC_dungeon_2_arts/blob/main/gif/yotube_demo_2.gif" alt="Demo" width="100%" border="10px">
 </a>
 

@@ -9,13 +9,13 @@
 Skeleton soldier injured, damage reduced by 39%. You have blocked 36% damage. Skeleton soldier dealt 3 damage to the
 
 
+Дергаются экраны:
+1. Экран магазина
+
 
 ивенты-записки
 
 неиспользованные картинки: bunny, fist, глаз
-
-
-добавить теги
 
 
 p [
