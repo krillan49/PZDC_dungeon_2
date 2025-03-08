@@ -96,6 +96,23 @@ Stand-alone: No external dependencies, other than the Ruby core and standard lib
 ruby pzdc_dungeon_2.rb
 ```
 
+## Run with Docker
+
+build image (1 time)
+```shell
+sudo docker compose build
+```
+
+launch container terminal (every time you want to launch the game)
+```shell
+sudo docker compose run --rm pzdc2 bash
+```
+
+run the game in the container terminal
+```shell
+ruby pzdc_dungeon_2.rb
+```
+
 ## Options
 
 In Options menu you can set up:
