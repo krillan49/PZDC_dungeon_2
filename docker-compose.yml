@@ -1,0 +1,9 @@
+services:
+  pzdc2:
+    build: ./
+    container_name: pzdc_dungeon_2
+    volumes:
+      - .:/pzdc
+
+# sudo docker compose build
+# sudo docker compose run --rm pzdc2 bash
