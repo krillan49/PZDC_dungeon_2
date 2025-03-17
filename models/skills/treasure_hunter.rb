@@ -3,9 +3,10 @@ class TreasureHunter
   LVL_MOD = 10
 
   attr_accessor :lvl
-  attr_reader :code, :name
+  attr_reader :entity_type, :code, :name
 
   def initialize
+    @entity_type = 'skills'
     @code = 'treasure_hunter'
     @name = "Treasure hunter"
     @lvl = 0

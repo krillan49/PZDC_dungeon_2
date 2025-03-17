@@ -6,10 +6,11 @@ class TraumaticStrike
   MP_COST = 6
 
   attr_accessor :lvl
-  attr_reader :code, :name
+  attr_reader :entity_type, :code, :name
   attr_accessor :mp_cost
 
   def initialize
+    @entity_type = 'skills'
     @code = 'traumatic_strike'
     @name = "Traumatic strike"
     @lvl = 0

@@ -3,9 +3,10 @@ class ShieldMaster
   LVL_CHANCE_MOD = 2
 
   attr_accessor :lvl
-  attr_reader :code, :name
+  attr_reader :entity_type, :code, :name
 
   def initialize
+    @entity_type = 'skills'
     @code = 'shield_master'
     @name = "Shield master"
     @lvl = 0

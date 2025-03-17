@@ -5,11 +5,12 @@ class FirstAid
   MIN_EFFECT = 5
 
   attr_accessor :lvl
-  attr_reader :code, :name
+  attr_reader :entity_type, :code, :name
   attr_accessor :mp_cost
   attr_reader :hero
 
   def initialize(hero)
+    @entity_type = 'skills'
     @code = 'first_aid'
     @name = "First aid"
     @lvl = 0

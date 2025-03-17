@@ -5,10 +5,11 @@ class StrongStrike
   MP_COST = 12
 
   attr_accessor :lvl
-  attr_reader :code, :name
+  attr_reader :entity_type, :code, :name
   attr_accessor :mp_cost
 
   def initialize
+    @entity_type = 'skills'
     @code = 'strong_strike'
     @name = "Strong strike"
     @lvl = 0

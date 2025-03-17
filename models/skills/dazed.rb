@@ -6,9 +6,10 @@ class Dazed
   ACC_MIN_REDUCE_LVL_MOD = 3
 
   attr_accessor :lvl
-  attr_reader :code, :name
+  attr_reader :entity_type, :code, :name
 
   def initialize
+    @entity_type = 'skills'
     @code = 'dazed'
     @name = "Dazed"
     @lvl = 0

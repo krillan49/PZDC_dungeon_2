@@ -5,11 +5,12 @@ class BloodyRitual
   MIN_EFFECT = 10
 
   attr_accessor :lvl
-  attr_reader :code, :name
+  attr_reader :entity_type, :code, :name
   attr_accessor :hp_cost
   attr_reader :hero
 
   def initialize(hero)
+    @entity_type = 'skills'
     @code = 'bloody_ritual'
     @name = "Bloody ritual"
     @lvl = 0

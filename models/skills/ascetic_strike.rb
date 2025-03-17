@@ -6,10 +6,11 @@ class AsceticStrike
   MP_COST = 2
 
   attr_accessor :lvl
-  attr_reader :code, :name
+  attr_reader :entity_type, :code, :name
   attr_accessor :mp_cost
 
   def initialize(hero)
+    @entity_type = 'skills'
     @code = 'ascetic_strike'
     @name = "Ascetic strike"
     @lvl = 0

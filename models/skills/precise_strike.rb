@@ -6,10 +6,11 @@ class PreciseStrike
   MP_COST = 8
 
   attr_accessor :lvl
-  attr_reader :code, :name
+  attr_reader :entity_type, :code, :name
   attr_accessor :mp_cost
 
   def initialize
+    @entity_type = 'skills'
     @code = 'precise_strike'
     @name = "Precise strike"
     @lvl = 0
