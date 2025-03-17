@@ -67,7 +67,7 @@ module HeroUseSkill
   end
 
   def self.display(hero, messages)
-    MainRenderer.new(:camp_skill_screen, hero, entity: messages, arts: [{ camp_fire: :rest }]).display
+    MainRenderer.new(:camp_skill_screen, hero, entity: messages, arts: [{ normal: hero.camp_skill }]).display
   end
 
 end
